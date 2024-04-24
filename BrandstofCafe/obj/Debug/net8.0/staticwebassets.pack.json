@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BrandstofCafe.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BrandstofCafe.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BrandstofCafe.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BrandstofCafe.props",
+      "PackagePath": "build\\BrandstofCafe.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BrandstofCafe.props",
+      "PackagePath": "buildMultiTargeting\\BrandstofCafe.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BrandstofCafe.props",
+      "PackagePath": "buildTransitive\\BrandstofCafe.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
