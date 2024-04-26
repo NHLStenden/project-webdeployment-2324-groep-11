@@ -13,7 +13,7 @@ using System.Reflection;
 
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-BrandstofCafe-0d2bbb6c-5a6f-4203-89a9-8572c95c524b")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("BrandstofCafe")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3936439bb80134cb6373a6bb00f5f79e1b876383")]
 [assembly: System.Reflection.AssemblyProductAttribute("BrandstofCafe")]

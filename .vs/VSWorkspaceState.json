@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BrandstofCafe",
+    "\\BrandstofCafe\\Components",
+    "\\BrandstofCafe\\Components\\Pages"
   ],
+  "SelectedNode": "\\BrandstofCafe\\Components\\Pages\\Auth.razor",
   "PreviewInSolutionExplorer": false
 }

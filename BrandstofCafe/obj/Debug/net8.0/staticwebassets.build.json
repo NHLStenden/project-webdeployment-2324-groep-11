@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pq56PrjzDWcQlY29nKm/4q79l08YNqdkEKwzh8iT4Qs=",
+  "Hash": "+f07Jah0/2NOr7CozsEZjG8Le611U8JyaLlsmjcQ4+0=",
   "Source": "BrandstofCafe",
   "BasePath": "_content/BrandstofCafe",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BrandstofCafe\\wwwroot",
       "Source": "BrandstofCafe",
-      "ContentRoot": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\",
+      "ContentRoot": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\",
       "BasePath": "_content/BrandstofCafe",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BrandstofCafe.styles.css",
+      "Identity": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BrandstofCafe.styles.css",
       "SourceId": "BrandstofCafe",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/BrandstofCafe",
       "RelativePath": "BrandstofCafe.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BrandstofCafe.styles.css"
+      "OriginalItemSpec": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BrandstofCafe.styles.css"
     },
     {
-      "Identity": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BrandstofCafe.bundle.scp.css",
+      "Identity": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BrandstofCafe.bundle.scp.css",
       "SourceId": "BrandstofCafe",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/BrandstofCafe",
       "RelativePath": "BrandstofCafe.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BrandstofCafe.bundle.scp.css"
+      "OriginalItemSpec": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BrandstofCafe.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\app.css",
+      "Identity": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\app.css",
       "SourceId": "BrandstofCafe",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\",
+      "ContentRoot": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\",
       "BasePath": "_content/BrandstofCafe",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "BrandstofCafe",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\",
+      "ContentRoot": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\",
       "BasePath": "_content/BrandstofCafe",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "BrandstofCafe",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\",
+      "ContentRoot": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\",
       "BasePath": "_content/BrandstofCafe",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\favicon.png",
+      "Identity": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\favicon.png",
       "SourceId": "BrandstofCafe",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\",
+      "ContentRoot": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\",
       "BasePath": "_content/BrandstofCafe",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
