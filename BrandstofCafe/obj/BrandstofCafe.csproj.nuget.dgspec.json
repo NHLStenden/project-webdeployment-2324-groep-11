@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj": {}
+    "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj": {}
   },
   "projects": {
-    "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj": {
+    "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj",
+        "projectUniqueName": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj",
         "projectName": "BrandstofCafe",
-        "projectPath": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj",
-        "packagesPath": "C:\\Users\\bkoer\\.nuget\\packages\\",
-        "outputPath": "C:\\HBO-ICT\\Periode4\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\",
+        "projectPath": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj",
+        "packagesPath": "C:\\Users\\yucel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bkoer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yucel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
