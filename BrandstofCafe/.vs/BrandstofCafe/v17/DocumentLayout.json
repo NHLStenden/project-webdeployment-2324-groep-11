@@ -7,6 +7,18 @@
       "RelativeMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|c:\\users\\yucel\\desktop\\periode 4\\git kenker\\project-webdeployment-groep_11\\brandstofcafe\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|solutionrelative:components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|c:\\users\\yucel\\desktop\\periode 4\\git kenker\\project-webdeployment-groep_11\\brandstofcafe\\components\\pages\\auth.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|solutionrelative:components\\pages\\auth.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|c:\\users\\yucel\\desktop\\periode 4\\git kenker\\project-webdeployment-groep_11\\brandstofcafe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|c:\\users\\yucel\\desktop\\periode 4\\git kenker\\project-webdeployment-groep_11\\brandstofcafe\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|solutionrelative:components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -15,24 +27,12 @@
       "RelativeMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|c:\\users\\yucel\\desktop\\periode 4\\git kenker\\project-webdeployment-groep_11\\brandstofcafe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|c:\\users\\yucel\\desktop\\periode 4\\git kenker\\project-webdeployment-groep_11\\brandstofcafe\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|solutionrelative:components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|c:\\users\\yucel\\desktop\\periode 4\\git kenker\\project-webdeployment-groep_11\\brandstofcafe\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|solutionrelative:components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|c:\\users\\yucel\\desktop\\periode 4\\git kenker\\project-webdeployment-groep_11\\brandstofcafe\\components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|solutionrelative:components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|c:\\users\\yucel\\desktop\\periode 4\\git kenker\\project-webdeployment-groep_11\\brandstofcafe\\components\\pages\\auth.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|solutionrelative:components\\pages\\auth.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88AF28E3-844E-48B5-B89C-BD684ADB7DB7}|BrandstofCafe.csproj|c:\\users\\yucel\\desktop\\periode 4\\git kenker\\project-webdeployment-groep_11\\brandstofcafe\\brandstofcafe.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -54,7 +54,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "_Imports.razor",
               "DocumentMoniker": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\Components\\_Imports.razor",
               "RelativeDocumentMoniker": "Components\\_Imports.razor",
@@ -62,21 +62,19 @@
               "RelativeToolTip": "Components\\_Imports.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-17T10:40:30.881Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T10:40:30.881Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Weather.razor",
               "DocumentMoniker": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\Components\\Pages\\Weather.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Weather.razor",
               "ToolTip": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\Components\\Pages\\Weather.razor",
               "RelativeToolTip": "Components\\Pages\\Weather.razor",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAD8AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-17T10:40:25.294Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T10:40:25.294Z"
             },
             {
               "$type": "Document",
@@ -86,14 +84,14 @@
               "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
               "ToolTip": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Components\\Pages\\Home.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJ4AAAAAAAAA",
+              "ViewState": "AQIAAIAAAAAAAAAAAAAswJ8AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-17T10:40:06.69Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Counter.razor",
               "DocumentMoniker": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\Components\\Pages\\Counter.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Counter.razor",
@@ -101,12 +99,11 @@
               "RelativeToolTip": "Components\\Pages\\Counter.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-17T10:40:18.365Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T10:40:18.365Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "App.razor",
               "DocumentMoniker": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\Components\\App.razor",
               "RelativeDocumentMoniker": "Components\\App.razor",
@@ -114,12 +111,11 @@
               "RelativeToolTip": "Components\\App.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-17T10:39:53.195Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T10:39:53.195Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Routes.razor",
               "DocumentMoniker": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\Components\\Routes.razor",
               "RelativeDocumentMoniker": "Components\\Routes.razor",
@@ -127,8 +123,7 @@
               "RelativeToolTip": "Components\\Routes.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-17T10:39:50.213Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T10:39:50.213Z"
             },
             {
               "$type": "Document",
@@ -140,8 +135,7 @@
               "RelativeToolTip": "BrandstofCafe.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-15T09:21:48.483Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T09:21:48.483Z"
             },
             {
               "$type": "Document",
@@ -151,14 +145,13 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T09:21:44.571Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T09:21:44.571Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "Auth.razor",
               "DocumentMoniker": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\Components\\Pages\\Auth.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Auth.razor",
@@ -166,8 +159,7 @@
               "RelativeToolTip": "Components\\Pages\\Auth.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-24T12:43:14.376Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-24T12:43:14.376Z"
             }
           ]
         }
