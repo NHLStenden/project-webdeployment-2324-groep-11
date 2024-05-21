@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj",
+        "projectName": "BrandstofCafe",
+        "projectPath": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\BrandstofCafe.csproj",
+        "packagesPath": "C:\\Users\\yucel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\yucel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 9c8594a004c5f117614980d21b07975247e7a893
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

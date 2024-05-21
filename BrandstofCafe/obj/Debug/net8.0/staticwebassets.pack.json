@@ -1,6 +1,7 @@
 {
   "Files": [
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BrandstofCafe.bundle.scp.css",
       "PackagePath": "staticwebassets\\BrandstofCafe.bundle.scp.css"
     },
@@ -18,6 +19,25 @@
     },
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\favicon.png",
+=======
+      "Id": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BrandstofCafe.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BrandstofCafe.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-groep_11\\BrandstofCafe\\wwwroot\\favicon.png",
+>>>>>>> 9c8594a004c5f117614980d21b07975247e7a893
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
