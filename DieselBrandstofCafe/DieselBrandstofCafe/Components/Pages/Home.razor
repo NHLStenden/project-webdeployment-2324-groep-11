@@ -2,6 +2,159 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<!--Navbar met de user-->
 
-Welcome to your new app.
+<section>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">LOGO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+</div>
+</section>
+
+<br/>
+<br/>
+
+<div class="container-fluid text-center card">
+    <p class="card-body">Hier komt de order bar</p>
+</div>
+
+<br/>
+<br/>
+
+
+<section>
+<div class="container-fluid card">
+    <!--Dit is de Welcome gedeelte-->
+    <div class="row">
+        <div class="col-6 align-top">
+               <h1 class="card-body"><b>Welcome to Brandstof Cafe</b></h1>
+        </div>
+        <!--Hier komt een afbeelding-->
+        <div class="col-6">
+            <img src="#" class="img-rounded card-body" alt="Brandstof Thumbnail" />
+        </div>
+    </div>
+        <br/>
+        
+    <div class="col-6">
+        <p class="text-center"><b>Check out our menu and place your order directly</b></p>
+    </div>
+        <br/>
+    
+    <!--Order en Menu knoppen-->
+    <div class="row-cols-4">
+        <div class="text-center col-6">
+            <button>Order</button>
+          
+            <button>Menu</button>
+        </div>
+    </div>
+            <br/>
+    <!--2de gedeelte van de eerste card-->
+    <div class="row text-center">
+        <h2><b>Order quickly and easily</b></h2>
+            <br/>
+        <h12><b>Follow these simple steps to place your order</b></h12>
+    </div>
+            <br/>
+
+    <!--Order uitleg cards-->
+    <div class="row text-center">
+        <div class="card col-3">
+            <h3 class="text-start">1</h3>
+                <h12 class="text-start"><b>Enter your table number</b></h12>
+                <br />
+                <p class="text-start" style="font-size:small" >First enter your table number</p>
+                <br />
+                <br />
+                <p class="text-start" style="font-size:small"><a href="#">Order Now  ></a></p>
+        </div>
+
+        <div class="card col-3">
+            <h3 class="text-start">2</h3>
+                <h12 class="text-start"><b>Select a product and extra options</b></h12>
+                <br />
+                <p class="text-start" style="font-size:small">Select your product and any addons, place your order in the shopping cart</p>
+                <br/>
+                <br/>
+        </div>
+
+        <div class="card col-6">
+            <div class="d-flex flex-row">
+                <img src="#" class="rounded col-6" alt="Step 3 image" />
+                <div>
+                    <h3 class="text-start">3</h3>
+                        <h12 class="text-start"><b>Confirm, pay and wait for your order</b></h12>
+                            <br />
+                        <p class="text-start" style="font-size:small">You're almost there! Just make the payment, adn we'll bring your food to you as soon as it's ready you will also receive an email with the conformation</p>
+                            <br/>
+                            <br/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<br />
+<br />
+
+<!--your last order, deals and popular products zijn hier onder allemaal te vinden-->
+<section>
+    <div class="row text-center d-flex">
+        <div class="card col-4 p-4">
+            <h6><b>Your Last Orders</b></h6>
+        </div>
+
+        <div class="card col-4 p-4">
+            <h6><b>Deals</b></h6>
+        </div>
+
+        <div class="card col-4 p-4"
+            <h6><b>Popular Products</b></h6>
+        </div>
+    </div>
+</section>
+
+
+
+@code {
+
+}
