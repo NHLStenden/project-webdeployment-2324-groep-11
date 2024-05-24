@@ -1,7 +1,215 @@
 ﻿@page "/menu"
 
-<h3>Menu</h3>
+<div class="menu-page">
+    <div class="left-panel">
+        <div class="categories">
+            <h2>Categories</h2>
+            <div class="category-list">
+                <div class="category-card"><button>Beverages</button></div>
+                <div class="category-card"><button>Breakfast</button></div>
+                <div class="category-card"><button>Sandwiches</button></div>
+                <div class="category-card"><button>Soup & Salad</button></div>
+                <div class="category-card"><button>Pastry & Desserts</button></div>
+            </div>
+        </div>
+        <div class="menu-items">
+            <h2>Select Menu</h2>
+            <div class="menu-list">
+                <div class="menu-item">
+                    <h3>Espresso</h3>
+                    <p>Strong Italian coffee, base for drinks like lattes.</p>
+                    <p>€3</p>
+                    <button>Add to order</button>
+                </div>
+                <div class="menu-item">
+                    <h3>Americano</h3>
+                    <p>Espresso diluted with hot water, mimicking regular black coffee.</p>
+                    <p>€3</p>
+                    <button>Add to order</button>
+                </div>
+                <div class="menu-item">
+                    <h3>Cappuccino</h3>
+                    <p>Equal parts espresso, steamed milk, and frothy milk foam.</p>
+                    <p>€3</p>
+                    <button>Add to order</button>
+                </div>
+                <div class="menu-item">
+                    <h3>Flat White</h3>
+                    <p>Espresso with velvety microfoam milk, stronger than a latte.</p>
+                    <p>€3</p>
+                    <button>Add to order</button>
+                </div>
+                <div class="menu-item">
+                    <h3>Macchiato</h3>
+                    <p>Espresso marked with a dollop of frothy milk.</p>
+                    <p>€3</p>
+                    <button>Add to order</button>
+                </div>
+                <div class="menu-item">
+                    <h3>Cappuccino</h3>
+                    <p>Espresso mixed with chocolate and steamed milk, topped with whipped cream.</p>
+                    <p>€3</p>
+                    <button>Add to order</button>
+                </div>
+                <!-- Voeg meer menu items toe zoals nodig -->
+            </div>
+        </div>
+    </div>
+    <div class="order-summary">
+        <h2>Invoice</h2>
+        <ul>
+            <li>Espresso - €3 <button>Remove</button></li>
+            <li>Americano - €3 <button>Remove</button></li>
+            <!-- Voeg meer order items toe zoals nodig -->
+        </ul>
+        <div class="payment">
+            <p>Sub Total: €6</p>
+            <p>Tax: €0.50</p>
+            <p>Total Payment: €6.50</p>
+            <div class="payment-methods">
+                <button>Card</button>
+                <button>Cash</button>
+                <button>Ideal</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .menu-page {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .left-panel {
+        width: 80%;
+    }
+
+    .categories, .menu-items {
+        margin-bottom: 20px;
+    }
+
+        .categories h2, .menu-items h2 {
+            text-align: left;
+        }
+
+            .order-summary h2 {
+                text-align: center;
+            }
+
+    .category-list {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .category-card {
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+
+        .category-card button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+
+    .menu-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+
+    .menu-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+    }
+
+        .menu-item button {
+            position: absolute;
+            bottom: 10px; 
+            left: 50%; 
+            transform: translateX(-50%);
+            background-color: #FF6F00;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+    .order-summary {
+        width: 20%;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+        .order-summary ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            .order-summary ul li {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+            }
+
+                .order-summary ul li button {
+                    background-color: #e74c3c;
+                    color: white;
+                    border: none;
+                    padding: 5px;
+                    cursor: pointer;
+                }
+
+    .payment {
+        margin-top: 10px;
+    }
+
+        .payment p {
+            margin: 5px 0;
+        }
+
+    .payment-methods {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
+
+    .payment-methods button {
+        margin-top: 5px;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        cursor: pointer;
+    }
+
+        .payment-methods button:nth-child(1) {
+            background-color: #FF6F00;
+            color: white;
+        }
+
+        .payment-methods button:nth-child(2) {
+            background-color: #FF6F00;
+            color: white;
+        }
+
+        .payment-methods button:nth-child(3) {
+            background-color: #FF6F00;
+            color: white;
+        }
+</style>
+
 
 @code {
-
+    
 }
