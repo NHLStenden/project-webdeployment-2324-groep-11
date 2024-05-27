@@ -19,71 +19,72 @@
                     <h3>Espresso</h3>
                     <p>Strong Italian coffee, base for drinks like lattes.</p>
                     <p>€3</p>
-                    <button>Add to order</button>
+                    <button @onclick='() => AddToInvoice("Espresso")'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Americano</h3>
                     <p>Espresso diluted with hot water, mimicking regular black coffee.</p>
                     <p>€3</p>
-                    <button>Add to order</button>
+                    <button @onclick='() => AddToInvoice("Americano")'>Add to order</button>
                 </div>
-                <div class="menu-item">
+               <div class="menu-item">
                     <h3>Cappuccino</h3>
                     <p>Equal parts espresso, steamed milk, and frothy milk foam.</p>
                     <p>€3</p>
-                    <button>Add to order</button>
+                    <button @onclick='() => AddToInvoice("Cappuccino")'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Flat White</h3>
                     <p>Espresso with velvety microfoam milk, stronger than a latte.</p>
                     <p>€3</p>
-                    <button>Add to order</button>
+                    <button @onclick='() => AddToInvoice("Flat White")'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Macchiato</h3>
                     <p>Espresso marked with a dollop of frothy milk.</p>
                     <p>€3</p>
-                    <button>Add to order</button>
+                    <button @onclick='() => AddToInvoice("Macchiato")'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Cappuccino</h3>
                     <p>Espresso mixed with chocolate and steamed milk, topped with whipped cream.</p>
                     <p>€3</p>
-                    <button>Add to order</button>
+                    <button @onclick='() => AddToInvoice("Cappuccino")'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Affogato</h3>
                     <p>Espresso poured over a scoop of vanilla ice cream.</p>
                     <p>€3</p>
-                    <button>Add to order</button>
+                    <button @onclick='() => AddToInvoice("Affogato")'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Ristretto</h3>
                     <p>A short shot of espresso, more concentrated and less bitter.</p>
                     <p>€3</p>
-                    <button>Add to order</button>
+                    <button @onclick='() => AddToInvoice("Ristretto")'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Cold Coffee</h3>
                     <p>Chilled coffee served over ice, often sweetened and creamy.</p>
                     <p>€3</p>
-                    <button>Add to order</button>
+                    <button @onclick='() => AddToInvoice("Cold Coffee")'>Add to order</button>
                 </div>
-                <!-- Voeg meer menu items toe zoals nodig -->
+                <!-- Voeg meer menu items toe -->
             </div>
         </div>
     </div>
     <div class="order-summary">
         <h2>Invoice</h2>
         <ul>
-            <li>Espresso - €3 <button>Remove</button></li>
-            <li>Americano - €3 <button>Remove</button></li>
-            <!-- Voeg meer order items toe zoals nodig -->
+            @foreach (var item in invoiceItems)
+            {
+                <li>@item <button @onclick="() => RemoveFromInvoice(item)">Remove</button></li>
+            }
         </ul>
         <div class="payment">
-            <p>Sub Total: €6</p>
-            <p>Tax: €0.50</p>
-            <p>Total Payment: €6.50</p>
+            <p>Sub Total: €0.00</p>
+            <p>Tax: €0.00</p>
+            <p>Total Payment: €0.00</p>
             <div class="payment-methods">
                 <button>Card</button>
                 <button>Cash</button>
@@ -111,25 +112,25 @@
         .categories h2, .menu-items h2 {
             text-align: left;
             font-weight: bold;
-            padding-bottom: 20px; /* Voeg wat ruimte onder de titel toe */
-            border-bottom: 2px solid #ccc; /* Voeg een streep toe onder de titel */
-            margin-bottom: 20px; /* Voeg wat ruimte onder de streep toe */
-            width: 20%; /* Pas de breedte aan naar wens */
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 20px;
+            width: 20%;
         }
 
     .order-summary h2 {
         text-align: center;
         font-weight: bold;
-        margin-bottom: 20px; /* Voeg wat ruimte onder de titel toe */
-        position: relative; /* Zet de container in relatieve positie voor absolute kinderen */
+        margin-bottom: 20px;
+        position: relative;
     }
 
         .order-summary h2::after {
             content: '';
             display: block;
-            width: 25%; /* Breedte van de streep */
-            border-bottom: 2px solid #ccc; /* Voeg een streep toe onder de titel */
-            margin: 10px auto 0; /* Centreer de streep */
+            width: 25%;
+            border-bottom: 2px solid #ccc;
+            margin: 10px auto 0;
         }
 
     .category-list {
@@ -269,5 +270,18 @@
 
 
 @code {
-    
+    // Lijst om items op de factuur bij te houden
+    List<string> invoiceItems = new List<string>();
+
+    // Functie om een item toe te voegen aan de factuur
+    void AddToInvoice(string item)
+    {
+        invoiceItems.Add(item);
+    }
+
+    // Functie om een item te verwijderen van de factuur
+    void RemoveFromInvoice(string item)
+    {
+        invoiceItems.Remove(item);
+    }
 }
