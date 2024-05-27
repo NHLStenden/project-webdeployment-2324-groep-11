@@ -74,16 +74,26 @@
     }
 
     .navbar-dark .navbar-brand {
-        color: black;
+        color: #212529;
+        font-weight: bold;
     }
 
-    .nav-item[b-srj6zv88n6] a.active {
-        background-color: #FF6F00;
-        color: white;
-        border-radius: 10px;
-    }
+        .navbar-dark .navbar-brand:hover {
+            color: #212529;
+        }
 
     .nav-item[b-srj6zv88n6] .nav-link {
+        background-color: #F2F1F2;
+        color: #212529;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+        .nav-item[b-srj6zv88n6] .nav-link:hover {
+            background-color: #FFAE70;
+        }
+
+    .nav-item[b-srj6zv88n6] a.active {
         background-color: #FF6F00;
         color: white;
         border-radius: 10px;

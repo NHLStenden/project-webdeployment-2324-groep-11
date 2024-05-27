@@ -5,11 +5,11 @@
         <div class="categories">
             <h2>Categories</h2>
             <div class="category-list">
-                <div class="category-card"><button>Beverages</button></div>
-                <div class="category-card"><button>Breakfast</button></div>
-                <div class="category-card"><button>Sandwiches</button></div>
-                <div class="category-card"><button>Soup & Salad</button></div>
-                <div class="category-card"><button>Pastry & Desserts</button></div>
+                <div class="category-card"><button class="category-button"><img src=""><span>Beverages</span></button></div>
+                <div class="category-card"><button class="category-button"><img src=""><span>Breakfast</span></button></div>
+                <div class="category-card"><button class="category-button"><img src=""><span>Sandwiches</span></button></div>
+                <div class="category-card"><button class="category-button"><img src=""><span>Soup & Salad</span></button></div>
+                <div class="category-card"><button class="category-button"><img src=""><span>Pastry & Desserts</span></button></div>
             </div>
         </div>
         <div class="menu-items">
@@ -48,6 +48,24 @@
                 <div class="menu-item">
                     <h3>Cappuccino</h3>
                     <p>Espresso mixed with chocolate and steamed milk, topped with whipped cream.</p>
+                    <p>€3</p>
+                    <button>Add to order</button>
+                </div>
+                <div class="menu-item">
+                    <h3>Affogato</h3>
+                    <p>Espresso poured over a scoop of vanilla ice cream.</p>
+                    <p>€3</p>
+                    <button>Add to order</button>
+                </div>
+                <div class="menu-item">
+                    <h3>Ristretto</h3>
+                    <p>A short shot of espresso, more concentrated and less bitter.</p>
+                    <p>€3</p>
+                    <button>Add to order</button>
+                </div>
+                <div class="menu-item">
+                    <h3>Cold Coffee</h3>
+                    <p>Chilled coffee served over ice, often sweetened and creamy.</p>
                     <p>€3</p>
                     <button>Add to order</button>
                 </div>
@@ -92,11 +110,27 @@
 
         .categories h2, .menu-items h2 {
             text-align: left;
+            font-weight: bold;
+            padding-bottom: 20px; /* Voeg wat ruimte onder de titel toe */
+            border-bottom: 2px solid #ccc; /* Voeg een streep toe onder de titel */
+            margin-bottom: 20px; /* Voeg wat ruimte onder de streep toe */
+            width: 20%; /* Pas de breedte aan naar wens */
         }
 
-            .order-summary h2 {
-                text-align: center;
-            }
+    .order-summary h2 {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 20px; /* Voeg wat ruimte onder de titel toe */
+        position: relative; /* Zet de container in relatieve positie voor absolute kinderen */
+    }
+
+        .order-summary h2::after {
+            content: '';
+            display: block;
+            width: 25%; /* Breedte van de streep */
+            border-bottom: 2px solid #ccc; /* Voeg een streep toe onder de titel */
+            margin: 10px auto 0; /* Centreer de streep */
+        }
 
     .category-list {
         display: flex;
@@ -110,12 +144,30 @@
 
         .category-card button {
             width: 100%;
-            padding: 10px;
             border: none;
             background-color: white;
             color: black;
             cursor: pointer;
             border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 60px; 
+            border-top-left-radius: 10px; 
+            border-top-right-radius: 10px; 
+            background-color: #F2F1F2;
+        }
+
+        .category-card span {
+            font-size: 1.2em;
+            color: #212529;
         }
 
     .menu-list {
