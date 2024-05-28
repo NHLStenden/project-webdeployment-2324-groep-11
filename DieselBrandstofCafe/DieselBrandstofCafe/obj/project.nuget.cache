@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "PK87bfby0Sw=",
   "success": true,
   "projectFilePath": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
+=======
+  "dgSpecHash": "CsSQabzpcFrsFIHBSRFIBL+cKu0EpPlfMq1uGZxjprsKMWqCWt4M20YG8XlsTW+khoX/rGcrmsUtWfv9iubJrg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
+>>>>>>> 2b13203 (Home menu Update 2)
   "expectedPackageFiles": [],
   "logs": []
 }

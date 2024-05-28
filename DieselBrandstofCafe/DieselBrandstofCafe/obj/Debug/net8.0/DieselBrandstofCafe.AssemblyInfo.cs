@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DieselBrandstofCafe")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+923f748554e84cac58d7a6f8c59d286d9b6833f2")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+acd110e58ee001880cb7480d6c1d1f150a72576d")]
->>>>>>> 8efbb79 (Menu pagina)
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69e10c0a3c60b664e1e42689cf46c0daa66ab3fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("DieselBrandstofCafe")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DieselBrandstofCafe")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
