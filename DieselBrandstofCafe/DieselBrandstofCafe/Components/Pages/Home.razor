@@ -48,41 +48,47 @@
             <br/>
 
     <!--Order uitleg cards-->
-    <div class="row text-center">
-        <div class="card col-3">
-            <h3 class="text-start">1</h3>
-                <h12 class="text-start"><b>Enter your table number</b></h12>
-                <br />
-                <p class="text-start" style="font-size:small" >First enter your table number</p>
-                <br />
-                <br />
-                <p class="text-start" style="font-size:small"><a href="#">Order Now  ></a></p>
-        </div>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-3">
+                    <div class="card h-100 card-padding">
+                        <h3 class="text-start">1</h3>
+                        <h5 class="text-start"><b>Enter your table number</b></h5>
+                        <br />
+                        <p class="text-start" style="font-size:small">First enter your table number</p>
+                        <br />
+                        <p class="text-start" style="font-size:small"><a href="#">Order Now  ></a></p>
+                    </div>
+                </div>
 
-        <div class="card col-3">
-            <h3 class="text-start">2</h3>
-                <h12 class="text-start"><b>Select a product and extra options</b></h12>
-                <br />
-                <p class="text-start" style="font-size:small">Select your product and any addons, place your order in the shopping cart</p>
-                <br/>
-                <br/>
-        </div>
+                <div class="col-3">
+                    <div class="card h-100 card-padding">
+                        <h3 class="text-start">2</h3>
+                        <h5 class="text-start"><b>Select a product and extra options</b></h5>
+                        <br />
+                        <p class="text-start" style="font-size:small">Select your product and any addons, place your order in the shopping cart</p>
+                        <br />
+                    </div>
+                </div>
 
-        <div class="card col-6">
-            <div class="d-flex flex-row">
-                <img src="#" class="rounded col-6" alt="Step 3 image" />
-                <div>
-                    <h3 class="text-start">3</h3>
-                        <h12 class="text-start"><b>Confirm, pay and wait for your order</b></h12>
-                            <br />
-                        <p class="text-start" style="font-size:small">You're almost there! Just make the payment, adn we'll bring your food to you as soon as it's ready you will also receive an email with the conformation</p>
-                            <br/>
-                            <br/>
+                <div class="col-6">
+                    <div class="card h-100 card-padding">
+                        <div class="d-flex flex-row">
+                            <img src="#" class="rounded col-6" alt="Step 3 image" />
+                            <div class="col-6">
+                                <h3 class="text-start">3</h3>
+                                <h5 class="text-start"><b>Confirm, pay and wait for your order</b></h5>
+                                <br />
+                                <p class="text-start" style="font-size:small">You're almost there! Just make the payment, and we'll bring your food to you as soon as it's ready. You will also receive an email with the confirmation</p>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+        <br />
+        <br />
 </div>
 </section>
 
@@ -91,20 +97,58 @@
 
 <!--your last order, deals and popular products zijn hier onder allemaal te vinden-->
 <section>
-    <div class="row text-center d-flex">
-        <div class="card col-4 p-4">
-            <h6><b>Your Last Orders</b></h6>
-        </div>
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-4">
+                <div class="card card-padding">
+                    <h6><b>Your Last Orders</b></h6>
+                </div>
+            </div>
 
-        <div class="card col-4 p-4">
-            <h6><b>Deals</b></h6>
-        </div>
+            <div class="col-4">
+                <div class="card card-padding">
+                    <h6><b>Deals</b></h6>
+                    <br />
+                        <div class="d-flex flex-row">
+                            <div class="col-6">
+                                <h5 class="text-start">Cold Coffee</h5>
+                                <br />
+                                <p class="text-start" style="font-size:small">Chilled coffee served over ice, sweetened and creamy</p>
+                                <br />
+                            </div>
+                        <img src="#" class="rounded col-6" alt="Step 3 image" />
+                        </div
+                </div>
+            </div>
 
-        <div class="card col-4 p-4"
-            <h6><b>Popular Products</b></h6>
+            <div class="col-4">
+                <div class="card card-padding">
+                    <h6><b>Popular Products</b></h6>
+                    <br />
+                        <div class="d-flex flex-row">
+                            <div class="col-6">
+                                <h5 class="text-start">Espresso</h5>
+                                <br />
+                                <p class="text-start" style="font-size:small">Strong Italian coffee, base for drinks like lattes</p>
+                                <br />
+                            </div>
+                        <img src="#" class="rounded col-6" alt="Step 3 image" />
+                        </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+
+<style>
+
+    .card-padding{
+        margin: 5px;
+    }
+
+</style>
+
 
 @code {
 
