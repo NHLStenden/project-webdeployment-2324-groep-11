@@ -19,55 +19,55 @@
                     <h3>Espresso</h3>
                     <p>Strong Italian coffee, base for drinks like lattes.</p>
                     <p>€3</p>
-                    <button @onclick='() => AddToInvoice("Espresso")'>Add to order</button>
+                    <button @onclick='() => AddToInvoice(new Product { Name = "Espresso", Price = 3 })'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Americano</h3>
                     <p>Espresso diluted with hot water, mimicking regular black coffee.</p>
                     <p>€3</p>
-                    <button @onclick='() => AddToInvoice("Americano")'>Add to order</button>
+                    <button @onclick='() => AddToInvoice(new Product { Name = "Americano", Price = 3 })'>Add to order</button>
                 </div>
-               <div class="menu-item">
+                <div class="menu-item">
                     <h3>Cappuccino</h3>
                     <p>Equal parts espresso, steamed milk, and frothy milk foam.</p>
                     <p>€3</p>
-                    <button @onclick='() => AddToInvoice("Cappuccino")'>Add to order</button>
+                    <button @onclick='() => AddToInvoice(new Product { Name = "Cappuccino", Price = 3 })'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Flat White</h3>
                     <p>Espresso with velvety microfoam milk, stronger than a latte.</p>
                     <p>€3</p>
-                    <button @onclick='() => AddToInvoice("Flat White")'>Add to order</button>
+                    <button @onclick='() => AddToInvoice(new Product { Name = "Flat White", Price = 3 })'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Macchiato</h3>
                     <p>Espresso marked with a dollop of frothy milk.</p>
                     <p>€3</p>
-                    <button @onclick='() => AddToInvoice("Macchiato")'>Add to order</button>
+                    <button @onclick='() => AddToInvoice(new Product { Name = "Macchiato", Price = 3 })'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Cappuccino</h3>
                     <p>Espresso mixed with chocolate and steamed milk, topped with whipped cream.</p>
                     <p>€3</p>
-                    <button @onclick='() => AddToInvoice("Cappuccino")'>Add to order</button>
+                    <button @onclick='() => AddToInvoice(new Product { Name = "Cappuccino", Price = 3 })'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Affogato</h3>
                     <p>Espresso poured over a scoop of vanilla ice cream.</p>
                     <p>€3</p>
-                    <button @onclick='() => AddToInvoice("Affogato")'>Add to order</button>
+                    <button @onclick='() => AddToInvoice(new Product { Name = "Affogato", Price = 3 })'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Ristretto</h3>
                     <p>A short shot of espresso, more concentrated and less bitter.</p>
                     <p>€3</p>
-                    <button @onclick='() => AddToInvoice("Ristretto")'>Add to order</button>
+                    <button @onclick='() => AddToInvoice(new Product { Name = "Ristretto", Price = 3 })'>Add to order</button>
                 </div>
                 <div class="menu-item">
                     <h3>Cold Coffee</h3>
                     <p>Chilled coffee served over ice, often sweetened and creamy.</p>
                     <p>€3</p>
-                    <button @onclick='() => AddToInvoice("Cold Coffee")'>Add to order</button>
+                    <button @onclick='() => AddToInvoice(new Product { Name = "Cold Coffee", Price = 3 })'>Add to order</button>
                 </div>
                 <!-- Voeg meer menu items toe -->
             </div>
@@ -78,13 +78,13 @@
         <ul>
             @foreach (var item in invoiceItems)
             {
-                <li>@item <button @onclick="() => RemoveFromInvoice(item)">Remove</button></li>
+                <li>@item.Name (€@item.Price) <button @onclick="() => RemoveFromInvoice(item)">Remove</button></li>
             }
         </ul>
         <div class="payment">
-            <p>Sub Total: €0.00</p>
-            <p>Tax: €0.00</p>
-            <p>Total Payment: €0.00</p>
+            <p>Sub Total: €@subTotal</p>
+            <p>Tax: €@tax</p>
+            <p>Total Payment: €@total</p>
             <div class="payment-methods">
                 <button>Card</button>
                 <button>Cash</button>
@@ -102,7 +102,10 @@
     }
 
     .left-panel {
-        width: 80%;
+        flex: 75%;
+        margin-right: 20px;
+        max-height: 80vh;
+        overflow-y: auto;
     }
 
     .categories, .menu-items {
@@ -203,10 +206,12 @@
         }
 
     .order-summary {
-        width: 20%;
+        flex: 25%;
         border: 1px solid #ccc;
         padding: 10px;
         border-radius: 10px;
+        max-height: 60vh;
+        overflow-y: auto;
     }
 
         .order-summary ul {
@@ -268,20 +273,39 @@
         }
 </style>
 
-
 @code {
+    public class Product
+    {
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+    }
+
     // Lijst om items op de factuur bij te houden
-    List<string> invoiceItems = new List<string>();
+    List<Product> invoiceItems = new List<Product>();
+
+    decimal subTotal = 0;
+    decimal tax = 0;
+    decimal total = 0;
 
     // Functie om een item toe te voegen aan de factuur
-    void AddToInvoice(string item)
+    void AddToInvoice(Product item)
     {
         invoiceItems.Add(item);
+        UpdateTotals();
     }
 
     // Functie om een item te verwijderen van de factuur
-    void RemoveFromInvoice(string item)
+    void RemoveFromInvoice(Product item)
     {
         invoiceItems.Remove(item);
+        UpdateTotals();
+    }
+
+    // Functie om totaalbedrag van de factuur te berekenen
+    void UpdateTotals()
+    {
+        subTotal = invoiceItems.Sum(item => item.Price);
+        tax = subTotal * 0.09M; // Eten is volgens mij een btw percentage van 9%
+        total = subTotal + tax;
     }
 }
