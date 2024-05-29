@@ -4,7 +4,7 @@ This is the official web app for "Brandstof Cafe" developed by the 11th group of
 
 
 
-### MySQL Server Within Docker
+### **MySQL Server Within Docker**
 
 To spin up the SQL server and execute the SQL query provided along within this repo, just go to the "Docker" directory within the repository.
 
