@@ -16,9 +16,20 @@
             <div class="content">
                 @Body
             </div>
+            <div class="footer">
+                <div class="footer-copyright">
+                    <span>© 2024 Brandstof Cafe. All Rights Reserved.</span>
+                    <div class="footer-links">
+                        <a href="/privacy-policy">Privacy Policy</a>
+                        <a href="/terms-conditions">Terms & Conditions</a>
+                        <a href="/cookies-settings">Cookies Settings</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 </div>
+
 
 <style>
  
@@ -98,6 +109,30 @@
         color: white;
         border-radius: 10px;
     }
+
+    .footer {
+        background-color: white;
+        padding: 1em;
+        border-bottom: 2px solid #ccc;
+        border-radius: 10px;
+        margin: 20px;
+    }
+
+        .footer-copyright {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2em;
+        }
+
+            .footer-links a {
+                text-decoration: underline;
+                color: #212529;
+            }
 
 </style>
 
