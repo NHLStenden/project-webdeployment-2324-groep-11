@@ -3,9 +3,9 @@
     public class Waiter
     {
         public int WaiterID { get; set; }
-        public string WaiterName { get; set; }
-        public string WaiterLoginName { get; set; }
-        public string WaiterPassword { get; set; }
+        public string? WaiterName { get; set; }
+        public string? WaiterLoginName { get; set; }
+        public string? WaiterPassword { get; set; }
 
     }
 }

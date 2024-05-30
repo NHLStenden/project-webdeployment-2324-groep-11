@@ -1,17 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WWDQMD+ey58=",
+  "dgSpecHash": "qp94pOWsBPqbqzS0VQBpubJFOZ9O2f8rVWjkJJckJ0vI99NoDraerT13CZANTOxsEVI+/VYi9dJC77KVm8NHwA==",
   "success": true,
   "projectFilePath": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\YaNed\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

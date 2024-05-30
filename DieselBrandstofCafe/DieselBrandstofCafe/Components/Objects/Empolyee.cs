@@ -1,4 +1,4 @@
-﻿namespace DieselBrandstofCafe.Components.Objects
+﻿/*namespace DieselBrandstofCafe.Components.Objects
 {
     public class Empolyee
     {
@@ -17,3 +17,4 @@
         public List<Empolyee> Subordinates { get; set; }
     }
 }
+*/
