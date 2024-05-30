@@ -58,3 +58,36 @@ C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\
 C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.pdb
 C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.genruntimeconfig.cache
 C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\ref\DieselBrandstofCafe.dll
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\appsettings.json
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.staticwebassets.runtime.json
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.exe
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.deps.json
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.runtimeconfig.json
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.dll
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.pdb
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Dapper.dll
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.csproj.AssemblyReference.cache
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.AssemblyInfoInputs.cache
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.AssemblyInfo.cs
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.csproj.CoreCompileInputs.cache
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.sourcelink.json
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets\msbuild.DieselBrandstofCafe.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets\msbuild.build.DieselBrandstofCafe.props
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.DieselBrandstofCafe.props
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.DieselBrandstofCafe.props
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\bundle\DieselBrandstofCafe.styles.css
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\projectbundle\DieselBrandstofCafe.bundle.scp.css
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBr.B3637FCE.Up2Date
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.dll
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\refint\DieselBrandstofCafe.dll
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.pdb
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.genruntimeconfig.cache
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\ref\DieselBrandstofCafe.dll

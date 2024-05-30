@@ -1,26 +1,10 @@
 {
   "version": 2,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "dgSpecHash": "PK87bfby0Sw=",
+  "dgSpecHash": "qp94pOWsBPqbqzS0VQBpubJFOZ9O2f8rVWjkJJckJ0vI99NoDraerT13CZANTOxsEVI+/VYi9dJC77KVm8NHwA==",
   "success": true,
   "projectFilePath": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
-=======
-  "dgSpecHash": "CsSQabzpcFrsFIHBSRFIBL+cKu0EpPlfMq1uGZxjprsKMWqCWt4M20YG8XlsTW+khoX/rGcrmsUtWfv9iubJrg==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
->>>>>>> 2b13203 (Home menu Update 2)
-=======
-  "dgSpecHash": "mXXe9ualCemKa4yVtIPpBl3nR/HFb9Sivko5ViZFo9gxOswleBx3O2stSZ+H9dwnnc7Ti7ZuNLY5bof8pO1y4A==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
->>>>>>> 2a937f3 (Footer)
-=======
-  "dgSpecHash": "mXXe9ualCemKa4yVtIPpBl3nR/HFb9Sivko5ViZFo9gxOswleBx3O2stSZ+H9dwnnc7Ti7ZuNLY5bof8pO1y4A==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
->>>>>>> 2a937f37ad0240bc9bfa51f270374ee51f3fc3ab
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\YaNed\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512"
+  ],
   "logs": []
 }
