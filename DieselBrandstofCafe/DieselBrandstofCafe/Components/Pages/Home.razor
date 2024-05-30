@@ -1,88 +1,69 @@
 ﻿@page "/"
-@inject NavigationManager NavigationManager
 
 <PageTitle>Home</PageTitle>
 
-<div class="container">
-    <div class="row">
-        <div class="col-3"> </div>
-        <div class="col-6">
-            <div class=" text-center Barstyle card card-padding">
-                <br />
-                <div class="progress">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 50%; color:orange;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="row">
-                    <div class="col-4" style="font-size:smaller">I</div>
-                    <div class="col-4" style="font-size:smaller">I</div>
-                    <div class="col-4" style="font-size:smaller">I</div>
-                </div>
-                <div class="row">
-                    <div class="col-4" style="font-size:smaller">Order Received</div>
-                    <div class="col-4" style="font-size:smaller">Preparing Order</div>
-                    <div class="col-4" style="font-size:smaller">Order Ready</div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div class="container-fluid text-center card">
+    <p class="card-body">Hier komt de order bar</p>
 </div>
-<br />
-<br />
+
+<br/>
+<br/>
 
 
 <section>
-    <div class="container-fluid card" style="padding:25px">
-        <!--Dit is de Welcome gedeelte-->
-        <div class="row">
-            <div class="col-6 align-top">
-                <h1 class="card-body"><b>Welcome to Brandstof Cafe</b></h1>
-            </div>
-            <!--Hier komt een afbeelding-->
-            <div class="col-6">
-                <img src="#" class="img-rounded card-body" alt="Brandstof Thumbnail" />
-            </div>
+<div class="container-fluid card">
+    <!--Dit is de Welcome gedeelte-->
+    <div class="row">
+        <div class="col-6 align-top">
+               <h1 class="card-body"><b>Welcome to Brandstof Cafe</b></h1>
         </div>
-        <br />
-
+        <!--Hier komt een afbeelding-->
         <div class="col-6">
-            <p class="text-center"><b>Check out our menu and place your order directly</b></p>
+            <img src="#" class="img-rounded card-body" alt="Brandstof Thumbnail" />
         </div>
-        <br />
-
-        <!--Order en Menu knoppen-->
-        <div class="row-cols-4">
-            <div class="text-center col-6">
-                <button class="btn generic-button">Order</button>
-
-                <button class="btn generic-button" @onclick="ToMenu">Menu</button>
-            </div>
+    </div>
+        <br/>
+        
+    <div class="col-6">
+        <p class="text-center"><b>Check out our menu and place your order directly</b></p>
+    </div>
+        <br/>
+    
+    <!--Order en Menu knoppen-->
+    <div class="row-cols-4">
+        <div class="text-center col-6">
+            <button>Order</button>
+          
+            <button>Menu</button>
         </div>
-        <br />
-        <!--2de gedeelte van de eerste card-->
-        <div class="row text-center">
-            <h2><b>Order quickly and easily</b></h2>
-            <br />
-            <h12><b>Follow these simple steps to place your order</b></h12>
-        </div>
-        <br />
+    </div>
+            <br/>
+    <!--2de gedeelte van de eerste card-->
+    <div class="row text-center">
+        <h2><b>Order quickly and easily</b></h2>
+            <br/>
+        <h12><b>Follow these simple steps to place your order</b></h12>
+    </div>
+            <br/>
 
-        <!--Order uitleg cards-->
+    <!--Order uitleg cards-->
         <div class="container">
             <div class="row text-center">
                 <div class="col-3">
                     <div class="card h-100 card-padding">
-                        <h3 class="text-start Text-padding">1</h3>
+                        <h3 class="text-start">1</h3>
                         <h5 class="text-start"><b>Enter your table number</b></h5>
                         <br />
                         <p class="text-start" style="font-size:small">First enter your table number</p>
                         <br />
-                        <p class="text-start" style="font-size:small" @onclick="ToMenu"><a href="#">Order Now  ></a></p>
+                        <p class="text-start" style="font-size:small"><a href="#">Order Now  ></a></p>
                     </div>
                 </div>
 
                 <div class="col-3">
                     <div class="card h-100 card-padding">
-                        <h3 class="text-start Text-padding">2</h3>
+                        <h3 class="text-start">2</h3>
                         <h5 class="text-start"><b>Select a product and extra options</b></h5>
                         <br />
                         <p class="text-start" style="font-size:small">Select your product and any addons, place your order in the shopping cart</p>
@@ -95,13 +76,10 @@
                         <div class="d-flex flex-row">
                             <img src="#" class="rounded col-6" alt="Step 3 image" />
                             <div class="col-6">
-                                <h3 class="text-start Text-padding">3</h3>
+                                <h3 class="text-start">3</h3>
                                 <h5 class="text-start"><b>Confirm, pay and wait for your order</b></h5>
                                 <br />
-                                <p class="text-start" style="font-size:small">
-                                    You're almost there! Just make the payment,
-                                    and we'll bring your food to you as soon as it's ready. You will also receive an email with the confirmation
-                                </p>
+                                <p class="text-start" style="font-size:small">You're almost there! Just make the payment, and we'll bring your food to you as soon as it's ready. You will also receive an email with the confirmation</p>
                                 <br />
                             </div>
                         </div>
@@ -111,7 +89,7 @@
         </div>
         <br />
         <br />
-    </div>
+</div>
 </section>
 
 <br />
@@ -123,7 +101,7 @@
         <div class="row justify-content-center text-center">
             <div class="col-4">
                 <div class="card h-100 card-padding">
-                    <h6 class="Text-padding"><b>Your Last Orders</b></h6>
+                    <h6><b>Your Last Orders</b></h6>
                     <div class="row" style="color:grey; font-size:x-small">
                         <p class="col-3">Order</p>
                         <p class="col-3">Date</p>
@@ -159,41 +137,41 @@
 
             <div class="col-4">
                 <div class="card h-100 card-padding">
-                    <h6 class="Text-padding"><b>Deals</b></h6>
+                    <h6><b>Deals</b></h6>
                     <br />
-                    <div class="d-flex flex-row">
-                        <div class="col-6">
-                            <h5 class="text-center">Cold Coffee</h5>
-                            <br />
-                            <p class="text-center" style="font-size:small">Chilled coffee served over ice, sweetened and creamy</p>
-                            <div class="text-center">
-                                <button class="btn generic-button" style="">More info</button>
-                                <button class="btn generic-button" style="" @onclick="ToMenu">Order</button>
-                            </div>
-                            <br />
+                        <div class="d-flex flex-row">
+                            <div class="col-6">
+                                <h5 class="text-center">Cold Coffee</h5>
+                                <br />
+                                <p class="text-center" style="font-size:small">Chilled coffee served over ice, sweetened and creamy</p>
+                                    <div class="text-center">
+                                        <button class="small-button" style="">More info</button>
+                                        <button class="small-button" style="">Order</button>
+                                    </div>
+                                <br />
+                                </div>
+                            <img src="#" class="rounded col-6" alt="Step 3 image" />
                         </div>
-                        <img src="#" class="rounded col-6" alt="Step 3 image" />
-                    </div>
                 </div>
             </div>
 
             <div class="col-4">
                 <div class="card h-100 card-padding">
-                    <h6 class="Text-padding"><b>Popular Products</b></h6>
+                    <h6><b>Popular Products</b></h6>
                     <br />
-                    <div class="d-flex flex-row">
-                        <div class="col-6">
-                            <h5 class="text-center">Espresso</h5>
-                            <br />
-                            <p class="text-center" style="font-size:small">Strong Italian coffee, base for drinks like lattes</p>
-                            <div class="text-center">
-                                <button class="btn generic-button">More info</button>
-                                <button class="btn generic-button" @onclick="ToMenu">Order</button>
+                        <div class="d-flex flex-row">
+                            <div class="col-6">
+                                <h5 class="text-center">Espresso</h5>
+                                <br />
+                                <p class="text-center" style="font-size:small">Strong Italian coffee, base for drinks like lattes</p>
+                                <div class="text-center">
+                                    <button class="small-button" style="">More info</button>
+                                    <button class="small-button" style="">Order</button>
+                                </div>
+                                <br />
                             </div>
-                            <br />
+                            <img src="#" class="rounded col-6" alt="Step 3 image" />
                         </div>
-                        <img src="#" class="rounded col-6" alt="Step 3 image" />
-                    </div>
                 </div>
             </div>
         </div>
@@ -202,49 +180,13 @@
 
 <style>
 
-    .card-padding {
+    .card-padding{
         margin: 5px;
-        border-radius: 1.25rem;
-    }
-
-    .menu-item {
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #FF6F00;
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        border-radius: 10px;
-    }
-
-
-    .generic-button {
-        background-color: #FF6F00;
-        color: white;
-        padding: 10px;
-        border-radius: 10px;
-    }
-
-    .Barstyle {
-        margin-trim: 60px;
-    }
-
-    .Text-padding {
-        padding-top: 10px;
     }
 
 </style>
 
 
 @code {
-
-    public void ToMenu()
-    {
-        NavigationManager.NavigateTo("/menu");
-    }
-
 
 }

@@ -58,33 +58,3 @@ C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\
 C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.pdb
 C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.genruntimeconfig.cache
 C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\ref\DieselBrandstofCafe.dll
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\appsettings.Development.json
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\appsettings.json
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.staticwebassets.runtime.json
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.exe
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.deps.json
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.runtimeconfig.json
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.dll
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.pdb
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.GeneratedMSBuildEditorConfig.editorconfig
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.AssemblyInfoInputs.cache
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.AssemblyInfo.cs
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.csproj.CoreCompileInputs.cache
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.MvcApplicationPartsAssemblyInfo.cache
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.sourcelink.json
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets.build.json
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets.development.json
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets\msbuild.DieselBrandstofCafe.Microsoft.AspNetCore.StaticWebAssets.props
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets\msbuild.build.DieselBrandstofCafe.props
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.DieselBrandstofCafe.props
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.DieselBrandstofCafe.props
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets.pack.json
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\bundle\DieselBrandstofCafe.styles.css
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\projectbundle\DieselBrandstofCafe.bundle.scp.css
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.dll
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\refint\DieselBrandstofCafe.dll
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.pdb
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.genruntimeconfig.cache
-C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\ref\DieselBrandstofCafe.dll
