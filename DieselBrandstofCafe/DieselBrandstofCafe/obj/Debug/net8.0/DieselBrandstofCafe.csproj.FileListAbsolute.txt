@@ -28,3 +28,33 @@ C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBr
 C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.pdb
 C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.genruntimeconfig.cache
 C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\ref\DieselBrandstofCafe.dll
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\appsettings.json
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.staticwebassets.runtime.json
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.exe
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.deps.json
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.runtimeconfig.json
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.dll
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\DieselBrandstofCafe.pdb
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.AssemblyInfoInputs.cache
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.AssemblyInfo.cs
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.csproj.CoreCompileInputs.cache
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.sourcelink.json
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets\msbuild.DieselBrandstofCafe.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets\msbuild.build.DieselBrandstofCafe.props
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.DieselBrandstofCafe.props
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.DieselBrandstofCafe.props
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\bundle\DieselBrandstofCafe.styles.css
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\projectbundle\DieselBrandstofCafe.bundle.scp.css
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.dll
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\refint\DieselBrandstofCafe.dll
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.pdb
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.genruntimeconfig.cache
+C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\ref\DieselBrandstofCafe.dll
