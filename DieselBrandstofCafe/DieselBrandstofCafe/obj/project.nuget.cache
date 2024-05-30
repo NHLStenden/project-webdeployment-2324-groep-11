@@ -2,6 +2,7 @@
   "version": 2,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "PK87bfby0Sw=",
   "success": true,
   "projectFilePath": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
@@ -15,6 +16,11 @@
   "success": true,
   "projectFilePath": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
 >>>>>>> 2a937f3 (Footer)
+=======
+  "dgSpecHash": "mXXe9ualCemKa4yVtIPpBl3nR/HFb9Sivko5ViZFo9gxOswleBx3O2stSZ+H9dwnnc7Ti7ZuNLY5bof8pO1y4A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
+>>>>>>> 2a937f37ad0240bc9bfa51f270374ee51f3fc3ab
   "expectedPackageFiles": [],
   "logs": []
 }

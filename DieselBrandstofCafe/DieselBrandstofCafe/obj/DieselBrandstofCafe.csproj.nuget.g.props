@@ -7,6 +7,7 @@
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\YaNed\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
 =======
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\yucel\.nuget\packages\</NuGetPackageFolders>
@@ -14,10 +15,14 @@
 =======
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\marti\.nuget\packages\</NuGetPackageFolders>
 >>>>>>> 2a937f3 (Footer)
+=======
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\marti\.nuget\packages\</NuGetPackageFolders>
+>>>>>>> 2a937f37ad0240bc9bfa51f270374ee51f3fc3ab
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.10.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <SourceRoot Include="C:\Users\YaNed\.nuget\packages\" />
@@ -28,5 +33,8 @@
 =======
     <SourceRoot Include="C:\Users\marti\.nuget\packages\" />
 >>>>>>> 2a937f3 (Footer)
+=======
+    <SourceRoot Include="C:\Users\marti\.nuget\packages\" />
+>>>>>>> 2a937f37ad0240bc9bfa51f270374ee51f3fc3ab
   </ItemGroup>
 </Project>
