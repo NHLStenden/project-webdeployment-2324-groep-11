@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DieselBrandstofCafe")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29b33305fb82dfb9d637abc29e0f6225f71ef97c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10f22032195c276bfbd4bab0704473ec6e5a8206")]
 [assembly: System.Reflection.AssemblyProductAttribute("DieselBrandstofCafe")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DieselBrandstofCafe")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
