@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+jtRKw4dkYUs0UMiRptaUh9v0/IybH1deJgN7wA1Giyf9Ue2NF5aIt4g8cmA7RiyISpi8KsXrgxPqg7NcFIJVQ==",
+  "dgSpecHash": "CsSQabzpcFrsFIHBSRFIBL+cKu0EpPlfMq1uGZxjprsKMWqCWt4M20YG8XlsTW+khoX/rGcrmsUtWfv9iubJrg==",
   "success": true,
-  "projectFilePath": "C:\\HBO-ICT\\Periode4\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
+  "projectFilePath": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\HBO-ICT\\Periode4\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
