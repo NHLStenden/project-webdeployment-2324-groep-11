@@ -5,12 +5,12 @@ using System.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
-builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
+
 
 
 // Load configuration
@@ -24,7 +24,13 @@ builder.Services.AddSingleton<IManagerService, ManagerService>();
 
 
 // Register IDbConnection
-builder.Services.AddTransient<IDbConnection>((sp) => new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddTransient<IDbConnection>(sp =>
+{
+    var configuration = sp.GetRequiredService<IConfiguration>();
+    var connectionString = configuration.GetConnectionString("DefaultConnection")
+                           ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+    return new SqlConnection(connectionString);
+});
 
 
 var app = builder.Build();
@@ -40,9 +46,6 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseRouting();
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>()

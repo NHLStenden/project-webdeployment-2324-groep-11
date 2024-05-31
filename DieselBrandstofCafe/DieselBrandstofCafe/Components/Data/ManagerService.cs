@@ -1,6 +1,10 @@
 ﻿using DieselBrandstofCafe.Components.Models;
-using Dapper;
 using System.Data.SqlClient;
+using Microsoft.Extensions.Configuration.Json;
+using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Dapper;
 
 namespace DieselBrandstofCafe.Components.Data
 {
@@ -18,14 +22,10 @@ namespace DieselBrandstofCafe.Components.Data
         Task DeleteCategoryAsync(int categoryId);
     }
 
-    public class ManagerService : IManagerService
+    public class ManagerService(IConfiguration configuration) : IManagerService
     {
-        private readonly string _connectionString;
-
-        public ManagerService(IConfiguration configuration)
-        {
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
-        }
+        private readonly string _connectionString = configuration?.GetConnectionString("DefaultConnection") 
+            ?? throw new ArgumentNullException(nameof(configuration), "Configuration cannot be null.");
 
         public async Task<IEnumerable<Bestelling>> GetOrderHistoryAsync()
         {

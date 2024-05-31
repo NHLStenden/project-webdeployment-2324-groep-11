@@ -13,14 +13,15 @@ namespace DieselBrandstofCafe.Components.Data
     {
         Task<IEnumerable<Bestelling>> GetNewOrdersAsync();
         Task<IEnumerable<Bestelling>> GetOrderHistoryAsync();
-        Task CompleteOrderAsync(int orderId);
-        Task DeleteOrderAsync(int orderId);
+        Task UpdateOrderStatusAsync(int orderId, string status);
+        Task CompleteTaskAndUpdateOrderStatusAsync(int orderId, int productId);
     }
 
 
     public class EmployeeService(IConfiguration configuration) : IEmployeeService
     {
-        private readonly string _connectionString = configuration.GetConnectionString("DefaultConnection");
+        private readonly string _connectionString = configuration?.GetConnectionString("DefaultConnection")
+            ?? throw new ArgumentNullException(nameof(configuration), "Configuration cannot be null.");
 
         public async Task<IEnumerable<Bestelling>> GetNewOrdersAsync()
         {
@@ -57,5 +58,27 @@ namespace DieselBrandstofCafe.Components.Data
                 await connection.ExecuteAsync(sql, new { BestellingID = orderId, Status = status });
             }
         }
+
+        public async Task CompleteTaskAndUpdateOrderStatusAsync(int orderId, int productId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var sql = "UPDATE ProductTotBestelronde SET AantalBetaald = 1 WHERE BestellingID = @BestellingID AND ProductID = @ProductID";
+                await connection.ExecuteAsync(sql, new { BestellingID = orderId, ProductID = productId });
+
+                // Check if all products are completed
+                var incompleteProductsCount = await connection.QuerySingleAsync<int>(
+                    "SELECT COUNT(*) FROM ProductTotBestelronde WHERE BestellingID = @BestellingID AND AantalBetaald = 0",
+                    new { BestellingID = orderId }
+                );
+
+                if (incompleteProductsCount == 0)
+                {
+                    await UpdateOrderStatusAsync(orderId, "Completed");
+                }
+            }
+        }
+
+
     }
 }
