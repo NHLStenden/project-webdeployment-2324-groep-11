@@ -1,9 +1,148 @@
 ﻿@page "/Dashboardsales"
 
+@using DieselBrandstofCafe.Components.Data;
+@using DieselBrandstofCafe.Components.Models;
+@using System.Data.SqlClient;
+@using Microsoft.Extensions.Configuration.Json;
+@using Microsoft.Extensions.Configuration;
+@using System.Collections.Generic;
+@using System.Threading.Tasks;
+@using Dapper;
+@inject IEmployeeService EmployeeService
+
+
 <PageTitle>Employees Dashboard</PageTitle>
 
 <h1>Dashboard</h1>
 
+
+<div class="orders-board">
+    @foreach (var order in orders)
+    {
+        <div class="orders-card">
+            <h4>Table @order.TafelID - Order #@order.BestellingID</h4>
+            <ul>
+                @foreach (var product in order.Producten)
+                {
+                    <li>
+                        @product.ProductNaam
+                        <button @onclick="() => CompleteTask(order.BestellingID, product.ProductID)">Complete</button>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>
+
+<style>
+        /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    h3 {
+        color: #333;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    /* orders Board Styles */
+    .orders-board {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 20px;
+    }
+
+    .orders-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+        padding: 15px;
+        width: 300px;
+    }
+
+    .orders-card h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .orders-card ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .orders-card ul li {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        margin-bottom: 5px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .orders-card ul li button {
+        background-color: #28a745;
+        border: none;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .orders-card ul li button:hover {
+        background-color: #218838;
+    }
+
+    /* Responsive Design */
+    /* media (max-width: 768px) {
+        .orders-board {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .orders-card {
+            width: 90%;
+        }
+    } */
+</style>
+
 @code {
+    private List<Bestelling> orders = new List<Bestelling>();
+    private readonly string _connectionString = configuration.GetConnectionString("DefaultConnection");
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load orders and their products...
+    }
+
+    public async Task CompleteTask(int orderId, int productId)
+    {
+        using (var connection = new SqlConnection(_connectionString))
+        {
+            var sql = "UPDATE ProductTotBestelronde SET AantalBetaald = 1 WHERE BestellingID = @BestellingID AND ProductID = @ProductID";
+            await connection.ExecuteAsync(sql, new { BestellingID = orderId, ProductID = productId });
+
+            // Check if all products are completed
+            var incompleteProducts = await connection.QueryAsync<int>(
+                "SELECT COUNT(*) FROM ProductTotBestelronde WHERE BestellingID = @BestellingID AND AantalBetaald = 0", 
+                new { BestellingID = orderId }
+            );
+
+                //if (incompleteProducts.Single() == 0)
+                //{
+                //await UpdateOrderStatusAsync(orderId, "Completed");
+                //}
+        }
+    }
 
 }
+
