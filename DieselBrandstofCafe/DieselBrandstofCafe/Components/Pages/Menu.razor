@@ -127,6 +127,8 @@
         margin-right: 1em;
         max-height: 83vh;
         overflow-y: auto;
+        display: flex;
+        flex-direction: column;
     }
 
     .right-panel {
@@ -239,7 +241,7 @@
         border: 1px solid #ccc;
         padding: 10px;
         border-radius: 10px;
-        max-height: 53vh;
+        height: 53vh;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
@@ -367,6 +369,7 @@
 </style>
 
 @code {
+<<<<<<< Updated upstream
     //public class Product
     //{
     //public string Naam { get; set; }
@@ -374,6 +377,13 @@
     //}
 
 
+=======
+    public class Product
+    {
+        public string ?Name { get; set; }
+        public decimal Price { get; set; }
+    }
+>>>>>>> Stashed changes
 
     // Lijst om items op de factuur bij te houden
     List<Product> invoiceItems = new List<Product>();
