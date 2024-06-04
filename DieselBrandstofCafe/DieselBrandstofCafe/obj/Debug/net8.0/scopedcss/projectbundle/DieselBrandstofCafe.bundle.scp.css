@@ -406,7 +406,6 @@ main[b-i32kgcyl5t] {
     .additional-cards[b-iqj438ct1u] {
         display: flex;
         flex-direction: column;
-        gap: 1em;
     }
 
     .popular-products[b-iqj438ct1u], .sign-up-updates[b-iqj438ct1u] {
@@ -416,6 +415,7 @@ main[b-i32kgcyl5t] {
         border-radius: 10px;
         width: 100%;
         height: 16.5vh;
+        margin-bottom: 1em;
     }
 
         .popular-products h5[b-iqj438ct1u], .sign-up-updates h5[b-iqj438ct1u], .payment h5[b-iqj438ct1u] {
