@@ -18,10 +18,10 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 
 
 // Register the services
-builder.Services.AddSingleton<ICustomerService, CustomerService>();
-builder.Services.AddSingleton<IEmployeeService, EmployeeService>();
-builder.Services.AddSingleton<IManagerService, ManagerService>();
-builder.Services.AddSingleton<IDbConnectionService, DbConnectionService>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<IManagerService, ManagerService>();
+builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 
 
 // Register IDbConnection
