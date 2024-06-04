@@ -5,7 +5,7 @@
         public int MedewerkerID { get; set; }
         public required string MedewerkerNaam { get; set; }
         public int MedewerkerLeeftijd { get; set; } = 0;
-        public required string MedewerkerEmail { get; set; }
+        public required string EmailMedewerker { get; set; }
         public required string MedewerkerTel { get; set; }
         public int? SupervisorID { get; set; }  // Foreign key to the supervisor
 

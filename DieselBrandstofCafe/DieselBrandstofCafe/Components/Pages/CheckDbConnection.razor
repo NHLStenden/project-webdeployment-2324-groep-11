@@ -1,0 +1,26 @@
+﻿@page "/check-db"
+
+@using DieselBrandstofCafe.Components.Models;
+@using DieselBrandstofCafe.Components.Data;
+@inject IDbConnectionService DbConnectionService;
+
+<h3>Database Connection Check</h3>
+
+<button @onclick="CheckConnection">Check Database Connection</button>
+
+<p>@connectionMessage</p>
+
+@code {
+    private string? connectionMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CheckConnection();
+    }
+
+    private async Task CheckConnection()
+    {
+        var isConnected = await DbConnectionService.CheckDatabaseConnectionAsync();
+        connectionMessage = isConnected ? "Database connection is valid." : "Failed to connect to the database.";
+    }
+}

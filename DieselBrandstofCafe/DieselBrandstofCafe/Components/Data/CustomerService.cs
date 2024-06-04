@@ -1,5 +1,5 @@
 ﻿using DieselBrandstofCafe.Components.Models;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
@@ -25,7 +25,7 @@ namespace DieselBrandstofCafe.Components.Data
 
         public async Task<IEnumerable<Product>> GetProductsAsync()
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new MySqlConnection(_connectionString))
             {
                 return await connection.QueryAsync<Product>("SELECT * FROM Product");
             }
@@ -33,7 +33,7 @@ namespace DieselBrandstofCafe.Components.Data
 
         public async Task<int> PlaceOrderAsync(Bestelling order)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new MySqlConnection(_connectionString))
             {
                 var sql = @"
                 INSERT INTO Bestelling (TafelID, Status, Tijd, Kostenplaatsnummer, TotaalPrijs, BestelrondeID) 
@@ -45,7 +45,7 @@ namespace DieselBrandstofCafe.Components.Data
 
         public async Task<IEnumerable<Bestelling>> GetCustomerOrdersAsync(int customerId)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new MySqlConnection(_connectionString))
             {
                 var sql = "SELECT * FROM Bestelling WHERE CustomerID = @CustomerId";
                 return await connection.QueryAsync<Bestelling>(sql, new { CustomerId = customerId });
@@ -54,7 +54,7 @@ namespace DieselBrandstofCafe.Components.Data
 
         public async Task UpdateOrderAsync(int orderId, string status)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new MySqlConnection(_connectionString))
             {
                 var sql = "UPDATE Bestelling SET Status = @Status WHERE BestellingID = @BestellingID";
                 await connection.ExecuteAsync(sql, new { BestellingID = orderId, Status = status });

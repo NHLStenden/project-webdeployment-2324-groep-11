@@ -21,6 +21,7 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 builder.Services.AddSingleton<ICustomerService, CustomerService>();
 builder.Services.AddSingleton<IEmployeeService, EmployeeService>();
 builder.Services.AddSingleton<IManagerService, ManagerService>();
+builder.Services.AddSingleton<IDbConnectionService, DbConnectionService>();
 
 
 // Register IDbConnection

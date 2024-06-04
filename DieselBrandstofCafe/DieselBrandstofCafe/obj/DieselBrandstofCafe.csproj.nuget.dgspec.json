@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj": {}
+    "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj": {}
   },
   "projects": {
-    "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj": {
+    "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
+        "projectUniqueName": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
         "projectName": "DieselBrandstofCafe",
-        "projectPath": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
+        "projectPath": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
         "packagesPath": "C:\\Users\\YaNed\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\",
+        "outputPath": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -65,6 +65,10 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.4.0, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
