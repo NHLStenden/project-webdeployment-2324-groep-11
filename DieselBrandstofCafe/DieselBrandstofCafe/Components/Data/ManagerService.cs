@@ -288,3 +288,65 @@ namespace DieselBrandstofCafe.Components.Data
     }
 }
 }
+
+
+/*
+ * How to Use the ManagerService Class:
+ *
+ * 1. Retrieve a list of order history:
+ * 
+ * var managerService = new ManagerService(configuration);
+ * var orderHistory = await managerService.GetOrderHistoryAsync();
+ * // The orderHistory variable will contain a list of all orders.
+ * 
+ * 2. Retrieve a list of employees:
+ * 
+ * var employees = await managerService.GetEmployeesAsync();
+ * // The employees variable will contain a list of all employees.
+ * 
+ * 3. Retrieve a list of products:
+ * 
+ * var products = await managerService.GetProductsAsync();
+ * // The products variable will contain a list of all products.
+ * 
+ * 4. Add a new product:
+ * 
+ * var newProduct = new Product { CategorieID = 1, ProductNaam = "New Product", Prijs = 100, Voorraad = 50, AddOnID = 2 };
+ * await managerService.AddProductAsync(newProduct);
+ * // The new product will be added to the database.
+ * 
+ * 5. Update an existing product:
+ * 
+ * var updatedProduct = new Product { ProductID = 1, CategorieID = 1, ProductNaam = "Updated Product", Prijs = 120, Voorraad = 60, AddOnID = 2 };
+ * await managerService.UpdateProductAsync(updatedProduct);
+ * // The product with the specified ProductID will be updated in the database.
+ * 
+ * 6. Delete a product:
+ * 
+ * int productId = 1;
+ * await managerService.DeleteProductAsync(productId);
+ * // The product with the specified ProductID will be deleted from the database.
+ * 
+ * 7. Retrieve a list of categories:
+ * 
+ * var categories = await managerService.GetCategoriesAsync();
+ * // The categories variable will contain a list of all categories.
+ * 
+ * 8. Add a new category:
+ * 
+ * var newCategory = new Categorie { NaamCategorie = "New Category", ParentID = 1 };
+ * await managerService.AddCategoryAsync(newCategory);
+ * // The new category will be added to the database.
+ * 
+ * 9. Update an existing category:
+ * 
+ * var updatedCategory = new Categorie { CategorieID = 1, NaamCategorie = "Updated Category", ParentID = 1 };
+ * await managerService.UpdateCategoryAsync(updatedCategory);
+ * // The category with the specified CategorieID will be updated in the database.
+ * 
+ * 10. Delete a category:
+ * 
+ * int categoryId = 1;
+ * await managerService.DeleteCategoryAsync(categoryId);
+ * // The category with the specified CategorieID will be deleted from the database.
+ */
