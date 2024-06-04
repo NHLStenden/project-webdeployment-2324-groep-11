@@ -9,47 +9,63 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DieselBrandstofCafe
 build_property.RootNamespace = DieselBrandstofCafe
-build_property.ProjectDir = C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\
+build_property.ProjectDir = C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe
+build_property.MSBuildProjectDirectory = C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/YaNed/OneDrive/Documents/Repo's/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/App.razor]
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/YaNed/OneDrive/Documents/Repo's/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Pages/Error.razor]
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Pages/AddProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRQcm9kdWN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Pages/CheckDbConnection.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGVja0RiQ29ubmVjdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Pages/Dashboardsales.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXNoYm9hcmRzYWxlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Pages/EmployeeDashboard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFbXBsb3llZURhc2hib2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/YaNed/OneDrive/Documents/Repo's/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Pages/Home.razor]
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/YaNed/OneDrive/Documents/Repo's/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Pages/Menu.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNZW51LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/YaNed/OneDrive/Documents/Repo's/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Pages/My Orders.razor]
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Pages/My Orders.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNeSBPcmRlcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/YaNed/OneDrive/Documents/Repo's/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Routes.razor]
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/YaNed/OneDrive/Documents/Repo's/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/_Imports.razor]
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/YaNed/OneDrive/Documents/Repo's/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Layout/MainLayout.razor]
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-i32kgcyl5t
 
-[C:/Users/YaNed/OneDrive/Documents/Repo's/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Layout/NavMenu.razor]
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-srj6zv88n6
+
+[C:/Users/marti/OneDrive/Documenten/Repos/project-webdeployment-groep_11/DieselBrandstofCafe/DieselBrandstofCafe/Components/Pages/Menu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNZW51LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-iqj438ct1u

@@ -1,0 +1,48 @@
+﻿@page "/add-product"
+
+@using DieselBrandstofCafe.Components.Models;
+@using DieselBrandstofCafe.Components.Data;
+@inject IManagerService ManagerService
+
+<PageTitle>Add Product</PageTitle>
+
+<h3>Add Product</h3>
+
+<EditForm Model="@newProduct" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label for="categoryID">Category ID</label>
+        <InputNumber id="categoryID" @bind-Value="newProduct.CategoryID" />
+    </div>
+    <div>
+        <label for="productName">Product Name</label>
+        <InputText id="productName" @bind-Value="newProduct.ProductNaam" />
+    </div>
+    <div>
+        <label for="price">Price</label>
+        <InputNumber id="price" @bind-Value="newProduct.ProductPrijs" />
+    </div>
+    <div>
+        <label for="stock">Stock</label>
+        <InputNumber id="stock" @bind-Value="newProduct.Voorraad" />
+    </div>
+    <div>
+        <label for="addOnID">Add On ID</label>
+        <InputNumber id="addOnID" @bind-Value="newProduct.AddOnID" />
+    </div>
+    
+    <button type="submit">Add Product</button>
+</EditForm>
+
+@code {
+    private Product newProduct = new Product();
+
+    private async Task HandleValidSubmit()
+    {
+        await ManagerService.AddProductAsync(newProduct);
+        // Optionally, you can add some logic to provide feedback to the user,
+        // such as a message indicating success or redirecting to another page.
+    }
+}

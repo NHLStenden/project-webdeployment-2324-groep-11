@@ -40,6 +40,7 @@ CREATE TABLE Product_per_Bestelronde
     BestelrondeID INT NOT NULL,
     AantalProduct INT,
     AantalBetaald INT,
+    StatusBesteldeProduct VARCHAR(24) NOT NULL,
     PRIMARY KEY (ProductID, BestelrondeID)
 );
 
@@ -210,16 +211,16 @@ VALUES
     (4, 4, 'Completed', NOW());
 
 INSERT INTO Product_per_Bestelronde
-    (ProductID, BestelrondeID, AantalProduct, AantalBetaald)
+    (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct)
 VALUES
-    (1, 1, 2, 2),
-    (2, 2, 3, 3),
-    (3, 3, 1, 1),
-    (4, 4, 2, 2),
-    (5, 1, 3, 3),
-    (6, 2, 1, 1),
-    (7, 3, 2, 2),
-    (8, 4, 1, 1);
+    (1, 1, 2, 2, 'Completed'),
+    (2, 2, 3, 3, 'Pending'),
+    (3, 3, 1, 1, 'Pending'),
+    (4, 4, 2, 2, 'Pending'),
+    (5, 1, 3, 3, 'Pending'),
+    (6, 2, 1, 1, 'Pending'),
+    (7, 3, 2, 2, 'Completed'),
+    (8, 4, 1, 1, 'Completed');
 
 INSERT INTO Tafel
     (TafelID, Sectie)

@@ -1,14 +1,43 @@
 using DieselBrandstofCafe.Components;
+using DieselBrandstofCafe.Components.Data;
+using System.Data.SqlClient;
+using System.Data;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorComponents()
-	.AddInteractiveServerComponents();
+builder.Services.AddRazorComponents().AddInteractiveServerComponents();
+
+
+
+// Load configuration
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+
+// Register the services
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<IManagerService, ManagerService>();
+builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
+
+
+// Register IDbConnection
+builder.Services.AddTransient<IDbConnection>(sp =>
+{
+    var configuration = sp.GetRequiredService<IConfiguration>();
+    var connectionString = configuration.GetConnectionString("DefaultConnection")
+                           ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+    return new SqlConnection(connectionString);
+});
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+// HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
 	app.UseExceptionHandler("/Error", createScopeForErrors: true);
@@ -17,7 +46,6 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
 app.UseAntiforgery();
 

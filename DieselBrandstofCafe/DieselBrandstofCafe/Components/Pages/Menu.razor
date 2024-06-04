@@ -1,4 +1,7 @@
 ﻿@page "/menu"
+@using DieselBrandstofCafe.Components.Models
+@using DieselBrandstofCafe.Components.Data
+@inject ICustomerService customerService
 
 <div class="menu-page">
     <div class="left-panel">
@@ -15,297 +18,145 @@
         <div class="menu-items">
             <h2>Select Menu</h2>
             <div class="menu-list">
-                <div class="menu-item">
-                    <h3>Espresso</h3>
-                    <p>Strong Italian coffee, base for drinks like lattes.</p>
-                    <p>€3</p>
-                    <button @onclick='() => AddToInvoice(new Product { Name = "Espresso", Price = 3 })'>Add to order</button>
-                </div>
-                <div class="menu-item">
-                    <h3>Americano</h3>
-                    <p>Espresso diluted with hot water, mimicking regular black coffee.</p>
-                    <p>€3</p>
-                    <button @onclick='() => AddToInvoice(new Product { Name = "Americano", Price = 3 })'>Add to order</button>
-                </div>
-                <div class="menu-item">
-                    <h3>Cappuccino</h3>
-                    <p>Equal parts espresso, steamed milk, and frothy milk foam.</p>
-                    <p>€3</p>
-                    <button @onclick='() => AddToInvoice(new Product { Name = "Cappuccino", Price = 3 })'>Add to order</button>
-                </div>
-                <div class="menu-item">
-                    <h3>Flat White</h3>
-                    <p>Espresso with velvety microfoam milk, stronger than a latte.</p>
-                    <p>€3</p>
-                    <button @onclick='() => AddToInvoice(new Product { Name = "Flat White", Price = 3 })'>Add to order</button>
-                </div>
-                <div class="menu-item">
-                    <h3>Macchiato</h3>
-                    <p>Espresso marked with a dollop of frothy milk.</p>
-                    <p>€3</p>
-                    <button @onclick='() => AddToInvoice(new Product { Name = "Macchiato", Price = 3 })'>Add to order</button>
-                </div>
-                <div class="menu-item">
-                    <h3>Cappuccino</h3>
-                    <p>Espresso mixed with chocolate and steamed milk, topped with whipped cream.</p>
-                    <p>€3</p>
-                    <button @onclick='() => AddToInvoice(new Product { Name = "Cappuccino", Price = 3 })'>Add to order</button>
-                </div>
-                <div class="menu-item">
-                    <h3>Affogato</h3>
-                    <p>Espresso poured over a scoop of vanilla ice cream.</p>
-                    <p>€3</p>
-                    <button @onclick='() => AddToInvoice(new Product { Name = "Affogato", Price = 3 })'>Add to order</button>
-                </div>
-                <div class="menu-item">
-                    <h3>Ristretto</h3>
-                    <p>A short shot of espresso, more concentrated and less bitter.</p>
-                    <p>€3</p>
-                    <button @onclick='() => AddToInvoice(new Product { Name = "Ristretto", Price = 3 })'>Add to order</button>
-                </div>
-                <div class="menu-item">
-                    <h3>Cold Coffee</h3>
-                    <p>Chilled coffee served over ice, often sweetened and creamy.</p>
-                    <p>€3</p>
-                    <button @onclick='() => AddToInvoice(new Product { Name = "Cold Coffee", Price = 3 })'>Add to order</button>
-                </div>
-                <!-- Voeg meer menu items toe -->
+                @if (menuItems == null)
+                {
+                    <p>Loading...</p>
+                }
+                else if (!menuItems.Any())
+                {
+                    <p>No items found.</p>
+                }
+                else
+                {
+                    @foreach (var item in menuItems)
+                    {
+                        <div class="menu-item">
+                            <h3>@item.ProductNaam</h3>
+                            @* <p>@item.Beschrijving</p> *@
+                            <p>€@item.ProductPrijs</p>
+                            <button @onclick='() => AddToInvoice(item)'>Add to order</button>
+                        </div>
+                    }
+                }
             </div>
         </div>
     </div>
-    <div class="order-summary">
-        <h2>Invoice</h2>
-        <ul>
-            @foreach (var item in invoiceItems)
-            {
-                <li>@item.Name (€@item.Price) <button @onclick="() => RemoveFromInvoice(item)">Remove</button></li>
-            }
-        </ul>
-        <div class="payment">
-            <p>Sub Total: €@subTotal</p>
-            <p>Tax: €@tax</p>
-            <p>Total Payment: €@total</p>
-            <div class="payment-methods">
-                <button>Card</button>
-                <button>Cash</button>
-                <button>Ideal</button>
+    <div class="right-panel">
+        <div class="order-summary">
+            <h2>Invoice</h2>
+            <ul>
+                @foreach (var invoiceItem in invoiceItems)
+                {
+                    <li>
+                        @invoiceItem.Product.ProductNaam (€@invoiceItem.Product.ProductPrijs x @invoiceItem.AantalProduct)
+                        <button @onclick="() => IncreaseAantalProduct(invoiceItem)">+</button>
+                        <button @onclick="() => DecreaseAantalProduct(invoiceItem)">-</button>
+                        <button @onclick="() => RemoveFromInvoice(invoiceItem)">Remove</button>
+                    </li>
+                }
+            </ul>
+            <div class="payment">
+                <h5>Payment</h5>
+                <p>Sub Total: €@subTotal</p>
+                <p>Tax: €@tax</p>
+                <p>Total Payment: €@total</p>
+                <div class="payment-methods">
+                    <button>Card</button>
+                    <button>Cash</button>
+                    <button>Ideal</button>
+                </div>
+                <button class="place-order-button">Place the order</button>
+            </div>
+        </div>
+        <div class="additional-cards">
+            <div class="popular-products">
+                <h5>Popular Products</h5>
+                <ul>
+                    <li>Product 1</li>
+                    <li>Product 2</li>
+                    <li>Product 3</li>
+                </ul>
+            </div>
+            <div class="sign-up-updates">
+                <h5>Sign up for updates</h5>
+                <form>
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Sign Up</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
-<style>
-    .menu-page {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-    }
-
-    .left-panel {
-        flex: 75%;
-        margin-right: 20px;
-        max-height: 80vh;
-        overflow-y: auto;
-    }
-
-    .categories, .menu-items {
-        margin-bottom: 20px;
-    }
-
-        .categories h2, .menu-items h2 {
-            text-align: left;
-            font-weight: bold;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #ccc;
-            margin-bottom: 20px;
-            width: 20%;
-        }
-
-    .order-summary h2 {
-        text-align: center;
-        font-weight: bold;
-        margin-bottom: 20px;
-        position: relative;
-    }
-
-        .order-summary h2::after {
-            content: '';
-            display: block;
-            width: 25%;
-            border-bottom: 2px solid #ccc;
-            margin: 10px auto 0;
-        }
-
-    .category-list {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .category-card {
-        flex-grow: 1;
-        margin-right: 10px;
-    }
-
-        .category-card button {
-            width: 100%;
-            border: none;
-            background-color: white;
-            color: black;
-            cursor: pointer;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 0;
-        }
-
-        .category-card img {
-            width: 100%;
-            height: 60px; 
-            border-top-left-radius: 10px; 
-            border-top-right-radius: 10px; 
-            background-color: #F2F1F2;
-        }
-
-        .category-card span {
-            font-size: 1.2em;
-            color: #212529;
-        }
-
-    .menu-list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 20px;
-    }
-
-    .menu-item {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        height: 200px;
-        margin-right: 10px;
-        border: 1px solid #ccc;
-        padding: 10px;
-        text-align: center;
-        border-radius: 10px;
-    }
-
-        .menu-item button {
-            position: absolute;
-            bottom: 10px; 
-            left: 50%; 
-            transform: translateX(-50%);
-            background-color: #FF6F00;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-
-    .order-summary {
-        flex: 25%;
-        border: 1px solid #ccc;
-        padding: 10px;
-        border-radius: 10px;
-        max-height: 60vh;
-        overflow-y: auto;
-    }
-
-        .order-summary ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-            .order-summary ul li {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 5px;
-            }
-
-                .order-summary ul li button {
-                    background-color: #e74c3c;
-                    color: white;
-                    border: none;
-                    padding: 5px;
-                    cursor: pointer;
-                    border-radius: 10px;
-                }
-
-    .payment {
-        margin-top: 10px;
-    }
-
-        .payment p {
-            margin: 5px 0;
-        }
-
-    .payment-methods {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
-    }
-
-    .payment-methods button {
-        margin-top: 5px;
-        padding: 10px;
-        width: 100%;
-        border: none;
-        cursor: pointer;
-            border-radius: 10px;
-    }
-
-        .payment-methods button:nth-child(1) {
-            background-color: #FF6F00;
-            color: white;
-        }
-
-        .payment-methods button:nth-child(2) {
-            background-color: #FF6F00;
-            color: white;
-        }
-
-        .payment-methods button:nth-child(3) {
-            background-color: #FF6F00;
-            color: white;
-        }
-</style>
-
 @code {
-    public class Product
+
+    List<Product>? menuItems;
+
+    protected override async Task OnInitializedAsync()
     {
-        public string Name { get; set; }
-        public decimal Price { get; set; }
+        menuItems = (await customerService.GetProductsAsync()).ToList();
     }
 
     // Lijst om items op de factuur bij te houden
-    List<Product> invoiceItems = new List<Product>();
+    List<InvoiceItem> invoiceItems = new List<InvoiceItem>();
 
     decimal subTotal = 0;
     decimal tax = 0;
     decimal total = 0;
 
-    // Functie om een item toe te voegen aan de factuur
-    void AddToInvoice(Product item)
+    void AddToInvoice(Product product)
     {
-        invoiceItems.Add(item);
+        var existingItem = invoiceItems.FirstOrDefault(item => item.Product.ProductID == product.ProductID);
+        if (existingItem != null)
+        {
+            existingItem.AantalProduct++;
+        }
+        else
+        {
+            invoiceItems.Add(new InvoiceItem { Product = product, AantalProduct = 1 });
+        }
+        UpdateTotals();
+    }
+
+    // Functie om de hoeveelheid van een item te verhogen
+    void IncreaseAantalProduct(InvoiceItem invoiceItem)
+    {
+        invoiceItem.AantalProduct++;
+        UpdateTotals();
+    }
+
+    // Functie om de hoeveelheid van een item te verlagen
+    void DecreaseAantalProduct(InvoiceItem invoiceItem)
+    {
+        if (invoiceItem.AantalProduct > 1)
+        {
+            invoiceItem.AantalProduct--;
+        }
+        else
+        {
+            invoiceItems.Remove(invoiceItem);
+        }
         UpdateTotals();
     }
 
     // Functie om een item te verwijderen van de factuur
-    void RemoveFromInvoice(Product item)
+    void RemoveFromInvoice(InvoiceItem invoiceItem)
     {
-        invoiceItems.Remove(item);
+        invoiceItems.Remove(invoiceItem);
         UpdateTotals();
     }
 
     // Functie om totaalbedrag van de factuur te berekenen
     void UpdateTotals()
     {
-        subTotal = invoiceItems.Sum(item => item.Price);
+        subTotal = invoiceItems.Sum(item => item.Product.ProductPrijs * item.AantalProduct);
         tax = subTotal * 0.09M; // Eten is volgens mij een btw percentage van 9%
         total = subTotal + tax;
+    }
+
+    public class InvoiceItem
+    {
+        public Product ?Product { get; set; }
+        public int AantalProduct { get; set; }
     }
 }
