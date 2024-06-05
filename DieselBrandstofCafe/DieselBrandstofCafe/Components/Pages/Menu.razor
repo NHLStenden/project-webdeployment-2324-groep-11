@@ -34,7 +34,14 @@
                             <h3>@item.ProductNaam</h3>
                             @* <p>@item.Beschrijving</p> *@
                             <p>€@item.ProductPrijs</p>
-                            <button @onclick='() => AddToInvoice(item)'>Add to order</button>
+                            <div class="invoice-menu-controls">
+                                <div class="counter-background">
+                                    <button class="decrease-menu-item" @onclick='() => DecreaseAantalProductTemp(item)'>-</button>
+                                    <span>@GetTempAantal(item)</span>
+                                    <button class="increase-menu-item" @onclick='() => IncreaseAantalProductTemp(item)'>+</button>
+                                </div>
+                            </div>
+                            <button class="add-menu-item" @onclick='() => AddToInvoice(item)'>Add to order</button>
                         </div>
                     }
                 }
@@ -48,10 +55,17 @@
                 @foreach (var invoiceItem in invoiceItems)
                 {
                     <li>
-                        @invoiceItem.Product.ProductNaam (€@invoiceItem.Product.ProductPrijs x @invoiceItem.AantalProduct)
-                        <button @onclick="() => IncreaseAantalProduct(invoiceItem)">+</button>
-                        <button @onclick="() => DecreaseAantalProduct(invoiceItem)">-</button>
-                        <button @onclick="() => RemoveFromInvoice(invoiceItem)">Remove</button>
+                        <div class="invoice-item">
+                            <span>@invoiceItem.Product?.ProductNaam (€@invoiceItem.Product?.ProductPrijs)</span>
+                            <div class="invoice-item-controls">
+                                <span class="product-total">€@(invoiceItem.Product?.ProductPrijs * invoiceItem.AantalProduct)</span>
+                                <div class="counter-background">
+                                    <button class="decrease-invoice-item" @onclick="() => DecreaseAantalProduct(invoiceItem)">-</button>
+                                    <span>@invoiceItem.AantalProduct</span>
+                                    <button class="increase-invoice-item" @onclick="() => IncreaseAantalProduct(invoiceItem)">+</button>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 }
             </ul>
@@ -65,7 +79,9 @@
                     <button>Cash</button>
                     <button>Ideal</button>
                 </div>
-                <button class="place-order-button">Place the order</button>
+                <div class="place-order-button-container">
+                    <button class="place-order-button">Place Order</button>
+                </div>
             </div>
         </div>
         <div class="additional-cards">
@@ -91,10 +107,15 @@
 @code {
 
     List<Product>? menuItems;
+    Dictionary<int, int> tempProductQuantities = new Dictionary<int, int>();
 
     protected override async Task OnInitializedAsync()
     {
         menuItems = (await customerService.GetProductsAsync()).ToList();
+        foreach (var item in menuItems)
+        {
+            tempProductQuantities[item.ProductID] = 0; // Initialize temporary quantities
+        }
     }
 
     // Lijst om items op de factuur bij te houden
@@ -106,16 +127,47 @@
 
     void AddToInvoice(Product product)
     {
-        var existingItem = invoiceItems.FirstOrDefault(item => item.Product.ProductID == product.ProductID);
-        if (existingItem != null)
+        if (tempProductQuantities.TryGetValue(product.ProductID, out int quantity) && quantity > 0)
         {
-            existingItem.AantalProduct++;
+            var existingItem = invoiceItems.FirstOrDefault(item => item.Product?.ProductID == product.ProductID);
+            if (existingItem != null)
+            {
+                existingItem.AantalProduct += quantity;
+            }
+            else
+            {
+                invoiceItems.Add(new InvoiceItem { Product = product, AantalProduct = quantity });
+            }
+            tempProductQuantities[product.ProductID] = 0; // Reset temporary quantity after adding to invoice
+            UpdateTotals();
         }
-        else
+    }
+
+    // Functie om de hoeveelheid van een tijdelijk item te verhogen
+    void IncreaseAantalProductTemp(Product product)
+    {
+        if (tempProductQuantities.ContainsKey(product.ProductID))
         {
-            invoiceItems.Add(new InvoiceItem { Product = product, AantalProduct = 1 });
+            tempProductQuantities[product.ProductID]++;
         }
-        UpdateTotals();
+    }
+
+    // Functie om de hoeveelheid van een tijdelijk item te verlagen
+    void DecreaseAantalProductTemp(Product product)
+    {
+        if (tempProductQuantities.ContainsKey(product.ProductID) && tempProductQuantities[product.ProductID] > 0)
+        {
+            tempProductQuantities[product.ProductID]--;
+        }
+    }
+
+    int GetTempAantal(Product product)
+    {
+        if (tempProductQuantities.TryGetValue(product.ProductID, out int quantity))
+        {
+            return quantity;
+        }
+        return 0;
     }
 
     // Functie om de hoeveelheid van een item te verhogen
@@ -149,7 +201,7 @@
     // Functie om totaalbedrag van de factuur te berekenen
     void UpdateTotals()
     {
-        subTotal = invoiceItems.Sum(item => item.Product.ProductPrijs * item.AantalProduct);
+        subTotal = invoiceItems.Sum(item => (item.Product?.ProductPrijs ?? 0) * item.AantalProduct);
         tax = subTotal * 0.09M; // Eten is volgens mij een btw percentage van 9%
         total = subTotal + tax;
     }
