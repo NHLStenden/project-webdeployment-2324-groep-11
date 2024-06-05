@@ -3711,19 +3711,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\marti\\.nuget\\packages\\": {}
+    "C:\\Users\\bkoer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
+      "projectUniqueName": "C:\\HBO-ICT\\Periode4\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
       "projectName": "DieselBrandstofCafe",
-      "projectPath": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
-      "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\",
+      "projectPath": "C:\\HBO-ICT\\Periode4\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
+      "packagesPath": "C:\\Users\\bkoer\\.nuget\\packages\\",
+      "outputPath": "C:\\HBO-ICT\\Periode4\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bkoer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3802,7 +3802,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -3811,7 +3811,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Problem reading the cache file C:\\HBO-ICT\\Periode4\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }

@@ -202,8 +202,9 @@
             orders.Remove(order);
         }
     }
-
-    // This method returns the CSS class for a product based on its status.
+<<<<<<< HEAD
+    // The GetProductClass and GetOrderClass methods are used to determine the CSS class that should be applied to a product item in the UI based on its status.
+    // Specifically, they checks whether the product's status is "Completed" and returns the appropriate CSS class.
     private string GetProductClass(ProductPerBestelronde product)
     {
         return product.StatusBesteldeProduct == "Completed" ? "completed" : string.Empty;
@@ -215,3 +216,6 @@
         return order.StatusBestelling == "Completed" ? "completed-order" : string.Empty;
     }
 }
+=======
+}   
+>>>>>>> Brentch
