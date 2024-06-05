@@ -4,8 +4,9 @@
     "\\DieselBrandstofCafe",
     "\\DieselBrandstofCafe\\DieselBrandstofCafe",
     "\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components",
+    "\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Data",
     "\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Layout"
   ],
-  "SelectedNode": "\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Layout\\NavMenu.razor",
+  "SelectedNode": "\\DieselBrandstofCafe\\DieselBrandstofCafe\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
