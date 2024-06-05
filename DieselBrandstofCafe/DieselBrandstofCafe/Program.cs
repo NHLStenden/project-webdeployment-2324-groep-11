@@ -21,7 +21,7 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IManagerService, ManagerService>();
-builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
+builder.Services.AddScoped<IProductTotBestelrondeService, ProductTotBestelrondeService>();
 
 
 // Register IDbConnection
