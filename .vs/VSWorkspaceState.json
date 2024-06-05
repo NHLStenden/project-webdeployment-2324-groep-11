@@ -1,10 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BrandstofCafe",
-    "\\BrandstofCafe\\Components",
-    "\\BrandstofCafe\\Components\\Pages"
+    "\\DieselBrandstofCafe",
+    "\\DieselBrandstofCafe\\DieselBrandstofCafe",
+    "\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components",
+    "\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Layout"
   ],
-  "SelectedNode": "\\BrandstofCafe\\Components\\Pages\\Auth.razor",
+  "SelectedNode": "\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Layout\\NavMenu.razor",
   "PreviewInSolutionExplorer": false
 }
