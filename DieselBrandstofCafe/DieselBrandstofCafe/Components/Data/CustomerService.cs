@@ -27,17 +27,15 @@ namespace DieselBrandstofCafe.Components.Data
     }
 
     // Implementation of the ICustomerService interface
-    public class CustomerService : ICustomerService
+    public class CustomerService(IConfiguration configuration) : ICustomerService
     {
         // Connection string to the MySQL database
-        private readonly string _connectionString;
-
-        // Constructor to initialize the connection string from configuration settings
-        public CustomerService(IConfiguration configuration)
-        {
-            _connectionString = configuration?.GetConnectionString("DefaultConnection")
+        private readonly string _connectionString = 
+            // Constructor to initialize the connection string from configuration settings
+             configuration?.GetConnectionString("DefaultConnection")
                 ?? throw new ArgumentNullException(nameof(configuration), "Configuration cannot be null.");
-        }
+
+
 
         // Method to retrieve a list of products
         public async Task<IEnumerable<Product>> GetProductsAsync()

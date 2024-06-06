@@ -2,6 +2,9 @@
 @using DieselBrandstofCafe.Components.Models
 @using DieselBrandstofCafe.Components.Data
 @inject ICustomerService customerService
+@inject IProductPerBestelrondeService productPerBestelrondeService
+@inject IOrderService orderService
+@inject NavigationManager navigationManager
 
 <div class="menu-page">
     <div class="left-panel">
@@ -32,7 +35,6 @@
                     {
                         <div class="menu-item">
                             <h3>@item.ProductNaam</h3>
-                            @* <p>@item.Beschrijving</p> *@
                             <p>€@item.ProductPrijs</p>
                             <button @onclick='() => AddToInvoice(item)'>Add to order</button>
                         </div>
@@ -65,7 +67,9 @@
                     <button>Cash</button>
                     <button>Ideal</button>
                 </div>
-                <button class="place-order-button">Place the order</button>
+                <div class="place-order-button-container">
+                    <button class="place-order-button" @onclick="PlaceOrder">Place Order</button>
+                </div>
             </div>
         </div>
         <div class="additional-cards">
@@ -97,35 +101,60 @@
         menuItems = (await customerService.GetProductsAsync()).ToList();
     }
 
-    // Lijst om items op de factuur bij te houden
-    List<InvoiceItem> invoiceItems = new List<InvoiceItem>();
-
-    decimal subTotal = 0;
-    decimal tax = 0;
-    decimal total = 0;
-
     void AddToInvoice(Product product)
     {
         var existingItem = invoiceItems.FirstOrDefault(item => item.Product.ProductID == product.ProductID);
         if (existingItem != null)
         {
-            existingItem.AantalProduct++;
+            var existingItem = invoiceItems.FirstOrDefault(item => item.Product?.ProductID == product.ProductID);
+            if (existingItem != null)
+            {
+                existingItem.AantalProduct += quantity;
+            }
+            else
+            {
+                invoiceItems.Add(new InvoiceItem { Product = product, AantalProduct = quantity });
+            }
+            tempProductQuantities[product.ProductID] = 0; // Reset temporary quantity after adding to invoice
+            UpdateTotal();
         }
-        else
+    }
+
+    // Function to increase the quantity of a temporary item
+    void IncreaseAantalProductTemp(Product product)
+    {
+        if (tempProductQuantities.ContainsKey(product.ProductID))
         {
             invoiceItems.Add(new InvoiceItem { Product = product, AantalProduct = 1 });
         }
-        UpdateTotals();
     }
 
-    // Functie om de hoeveelheid van een item te verhogen
+    // Function to decrease the quantity of a temporary item
+    void DecreaseAantalProductTemp(Product product)
+    {
+        if (tempProductQuantities.ContainsKey(product.ProductID) && tempProductQuantities[product.ProductID] > 0)
+        {
+            tempProductQuantities[product.ProductID]--;
+        }
+    }
+
+    int GetTempAantal(Product product)
+    {
+        if (tempProductQuantities.TryGetValue(product.ProductID, out int quantity))
+        {
+            return quantity;
+        }
+        return 0;
+    }
+
+    // Function to increase the quantity of an item
     void IncreaseAantalProduct(InvoiceItem invoiceItem)
     {
         invoiceItem.AantalProduct++;
-        UpdateTotals();
+        UpdateTotal();
     }
 
-    // Functie om de hoeveelheid van een item te verlagen
+    // Function to decrease the quantity of an item
     void DecreaseAantalProduct(InvoiceItem invoiceItem)
     {
         if (invoiceItem.AantalProduct > 1)
@@ -136,27 +165,34 @@
         {
             invoiceItems.Remove(invoiceItem);
         }
-        UpdateTotals();
+        UpdateTotal();
     }
 
-    // Functie om een item te verwijderen van de factuur
-    void RemoveFromInvoice(InvoiceItem invoiceItem)
+    // Function to update the totals
+    void UpdateTotal()
     {
-        invoiceItems.Remove(invoiceItem);
-        UpdateTotals();
-    }
-
-    // Functie om totaalbedrag van de factuur te berekenen
-    void UpdateTotals()
-    {
-        subTotal = invoiceItems.Sum(item => item.Product.ProductPrijs * item.AantalProduct);
-        tax = subTotal * 0.09M; // Eten is volgens mij een btw percentage van 9%
+        subTotal = invoiceItems.Sum(i => i.Product?.ProductPrijs * i.AantalProduct) ?? 0;
+        tax = subTotal * 0.09M;
         total = subTotal + tax;
     }
 
-    public class InvoiceItem
+    public async Task PlaceOrder()
     {
-        public Product ?Product { get; set; }
-        public int AantalProduct { get; set; }
+        try
+        {
+            var bestellingId = await orderService.PlaceOrderAsync(invoiceItems);
+            Console.WriteLine($"Order placed successfully with ID: {bestellingId}");
+            navigationManager.NavigateTo("/ordersuccess");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error placing order: {ex.Message}");
+        }
     }
+
+    decimal subTotal = 0;
+    decimal tax = 0;
+    decimal total = 0;
+
+    List<InvoiceItem> invoiceItems = new List<InvoiceItem>();
 }

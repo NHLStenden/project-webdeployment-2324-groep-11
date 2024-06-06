@@ -5,7 +5,7 @@ USE DieselDatabaseV1;
 DROP TABLE IF EXISTS Categorie;
 CREATE TABLE Categorie
 (
-    CategorieID INT,
+    CategorieID INT NOT NULL AUTO_INCREMENT,
     NaamCategorie VARCHAR(100),
     ParentID INT,
     PRIMARY KEY (CategorieID)
@@ -14,7 +14,7 @@ CREATE TABLE Categorie
 DROP TABLE IF EXISTS Product;
 CREATE TABLE Product
 (
-    ProductID INT NOT NULL,
+    ProductID INT NOT NULL AUTO_INCREMENT,
     CategorieID INT NOT NULL,
     ProductNaam VARCHAR(24) NOT NULL,
     ProductPrijs INT NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE Product
 DROP TABLE IF EXISTS Bestelronde;
 CREATE TABLE Bestelronde
 (
-    BestelrondeID INT NOT NULL,
+    BestelrondeID INT NOT NULL AUTO_INCREMENT,
     OberID INT,
     StatusBestelling VARCHAR(24) NOT NULL,
     Tijd DATETIME NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE Product_per_Bestelronde
 DROP TABLE IF EXISTS Ober;
 CREATE TABLE Ober
 (
-    OberID INT NOT NULL,
+    OberID INT NOT NULL AUTO_INCREMENT,
     MedewerkerID INT NOT NULL,
     OberNaam VARCHAR(48) NOT NULL,
     Inlognaam VARCHAR(28) NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE Ober
 DROP TABLE IF EXISTS Medewerker;
 CREATE TABLE Medewerker
 (
-    MedewerkerID INT NOT NULL,
+    MedewerkerID INT NOT NULL AUTO_INCREMENT,
     MedewerkerNaam VARCHAR(48) NOT NULL,
     Telefoonnummer VARCHAR(15) NOT NULL,
     EmailMedewerker VARCHAR(48) NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE Medewerker_Ober_koppel
 DROP TABLE IF EXISTS Bestelling;
 CREATE TABLE Bestelling
 (
-    BestellingID INT NOT NULL,
+    BestellingID INT NOT NULL AUTO_INCREMENT,
     TafelID INT,
     BestelrondeID INT,
     StatusBestelling VARCHAR(24) NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE Tafel
 DROP TABLE IF EXISTS Overzicht;
 CREATE TABLE Overzicht
 (
-    OverzichtID INT NOT NULL,
+    OverzichtID INT NOT NULL AUTO_INCREMENT,
     BestellingID INT,
     ProductVerkocht INT,
     ProductVoorraad INT,
@@ -117,49 +117,49 @@ CREATE TABLE Overzicht_per_product
 );
 
 ALTER TABLE Categorie
-ADD FOREIGN KEY (ParentID) REFERENCES Categorie(CategorieID);
+ADD FOREIGN KEY (ParentID) REFERENCES Categorie(CategorieID) ON DELETE SET NULL;
 
 ALTER TABLE Product
-ADD FOREIGN KEY (CategorieID) REFERENCES Categorie(CategorieID);
+ADD FOREIGN KEY (CategorieID) REFERENCES Categorie(CategorieID) ON DELETE CASCADE;
 
 ALTER TABLE Product
-ADD FOREIGN KEY (AddID) REFERENCES Product(ProductID);
+ADD FOREIGN KEY (AddID) REFERENCES Product(ProductID) ON DELETE SET NULL;
 
 ALTER TABLE Bestelronde
-ADD FOREIGN KEY (OberID) REFERENCES Ober(OberID);
+ADD FOREIGN KEY (OberID) REFERENCES Ober(OberID) ON DELETE CASCADE;
 
 ALTER TABLE Product_per_Bestelronde
-ADD FOREIGN KEY (ProductID) REFERENCES Product(ProductID);
+ADD FOREIGN KEY (ProductID) REFERENCES Product(ProductID) ON DELETE CASCADE;
 
 ALTER TABLE Product_per_Bestelronde
-ADD FOREIGN KEY (BestelrondeID) REFERENCES Bestelronde(BestelrondeID);
+ADD FOREIGN KEY (BestelrondeID) REFERENCES Bestelronde(BestelrondeID) ON DELETE CASCADE;
 
 ALTER TABLE Ober
-ADD FOREIGN KEY (MedewerkerID) REFERENCES Medewerker(MedewerkerID);
+ADD FOREIGN KEY (MedewerkerID) REFERENCES Medewerker(MedewerkerID) ON DELETE CASCADE;
 
 ALTER TABLE Medewerker
-ADD FOREIGN KEY (SupervisorID) REFERENCES Medewerker(MedewerkerID);
+ADD FOREIGN KEY (SupervisorID) REFERENCES Medewerker(MedewerkerID) ON DELETE SET NULL;
 
 ALTER TABLE Medewerker_Ober_koppel
-ADD FOREIGN KEY (MedewerkerID) REFERENCES Medewerker(MedewerkerID);
+ADD FOREIGN KEY (MedewerkerID) REFERENCES Medewerker(MedewerkerID) ON DELETE CASCADE;
 
 ALTER TABLE Medewerker_Ober_koppel
-ADD FOREIGN KEY (OberID) REFERENCES Ober(OberID);
+ADD FOREIGN KEY (OberID) REFERENCES Ober(OberID) ON DELETE CASCADE;
 
 ALTER TABLE Bestelling
-ADD FOREIGN KEY (TafelID) REFERENCES Tafel(TafelID);
+ADD FOREIGN KEY (TafelID) REFERENCES Tafel(TafelID) ON DELETE CASCADE;
 
 ALTER TABLE Bestelling
-ADD FOREIGN KEY (BestelrondeID) REFERENCES Bestelronde(BestelrondeID);
+ADD FOREIGN KEY (BestelrondeID) REFERENCES Bestelronde(BestelrondeID) ON DELETE CASCADE;
 
 ALTER TABLE Overzicht
-ADD FOREIGN KEY (BestellingID) REFERENCES Bestelling(BestellingID);
+ADD FOREIGN KEY (BestellingID) REFERENCES Bestelling(BestellingID) ON DELETE CASCADE;
 
 ALTER TABLE Overzicht_per_product
-ADD FOREIGN KEY (ProductID) REFERENCES Product(ProductID);
+ADD FOREIGN KEY (ProductID) REFERENCES Product(ProductID) ON DELETE CASCADE;
 
 ALTER TABLE Overzicht_per_product
-ADD FOREIGN KEY (OverzichtID) REFERENCES Overzicht(OverzichtID);
+ADD FOREIGN KEY (OverzichtID) REFERENCES Overzicht(OverzichtID) ON DELETE CASCADE;
 
 -- Insert dummy data
 
