@@ -1,9 +1,7 @@
 using DieselBrandstofCafe.Components;
 using DieselBrandstofCafe.Components.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Data;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,8 +19,9 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IManagerService, ManagerService>();
-builder.Services.AddScoped<IProductTotBestelrondeService, ProductTotBestelrondeService>();
-
+builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
+builder.Services.AddScoped<IProductPerBestelrondeService, ProductPerBestelrondeService>();
+builder.Services.AddScoped<IVoorraadOverviewService, VoorraadOverviewService>();
 
 // Register IDbConnection
 builder.Services.AddTransient<IDbConnection>(sp =>
@@ -30,7 +29,7 @@ builder.Services.AddTransient<IDbConnection>(sp =>
     var configuration = sp.GetRequiredService<IConfiguration>();
     var connectionString = configuration.GetConnectionString("DefaultConnection")
                            ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-    return new SqlConnection(connectionString);
+    return new MySqlConnection(connectionString);
 });
 
 
