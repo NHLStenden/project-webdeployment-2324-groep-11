@@ -1,5 +1,6 @@
 using DieselBrandstofCafe.Components;
 using DieselBrandstofCafe.Components.Data;
+using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using System.Data;
 
@@ -21,6 +22,7 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IManagerService, ManagerService>();
 builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<IProductPerBestelrondeService, ProductPerBestelrondeService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 // Register IDbConnection
 builder.Services.AddTransient<IDbConnection>(sp =>
@@ -38,9 +40,9 @@ var app = builder.Build();
 // HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-	app.UseExceptionHandler("/Error", createScopeForErrors: true);
-	// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-	app.UseHsts();
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
@@ -48,6 +50,6 @@ app.UseStaticFiles();
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
-	.AddInteractiveServerRenderMode();
+    .AddInteractiveServerRenderMode();
 
 app.Run();
