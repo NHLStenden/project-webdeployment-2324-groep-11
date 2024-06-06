@@ -32,14 +32,29 @@
     padding-top: 10px;
 }
 
-.Status-Completed{
-    color: green;
+.Status-Completed {
+    color: #064E3B;
+    background-color: #ECFDF5;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    padding: 10px;
 }
 
 .Status-Progress {
-    color: orange;
+    color: #FF5C00;
+    background-color: #fcdbc9;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    padding: 10px;
 }
 
 .Status-Pending {
     color: yellow;
+    background-color: #fff9c4;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    padding: 10px;
 }

@@ -201,6 +201,67 @@ main[b-i32kgcyl5t] {
         overflow-y: auto;
     }
 }
+/* _content/DieselBrandstofCafe/Components/Pages/Home.razor.rz.scp.css */
+ .card-padding[b-av0pgya32l] {
+    margin: 5px;
+    border-radius: 1.25rem;
+}
+
+.menu-item[b-av0pgya32l] {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FF6F00;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+.generic-button[b-av0pgya32l] {
+    background-color: #FF6F00;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.Barstyle[b-av0pgya32l] {
+    margin-trim: block;
+}
+
+.Text-padding[b-av0pgya32l] {
+    padding-top: 10px;
+}
+
+.Status-Completed[b-av0pgya32l] {
+    color: #064E3B;
+    background-color: #ECFDF5;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    padding: 10px;
+}
+
+.Status-Progress[b-av0pgya32l] {
+    color: #FF5C00;
+    background-color: #ECFDF5;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    padding: 10px;
+}
+
+.Status-Pending[b-av0pgya32l] {
+    color: yellow;
+    background-color: #ECFDF5;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    padding: 10px;
+}
 /* _content/DieselBrandstofCafe/Components/Pages/Menu.razor.rz.scp.css */
 .menu-page[b-iqj438ct1u] {
     display: flex;
