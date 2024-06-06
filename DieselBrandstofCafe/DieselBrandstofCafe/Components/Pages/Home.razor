@@ -1,5 +1,8 @@
 ﻿@page "/"
+@using DieselBrandstofCafe.Components.Data
+@using DieselBrandstofCafe.Components.Models
 @inject NavigationManager NavigationManager
+@inject IEmployeeService EmployeeService
 
 <PageTitle>Home</PageTitle>
 
@@ -124,35 +127,27 @@
             <div class="col-4">
                 <div class="card h-100 card-padding">
                     <h6 class="Text-padding"><b>Your Last Orders</b></h6>
-                    <div class="row" style="color:grey; font-size:x-small">
-                        <p class="col-3">Order</p>
-                        <p class="col-3">Date</p>
+
+                    <div class="row justify-content-center" style="font-size:smaller">
+
+                        <p class="col-3">Order ID</p>
+                        <p class="col-3">Tijd</p>
                         <p class="col-3">Status</p>
-                        <p class="col-3">Total Spent</p>
-                    </div>
-                    <div class="row" style="color:black; font-size:x-small">
-                        <p class="col-3">#29345</p>
-                        <p class="col-3">15 May 2024</p>
-                        <p class="col-3" style="color:orange; ">Preparing</p>
-                        <p class="col-3">20</p>
-                    </div>
-                    <div class="row" style="color:black; font-size:x-small">
-                        <p class="col-3">#29625</p>
-                        <p class="col-3">15 May 2024</p>
-                        <p class="col-3" style="color:green; ">Completed</p>
-                        <p class="col-3">15</p>
-                    </div>
-                    <div class="row" style="color:black; font-size:x-small">
-                        <p class="col-3">#29625</p>
-                        <p class="col-3">15 May 2024</p>
-                        <p class="col-3" style="color:green; ">Completed</p>
-                        <p class="col-3">15</p>
-                    </div>
-                    <div class="row" style="color:black; font-size:x-small">
-                        <p class="col-3">#29625</p>
-                        <p class="col-3">15 May 2024</p>
-                        <p class="col-3" style="color:green; ">Completed</p>
-                        <p class="col-3">15</p>
+                        <p class="col-3">Prijs</p>
+                        <br />
+                        
+                            @foreach (var item in bestellingen)
+                            {
+                       
+                                    <p class="col-3" >@item.BestellingID#</p>
+                                    <p class="col-3">@item.TijdBestelling</p>
+                                    <p class="@GetStatusColorClass(item.StatusBestelling) col-3">@item.StatusBestelling</p>
+                                    <p class="col-3">€@item.TotaalPrijs</p>
+                                    <br />
+
+
+                            }
+                        
                     </div>
                 </div>
             </div>
@@ -205,51 +200,37 @@
 <br />
 <br />
 
-<style>
-
-    .card-padding {
-        margin: 5px;
-        border-radius: 1.25rem;
-    }
-
-    .menu-item {
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #FF6F00;
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        border-radius: 10px;
-    }
-
-
-    .generic-button {
-        background-color: #FF6F00;
-        color: white;
-        padding: 10px;
-        border-radius: 10px;
-    }
-
-    .Barstyle {
-        margin-trim: block;
-    }
-
-    .Text-padding {
-        padding-top: 10px;
-    }
-
-</style>
-
-
 @code {
+    private List<Bestelling> bestellingen = new List<Bestelling>();
 
     public void ToMenu()
     {
         NavigationManager.NavigateTo("/menu");
     }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        bestellingen = (await EmployeeService.GetOrderHistoryAsync()).ToList();
+    }
+
+
+    string GetStatusColorClass(string ?status)
+    {
+        switch (status)
+        {
+            case "Pending":
+                return "Status-Pending";
+            case "In Progress":
+                return "Status-Progress";
+            case "Completed":
+                return "Status-Completed";
+            default:
+                return "text-muted";
+        }
+    }
+
+
 
 
 }

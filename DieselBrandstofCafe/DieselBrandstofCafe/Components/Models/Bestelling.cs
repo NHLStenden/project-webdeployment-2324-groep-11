@@ -5,7 +5,7 @@
         public int BestellingID { get; set; }
         public int TafelID { get; set; }
         public string? StatusBestelling { get; set; }
-        public DateTime Tijd { get; set; }
+        public DateTime TijdBestelling { get; set; }
         public List<Product>? Producten { get; set; }
         public int Kostenplaatsnummer { get; set; }
         public int TotaalPrijs { get; set; }
