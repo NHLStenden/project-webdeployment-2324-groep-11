@@ -18,9 +18,6 @@ namespace DieselBrandstofCafe.Components.Data
             private readonly string _connectionString = configuration?.GetConnectionString("DefaultConnection")
                         ?? throw new ArgumentNullException(nameof(configuration), "Configuration cannot be null.");
 
-
-        
-
             // Dit haalt de bestelrondeID op
             public async Task<IEnumerable<ProductPerBestelronde>> GetProductsPerBestelrondeAsync(int bestelrondeId)
             {
