@@ -135,6 +135,14 @@
     justify-content: center;
 }
 
+    .increase-menu-item:hover,
+    .increase-invoice-item:hover,
+    .add-menu-item:hover,
+    .place-order-button:hover,
+    .sign-up-updates button:hover {
+        background-color: #FFAE70;
+    }
+
 .decrease-menu-item,
 .decrease-invoice-item {
     background-color: white;
@@ -223,13 +231,12 @@
         border: none;
         cursor: pointer;
         border-radius: 10px;
+        background-color: #FFCBA3;
+        color: #FF6F00;
     }
 
-        .payment-methods button:nth-child(1),
-        .payment-methods button:nth-child(2),
-        .payment-methods button:nth-child(3) {
-            background-color: #FFCBA3;
-            color: #FF6F00;
+        .payment-methods button:hover {
+            background-color: #FFE8D6;
         }
 
 .place-order-button-container {
