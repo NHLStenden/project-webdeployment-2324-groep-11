@@ -48,6 +48,15 @@
                         <div class="menu-item">
                             <h3>@item.ProductNaam</h3>
                             <p>€@item.ProductPrijs</p>
+                            <div class="add-ons">
+                                <select id="addOnSelect" @onchange="(e) => SelectAddOn(e, item.ProductID)">
+                                    <option value="">Extra Add-ons</option>
+                                    @foreach (var addOn in addOns)
+                                    {
+                                        <option value="@addOn.ProductID">@addOn.ProductNaam - €@addOn.ProductPrijs</option>
+                                    }
+                                </select>
+                            </div>
                             <div class="invoice-menu-controls">
                                 <div class="counter-background">
                                     <button class="decrease-menu-item" @onclick='() => DecreaseAantalProductTemp(item)'>-</button>
@@ -124,11 +133,14 @@
 
     List<Product>? menuItems;
     List<Categorie>? categories;
+    List<Product>? addOns;
     Dictionary<int, int> tempProductQuantities = new Dictionary<int, int>();
+    Dictionary<int, int?> selectedAddOns = new Dictionary<int, int?>();
 
     protected override async Task OnInitializedAsync()
     {
         categories = (await categorieService.GetCategorieënAsync()).ToList();
+        addOns = (await customerService.GetAddOnsAsync()).ToList();
         await LoadAllMenuItems();
     }
 
@@ -153,6 +165,19 @@
         }
     }
 
+    void SelectAddOn(ChangeEventArgs e, int productId)
+    {
+        var selectedAddOnId = int.TryParse(e.Value?.ToString(), out var result) ? result : (int?)null;
+        if (selectedAddOns.ContainsKey(productId))
+        {
+            selectedAddOns[productId] = selectedAddOnId;
+        }
+        else
+        {
+            selectedAddOns.Add(productId, selectedAddOnId);
+        }
+    }
+
     void AddToInvoice(Product product)
     {
         if (tempProductQuantities.TryGetValue(product.ProductID, out int quantity) && quantity > 0)
@@ -165,6 +190,15 @@
             else
             {
                 invoiceItems.Add(new InvoiceItem { Product = product, AantalProduct = quantity });
+            }
+
+            if (selectedAddOns.TryGetValue(product.ProductID, out int? addOnId) && addOnId.HasValue)
+            {
+                var addOn = addOns?.FirstOrDefault(a => a.ProductID == addOnId.Value);
+                if (addOn != null)
+                {
+                    invoiceItems.Add(new InvoiceItem { Product = addOn, AantalProduct = quantity });
+                }
             }
             tempProductQuantities[product.ProductID] = 0; // Reset temporary quantity after adding to invoice
             UpdateTotal();

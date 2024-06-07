@@ -455,6 +455,14 @@ h3[b-ijxndq88r7] {
     justify-content: space-between;
 }
 
+#addOnSelect[b-iqj438ct1u] {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 2em;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
 .add-menu-item[b-iqj438ct1u] {
     bottom: 10px;
     background-color: #FF6F00;

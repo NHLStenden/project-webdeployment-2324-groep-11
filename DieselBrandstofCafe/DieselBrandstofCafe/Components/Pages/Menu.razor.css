@@ -105,6 +105,14 @@
     justify-content: space-between;
 }
 
+#addOnSelect {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 2em;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
 .add-menu-item {
     bottom: 10px;
     background-color: #FF6F00;

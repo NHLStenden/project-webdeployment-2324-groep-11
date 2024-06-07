@@ -11,6 +11,9 @@ namespace DieselBrandstofCafe.Components.Data
     // Interface definition for CustomerService to handle various customer-related operations
     public interface ICustomerService
     {
+        // Method to select Add-ons
+        Task<IEnumerable<Product>> GetAddOnsAsync();
+
         // Method to retrieve a list of products
         Task<IEnumerable<Product>> GetProductsAsync();
 
@@ -37,8 +40,6 @@ namespace DieselBrandstofCafe.Components.Data
             // Constructor to initialize the connection string from configuration settings
              configuration?.GetConnectionString("DefaultConnection")
                 ?? throw new ArgumentNullException(nameof(configuration), "Configuration cannot be null.");
-
-
 
         // Method to retrieve a list of products
         public async Task<IEnumerable<Product>> GetProductsByCategoryAsync(int categoryId)
@@ -92,6 +93,15 @@ namespace DieselBrandstofCafe.Components.Data
                 var sql = "UPDATE Bestelling SET Status = @Status WHERE BestellingID = @BestellingID";
                 // Execute the update statement to change the status of the specified order
                 await connection.ExecuteAsync(sql, new { BestellingID = orderId, Status = status });
+            }
+        }
+        public async Task<IEnumerable<Product>> GetAddOnsAsync()
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                // Assuming 'IsAddOn' is a boolean column in the Product table that indicates if a product is an add-on
+                string query = "SELECT * FROM Product /*WHERE IsAddOn = true*/";
+                return await connection.QueryAsync<Product>(query);
             }
         }
     }
