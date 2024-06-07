@@ -201,10 +201,102 @@ main[b-i32kgcyl5t] {
         overflow-y: auto;
     }
 }
+<<<<<<< Updated upstream
 /* _content/DieselBrandstofCafe/Components/Pages/Home.razor.rz.scp.css */
  .card-padding[b-av0pgya32l] {
     margin: 5px;
     border-radius: 1.25rem;
+=======
+/* _content/DieselBrandstofCafe/Components/Pages/EmployeeDashboard.razor.rz.scp.css */
+/* General Styles */
+body[b-ijxndq88r7] {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+h3[b-ijxndq88r7] {
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Orders Board Styles */
+.orders-board[b-ijxndq88r7] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+.orders-card[b-ijxndq88r7] {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 15px;
+    width: 300px;
+}
+
+    .orders-card ul[b-ijxndq88r7] {
+        list-style-type: none;
+        padding: 0;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .orders-card h4[b-ijxndq88r7] {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .orders-card ul[b-ijxndq88r7] {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        .orders-card ul li[b-ijxndq88r7] {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-bottom: 5px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .orders-card ul li button[b-ijxndq88r7] {
+                background-color: #28a745;
+                border: none;
+                border-radius: 3px;
+                color: #fff;
+                cursor: pointer;
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+
+                .orders-card ul li button:hover[b-ijxndq88r7] {
+                    background-color: #218838;
+                }
+
+/* Completed Product Styles */
+.completed[b-ijxndq88r7] {
+    color: #bbb;
+    text-decoration: line-through;
+}
+
+/* Completed Order Styles */
+.completed-order[b-ijxndq88r7] {
+    color: #bbb;
+}
+/* _content/DieselBrandstofCafe/Components/Pages/Menu.razor.rz.scp.css */
+.menu-page[b-iqj438ct1u] {
+    display: flex;
+    justify-content: space-between;
+>>>>>>> Stashed changes
 }
 
 .menu-item[b-av0pgya32l] {
