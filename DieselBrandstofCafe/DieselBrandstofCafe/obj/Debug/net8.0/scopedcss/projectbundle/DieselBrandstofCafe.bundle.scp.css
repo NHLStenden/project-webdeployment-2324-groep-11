@@ -247,7 +247,7 @@ main[b-i32kgcyl5t] {
 
 .Status-Progress[b-av0pgya32l] {
     color: #FF5C00;
-    background-color: #ECFDF5;
+    background-color: #fcdbc9;
     border-radius: 10px;
     text-align: center;
     width: auto;
@@ -256,7 +256,7 @@ main[b-i32kgcyl5t] {
 
 .Status-Pending[b-av0pgya32l] {
     color: yellow;
-    background-color: #ECFDF5;
+    background-color: #fff9c4;
     border-radius: 10px;
     text-align: center;
     width: auto;
