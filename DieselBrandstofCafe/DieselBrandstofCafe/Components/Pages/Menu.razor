@@ -36,7 +36,14 @@
                         <div class="menu-item">
                             <h3>@item.ProductNaam</h3>
                             <p>€@item.ProductPrijs</p>
-                            <button @onclick='() => AddToInvoice(item)'>Add to order</button>
+                            <div class="invoice-menu-controls">
+                                <div class="counter-background">
+                                    <button class="decrease-menu-item" @onclick='() => DecreaseAantalProductTemp(item)'>-</button>
+                                    <span>@GetTempAantal(item)</span>
+                                    <button class="increase-menu-item" @onclick='() => IncreaseAantalProductTemp(item)'>+</button>
+                                </div>
+                            </div>
+                            <button class="add-menu-item" @onclick='() => AddToInvoice(item)'>Add to order</button>
                         </div>
                     }
                 }
@@ -50,10 +57,17 @@
                 @foreach (var invoiceItem in invoiceItems)
                 {
                     <li>
-                        @invoiceItem.Product.ProductNaam (€@invoiceItem.Product.ProductPrijs x @invoiceItem.AantalProduct)
-                        <button @onclick="() => IncreaseAantalProduct(invoiceItem)">+</button>
-                        <button @onclick="() => DecreaseAantalProduct(invoiceItem)">-</button>
-                        <button @onclick="() => RemoveFromInvoice(invoiceItem)">Remove</button>
+                        <div class="invoice-item">
+                            <span>@invoiceItem.Product?.ProductNaam (€@invoiceItem.Product?.ProductPrijs)</span>
+                            <div class="invoice-item-controls">
+                                <span class="product-total">€@(invoiceItem.Product?.ProductPrijs * invoiceItem.AantalProduct)</span>
+                                <div class="counter-background">
+                                    <button class="decrease-invoice-item" @onclick="() => DecreaseAantalProduct(invoiceItem)">-</button>
+                                    <span>@invoiceItem.AantalProduct</span>
+                                    <button class="increase-invoice-item" @onclick="() => IncreaseAantalProduct(invoiceItem)">+</button>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 }
             </ul>
@@ -95,16 +109,20 @@
 @code {
 
     List<Product>? menuItems;
+    Dictionary<int, int> tempProductQuantities = new Dictionary<int, int>();
 
     protected override async Task OnInitializedAsync()
     {
         menuItems = (await customerService.GetProductsAsync()).ToList();
+        foreach (var item in menuItems)
+        {
+            tempProductQuantities[item.ProductID] = 0; // Initialize temporary quantities
+        }
     }
 
     void AddToInvoice(Product product)
     {
-        var existingItem = invoiceItems.FirstOrDefault(item => item.Product.ProductID == product.ProductID);
-        if (existingItem != null)
+        if (tempProductQuantities.TryGetValue(product.ProductID, out int quantity) && quantity > 0)
         {
             var existingItem = invoiceItems.FirstOrDefault(item => item.Product?.ProductID == product.ProductID);
             if (existingItem != null)
@@ -125,7 +143,7 @@
     {
         if (tempProductQuantities.ContainsKey(product.ProductID))
         {
-            invoiceItems.Add(new InvoiceItem { Product = product, AantalProduct = 1 });
+            tempProductQuantities[product.ProductID]++;
         }
     }
 

@@ -22,11 +22,8 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IManagerService, ManagerService>();
 builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<IProductPerBestelrondeService, ProductPerBestelrondeService>();
-<<<<<<< HEAD
 builder.Services.AddScoped<IVoorraadOverviewService, VoorraadOverviewService>();
-=======
 builder.Services.AddScoped<IOrderService, OrderService>();
->>>>>>> 992259d40251a3aed98a41cc1f24216e59ba4557
 
 // Register IDbConnection
 builder.Services.AddTransient<IDbConnection>(sp =>
