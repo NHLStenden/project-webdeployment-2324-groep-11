@@ -4,6 +4,7 @@
 @inject ICustomerService customerService
 @inject IProductPerBestelrondeService productPerBestelrondeService
 @inject IOrderService orderService
+@inject ICategorieService categorieService
 @inject NavigationManager navigationManager
 
 <div class="menu-page">
@@ -11,11 +12,22 @@
         <div class="categories">
             <h2>Categories</h2>
             <div class="category-list">
-                <div class="category-card"><button class="category-button"><img src=""><span>Beverages</span></button></div>
-                <div class="category-card"><button class="category-button"><img src=""><span>Breakfast</span></button></div>
-                <div class="category-card"><button class="category-button"><img src=""><span>Sandwiches</span></button></div>
-                <div class="category-card"><button class="category-button"><img src=""><span>Soup & Salad</span></button></div>
-                <div class="category-card"><button class="category-button"><img src=""><span>Pastry & Desserts</span></button></div>
+                @if (categories == null)
+                {
+                    <p>Loading...</p>
+                }
+                else
+                {
+                    @foreach (var category in categories)
+                    {
+                        <div class="category-card">
+                            <button class="category-button" @onclick='() => LoadMenuItems(category.CategorieID)'>
+                                <img src="">
+                                <span>@category.NaamCategorie</span>
+                            </button>
+                        </div>
+                    }
+                }
             </div>
         </div>
         <div class="menu-items">
@@ -50,6 +62,7 @@
             </div>
         </div>
     </div>
+
     <div class="right-panel">
         <div class="order-summary">
             <h2>Invoice</h2>
@@ -106,17 +119,37 @@
     </div>
 </div>
 
+
 @code {
 
     List<Product>? menuItems;
+    List<Categorie>? categories;
     Dictionary<int, int> tempProductQuantities = new Dictionary<int, int>();
 
     protected override async Task OnInitializedAsync()
     {
+        categories = (await categorieService.GetCategorieënAsync()).ToList();
+        await LoadAllMenuItems();
+    }
+
+    async Task LoadAllMenuItems()
+    {
         menuItems = (await customerService.GetProductsAsync()).ToList();
+        InitializeTempQuantities();
+    }
+
+    async Task LoadMenuItems(int categoryId)
+    {
+        menuItems = (await customerService.GetProductsByCategoryAsync(categoryId)).ToList();
+        InitializeTempQuantities();
+    }
+
+    void InitializeTempQuantities()
+    {
+        tempProductQuantities = new Dictionary<int, int>();
         foreach (var item in menuItems)
         {
-            tempProductQuantities[item.ProductID] = 0; // Initialize temporary quantities
+            tempProductQuantities[item.ProductID] = 0;
         }
     }
 

@@ -24,6 +24,8 @@ builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
 builder.Services.AddScoped<IProductPerBestelrondeService, ProductPerBestelrondeService>();
 builder.Services.AddScoped<IVoorraadOverviewService, VoorraadOverviewService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<ICategorieService, CategorieService>();
+
 
 // Register IDbConnection
 builder.Services.AddTransient<IDbConnection>(sp =>

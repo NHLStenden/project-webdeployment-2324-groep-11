@@ -23,6 +23,9 @@ namespace DieselBrandstofCafe.Components.Data
         // Method to update the status of a specific order
         Task UpdateOrderAsync(int orderId, string status);
 
+        // Method to show products by a specific category
+        Task<IEnumerable<Product>> GetProductsByCategoryAsync(int categoryId);
+
         // Additional methods as needed...
     }
 
@@ -38,6 +41,15 @@ namespace DieselBrandstofCafe.Components.Data
 
 
         // Method to retrieve a list of products
+        public async Task<IEnumerable<Product>> GetProductsByCategoryAsync(int categoryId)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                string query = "SELECT * FROM Product WHERE CategorieID = @CategoryId";
+                return await connection.QueryAsync<Product>(query, new { CategoryId = categoryId });
+            }
+        }
+
         public async Task<IEnumerable<Product>> GetProductsAsync()
         {
             using (var connection = new MySqlConnection(_connectionString))
