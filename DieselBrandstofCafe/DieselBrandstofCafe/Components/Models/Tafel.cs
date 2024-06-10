@@ -4,6 +4,7 @@
     {
         public int TafelId { get; set; }
         public required string TafelSectie { get; set; }
-        public required string TafelVeld { get; set; }
+        public string? TafelAfbeelding { get; set; }
+
     }
 }

@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS DieselDatabaseV1;
-CREATE DATABASE DieselDatabaseV1;
-USE DieselDatabaseV1;
+DROP DATABASE IF EXISTS DieselDatabaseV8;
+CREATE DATABASE DieselDatabaseV8;
+USE DieselDatabaseV8;
 
 DROP TABLE IF EXISTS Categorie;
 CREATE TABLE Categorie
@@ -17,9 +17,15 @@ CREATE TABLE Product
     ProductID INT NOT NULL AUTO_INCREMENT,
     CategorieID INT NOT NULL,
     ProductNaam VARCHAR(24) NOT NULL,
+    ProductDesc VARCHAR(255),
     ProductPrijs INT NOT NULL,
     Voorraad INT,
+    Supplier VARCHAR(48) NOT NULL DEFAULT 'Unknown',
     AddID INT,
+    LactoseVrij BOOLEAN NOT NULL DEFAULT 0,
+    Vegetarisch BOOLEAN NOT NULL DEFAULT 0,
+    Veganistisch BOOLEAN NOT NULL DEFAULT 0,
+    ProductAfbeelding VARCHAR(255) NOT NULL DEFAULT 'default.jpg',
     PRIMARY KEY (ProductID)
 );
 
@@ -50,8 +56,6 @@ CREATE TABLE Ober
     OberID INT NOT NULL AUTO_INCREMENT,
     MedewerkerID INT NOT NULL,
     OberNaam VARCHAR(48) NOT NULL,
-    Inlognaam VARCHAR(28) NOT NULL,
-    Wachtwoord VARCHAR(48) NOT NULL,
     PRIMARY KEY (OberID)
 );
 
@@ -62,7 +66,23 @@ CREATE TABLE Medewerker
     MedewerkerNaam VARCHAR(48) NOT NULL,
     Telefoonnummer VARCHAR(15) NOT NULL,
     EmailMedewerker VARCHAR(48) NOT NULL,
-    SupervisorID INT,
+    MedewerkerInlognaam VARCHAR(28) NOT NULL,
+    MedewerkerWachtwoord VARCHAR(48) NOT NULL,  
+    MedewerkerType VARCHAR(24) NOT NULL DEFAULT 'Medewerker',
+    SupervisorID INT, 
+    MedewerkerStatus VARCHAR(24) NOT NULL DEFAULT 'Actief',
+    MedewerkerGeboortedatum DATE NOT NULL DEFAULT '2000-01-01',
+    MedewerkerAdres VARCHAR(255) NOT NULL DEFAULT 'Straatnaam 1',
+    MedewerkerPostcode VARCHAR(7) NOT NULL DEFAULT '1000AA',
+    MedewerkerWoonplaats VARCHAR(48) NOT NULL DEFAULT 'Amsterdam',
+    MedewerkerRol VARCHAR(24) NOT NULL DEFAULT 'Cook',
+    MedewerkerContracturen INT NOT NULL DEFAULT 40,
+    MedewerkerContracttype VARCHAR(24) NOT NULL DEFAULT 'Fulltime',
+    MedewerkerSalaris INT NOT NULL DEFAULT 2000,
+    MedewerkerContractBegin DATE NOT NULL DEFAULT '2020-01-01',
+    MedewerkerContractEinde DATE NOT NULL DEFAULT '2021-01-01',
+    MedewerkerBankrekening VARCHAR(24) NOT NULL DEFAULT 'NL00ABNA0123456789',
+    MedewerkerAfbeelding VARCHAR(255) NOT NULL DEFAULT 'default.jpg',
     PRIMARY KEY (MedewerkerID)
 );
 
@@ -92,8 +112,9 @@ CREATE TABLE Bestelling
 DROP TABLE IF EXISTS Tafel;
 CREATE TABLE Tafel
 (
-    TafelID INT NOT NULL,
-    Sectie VARCHAR(24),
+    TafelID INT NOT NULL AUTO_INCREMENT,
+    TafelSectie VARCHAR(24),
+    TafelAfbeelding VARCHAR(255) NOT NULL DEFAULT 'defaultTable.jpg',
     PRIMARY KEY (TafelID)
 );
 
@@ -114,6 +135,15 @@ CREATE TABLE Overzicht_per_product
     OverzichtID INT NOT NULL,
     VoorraadPP INT,
     PRIMARY KEY (ProductID, OverzichtID)
+);
+
+DROP TABLE IF EXISTS FAQ;
+CREATE TABLE FAQ
+(
+    FAQID INT NOT NULL AUTO_INCREMENT,
+    FAQVraag VARCHAR(255) NOT NULL,
+    FAQAntwoord VARCHAR(255) NOT NULL,
+    PRIMARY KEY (FAQID)
 );
 
 ALTER TABLE Categorie
@@ -163,105 +193,137 @@ ADD FOREIGN KEY (OverzichtID) REFERENCES Overzicht(OverzichtID) ON DELETE CASCAD
 
 -- Insert dummy data
 
+-- Insert data into Categorie
 INSERT INTO Categorie
     (CategorieID, NaamCategorie, ParentID)
 VALUES
     (1, 'Beverages', NULL),
-    (2, 'Alcoholic Beverages', 1),
-    (3, 'Non-Alcoholic Beverages', 1),
-    (4, 'Food', NULL),
-    (5, 'Snacks', 4),
-    (6, 'Dairy Products', 4),
-    (7, 'Bakery', 4);
+    (2, 'Food', NULL),
+    (3, 'Ingredients', NULL),
+    (4, 'Hot Drinks', 1),
+    (5, 'Cold Drinks', 1),
+    (6, 'Alcoholic Drinks', 5),
+    (7, 'Non-Alcoholic Drinks', 5),
+    (8, 'Coffee', 4),
+    (9, 'Tea', 4),
+    (10, 'Sandwiches', 2),
+    (11, 'Pasta', 2),
+    (12, 'Salad', 2),
+    (13, 'Pastry & Desserts', 2);
 
-INSERT INTO Medewerker
-    (MedewerkerID, MedewerkerNaam, Telefoonnummer, EmailMedewerker, SupervisorID)
-VALUES
-    (1, 'John Doe', '1234567890', 'john@example.com', NULL),
-    (2, 'Jane Smith', '0987654321', 'jane@example.com', 1),
-    (3, 'Alice Johnson', '1111111111', 'alice@example.com', 2),
-    (4, 'Bob Brown', '2222222222', 'bob@example.com', 1);
 
-INSERT INTO Ober
-    (OberID, MedewerkerID, OberNaam, Inlognaam, Wachtwoord)
-VALUES
-    (1, 1, 'John Doe', 'john', 'password1'),
-    (2, 2, 'Jane Smith', 'jane', 'password2'),
-    (3, 3, 'Alice Johnson', 'alice', 'password3'),
-    (4, 4, 'Bob Brown', 'bob', 'password4');
 
+
+-- Insert data into Product
 INSERT INTO Product
-    (ProductID, CategorieID, ProductNaam, ProductPrijs, Voorraad, AddID)
+    (CategorieID, ProductNaam, ProductDesc, ProductPrijs, Voorraad, Supplier, AddID, LactoseVrij, Vegetarisch, Veganistisch, ProductAfbeelding)
 VALUES
-    (1, 2, 'Beer', 150, 100, NULL),
-    (2, 3, 'Soda', 50, 200, NULL),
-    (3, 5, 'Chips', 30, 150, NULL),
-    (4, 6, 'Milk', 20, 80, NULL),
-    (5, 7, 'Bread', 10, 50, NULL),
-    (6, 2, 'Wine', 200, 90, NULL),
-    (7, 3, 'Juice', 70, 120, NULL),
-    (8, 5, 'Cookies', 40, 140, NULL);
+    (8, 'Espresso', 'Strong and bold coffee', 3, 100, 'Local Roasters', NULL, 1, 1, 1, 'espresso.jpg'),
+    (8, 'Latte', 'Smooth coffee with milk', 4, 80, 'Local Roasters', NULL, 0, 1, 0, 'latte.jpg'),
+    (8, 'Cappuccino', 'Coffee with steamed milk foam', 4, 90, 'Local Roasters', NULL, 0, 1, 0, 'cappuccino.jpg'),
+    (7, 'Iced Tea', 'Refreshing iced tea', 3, 50, 'Tea Suppliers Inc.', NULL, 1, 1, 1, 'iced_tea.jpg'),
+    (7, 'Smoothie', 'Fruit smoothie', 5, 40, 'Fruit Farmers', NULL, 1, 1, 1, 'smoothie.jpg'),
+    (7, 'Lemonade', 'Fresh lemonade', 3, 60, 'Local Beverages', NULL, 1, 1, 1, 'lemonade.jpg'),
+    (13, 'Muffin', 'Freshly baked muffin', 2, 30, 'Bakery Co.', NULL, 1, 1, 1, 'muffin.jpg'),
+    (13, 'Croissant', 'Buttery French croissant', 3, 40, 'Bakery Co.', NULL, 1, 1, 0, 'croissant.jpg'),
+    (13, 'Cookie', 'Chocolate chip cookie', 1, 50, 'Bakery Co.', NULL, 1, 1, 1, 'cookie.jpg'),
+    (12, 'Caesar Salad', 'Mixed green salad', 7, 15, 'Farm Fresh', NULL, 1, 1, 1, 'salad.jpg'),
+    (11, 'Pasta Bolognese', 'Italian pasta with tomato sauce', 8, 20, 'Pasta World', NULL, 0, 1, 0, 'pasta.jpg'),
+    (10, 'Ham Sandwich', 'Ham and cheese sandwich', 5, 25, 'Deli Delights', NULL, 0, 0, 0, 'sandwich.jpg'),
+    (3, 'Coffee Beans', 'Freshly ground beans', 5, 25, 'Coffee BV', NULL, 0, 0, 0, 'bean.jpg');
 
+
+-- Insert data into Medewerker
+INSERT INTO Medewerker
+    (MedewerkerNaam, Telefoonnummer, EmailMedewerker, SupervisorID, MedewerkerInlognaam, MedewerkerWachtwoord, MedewerkerType, MedewerkerStatus, MedewerkerGeboortedatum, MedewerkerAdres, MedewerkerPostcode, MedewerkerWoonplaats, MedewerkerRol, MedewerkerContracturen, MedewerkerContracttype, MedewerkerSalaris, MedewerkerContractBegin, MedewerkerContractEinde, MedewerkerBankrekening, MedewerkerAfbeelding)
+VALUES
+    ('John Doe', '0612345678', 'john.doe@cafe.com', NULL, 'johndoe', 'password123', 'Medewerker', 'Actief', '1990-05-15', 'Street 1', '1000AA', 'Amsterdam', 'Barista', 40, 'Fulltime', 2500, '2020-01-01', '2022-01-01', 'NL00ABNA0123456789', 'john.jpg'),
+    ('Jane Smith', '0698765432', 'jane.smith@cafe.com', 1, 'janesmith', 'securepassword', 'Medewerker', 'Actief', '1985-08-20', 'Street 2', '2000BB', 'Rotterdam', 'Waiter', 32, 'Parttime', 1800, '2019-03-01', '2021-03-01', 'NL00INGB0987654321', 'jane.jpg'),
+    ('Alice Johnson', '0611223344', 'alice.johnson@cafe.com', 1, 'alicej', 'alicepass', 'Medewerker', 'Actief', '1992-11-10', 'Street 3', '3000CC', 'The Hague', 'Cook', 40, 'Fulltime', 2300, '2021-02-01', '2023-02-01', 'NL00RABO0234567890', 'alice.jpg'),
+    ('Bob Brown', '0688776655', 'bob.brown@cafe.com', 2, 'bobb', 'bobpassword', 'Medewerker', 'Actief', '1988-03-25', 'Street 4', '4000DD', 'Utrecht', 'Waiter', 20, 'Parttime', 1600, '2018-05-15', '2020-05-15', 'NL00SNSB0345678901', 'bob.jpg');
+
+-- Insert data into Ober
+INSERT INTO Ober
+    (MedewerkerID, OberNaam)
+VALUES
+    (2, 'Jane Smith'),
+    (4, 'Bob Brown');
+
+-- Insert data into Bestelronde
 INSERT INTO Bestelronde
-    (BestelrondeID, OberID, StatusBestelling, Tijd)
+    (OberID, StatusBestelling, Tijd)
 VALUES
-    (1, 1, 'Pending', NOW()),
-    (2, 2, 'Completed', NOW()),
-    (3, 3, 'Pending', NOW()),
-    (4, 4, 'Completed', NOW());
+    (1, 'In Progress', '2024-06-01 12:30:00'),
+    (1, 'Pending', '2024-06-01 13:00:00'),
+    (2, 'In Progress', '2024-06-01 14:00:00'),
+    (2, 'Pending', '2024-06-01 14:30:00');
 
+-- Insert data into Product_per_Bestelronde
 INSERT INTO Product_per_Bestelronde
     (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct)
 VALUES
-    (1, 1, 2, 2, 'Completed'),
-    (2, 2, 3, 3, 'Pending'),
-    (3, 3, 1, 1, 'Pending'),
-    (4, 4, 2, 2, 'Pending'),
-    (5, 1, 3, 3, 'Pending'),
-    (6, 2, 1, 1, 'Pending'),
-    (7, 3, 2, 2, 'Completed'),
-    (8, 4, 1, 1, 'Completed');
+    (1, 1, 2, 2, 'Pending'),
+    (4, 1, 1, 1, 'Pending'),
+    (7, 2, 3, 3, 'Pending'),
+    (10, 2, 1, 1, 'In Progress'),
+    (2, 3, 1, 1, 'Served'),
+    (3, 3, 2, 2, 'Served'),
+    (8, 4, 1, 1, 'Served'),
+    (9, 4, 2, 2, 'Served');
 
+-- Insert data into Tafel
 INSERT INTO Tafel
-    (TafelID, Sectie)
+    (TafelID, TafelSectie, TafelAfbeelding)
 VALUES
-    (1, 'A'),
-    (2, 'B'),
-    (3, 'C'),
-    (4, 'D');
+    (1, 'A', 'table1.jpg'),
+    (2, 'B', 'table2.jpg'),
+    (3, 'C', 'table3.jpg'),
+    (4, 'D', 'table4.jpg');
 
+-- Insert data into Bestelling
 INSERT INTO Bestelling
-    (BestellingID, TafelID, BestelrondeID, StatusBestelling, TijdBestelling, KostenplaatsnummerID, TotaalPrijs)
+    (TafelID, BestelrondeID, StatusBestelling, TijdBestelling, KostenplaatsnummerID, TotaalPrijs)
 VALUES
-    (1, 1, 1, 'Pending', NOW(), NULL, 300),
-    (2, 2, 2, 'Completed', NOW(), NULL, 150),
-    (3, 3, 3, 'Pending', NOW(), NULL, 450),
-    (4, 4, 4, 'Completed', NOW(), NULL, 200);
+    (1, 1, 'Pending', '2024-06-01 12:30:00', NULL, 9),
+    (2, 2, 'Pending', '2024-06-01 13:00:00', NULL, 16),
+    (3, 3, 'In Progress', '2024-06-01 14:00:00', NULL, 7),
+    (4, 4, 'Completed', '2024-06-01 14:30:00', NULL, 8);
 
+-- Insert data into Overzicht
 INSERT INTO Overzicht
-    (OverzichtID, BestellingID, ProductVerkocht, ProductVoorraad)
+    (BestellingID, ProductVerkocht, ProductVoorraad)
 VALUES
-    (1, 1, 2, 98),
-    (2, 2, 3, 197),
-    (3, 3, 1, 149),
-    (4, 4, 2, 48);
+    (1, 3, 30),
+    (2, 4, 40),
+    (3, 3, 25),
+    (4, 3, 20);
 
+-- Insert data into Overzicht_per_product
 INSERT INTO Overzicht_per_product
     (ProductID, OverzichtID, VoorraadPP)
 VALUES
     (1, 1, 98),
-    (2, 2, 197),
-    (3, 3, 149),
-    (4, 4, 48),
-    (5, 1, 47),
-    (6, 2, 89),
-    (7, 3, 118),
-    (8, 4, 139);
+    (4, 1, 49),
+    (7, 2, 27),
+    (10, 2, 14),
+    (2, 3, 79),
+    (3, 3, 88),
+    (8, 4, 39),
+    (9, 4, 48);
 
+-- Insert data into Medewerker_Ober_koppel
 INSERT INTO Medewerker_Ober_koppel
     (MedewerkerID, OberID, Inkloktijd, Uitkloktijd)
 VALUES
-    (1, 1, NOW(), NOW()),
-    (2, 2, NOW(), NOW()),
-    (3, 3, NOW(), NOW()),
-    (4, 4, NOW(), NOW());
+    (1, 2, '2024-06-01 08:00:00', '2024-06-01 16:00:00'),
+    (2, 1, '2024-06-01 09:00:00', '2024-06-01 17:00:00'),
+    (3, 2, '2024-06-01 10:00:00', '2024-06-01 18:00:00'),
+    (4, 1, '2024-06-01 11:00:00', '2024-06-01 19:00:00');
+
+-- Insert data into FAQ
+INSERT INTO FAQ
+    (FAQVraag, FAQAntwoord)
+VALUES
+    ('What are your opening hours?', 'We are open from 8 AM to 8 PM every day.'),
+    ('Do you offer vegan options?', 'Yes, we have several vegan options available.'),
+    ('Do you have WiFi?', 'Yes, we offer free WiFi for our customers.');
