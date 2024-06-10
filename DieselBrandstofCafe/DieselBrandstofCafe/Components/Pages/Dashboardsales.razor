@@ -1,4 +1,5 @@
 ﻿@page "/Dashboardsales" 
+@using ChartJs.Blazor.BarChart
 
 <PageTitle>Dashboard</PageTitle>
 
@@ -47,7 +48,21 @@
         </div>
     </div>
 </section>
-
+<!-- Grafiek Sectie -->
+<section>
+    <div class="container-fluid card">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-body">
+                    <h5><b>Verkoop Grafiek</b></h5>
+                    <div class="chart-container">
+                        <Chart Config="_config"></Chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
@@ -88,8 +103,24 @@
     .box-4 {background-color: #F3E8FF;}
     .box-5 {background-color: #bde4f1;}
 
+    .chart-container {
+        position: relative;
+        height: 400px;
+        width: 100%;
+    }
 </style>
 
 @code {
-   
+/*
+
+ Eten = 1
+ Drinken = 2 
+ 
+ alchol 3 
+ vegan 4
+ lactose 5
+
+
+ */
+
 }
