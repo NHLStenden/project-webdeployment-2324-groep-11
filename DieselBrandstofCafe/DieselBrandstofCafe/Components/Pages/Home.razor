@@ -125,7 +125,7 @@
     <div class="container ">
         <div class="row justify-content-center text-center">
             <div class="col-4">
-                <div class="card h-100 card-padding">
+                <div class="card h-100 card-padding card-maxheight">
                     <h6 class="Text-padding"><b>Your Last Orders</b></h6>
 
                     <div class="row justify-content-center" style="font-size:smaller">
@@ -135,7 +135,19 @@
                         <p class="col-3">Status</p>
                         <p class="col-3">Prijs</p>
                         <br />
-                        
+
+                            @foreach (var item in newBestellingen)
+                            {
+
+                                <p class="col-3">@item.BestellingID#</p>
+                                <p class="col-3">@item.TijdBestelling</p>
+                                <p class="@GetStatusColorClass(item.StatusBestelling) col-3">@item.StatusBestelling</p>
+                                <p class="col-3">€@item.TotaalPrijs</p>
+                                <br />
+
+                            }
+
+
                             @foreach (var item in bestellingen)
                             {
                        
@@ -201,6 +213,7 @@
 
 @code {
     private List<Bestelling> bestellingen = new List<Bestelling>();
+    private List<Bestelling> newBestellingen = new List<Bestelling>();
 
     public void ToMenu()
     {
@@ -211,6 +224,7 @@
     protected override async Task OnInitializedAsync()
     {
         bestellingen = (await EmployeeService.GetOrderHistoryAsync()).ToList();
+        newBestellingen = (await EmployeeService.GetNewOrdersAsync()).ToList();
     }
 
 

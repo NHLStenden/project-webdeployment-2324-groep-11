@@ -1,7 +1,116 @@
 ﻿@page "/myorders"
+@using DieselBrandstofCafe.Components.Data
+@using DieselBrandstofCafe.Components.Models
+@inject IEmployeeService EmployeeService
 
-<h3>My Orders</h3>
+<section>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-2 card">
+                <h3>Orders</h3>
+            </div>
+            <div class="col-2 card">
+                <h3>Refunds</h3>
+            </div>
+        </div>
+        <div class="card">
+        </div>
+    </div>
+</section>
+
+<br />
+<br />
+
+<section>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-4">
+                <div class="card h-100 card-padding">
+                    <h6 class="Text-padding"><b>Order History</b></h6>
+                    <br />
+                    <div class="d-flex row">
+                        <div>
+                            @foreach (var item in bestellingen)
+                            {
+                                <div class="row">
+                                    <div class="col-6">@item.BestellingID#</div>
+                                    <div class="col-6">@item.TijdBestelling</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">@item.StatusBestelling</div>
+                                    <div class="col-6">€@item.TotaalPrijs</div>
+                                </div>
+                                <br />
+                                <button @onclick="() => SelectOrder(item.BestellingID)">Bekijk Details</button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="card h-100 card-padding">
+                    <h6 class="Text-padding"><b>Order </b></h6>
+                    <br />
+                    <div class="d-flex flex-row">
+                        @if (selectedOrder != null)
+                        {
+                            <div>
+                                <h6>Order Details:</h6>
+                                <p>Bestelling ID: @selectedOrder.BestellingID</p>
+                                <p>Tijd Bestelling: @selectedOrder.TijdBestelling</p>
+                                <p>Status Bestelling: @selectedOrder.StatusBestelling</p>
+                                <p>Totaal Prijs: €@selectedOrder.TotaalPrijs</p>
+                                <h6>Producten:</h6>
+                                <ul>
+                                    @foreach (var product in selectedOrder.Products)
+                                    {
+                                        <li>@product.ProductNaam - €@product.AantalProduct</li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 @code {
+    private List<OrderWithProducts> bestellingen = new List<OrderWithProducts>();
+    private OrderWithProducts? selectedOrder;
 
+    protected override async Task OnInitializedAsync()
+    {
+        var orders = await EmployeeService.GetOrderHistoryAsync();
+        bestellingen = orders.Select(order => new OrderWithProducts
+        {
+            BestellingID = order.BestellingID,
+            TijdBestelling = order.TijdBestelling,
+            StatusBestelling = order.StatusBestelling,
+            TotaalPrijs = order.TotaalPrijs,
+            Products = new List<ProductPerBestelronde>()
+        }).ToList();
+
+        foreach (var order in bestellingen)
+        {
+            var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
+            order.Products.AddRange(products);
+        }
+    }
+
+    private void SelectOrder(int bestellingID)
+    {
+        selectedOrder = bestellingen.FirstOrDefault(order => order.BestellingID == bestellingID);
+    }
+
+    public class OrderWithProducts
+    {
+        public int BestellingID { get; set; }
+        public DateTime TijdBestelling { get; set; }
+        public string ?StatusBestelling { get; set; }
+        public decimal TotaalPrijs { get; set; }
+        public List<ProductPerBestelronde> Products { get; set; } = new();
+    }
 }
+
