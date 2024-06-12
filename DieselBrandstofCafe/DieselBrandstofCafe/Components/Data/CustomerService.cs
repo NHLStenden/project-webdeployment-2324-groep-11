@@ -36,8 +36,8 @@ namespace DieselBrandstofCafe.Components.Data
     public class CustomerService(IConfiguration configuration) : ICustomerService
     {
         // Connection string to the MySQL database
-        private readonly string _connectionString = 
-            // Constructor to initialize the connection string from configuration settings
+        private readonly string _connectionString =
+             // Constructor to initialize the connection string from configuration settings
              configuration?.GetConnectionString("DefaultConnection")
                 ?? throw new ArgumentNullException(nameof(configuration), "Configuration cannot be null.");
 
