@@ -199,38 +199,70 @@ INSERT INTO Categorie
 VALUES
     (1, 'Beverages', NULL),
     (2, 'Food', NULL),
-    (3, 'Ingredients', NULL),
+    (3, 'Re-usables / disposables', NULL),
     (4, 'Hot Drinks', 1),
     (5, 'Cold Drinks', 1),
-    (6, 'Alcoholic Drinks', 5),
-    (7, 'Non-Alcoholic Drinks', 5),
-    (8, 'Coffee', 4),
-    (9, 'Tea', 4),
-    (10, 'Sandwiches', 2),
-    (11, 'Pasta', 2),
-    (12, 'Salad', 2),
-    (13, 'Pastry & Desserts', 2);
+    (6, 'Non-Alcoholic Drinks', 1),
+    (7, 'Snacks', 2),
+    (8, 'Lunch', 2),
+    (9, 'Pastry''s & Desserts', 2);
 
 
 
 
 -- Insert data into Product
 INSERT INTO Product
-    (CategorieID, ProductNaam, ProductDesc, ProductPrijs, Voorraad, Supplier, AddID, LactoseVrij, Vegetarisch, Veganistisch, ProductAfbeelding)
+    (CategorieID, ProductNaam, ProductDesc, ProductPrijs, Voorraad, Supplier, LactoseVrij, Vegetarisch, Veganistisch, ProductAfbeelding)
 VALUES
-    (8, 'Espresso', 'Strong and bold coffee', 3, 100, 'Local Roasters', NULL, 1, 1, 1, 'espresso.jpg'),
-    (8, 'Latte', 'Smooth coffee with milk', 4, 80, 'Local Roasters', NULL, 0, 1, 0, 'latte.jpg'),
-    (8, 'Cappuccino', 'Coffee with steamed milk foam', 4, 90, 'Local Roasters', NULL, 0, 1, 0, 'cappuccino.jpg'),
-    (7, 'Iced Tea', 'Refreshing iced tea', 3, 50, 'Tea Suppliers Inc.', NULL, 1, 1, 1, 'iced_tea.jpg'),
-    (7, 'Smoothie', 'Fruit smoothie', 5, 40, 'Fruit Farmers', NULL, 1, 1, 1, 'smoothie.jpg'),
-    (7, 'Lemonade', 'Fresh lemonade', 3, 60, 'Local Beverages', NULL, 1, 1, 1, 'lemonade.jpg'),
-    (13, 'Muffin', 'Freshly baked muffin', 2, 30, 'Bakery Co.', NULL, 1, 1, 1, 'muffin.jpg'),
-    (13, 'Croissant', 'Buttery French croissant', 3, 40, 'Bakery Co.', NULL, 1, 1, 0, 'croissant.jpg'),
-    (13, 'Cookie', 'Chocolate chip cookie', 1, 50, 'Bakery Co.', NULL, 1, 1, 1, 'cookie.jpg'),
-    (12, 'Caesar Salad', 'Mixed green salad', 7, 15, 'Farm Fresh', NULL, 1, 1, 1, 'salad.jpg'),
-    (11, 'Pasta Bolognese', 'Italian pasta with tomato sauce', 8, 20, 'Pasta World', NULL, 0, 1, 0, 'pasta.jpg'),
-    (10, 'Ham Sandwich', 'Ham and cheese sandwich', 5, 25, 'Deli Delights', NULL, 0, 0, 0, 'sandwich.jpg'),
-    (3, 'Coffee Beans', 'Freshly ground beans', 5, 25, 'Coffee BV', NULL, 0, 0, 0, 'bean.jpg');
+    (4, 'Coffee Creme', 'A smooth coffee with cream, perfect for a light coffee break.', 1.22, 100, NULL, NULL, NULL, NULL, 'Coffee Creme.png'),
+    (4, 'Coffee Creme Large', 'A larger serving of smooth coffee with cream for those who need a bit more.', 1.88, 100, NULL, NULL, NULL, NULL, 'Coffee Creme Large.png'),
+    (4, 'Cappuccino', 'Classic Italian coffee with steamed milk and a thick layer of foam.', 1.5, 100, NULL, NULL, NULL, NULL, 'Cappuccino.png'),
+    (4, 'Cappuccino Large', 'A bigger version of the classic Italian coffee with extra steamed milk and foam.', 2.16, 100, NULL, NULL, NULL, NULL, 'Cappuccino Large.png'),
+    (4, 'Espresso', 'A strong, concentrated coffee served in a small cup.', 1.22, 100, NULL, NULL, NULL, NULL, 'Espresso.png'),
+    (4, 'Double Espresso', 'Twice the amount of strong, concentrated coffee for an extra caffeine boost.', 1.88, 100, NULL, NULL, NULL, NULL, 'Double Espresso.png'),
+    (4, 'Latte Macchiato', 'Layers of steamed milk and espresso with a touch of foam.', 1.5, 100, NULL, NULL, NULL, NULL, 'Latte Macchiato.png'),
+    (4, 'Latte Macchiato Large', 'A larger serving of layered steamed milk and espresso with a touch of foam.', 2.16, 100, NULL, NULL, NULL, NULL, 'Latte Macchiato Large.png'),
+    (4, 'Flat White', 'A rich, velvety coffee with steamed milk and a thin layer of microfoam.', 1.88, 100, NULL, NULL, NULL, NULL, 'Flat White.png'),
+    (4, 'Tea', 'A standard serving of black, green, or herbal tea.', 1.17, 100, NULL, NULL, NULL, NULL, 'Tea.png'),
+    (4, 'Fresh Tea', 'A freshly brewed tea with vibrant flavors.', 1.3, 100, NULL, NULL, NULL, NULL, 'Fresh Tea.png'),
+    (4, 'Hot Chocolate Dark', 'A rich and intense dark chocolate drink.', 2.1, 100, NULL, NULL, NULL, NULL, 'Hot Chocolate Dark.png'),
+    (4, 'Syrup For Coffee', 'A variety of flavored syrups to add a sweet touch to your coffee.', 0.39, 100, NULL, NULL, NULL, NULL, 'Syrup For Coffee.png'),
+    (4, 'Chai Latte', 'A spiced tea blend mixed with steamed milk.', 2.6, 100, NULL, NULL, NULL, NULL, 'Chai Latte.png'),
+    (5, 'Ice Latte', 'A cold coffee drink with milk, perfect for a refreshing break.', 2.59, 100, NULL, NULL, NULL, NULL, 'Ice Latte.png'),
+    (4, 'Dirty Chai Latte', 'A chai latte with an added shot of espresso for an extra kick.', 3.25, 100, NULL, NULL, NULL, NULL, 'Dirty Chai Latte.png'),
+    (4, 'Coffee Special', 'A specialty coffee drink, ask for the flavor of the day.', 3, 100, NULL, NULL, NULL, NULL, 'Coffee Special.png'),
+    (5, 'Smoothie', 'A blended fruit drink, available in various flavors.', 2.5, 100, NULL, NULL, NULL, NULL, 'Smoothie.png'),
+    (5, 'Homemade Ice Tea', 'Refreshing homemade iced tea, perfect for a hot day.', 2.75, 100, NULL, NULL, NULL, NULL, 'Homemade Ice Tea.png'),
+    (5, 'Water Still', 'Pure, still drinking water.', 2.1, 100, NULL, NULL, NULL, NULL, 'Water Still.png'),
+    (5, 'Water Sparkling', 'Sparkling water with a refreshing fizz.', 2.1, 100, NULL, NULL, NULL, NULL, 'Water Sparkling.png'),
+    (5, 'Lemon Lime Soda', 'A citrus-flavored soda, refreshing and bubbly.', 2.75, 100, NULL, NULL, NULL, NULL, 'Lemon Lime Soda.png'),
+    (5, 'Tonic Bottle', 'Classic tonic water, great on its own or as a mixer.', 3.2, 100, NULL, NULL, NULL, NULL, 'Tonic Bottle.png'),
+    (5, 'Fritz Cola', 'A popular cola drink with a unique flavor.', 2.6, 100, NULL, NULL, NULL, NULL, 'Fritz Cola.png'),
+    (5, 'Fritz Rhubarb', 'A refreshing rhubarb-flavored soda.', 2.6, 100, NULL, NULL, NULL, NULL, 'Fritz Rhubarb.png'),
+    (5, 'Fritz Limo Sinas', 'A tangy orange-flavored soda.', 2.6, 100, NULL, NULL, NULL, NULL, 'Fritz Limo Sinas.png'),
+    (5, 'Fritz Lemon', 'A zesty lemon-flavored soda.', 2.6, 100, NULL, NULL, NULL, NULL, 'Fritz Lemon.png'),
+    (5, 'Fritz Apple', 'A crisp apple-flavored soda.', 2.6, 100, NULL, NULL, NULL, NULL, 'Fritz Apple.png');
+    (6, 'Virgin Gin Tonic', 'A non-alcoholic version of the classic gin and tonic.', 5.5, 100, NULL, NULL, NULL, NULL, 'Virgin Gin Tonic.png'),
+    (6, 'Van De Streek IPA', 'A flavorful non-alcoholic IPA beer.', 4.4, 100, NULL, NULL, NULL, NULL, 'Van De Streek IPA.png'),
+    (6, 'Heineken Draft 0.0%', 'Non-alcoholic draft beer with the classic Heineken taste.', 3.2, 100, NULL, NULL, NULL, NULL, 'Heineken Draft 0.0%.png'),
+    (9, 'Pie Of The Day', 'A daily selection of freshly baked pie.', 2.25, 100, NULL, NULL, NULL, NULL, 'Pie Of The Day.png'),
+    (9, 'Homemade Apple Traybake', 'A delightful apple dessert baked in a tray, homemade style.', 3, 100, NULL, NULL, NULL, NULL, 'Homemade Apple Traybake.png'),
+    (7, 'Bitterbal Per Piece', 'A single serving of a Dutch meat-based snack.', 1.1, 100, NULL, NULL, NULL, NULL, 'Bitterbal Per Piece.png'),
+    (7, 'Vegetarian Springroll', 'A crispy roll filled with vegetables, served hot.', 4.5, 100, NULL, NULL, 'Y', NULL, 'Vegetarian Springroll.png'),
+    (8, '12-Uurtje', 'A traditional Dutch lunch plate with various small dishes.', 6.6, 100, NULL, NULL, 'Y', NULL, '12-Uurtje.png'),
+    (8, 'Croquette On Sourdough Bread', 'A Dutch croquette served on hearty sourdough bread.', 6.5, 100, NULL, NULL, 'Y', NULL, 'Croquette On Sourdough Bread.png'),
+    (8, 'Pulled Chicken', 'Tender, shredded chicken served with sauce.', 6.5, 100, NULL, NULL, NULL, NULL, 'Pulled Chicken.png'),
+    (8, 'Pot Of The Season', 'A seasonal dish made with fresh ingredients.', 7.2, 100, NULL, NULL, NULL, NULL, 'Pot Of The Season.png'),
+    (8, 'Grandma''s Meatball', 'A comforting, homemade-style meatball.', 6.2, 100, NULL, NULL, NULL, NULL, 'Grandma''s Meatball.png'),
+    (8, 'Wentelteefjes', 'Traditional Dutch French toast, served sweet.', 5.1, 100, NULL, NULL, 'Y', NULL, 'Wentelteefjes.png'),
+    (8, 'Pasta Pesto', 'Pasta served with a fresh, basil pesto sauce.', 5.85, 100, NULL, NULL, 'Y', NULL, 'Pasta Pesto.png'),
+    (8, 'Surprise Menu Café Brandstof', 'A chef''s choice menu, offering a delightful surprise.', 6, 100, NULL, NULL, NULL, NULL, 'Surprise Menu Café Brandstof.png'),
+    (6, 'Mocktail Of The Day', 'A daily selection of a non-alcoholic mixed drink.', 5.5, 100, NULL, NULL, NULL, NULL, 'Mocktail Of The Day.png'),
+    (8, 'High Tea', 'An assortment of teas, finger sandwiches, and pastries, perfect for an afternoon treat.', 14.95, 100, NULL, NULL, 'Y', NULL, 'High Tea.png'),
+    (3, 'LBS Circulware Cup', 'A reusable cup for drinks, promoting sustainability.', 2, 100, NULL, NULL, NULL, NULL, 'LBS Circulware Cup.png'),
+    (3, 'LBS Circulware Lid', 'A matching lid for the reusable cup.', 2, 100, NULL, NULL, NULL, NULL, 'LBS Circulware Lid.png'),
+    (3, 'Re-Usable Cutlery Set', 'A set of reusable cutlery for meals on the go.', 4.5, 100, NULL, 'Y', 'Y', NULL, 'Re-Usable Cutlery Set.png');
+
 
 
 -- Insert data into Medewerker
