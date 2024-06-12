@@ -21,8 +21,17 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\bkoer\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\contentFiles\\any\\netstandard2.1\\wwwroot\\ChartJsBlazorInterop.js",
       "PackagePath": "staticwebassets\\ChartJsBlazorInterop.js"
+=======
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Coffee Creme Large.png",
+      "PackagePath": "staticwebassets\\images\\Coffee Creme Large.png"
+    },
+    {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Coffee Creme.png",
+      "PackagePath": "staticwebassets\\images\\Coffee Creme.png"
+>>>>>>> DEV2
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DieselBrandstofCafe.Microsoft.AspNetCore.StaticWebAssets.props",

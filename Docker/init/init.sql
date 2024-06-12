@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS DieselDatabaseV1;
-CREATE DATABASE DieselDatabaseV1;
-USE DieselDatabaseV1;
+DROP DATABASE IF EXISTS DieselDatabaseV8;
+CREATE DATABASE DieselDatabaseV8;
+USE DieselDatabaseV8;
 
 DROP TABLE IF EXISTS Categorie;
 CREATE TABLE Categorie
@@ -16,10 +16,16 @@ CREATE TABLE Product
 (
     ProductID INT NOT NULL AUTO_INCREMENT,
     CategorieID INT NOT NULL,
-    ProductNaam VARCHAR(24) NOT NULL,
-    ProductPrijs INT NOT NULL,
+    ProductNaam VARCHAR(255) NOT NULL,
+    ProductDesc VARCHAR(255),
+    ProductPrijs DECIMAL(4,2) NOT NULL,
+    IsAddOn BOOLEAN DEFAULT 0,
     Voorraad INT,
-    AddID INT,
+    Supplier VARCHAR(48),
+    LactoseVrij BOOLEAN DEFAULT 0,
+    Vegetarisch BOOLEAN DEFAULT 0,
+    Veganistisch BOOLEAN DEFAULT 0,
+    ProductAfbeelding VARCHAR(255) DEFAULT 'default.jpg',
     PRIMARY KEY (ProductID)
 );
 
@@ -50,8 +56,6 @@ CREATE TABLE Ober
     OberID INT NOT NULL AUTO_INCREMENT,
     MedewerkerID INT NOT NULL,
     OberNaam VARCHAR(48) NOT NULL,
-    Inlognaam VARCHAR(28) NOT NULL,
-    Wachtwoord VARCHAR(48) NOT NULL,
     PRIMARY KEY (OberID)
 );
 
@@ -62,7 +66,23 @@ CREATE TABLE Medewerker
     MedewerkerNaam VARCHAR(48) NOT NULL,
     Telefoonnummer VARCHAR(15) NOT NULL,
     EmailMedewerker VARCHAR(48) NOT NULL,
-    SupervisorID INT,
+    MedewerkerInlognaam VARCHAR(28) NOT NULL,
+    MedewerkerWachtwoord VARCHAR(48) NOT NULL,  
+    MedewerkerType VARCHAR(24) NOT NULL DEFAULT 'Medewerker',
+    SupervisorID INT, 
+    MedewerkerStatus VARCHAR(24) NOT NULL DEFAULT 'Actief',
+    MedewerkerGeboortedatum DATE NOT NULL DEFAULT '2000-01-01',
+    MedewerkerAdres VARCHAR(255) NOT NULL DEFAULT 'Straatnaam 1',
+    MedewerkerPostcode VARCHAR(7) NOT NULL DEFAULT '1000AA',
+    MedewerkerWoonplaats VARCHAR(48) NOT NULL DEFAULT 'Amsterdam',
+    MedewerkerRol VARCHAR(24) NOT NULL DEFAULT 'Cook',
+    MedewerkerContracturen INT NOT NULL DEFAULT 40,
+    MedewerkerContracttype VARCHAR(24) NOT NULL DEFAULT 'Fulltime',
+    MedewerkerSalaris INT NOT NULL DEFAULT 2000,
+    MedewerkerContractBegin DATE NOT NULL DEFAULT '2020-01-01',
+    MedewerkerContractEinde DATE NOT NULL DEFAULT '2021-01-01',
+    MedewerkerBankrekening VARCHAR(24) NOT NULL DEFAULT 'NL00ABNA0123456789',
+    MedewerkerAfbeelding VARCHAR(255) NOT NULL DEFAULT 'default.jpg',
     PRIMARY KEY (MedewerkerID)
 );
 
@@ -92,8 +112,9 @@ CREATE TABLE Bestelling
 DROP TABLE IF EXISTS Tafel;
 CREATE TABLE Tafel
 (
-    TafelID INT NOT NULL,
-    Sectie VARCHAR(24),
+    TafelID INT NOT NULL AUTO_INCREMENT,
+    TafelSectie VARCHAR(24),
+    TafelAfbeelding VARCHAR(255) NOT NULL DEFAULT 'defaultTable.jpg',
     PRIMARY KEY (TafelID)
 );
 
@@ -116,14 +137,20 @@ CREATE TABLE Overzicht_per_product
     PRIMARY KEY (ProductID, OverzichtID)
 );
 
+DROP TABLE IF EXISTS FAQ;
+CREATE TABLE FAQ
+(
+    FAQID INT NOT NULL AUTO_INCREMENT,
+    FAQVraag VARCHAR(255) NOT NULL,
+    FAQAntwoord VARCHAR(255) NOT NULL,
+    PRIMARY KEY (FAQID)
+);
+
 ALTER TABLE Categorie
 ADD FOREIGN KEY (ParentID) REFERENCES Categorie(CategorieID) ON DELETE SET NULL;
 
 ALTER TABLE Product
 ADD FOREIGN KEY (CategorieID) REFERENCES Categorie(CategorieID) ON DELETE CASCADE;
-
-ALTER TABLE Product
-ADD FOREIGN KEY (AddID) REFERENCES Product(ProductID) ON DELETE SET NULL;
 
 ALTER TABLE Bestelronde
 ADD FOREIGN KEY (OberID) REFERENCES Ober(OberID) ON DELETE CASCADE;
@@ -163,105 +190,164 @@ ADD FOREIGN KEY (OverzichtID) REFERENCES Overzicht(OverzichtID) ON DELETE CASCAD
 
 -- Insert dummy data
 
+-- Insert data into Categorie
 INSERT INTO Categorie
-    (CategorieID, NaamCategorie, ParentID)
+    (NaamCategorie, ParentID)
 VALUES
-    (1, 'Beverages', NULL),
-    (2, 'Alcoholic Beverages', 1),
-    (3, 'Non-Alcoholic Beverages', 1),
-    (4, 'Food', NULL),
-    (5, 'Snacks', 4),
-    (6, 'Dairy Products', 4),
-    (7, 'Bakery', 4);
+    ('Beverages', NULL),
+    ('Food', NULL),
+    ('Re-usables / disposables', NULL),
+    ('Hot Drinks', 1),
+    ('Cold Drinks', 1),
+    ('Non-Alcoholic Drinks', 1),
+    ('Snacks', 2),
+    ('Lunch', 2),
+    ('Pastry''s & Desserts', 2);
 
-INSERT INTO Medewerker
-    (MedewerkerID, MedewerkerNaam, Telefoonnummer, EmailMedewerker, SupervisorID)
-VALUES
-    (1, 'John Doe', '1234567890', 'john@example.com', NULL),
-    (2, 'Jane Smith', '0987654321', 'jane@example.com', 1),
-    (3, 'Alice Johnson', '1111111111', 'alice@example.com', 2),
-    (4, 'Bob Brown', '2222222222', 'bob@example.com', 1);
-
-INSERT INTO Ober
-    (OberID, MedewerkerID, OberNaam, Inlognaam, Wachtwoord)
-VALUES
-    (1, 1, 'John Doe', 'john', 'password1'),
-    (2, 2, 'Jane Smith', 'jane', 'password2'),
-    (3, 3, 'Alice Johnson', 'alice', 'password3'),
-    (4, 4, 'Bob Brown', 'bob', 'password4');
-
+-- Insert data into Product
 INSERT INTO Product
-    (ProductID, CategorieID, ProductNaam, ProductPrijs, Voorraad, AddID)
+    (CategorieID, ProductNaam, ProductDesc, ProductPrijs, IsAddOn, Voorraad, Supplier, LactoseVrij, Vegetarisch, Veganistisch, ProductAfbeelding)
 VALUES
-    (1, 2, 'Beer', 150, 100, NULL),
-    (2, 3, 'Soda', 50, 200, NULL),
-    (3, 5, 'Chips', 30, 150, NULL),
-    (4, 6, 'Milk', 20, 80, NULL),
-    (5, 7, 'Bread', 10, 50, NULL),
-    (6, 2, 'Wine', 200, 90, NULL),
-    (7, 3, 'Juice', 70, 120, NULL),
-    (8, 5, 'Cookies', 40, 140, NULL);
+    (4, 'Coffee Creme', 'A smooth coffee with cream, perfect for a light coffee break.', 1.22, 0, 100, 'Default Supplier', 0, 0, 0, 'Coffee Creme.png'),
+    (4, 'Coffee Creme Large', 'A larger serving of smooth coffee with cream for those who need a bit more.', 1.88, 0, 100, 'Default Supplier', 0, 0, 0, 'Coffee Creme Large.png'),
+    (4, 'Cappuccino', 'Classic Italian coffee with steamed milk and a thick layer of foam.', 1.5, 0, 100, 'Default Supplier', 0, 0, 0, 'Cappuccino.png'),
+    (4, 'Cappuccino Large', 'A bigger version of the classic Italian coffee with extra steamed milk and foam.', 2.16, 0, 100, 'Default Supplier', 0, 0, 0, 'Cappuccino Large.png'),
+    (4, 'Espresso', 'A strong, concentrated coffee served in a small cup.', 1.22, 0, 100, 'Default Supplier', 0, 0, 0, 'Espresso.png'),
+    (4, 'Double Espresso', 'Twice the amount of strong, concentrated coffee for an extra caffeine boost.', 1.88, 0, 100, 'Default Supplier', 0, 0, 0, 'Double Espresso.png'),
+    (4, 'Latte Macchiato', 'Layers of steamed milk and espresso with a touch of foam.', 1.5, 0, 100, 'Default Supplier', 0, 0, 0, 'Latte Macchiato.png'),
+    (4, 'Latte Macchiato Large', 'A larger serving of layered steamed milk and espresso with a touch of foam.', 2.16, 0, 100, 'Default Supplier', 0, 0, 0, 'Latte Macchiato Large.png'),
+    (4, 'Flat White', 'A rich, velvety coffee with steamed milk and a thin layer of microfoam.', 1.88, 0, 100, 'Default Supplier', 0, 0, 0, 'Flat White.png'),
+    (4, 'Tea', 'A standard serving of black, green, or herbal tea.', 1.17, 0, 100, 'Default Supplier', 0, 0, 0, 'Tea.png'),
+    (4, 'Fresh Tea', 'A freshly brewed tea with vibrant flavors.', 1.3, 0, 100, 'Default Supplier', 0, 0, 0, 'Fresh Tea.png'),
+    (4, 'Hot Chocolate Dark', 'A rich and intense dark chocolate drink.', 2.1, 0, 100, 'Default Supplier', 0, 0, 0, 'Hot Chocolate Dark.png'),
+    (4, 'Syrup For Coffee', 'A variety of flavored syrups to add a sweet touch to your coffee.', 0.39, 1, 100, 'Default Supplier', 0, 0, 0, 'Syrup For Coffee.png'),
+    (4, 'Chai Latte', 'A spiced tea blend mixed with steamed milk.', 2.6, 0, 100, 'Default Supplier', 0, 0, 0, 'Chai Latte.png'),
+    (5, 'Ice Latte', 'A cold coffee drink with milk, perfect for a refreshing break.', 2.59, 0, 100, 'Default Supplier', 0, 0, 0, 'Ice Latte.png'),
+    (4, 'Dirty Chai Latte', 'A chai latte with an added shot of espresso for an extra kick.', 3.25, 0, 100, 'Default Supplier', 0, 0, 0, 'Dirty Chai Latte.png'),
+    (4, 'Coffee Special', 'A specialty coffee drink, ask for the flavor of the day.', 3, 0, 100, 'Default Supplier', 0, 0, 0, 'Coffee Special.png'),
+    (5, 'Smoothie', 'A blended fruit drink, available in various flavors.', 2.5, 0, 100, 'Default Supplier', 0, 0, 0, 'Smoothie.png'),
+    (5, 'Homemade Ice Tea', 'Refreshing homemade iced tea, perfect for a hot day.', 2.75, 0, 100, 'Default Supplier', 0, 0, 0, 'Homemade Ice Tea.png'),
+    (5, 'Water Still', 'Pure, still drinking water.', 2.1, 0, 100, 'Default Supplier', 0, 0, 0, 'Water Still.png'),
+    (5, 'Water Sparkling', 'Sparkling water with a refreshing fizz.', 2.1, 0, 100, 'Default Supplier', 0, 0, 0, 'Water Sparkling.png'),
+    (5, 'Lemon Lime Soda', 'A citrus-flavored soda, refreshing and bubbly.', 2.75, 0, 100, 'Default Supplier', 0, 0, 0, 'Lemon Lime Soda.png'),
+    (5, 'Tonic Bottle', 'Classic tonic water, great on its own or as a mixer.', 3.2, 0, 100, 'Default Supplier', 0, 0, 0, 'Tonic Bottle.png'),
+    (5, 'Fritz Cola', 'A popular cola drink with a unique flavor.', 2.6, 0, 100, 'Default Supplier', 0, 0, 0, 'Fritz Cola.png'),
+    (5, 'Fritz Rhubarb', 'A refreshing rhubarb-flavored soda.', 2.6, 0, 100, 'Default Supplier', 0, 0, 0, 'Fritz Rhubarb.png'),
+    (5, 'Fritz Limo Sinas', 'A tangy orange-flavored soda.', 2.6, 0, 100, 'Default Supplier', 0, 0, 0, 'Fritz Limo Sinas.png'),
+    (5, 'Fritz Lemon', 'A zesty lemon-flavored soda.', 2.6, 0, 100, 'Default Supplier', 0, 0, 0, 'Fritz Lemon.png'),
+    (5, 'Fritz Apple', 'A crisp apple-flavored soda.', 2.6, 0, 100, 'Default Supplier', 0, 0, 0, 'Fritz Apple.png'),
+    (6, 'Virgin Gin Tonic', 'A non-alcoholic version of the classic gin and tonic.', 5.5, 0, 100, 'Default Supplier', 0, 0, 0, 'Virgin Gin Tonic.png'),
+    (6, 'Van De Streek IPA', 'A flavorful non-alcoholic IPA beer.', 4.4, 0, 100, 'Default Supplier', 0, 0, 0, 'Van De Streek IPA.png'),
+    (6, 'Heineken Draft 0.0%', 'Non-alcoholic draft beer with the classic Heineken taste.', 3.2, 0, 100, 'Default Supplier', 0, 0, 0, 'Heineken Draft 0.0%.png'),
+    (9, 'Pie Of The Day', 'A daily selection of freshly baked pie.', 2.25, 0, 100, 'Default Supplier', 0, 0, 0, 'Pie Of The Day.png'),
+    (9, 'Homemade Apple Traybake', 'A delightful apple dessert baked in a tray, homemade style.', 3, 0, 100, 'Default Supplier', 0, 0, 0, 'Homemade Apple Traybake.png'),
+    (7, 'Bitterbal Per Piece', 'A single serving of a Dutch meat-based snack.', 1.1, 0, 100, 'Default Supplier', 0, 0, 0, 'Bitterbal Per Piece.png'),
+    (7, 'Vegetarian Springroll', 'A crispy roll filled with vegetables, served hot.', 4.5, 0, 100, 'Default Supplier', 0, 0, 0, 'Vegetarian Springroll.png'),
+    (8, '12-Uurtje', 'A traditional Dutch lunch plate with various small dishes.', 6.6, 0, 100, 'Default Supplier', 0, 0, 0, '12-Uurtje.png'),
+    (8, 'Croquette On Sourdough Bread', 'A Dutch croquette served on hearty sourdough bread.', 6.5, 0, 100, 'Default Supplier', 0, 0, 0, 'Croquette On Sourdough Bread.png'),
+    (8, 'Pulled Chicken', 'Tender, shredded chicken served with sauce.', 6.5, 0, 100, 'Default Supplier', 0, 0, 0, 'Pulled Chicken.png'),
+    (8, 'Pot Of The Season', 'A seasonal dish made with fresh ingredients.', 7.2, 0, 100, 'Default Supplier', 0, 0, 0, 'Pot Of The Season.png'),
+    (8, 'Grandma''s Meatball', 'A comforting, homemade-style meatball.', 6.2, 0, 100, 'Default Supplier', 0, 0, 0, 'Grandma''s Meatball.png'),
+    (8, 'Wentelteefjes', 'Traditional Dutch French toast, served sweet.', 5.1, 0, 100, 'Default Supplier', 0, 0, 0, 'Wentelteefjes.png'),
+    (8, 'Pasta Pesto', 'Pasta served with a fresh, basil pesto sauce.', 5.85, 0, 100, 'Default Supplier', 0, 0, 0, 'Pasta Pesto.png'),
+    (8, 'Surprise Menu Café Brandstof', 'A chef''s choice menu, offering a delightful surprise.', 6, 0, 100, 'Default Supplier', 0, 0, 0, 'Surprise Menu Café Brandstof.png'),
+    (6, 'Mocktail Of The Day', 'A daily selection of a non-alcoholic mixed drink.', 5.5, 0, 100, 'Default Supplier', 0, 0, 0, 'Mocktail Of The Day.png'),
+    (8, 'High Tea', 'An assortment of teas, finger sandwiches, and pastries, perfect for an afternoon treat.', 14.95, 0, 100, 'Default Supplier', 0, 0, 0, 'High Tea.png'),
+    (3, 'LBS Circulware Cup', 'A reusable cup for drinks, promoting sustainability.', 2, 0, 100, 'Default Supplier', 0, 0, 0, 'LBS Circulware Cup.png'),
+    (3, 'LBS Circulware Lid', 'A matching lid for the reusable cup.', 2, 0, 100, 'Default Supplier', 0, 0, 0, 'LBS Circulware Lid.png'),
+    (3, 'Re-Usable Cutlery Set', 'A set of reusable cutlery for meals on the go.', 4.5, 0, 100, 'Default Supplier', 0, 0, 0, 'Re-Usable Cutlery Set.png');
 
+-- Insert data into Medewerker
+INSERT INTO Medewerker
+    (MedewerkerNaam, Telefoonnummer, EmailMedewerker, SupervisorID, MedewerkerInlognaam, MedewerkerWachtwoord, MedewerkerType, MedewerkerStatus, MedewerkerGeboortedatum, MedewerkerAdres, MedewerkerPostcode, MedewerkerWoonplaats, MedewerkerRol, MedewerkerContracturen, MedewerkerContracttype, MedewerkerSalaris, MedewerkerContractBegin, MedewerkerContractEinde, MedewerkerBankrekening, MedewerkerAfbeelding)
+VALUES
+    ('John Doe', '0612345678', 'john.doe@cafe.com', NULL, 'johndoe', 'password123', 'Medewerker', 'Actief', '1990-05-15', 'Street 1', '1000AA', 'Amsterdam', 'Barista', 40, 'Fulltime', 2500, '2020-01-01', '2022-01-01', 'NL00ABNA0123456789', 'john.jpg'),
+    ('Jane Smith', '0698765432', 'jane.smith@cafe.com', 1, 'janesmith', 'securepassword', 'Medewerker', 'Actief', '1985-08-20', 'Street 2', '2000BB', 'Rotterdam', 'Waiter', 32, 'Parttime', 1800, '2019-03-01', '2021-03-01', 'NL00INGB0987654321', 'jane.jpg'),
+    ('Alice Johnson', '0611223344', 'alice.johnson@cafe.com', 1, 'alicej', 'alicepass', 'Medewerker', 'Actief', '1992-11-10', 'Street 3', '3000CC', 'The Hague', 'Cook', 40, 'Fulltime', 2300, '2021-02-01', '2023-02-01', 'NL00RABO0234567890', 'alice.jpg'),
+    ('Bob Brown', '0688776655', 'bob.brown@cafe.com', 2, 'bobb', 'bobpassword', 'Medewerker', 'Actief', '1988-03-25', 'Street 4', '4000DD', 'Utrecht', 'Waiter', 20, 'Parttime', 1600, '2018-05-15', '2020-05-15', 'NL00SNSB0345678901', 'bob.jpg');
+
+-- Insert data into Ober
+INSERT INTO Ober
+    (MedewerkerID, OberNaam)
+VALUES
+    (2, 'Jane Smith'),
+    (4, 'Bob Brown');
+
+-- Insert data into Bestelronde
 INSERT INTO Bestelronde
-    (BestelrondeID, OberID, StatusBestelling, Tijd)
+    (OberID, StatusBestelling, Tijd)
 VALUES
-    (1, 1, 'Pending', NOW()),
-    (2, 2, 'Completed', NOW()),
-    (3, 3, 'Pending', NOW()),
-    (4, 4, 'Completed', NOW());
+    (1, 'In Progress', '2024-06-01 12:30:00'),
+    (1, 'Pending', '2024-06-01 13:00:00'),
+    (2, 'In Progress', '2024-06-01 14:00:00'),
+    (2, 'Pending', '2024-06-01 14:30:00');
 
+-- Insert data into Product_per_Bestelronde
 INSERT INTO Product_per_Bestelronde
     (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct)
 VALUES
-    (1, 1, 2, 2, 'Completed'),
-    (2, 2, 3, 3, 'Pending'),
-    (3, 3, 1, 1, 'Pending'),
-    (4, 4, 2, 2, 'Pending'),
-    (5, 1, 3, 3, 'Pending'),
-    (6, 2, 1, 1, 'Pending'),
-    (7, 3, 2, 2, 'Completed'),
-    (8, 4, 1, 1, 'Completed');
+    (1, 1, 2, 2, 'Pending'),
+    (4, 1, 1, 1, 'Pending'),
+    (7, 2, 3, 3, 'Pending'),
+    (10, 2, 1, 1, 'In Progress'),
+    (2, 3, 1, 1, 'Served'),
+    (3, 3, 2, 2, 'Served'),
+    (8, 4, 1, 1, 'Served'),
+    (9, 4, 2, 2, 'Served');
 
+-- Insert data into Tafel
 INSERT INTO Tafel
-    (TafelID, Sectie)
+    (TafelSectie, TafelAfbeelding)
 VALUES
-    (1, 'A'),
-    (2, 'B'),
-    (3, 'C'),
-    (4, 'D');
+    ('A', 'table1.jpg'),
+    ('B', 'table2.jpg'),
+    ('C', 'table3.jpg'),
+    ('D', 'table4.jpg');
 
+-- Insert data into Bestelling
 INSERT INTO Bestelling
-    (BestellingID, TafelID, BestelrondeID, StatusBestelling, TijdBestelling, KostenplaatsnummerID, TotaalPrijs)
+    (TafelID, BestelrondeID, StatusBestelling, TijdBestelling, KostenplaatsnummerID, TotaalPrijs)
 VALUES
-    (1, 1, 1, 'Pending', NOW(), NULL, 300),
-    (2, 2, 2, 'Completed', NOW(), NULL, 150),
-    (3, 3, 3, 'Pending', NOW(), NULL, 450),
-    (4, 4, 4, 'Completed', NOW(), NULL, 200);
+    (1, 1, 'Pending', '2024-06-01 12:30:00', NULL, 9),
+    (2, 2, 'Pending', '2024-06-01 13:00:00', NULL, 16),
+    (3, 3, 'In Progress', '2024-06-01 14:00:00', NULL, 7),
+    (4, 4, 'Completed', '2024-06-01 14:30:00', NULL, 8);
 
+-- Insert data into Overzicht
 INSERT INTO Overzicht
-    (OverzichtID, BestellingID, ProductVerkocht, ProductVoorraad)
+    (BestellingID, ProductVerkocht, ProductVoorraad)
 VALUES
-    (1, 1, 2, 98),
-    (2, 2, 3, 197),
-    (3, 3, 1, 149),
-    (4, 4, 2, 48);
+    (1, 3, 30),
+    (2, 4, 40),
+    (3, 3, 25),
+    (4, 3, 20);
 
+-- Insert data into Overzicht_per_product
 INSERT INTO Overzicht_per_product
     (ProductID, OverzichtID, VoorraadPP)
 VALUES
     (1, 1, 98),
-    (2, 2, 197),
-    (3, 3, 149),
-    (4, 4, 48),
-    (5, 1, 47),
-    (6, 2, 89),
-    (7, 3, 118),
-    (8, 4, 139);
+    (4, 1, 49),
+    (7, 2, 27),
+    (10, 2, 14),
+    (2, 3, 79),
+    (3, 3, 88),
+    (8, 4, 39),
+    (9, 4, 48);
 
+-- Insert data into Medewerker_Ober_koppel
 INSERT INTO Medewerker_Ober_koppel
     (MedewerkerID, OberID, Inkloktijd, Uitkloktijd)
 VALUES
-    (1, 1, NOW(), NOW()),
-    (2, 2, NOW(), NOW()),
-    (3, 3, NOW(), NOW()),
-    (4, 4, NOW(), NOW());
+    (1, 2, '2024-06-01 08:00:00', '2024-06-01 16:00:00'),
+    (2, 1, '2024-06-01 09:00:00', '2024-06-01 17:00:00'),
+    (3, 2, '2024-06-01 10:00:00', '2024-06-01 18:00:00'),
+    (4, 1, '2024-06-01 11:00:00', '2024-06-01 19:00:00');
+
+-- Insert data into FAQ
+INSERT INTO FAQ
+    (FAQVraag, FAQAntwoord)
+VALUES
+    ('What are your opening hours?', 'We are open from 8 AM to 8 PM every day.'),
+    ('Do you offer vegan options?', 'Yes, we have several vegan options available.'),
+    ('Do you have WiFi?', 'Yes, we offer free WiFi for our customers.');

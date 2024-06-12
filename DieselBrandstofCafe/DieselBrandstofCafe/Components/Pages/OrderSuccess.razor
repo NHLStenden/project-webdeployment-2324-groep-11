@@ -1,0 +1,26 @@
+﻿@page "/ordersuccess"
+@inject NavigationManager NavigationManager
+
+<div class="order-success-page">
+    <div class="order-success-content">
+        <h1>Thank You for Your Order!</h1>
+        <p>Your order has been placed successfully. We appreciate your support and can't wait for you to enjoy our delicious offerings. Your fresh, tasty treats or beverages will be ready soon!</p>
+
+        <div class="order-success-actions">
+            <button class="button-primary" @onclick="GoToMenu">Back to Menu</button>
+            <button class="button-secondary" @onclick="GoToOrders">View Your Orders</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    void GoToMenu()
+    {
+        NavigationManager.NavigateTo("/menu");
+    }
+
+    void GoToOrders()
+    {
+        NavigationManager.NavigateTo("/myorders");
+    }
+}

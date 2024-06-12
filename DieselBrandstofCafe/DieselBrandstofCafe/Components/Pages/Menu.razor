@@ -12,19 +12,32 @@
         <div class="categories">
             <h2>Categories</h2>
             <div class="category-list">
-                @if (categories == null)
+                @if (parentCategories == null)
                 {
                     <p>Loading...</p>
                 }
                 else
                 {
-                    @foreach (var category in categories)
+                    @foreach (var category in parentCategories)
                     {
                         <div class="category-card">
-                            <button class="category-button" @onclick='() => LoadMenuItems(category.CategorieID)'>
+                            <button class="category-button" @onclick='() => LoadChildCategories(category.CategorieID)'>
                                 <img src="">
                                 <span>@category.NaamCategorie</span>
                             </button>
+                        </div>
+                    }
+                    @if (childCategories != null)
+                    {
+                        <div class="child-category-list">
+                            @foreach (var childCategory in childCategories)
+                            {
+                                <div class="child-category-card">
+                                    <button class="child-category-button" @onclick='() => LoadMenuItems(childCategory.CategorieID)'>
+                                        <span>@childCategory.NaamCategorie</span>
+                                    </button>
+                                </div>
+                            }
                         </div>
                     }
                 }
@@ -47,9 +60,22 @@
                     {
                         <div class="menu-item">
                             <h3>@item.ProductNaam</h3>
+                            <div class="product-image-container">
+                            <img src="images\@item.ProductAfbeelding" alt="@item.ProductNaam" class="product-image">
+                            </div>
                             <p>€@item.ProductPrijs</p>
+                            <p>@item.ProductDesc</p>
+                            <div class="add-ons">
+                                <select id="addOnSelect" @onchange="(e) => SelectAddOn(e, item.ProductID)">
+                                    <option value="">Extra Add-ons</option>
+                                    @foreach (var addOn in addOns)
+                                    {
+                                        <option value="@addOn.ProductID">@addOn.ProductNaam - €@addOn.ProductPrijs</option>
+                                    }
+                                </select>
+                            </div>
                             <div class="invoice-menu-controls">
-                                <div class="counter-background">
+                                <div class="counter-background-menu">
                                     <button class="decrease-menu-item" @onclick='() => DecreaseAantalProductTemp(item)'>-</button>
                                     <span>@GetTempAantal(item)</span>
                                     <button class="increase-menu-item" @onclick='() => IncreaseAantalProductTemp(item)'>+</button>
@@ -74,7 +100,7 @@
                             <span>@invoiceItem.Product?.ProductNaam (€@invoiceItem.Product?.ProductPrijs)</span>
                             <div class="invoice-item-controls">
                                 <span class="product-total">€@(invoiceItem.Product?.ProductPrijs * invoiceItem.AantalProduct)</span>
-                                <div class="counter-background">
+                                <div class="counter-background-invoice">
                                     <button class="decrease-invoice-item" @onclick="() => DecreaseAantalProduct(invoiceItem)">-</button>
                                     <span>@invoiceItem.AantalProduct</span>
                                     <button class="increase-invoice-item" @onclick="() => IncreaseAantalProduct(invoiceItem)">+</button>
@@ -95,7 +121,7 @@
                     <button>Ideal</button>
                 </div>
                 <div class="place-order-button-container">
-                    <button class="place-order-button" @onclick="PlaceOrder">Place Order</button>
+                    <button class="place-order-button" @onclick="PlaceOrder" disabled="@(!invoiceItems.Any())">Place Order</button>
                 </div>
             </div>
         </div>
@@ -123,12 +149,16 @@
 @code {
 
     List<Product>? menuItems;
-    List<Categorie>? categories;
+    List<Categorie>? parentCategories;
+    List<Categorie>? childCategories;
+    List<Product>? addOns;
     Dictionary<int, int> tempProductQuantities = new Dictionary<int, int>();
+    Dictionary<int, int?> selectedAddOns = new Dictionary<int, int?>();
 
     protected override async Task OnInitializedAsync()
     {
-        categories = (await categorieService.GetCategorieënAsync()).ToList();
+        parentCategories = (await categorieService.GetParentCategorieënAsync()).ToList();
+        addOns = (await customerService.GetAddOnsAsync()).ToList();
         await LoadAllMenuItems();
     }
 
@@ -136,6 +166,11 @@
     {
         menuItems = (await customerService.GetProductsAsync()).ToList();
         InitializeTempQuantities();
+    }
+
+    async Task LoadChildCategories(int parentId)
+    {
+        childCategories = (await categorieService.GetChildCategorieënAsync(parentId)).ToList();
     }
 
     async Task LoadMenuItems(int categoryId)
@@ -153,6 +188,19 @@
         }
     }
 
+    void SelectAddOn(ChangeEventArgs e, int productId)
+    {
+        var selectedAddOnId = int.TryParse(e.Value?.ToString(), out var result) ? result : (int?)null;
+        if (selectedAddOns.ContainsKey(productId))
+        {
+            selectedAddOns[productId] = selectedAddOnId;
+        }
+        else
+        {
+            selectedAddOns.Add(productId, selectedAddOnId);
+        }
+    }
+
     void AddToInvoice(Product product)
     {
         if (tempProductQuantities.TryGetValue(product.ProductID, out int quantity) && quantity > 0)
@@ -165,6 +213,15 @@
             else
             {
                 invoiceItems.Add(new InvoiceItem { Product = product, AantalProduct = quantity });
+            }
+
+            if (selectedAddOns.TryGetValue(product.ProductID, out int? addOnId) && addOnId.HasValue)
+            {
+                var addOn = addOns?.FirstOrDefault(a => a.ProductID == addOnId.Value);
+                if (addOn != null)
+                {
+                    invoiceItems.Add(new InvoiceItem { Product = addOn, AantalProduct = quantity });
+                }
             }
             tempProductQuantities[product.ProductID] = 0; // Reset temporary quantity after adding to invoice
             UpdateTotal();

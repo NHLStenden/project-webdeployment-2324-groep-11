@@ -7,7 +7,11 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
+<<<<<<< HEAD
 timestamp=0001717786565166309
+=======
+timestamp=0001718203896206007
+>>>>>>> DEV2
 create-version=2
 source=SELECT SUM(CURRENT_NUMBER_OF_BYTES_USED) total_allocated\n  FROM performance_schema.memory_summary_global_by_event_name;
 client_cs_name=utf8mb3

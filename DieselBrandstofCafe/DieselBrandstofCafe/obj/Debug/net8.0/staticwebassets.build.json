@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "5weWA06OqZjukusMvl1CEUGaMXLknR01Qj4iqIFWuIk=",
+=======
+  "Hash": "5tNLburHwf2kDAYHNneBpT1nn/NT0jVGRGO5NUSsCxQ=",
+>>>>>>> DEV2
   "Source": "DieselBrandstofCafe",
   "BasePath": "_content/DieselBrandstofCafe",
   "Mode": "Default",
@@ -131,12 +135,21 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\bkoer\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\contentFiles\\any\\netstandard2.1\\wwwroot\\ChartJsBlazorInterop.js",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\HBO-ICT\\Periode4\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "ChartJsBlazorInterop.js",
+=======
+      "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Coffee Creme Large.png",
+      "SourceId": "DieselBrandstofCafe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
+      "BasePath": "_content/DieselBrandstofCafe",
+      "RelativePath": "images/Coffee Creme Large.png",
+>>>>>>> DEV2
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -147,6 +160,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\bkoer\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\contentFiles\\any\\netstandard2.1\\wwwroot\\ChartJsBlazorInterop.js"
     },
     {
@@ -160,13 +174,32 @@
       "AssetMode": "All",
       "AssetRole": "Primary",
       "AssetMergeBehavior": "",
+=======
+      "OriginalItemSpec": "wwwroot\\images\\Coffee Creme Large.png"
+    },
+    {
+      "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Coffee Creme.png",
+      "SourceId": "DieselBrandstofCafe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
+      "BasePath": "_content/DieselBrandstofCafe",
+      "RelativePath": "images/Coffee Creme.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+>>>>>>> DEV2
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\bkoer\\.nuget\\packages\\chartjs.blazor.fork\\2.0.2\\staticwebassets\\ChartJsBlazorInterop.js"
+=======
+      "OriginalItemSpec": "wwwroot\\images\\Coffee Creme.png"
+>>>>>>> DEV2
     }
   ]
 }
