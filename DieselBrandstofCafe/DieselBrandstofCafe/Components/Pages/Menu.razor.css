@@ -97,18 +97,22 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 200px;
+    height: 350px;
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
     border-radius: 10px;
-    justify-content: space-between;
+}
+
+.add-ons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #addOnSelect {
     border-radius: 10px;
     padding: 10px;
-    margin-bottom: 2em;
     border: 1px solid black;
     cursor: pointer;
 }
@@ -124,6 +128,16 @@
     width: 40%;
     right: 10px;
     position: absolute;
+}
+
+.product-image-container {
+    justify-content: center;
+}
+
+.product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
 }
 
 .decrease-menu-item,
@@ -198,7 +212,16 @@
     align-items: center;
 }
 
-.counter-background {
+.counter-background-menu {
+    background-color: #F2F1F2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 10px;
+}
+.counter-background-invoice {
     background-color: #F2F1F2;
     display: flex;
     align-items: center;

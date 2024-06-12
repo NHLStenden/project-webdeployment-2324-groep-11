@@ -47,7 +47,11 @@
                     {
                         <div class="menu-item">
                             <h3>@item.ProductNaam</h3>
+                            <div class="product-image-container">
+                            <img src="images\@item.ProductAfbeelding" alt="@item.ProductNaam" class="product-image">
+                            </div>
                             <p>€@item.ProductPrijs</p>
+                            <p>@item.ProductDesc</p>
                             <div class="add-ons">
                                 <select id="addOnSelect" @onchange="(e) => SelectAddOn(e, item.ProductID)">
                                     <option value="">Extra Add-ons</option>
@@ -58,7 +62,7 @@
                                 </select>
                             </div>
                             <div class="invoice-menu-controls">
-                                <div class="counter-background">
+                                <div class="counter-background-menu">
                                     <button class="decrease-menu-item" @onclick='() => DecreaseAantalProductTemp(item)'>-</button>
                                     <span>@GetTempAantal(item)</span>
                                     <button class="increase-menu-item" @onclick='() => IncreaseAantalProductTemp(item)'>+</button>
@@ -83,7 +87,7 @@
                             <span>@invoiceItem.Product?.ProductNaam (€@invoiceItem.Product?.ProductPrijs)</span>
                             <div class="invoice-item-controls">
                                 <span class="product-total">€@(invoiceItem.Product?.ProductPrijs * invoiceItem.AantalProduct)</span>
-                                <div class="counter-background">
+                                <div class="counter-background-invoice">
                                     <button class="decrease-invoice-item" @onclick="() => DecreaseAantalProduct(invoiceItem)">-</button>
                                     <span>@invoiceItem.AantalProduct</span>
                                     <button class="increase-invoice-item" @onclick="() => IncreaseAantalProduct(invoiceItem)">+</button>
