@@ -9,9 +9,6 @@
             <div class="col-2 card">
                 <h3>Orders</h3>
             </div>
-            <div class="col-2 card">
-                <h3>Refunds</h3>
-            </div>
         </div>
         <div class="card">
         </div>
@@ -26,10 +23,9 @@
         <div class="row text-center">
             <div class="col-4">
                 <div class="card h-100 card-padding">
-                    <h6 class="Text-padding"><b>Order History</b></h6>
-                    <br />
-                    <div class="d-flex row">
-                        <div>
+                    <h6 class="Text-padding" style="font-size:large; padding:13px;"><b>Order History</b></h6>
+                    <div class="d-flex row card-maxheight">
+                        <div style="padding:13px;">
                             @foreach (var item in bestellingen)
                             {
                                 <div class="row">
@@ -37,34 +33,48 @@
                                     <div class="col-6">@item.TijdBestelling</div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6">@item.StatusBestelling</div>
+                                    <div class="col-6 Status-Completed">@item.StatusBestelling</div>
                                     <div class="col-6">€@item.TotaalPrijs</div>
                                 </div>
+                                
+                                <button @onclick="() => SelectOrder(item.BestellingID)" class="generic-button">See Details</button>
                                 <br />
-                                <button @onclick="() => SelectOrder(item.BestellingID)">Bekijk Details</button>
+                                <br />
                             }
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-8">
-                <div class="card h-100 card-padding">
-                    <h6 class="Text-padding"><b>Order </b></h6>
+                <div class="card h-100 card-padding container">
+                    <h6 class="Text-padding" style="font-size:large; padding-top:13px"><b>Order </b></h6>
                     <br />
-                    <div class="d-flex flex-row">
+                    <div class="Order-Text">
                         @if (selectedOrder != null)
                         {
                             <div>
-                                <h6>Order Details:</h6>
-                                <p>Bestelling ID: @selectedOrder.BestellingID</p>
-                                <p>Tijd Bestelling: @selectedOrder.TijdBestelling</p>
-                                <p>Status Bestelling: @selectedOrder.StatusBestelling</p>
-                                <p>Totaal Prijs: €@selectedOrder.TotaalPrijs</p>
-                                <h6>Producten:</h6>
-                                <ul>
+                                <p style="font-size:x-large;">Order Details:</p>
+                                <div class="row">
+                                    <p class="col-5 text-start">Bestelling ID:</p> 
+                                    <p class="col-7 text-start"> <b>@selectedOrder.BestellingID</b></p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-5 text-start">Tijd Bestelling:</p>
+                                    <p  class="col-7 text-start"><b>@selectedOrder.TijdBestelling</b></p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-5 text-start">Status Bestelling:</p>
+                                    <p  class="col-7 text-start"><b>@selectedOrder.StatusBestelling</b></p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-5 text-start">Totaal Prijs:</P>
+                                    <p  class="col-7 text-start"><b>€@selectedOrder.TotaalPrijs</b></p>
+                                </div>
+                                <p>Producten:</p>
+                                <ul class="justify-content-center">
                                     @foreach (var product in selectedOrder.Products)
                                     {
-                                        <li>@product.ProductNaam - €@product.AantalProduct</li>
+                                         <li><b>@product.ProductNaam - @product.AantalProduct x</b></li>
                                     }
                                 </ul>
                             </div>
