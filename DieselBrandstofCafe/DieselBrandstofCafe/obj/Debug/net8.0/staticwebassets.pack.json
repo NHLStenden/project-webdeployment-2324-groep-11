@@ -21,12 +21,12 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\coffee creme.png",
-      "PackagePath": "staticwebassets\\images\\coffee creme.png"
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Coffee Creme Large.png",
+      "PackagePath": "staticwebassets\\images\\Coffee Creme Large.png"
     },
     {
-      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\latte.jpg",
-      "PackagePath": "staticwebassets\\images\\latte.jpg"
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Coffee Creme.png",
+      "PackagePath": "staticwebassets\\images\\Coffee Creme.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DieselBrandstofCafe.Microsoft.AspNetCore.StaticWebAssets.props",

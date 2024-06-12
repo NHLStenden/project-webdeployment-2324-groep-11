@@ -20,8 +20,4 @@
     <Folder Include="Components\Objects\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\images\latte.jpg" />
-  </ItemGroup>
-
 </Project>

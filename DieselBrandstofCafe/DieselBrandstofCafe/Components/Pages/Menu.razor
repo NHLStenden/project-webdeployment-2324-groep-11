@@ -12,19 +12,32 @@
         <div class="categories">
             <h2>Categories</h2>
             <div class="category-list">
-                @if (categories == null)
+                @if (parentCategories == null)
                 {
                     <p>Loading...</p>
                 }
                 else
                 {
-                    @foreach (var category in categories)
+                    @foreach (var category in parentCategories)
                     {
                         <div class="category-card">
-                            <button class="category-button" @onclick='() => LoadMenuItems(category.CategorieID)'>
+                            <button class="category-button" @onclick='() => LoadChildCategories(category.CategorieID)'>
                                 <img src="">
                                 <span>@category.NaamCategorie</span>
                             </button>
+                        </div>
+                    }
+                    @if (childCategories != null)
+                    {
+                        <div class="child-category-list">
+                            @foreach (var childCategory in childCategories)
+                            {
+                                <div class="child-category-card">
+                                    <button class="child-category-button" @onclick='() => LoadMenuItems(childCategory.CategorieID)'>
+                                        <span>@childCategory.NaamCategorie</span>
+                                    </button>
+                                </div>
+                            }
                         </div>
                     }
                 }
@@ -136,14 +149,15 @@
 @code {
 
     List<Product>? menuItems;
-    List<Categorie>? categories;
+    List<Categorie>? parentCategories;
+    List<Categorie>? childCategories;
     List<Product>? addOns;
     Dictionary<int, int> tempProductQuantities = new Dictionary<int, int>();
     Dictionary<int, int?> selectedAddOns = new Dictionary<int, int?>();
 
     protected override async Task OnInitializedAsync()
     {
-        categories = (await categorieService.GetCategorieënAsync()).ToList();
+        parentCategories = (await categorieService.GetParentCategorieënAsync()).ToList();
         addOns = (await customerService.GetAddOnsAsync()).ToList();
         await LoadAllMenuItems();
     }
@@ -152,6 +166,11 @@
     {
         menuItems = (await customerService.GetProductsAsync()).ToList();
         InitializeTempQuantities();
+    }
+
+    async Task LoadChildCategories(int parentId)
+    {
+        childCategories = (await categorieService.GetChildCategorieënAsync(parentId)).ToList();
     }
 
     async Task LoadMenuItems(int categoryId)

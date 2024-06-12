@@ -115,6 +115,8 @@
     padding: 10px;
     border: 1px solid black;
     cursor: pointer;
+    bottom: 63px;
+    position: absolute;
 }
 
 .add-menu-item {
