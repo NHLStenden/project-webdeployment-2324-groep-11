@@ -9,6 +9,7 @@
         public decimal ProductPrijs { get; set; }
         public int Voorraad { get; set; }
         public string? Supplier { get; set; }
+        public int? AddOnID { get; set; }
         public bool LactoseVrij { get; set; }
         public bool Vegetarisch { get; set; }
         public bool Veganistisch { get; set; }
