@@ -3,6 +3,7 @@ using DieselBrandstofCafe.Components.Data;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using System.Data;
+using ChartJs.Blazor;
 
 
 var builder = WebApplication.CreateBuilder(args);

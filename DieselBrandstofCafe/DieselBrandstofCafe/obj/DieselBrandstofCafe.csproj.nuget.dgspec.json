@@ -45,9 +45,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "ChartJs.Blazor": {
+            "ChartJs.Blazor.Fork": {
               "target": "Package",
-              "version": "[1.1.0, )"
+              "version": "[2.0.2, )"
             },
             "Dapper": {
               "target": "Package",
