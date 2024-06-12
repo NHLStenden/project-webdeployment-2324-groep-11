@@ -100,7 +100,7 @@ namespace DieselBrandstofCafe.Components.Data
             using (var connection = new MySqlConnection(_connectionString))
             {
                 // Assuming 'IsAddOn' is a boolean column in the Product table that indicates if a product is an add-on
-                string query = "SELECT * FROM Product /*WHERE IsAddOn = true*/";
+                string query = "SELECT * FROM Product WHERE IsAddOn = true";
                 return await connection.QueryAsync<Product>(query);
             }
         }

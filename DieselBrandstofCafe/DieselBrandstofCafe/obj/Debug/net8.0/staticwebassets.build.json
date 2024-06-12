@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DWpuF4fDDctaLtVYzCLjYMlc1sIwPijEvGexCLzd8yU=",
+  "Hash": "pRV6inl+YTQnyu21dVBbwYNHgcA1N8+DDroEEIYwRIg=",
   "Source": "DieselBrandstofCafe",
   "BasePath": "_content/DieselBrandstofCafe",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\coffee creme.png",
+      "SourceId": "DieselBrandstofCafe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
+      "BasePath": "_content/DieselBrandstofCafe",
+      "RelativePath": "images/coffee creme.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\coffee creme.png"
     },
     {
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\latte.jpg",

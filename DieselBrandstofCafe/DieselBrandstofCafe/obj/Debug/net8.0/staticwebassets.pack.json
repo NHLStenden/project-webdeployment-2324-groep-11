@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\coffee creme.png",
+      "PackagePath": "staticwebassets\\images\\coffee creme.png"
+    },
+    {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\latte.jpg",
       "PackagePath": "staticwebassets\\images\\latte.jpg"
     },

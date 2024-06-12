@@ -194,3 +194,4 @@ C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-2324-groep-11\Die
 C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.pdb
 C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.genruntimeconfig.cache
 C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\ref\DieselBrandstofCafe.dll
+C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\Components\Pages\MyOrders.razor.rz.scp.css
