@@ -21,19 +21,19 @@
 <section>
     <div class="container">
         <div class="row text-center">
-            <div class="col-4">
+            <div class="col-lg-4">
                 <div class="card h-100 card-padding">
                     <h6 class="Text-padding" style="font-size:large; padding:13px;"><b>Order History</b></h6>
                     <div class="d-flex row card-maxheight">
                         <div style="padding:13px;">
-                            @foreach (var item in bestellingen)
+                            @foreach (var item in combinedOrders)
                             {
                                 <div class="row">
                                     <div class="col-6">@item.BestellingID#</div>
                                     <div class="col-6">@item.TijdBestelling</div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 Status-Completed">@item.StatusBestelling</div>
+                                    <div class="col-6 @(item.StatusBestelling == "Pending" ? "Status-Pending" : "Status-Completed")">@item.StatusBestelling</div>
                                     <div class="col-6">€@item.TotaalPrijs</div>
                                 </div>
                                 
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-8">
+            <div class="col-lg-8">
                 <div class="card h-100 card-padding container">
                     <h6 class="Text-padding" style="font-size:large; padding-top:13px"><b>Order </b></h6>
                     <br />
@@ -77,6 +77,7 @@
                                          <li><b>@product.ProductNaam - @product.AantalProduct x</b></li>
                                     }
                                 </ul>
+                                <br />
                             </div>
                         }
                     </div>
@@ -89,11 +90,24 @@
 @code {
     private List<OrderWithProducts> bestellingen = new List<OrderWithProducts>();
     private OrderWithProducts? selectedOrder;
+    private List<OrderWithProducts> newBestellingen = new List<OrderWithProducts>();
+    private List<OrderWithProducts> combinedOrders = new List<OrderWithProducts>();
 
     protected override async Task OnInitializedAsync()
     {
         var orders = await EmployeeService.GetOrderHistoryAsync();
+        var newOrders = await EmployeeService.GetNewOrdersAsync();
+
         bestellingen = orders.Select(order => new OrderWithProducts
+        {
+            BestellingID = order.BestellingID,
+            TijdBestelling = order.TijdBestelling,
+            StatusBestelling = order.StatusBestelling,
+            TotaalPrijs = order.TotaalPrijs,
+            Products = new List<ProductPerBestelronde>()
+        }).ToList();
+
+        newBestellingen = newOrders.Select(order => new OrderWithProducts
         {
             BestellingID = order.BestellingID,
             TijdBestelling = order.TijdBestelling,
@@ -107,20 +121,34 @@
             var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
             order.Products.AddRange(products);
         }
+
+        foreach (var order in newBestellingen)
+        {
+            var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
+            order.Products.AddRange(products);
+        }
+
+        
+        combinedOrders = newBestellingen.Concat(bestellingen).ToList();
+
+        
+        combinedOrders = combinedOrders
+            .OrderByDescending(order => order.StatusBestelling == "pending")
+            .ThenByDescending(order => order.TijdBestelling)
+            .ToList();
     }
 
     private void SelectOrder(int bestellingID)
     {
-        selectedOrder = bestellingen.FirstOrDefault(order => order.BestellingID == bestellingID);
+        selectedOrder = combinedOrders.FirstOrDefault(order => order.BestellingID == bestellingID);
     }
 
     public class OrderWithProducts
     {
         public int BestellingID { get; set; }
         public DateTime TijdBestelling { get; set; }
-        public string ?StatusBestelling { get; set; }
+        public string? StatusBestelling { get; set; }
         public decimal TotaalPrijs { get; set; }
         public List<ProductPerBestelronde> Products { get; set; } = new();
     }
 }
-
