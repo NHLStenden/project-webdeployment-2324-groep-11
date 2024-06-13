@@ -5,5 +5,7 @@
         public int CategorieID { get; set; }
         public required string NaamCategorie { get; set; }
         public int? ParentID { get; set; }
+        public string? CategorieAfbeelding { get; set; }
+
     }
 }
