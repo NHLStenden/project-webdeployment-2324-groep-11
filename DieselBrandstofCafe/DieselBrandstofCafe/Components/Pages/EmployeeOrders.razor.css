@@ -1,0 +1,20 @@
+﻿.Status-Completed {
+    color: #064E3B;
+    background-color: #ECFDF5;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.Status-Progress {
+    color: #FF5C00;
+    background-color: #fcdbc9;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.Status-Pending {
+    color: gray;
+    background-color: #fff9c4;
+    border-radius: 5px;
+    padding: 5px;
+}

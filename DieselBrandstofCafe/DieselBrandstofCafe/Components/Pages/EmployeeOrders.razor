@@ -1,7 +1,114 @@
 ﻿@page "/EmployeeOrders"
+@using DieselBrandstofCafe.Components.Data
+@using DieselBrandstofCafe.Components.Models
+@inject IEmployeeService EmployeeService
 
-<h3>EmployeeOrders</h3>
+
+   <div class="container">
+        <div class="row text-center">
+            <div>
+                <div class="h-100">
+                    <div class="card col-2 justify-content-center">
+                        <h6 class="Text-padding" style="font-size:large; padding:13px;"><b>All Orders</b></h6>
+                    </div>
+                    <div class="d-flex row card-maxheight">
+                        <div style="padding:13px;">
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col-2">Order ID</div>
+                                    <div class="col-2">(Table ID)</div>
+                                    <div class="col-2">Time</div>
+                                    <div class="col-2">(Time Elapsed)</div>
+                                    <div class="col-2"> Status</div>
+                                    <div class="col-2">Prijs</div>
+                                </div>
+                            </div>
+                                <br/>
+                            @foreach (var item in combinedOrders)
+                            {
+                                <div class="card">
+                                    <div class="row"02
+                                        >
+                                        <div class="col-2">@item.BestellingID#</div>
+                                        <div class="col-2">(Table ID)</div>
+                                        <div class="col-2">@item.TijdBestelling</div>
+                                        <div class="col-2">(Time Elapsed)</div>
+                                        <div class="col-2 @(item.StatusBestelling == "Pending" ? "Status-Pending" : "Status-Completed")">@item.StatusBestelling</div>
+                                        <div class="col-2">€@item.TotaalPrijs</div>
+                                    </div>
+                                </div>
+                                    <br />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+
 
 @code {
+    private List<OrderWithProducts> bestellingen = new List<OrderWithProducts>();
+    private OrderWithProducts? selectedOrder;
+    private List<OrderWithProducts> newBestellingen = new List<OrderWithProducts>();
+    private List<OrderWithProducts> combinedOrders = new List<OrderWithProducts>();
 
+    protected override async Task OnInitializedAsync()
+    {
+        var orders = await EmployeeService.GetOrderHistoryAsync();
+        var newOrders = await EmployeeService.GetNewOrdersAsync();
+
+        bestellingen = orders.Select(order => new OrderWithProducts
+            {
+                BestellingID = order.BestellingID,
+                TijdBestelling = order.TijdBestelling,
+                StatusBestelling = order.StatusBestelling,
+                TotaalPrijs = order.TotaalPrijs,
+                Products = new List<ProductPerBestelronde>()
+            }).ToList();
+
+        newBestellingen = newOrders.Select(order => new OrderWithProducts
+            {
+                BestellingID = order.BestellingID,
+                TijdBestelling = order.TijdBestelling,
+                StatusBestelling = order.StatusBestelling,
+                TotaalPrijs = order.TotaalPrijs,
+                Products = new List<ProductPerBestelronde>()
+            }).ToList();
+
+        foreach (var order in bestellingen)
+        {
+            var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
+            order.Products.AddRange(products);
+        }
+
+        foreach (var order in newBestellingen)
+        {
+            var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
+            order.Products.AddRange(products);
+        }
+
+
+        combinedOrders = newBestellingen.Concat(bestellingen).ToList();
+
+
+        combinedOrders = combinedOrders
+            .OrderByDescending(order => order.StatusBestelling == "pending")
+            .ThenByDescending(order => order.TijdBestelling)
+            .ToList();
+    }
+
+    private void SelectOrder(int bestellingID)
+    {
+        selectedOrder = combinedOrders.FirstOrDefault(order => order.BestellingID == bestellingID);
+    }
+
+    public class OrderWithProducts
+    {
+        public int BestellingID { get; set; }
+        public DateTime TijdBestelling { get; set; }
+        public string? StatusBestelling { get; set; }
+        public decimal TotaalPrijs { get; set; }
+        public List<ProductPerBestelronde> Products { get; set; } = new();
+    }
 }
