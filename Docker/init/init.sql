@@ -8,6 +8,7 @@ CREATE TABLE Categorie
     CategorieID INT NOT NULL AUTO_INCREMENT,
     NaamCategorie VARCHAR(100),
     ParentID INT,
+    CategorieAfbeelding VARCHAR(255) DEFAULT 'Geen afbeelding.png',
     PRIMARY KEY (CategorieID)
 );
 
@@ -25,7 +26,7 @@ CREATE TABLE Product
     LactoseVrij BOOLEAN DEFAULT 0,
     Vegetarisch BOOLEAN DEFAULT 0,
     Veganistisch BOOLEAN DEFAULT 0,
-    ProductAfbeelding VARCHAR(255) DEFAULT 'default.jpg',
+    ProductAfbeelding VARCHAR(255) DEFAULT 'Geen afbeelding.png',
     PRIMARY KEY (ProductID)
 );
 
@@ -192,17 +193,17 @@ ADD FOREIGN KEY (OverzichtID) REFERENCES Overzicht(OverzichtID) ON DELETE CASCAD
 
 -- Insert data into Categorie
 INSERT INTO Categorie
-    (NaamCategorie, ParentID)
+    (NaamCategorie, ParentID, CategorieAfbeelding)
 VALUES
-    ('Beverages', NULL),
-    ('Food', NULL),
-    ('Re-usables / disposables', NULL),
-    ('Hot Drinks', 1),
-    ('Cold Drinks', 1),
-    ('Non-Alcoholic Drinks', 1),
-    ('Snacks', 2),
-    ('Lunch', 2),
-    ('Pastry''s & Desserts', 2);
+    ('Beverages', NULL, 'Beverages.png'),
+    ('Food', NULL, 'Food.png'),
+    ('Re-usables / disposables', NULL, 'Re-usables disposables.png'),
+    ('Hot Drinks', 1, 'Hot Drinks.png'),
+    ('Cold Drinks', 1, 'Cold Drinks.png'),
+    ('Non-Alcoholic Drinks', 1, 'Non-Alcoholic Drinks.png'),
+    ('Snacks', 2, 'Snacks.png'),
+    ('Lunch', 2, 'Lunch.png'),
+    ('Pastry''s & Desserts', 2, 'Pastry''s & Desserts.png');
 
 -- Insert data into Product
 INSERT INTO Product
@@ -220,7 +221,6 @@ VALUES
     (4, 'Tea', 'A standard serving of black, green, or herbal tea.', 1.17, 0, 100, 'Default Supplier', 0, 0, 0, 'Tea.png'),
     (4, 'Fresh Tea', 'A freshly brewed tea with vibrant flavors.', 1.3, 0, 100, 'Default Supplier', 0, 0, 0, 'Fresh Tea.png'),
     (4, 'Hot Chocolate Dark', 'A rich and intense dark chocolate drink.', 2.1, 0, 100, 'Default Supplier', 0, 0, 0, 'Hot Chocolate Dark.png'),
-    (4, 'Syrup For Coffee', 'A variety of flavored syrups to add a sweet touch to your coffee.', 0.39, 1, 100, 'Default Supplier', 0, 0, 0, 'Syrup For Coffee.png'),
     (4, 'Chai Latte', 'A spiced tea blend mixed with steamed milk.', 2.6, 0, 100, 'Default Supplier', 0, 0, 0, 'Chai Latte.png'),
     (5, 'Ice Latte', 'A cold coffee drink with milk, perfect for a refreshing break.', 2.59, 0, 100, 'Default Supplier', 0, 0, 0, 'Ice Latte.png'),
     (4, 'Dirty Chai Latte', 'A chai latte with an added shot of espresso for an extra kick.', 3.25, 0, 100, 'Default Supplier', 0, 0, 0, 'Dirty Chai Latte.png'),
@@ -255,7 +255,17 @@ VALUES
     (8, 'High Tea', 'An assortment of teas, finger sandwiches, and pastries, perfect for an afternoon treat.', 14.95, 0, 100, 'Default Supplier', 0, 0, 0, 'High Tea.png'),
     (3, 'LBS Circulware Cup', 'A reusable cup for drinks, promoting sustainability.', 2, 0, 100, 'Default Supplier', 0, 0, 0, 'LBS Circulware Cup.png'),
     (3, 'LBS Circulware Lid', 'A matching lid for the reusable cup.', 2, 0, 100, 'Default Supplier', 0, 0, 0, 'LBS Circulware Lid.png'),
-    (3, 'Re-Usable Cutlery Set', 'A set of reusable cutlery for meals on the go.', 4.5, 0, 100, 'Default Supplier', 0, 0, 0, 'Re-Usable Cutlery Set.png');
+    (3, 'Re-Usable Cutlery Set', 'A set of reusable cutlery for meals on the go.', 4.5, 0, 100, 'Default Supplier', 0, 0, 0, 'Re-Usable Cutlery Set.png'),
+
+-- Add-ons:
+    (9, 'Cinnamon Syrup', 'Cinnamon syrup to add extra flavor.', 0.39, 1, 100, 'Default Supplier', 0, 0, 0, 'Cinnamon Syrup.png'),
+    (9, 'Caramel Syrup', 'Sweet caramel syrup to enhance your drink.', 0.39, 1, 100, 'Default Supplier', 0, 0, 0, 'Caramel Syrup.png'),
+    (9, 'Vanilla Syrup', 'Smooth vanilla syrup for a touch of sweetness.', 0.39, 1, 100, 'Default Supplier', 0, 0, 0, 'Vanilla Syrup.png'),
+    (9, 'Soy milk', 'Soy milk to add extra flavor.', 0.39, 1, 100, 'Default Supplier', 0, 0, 0, 'Soy milk.png'),
+    (9, 'Oat milk', 'Oat milk to add extra flavor.', 0.39, 1, 100, 'Default Supplier', 0, 0, 0, 'Oat milk.png'),
+    (9, 'Coconut milk', 'Coconut milk to add extra flavor.', 0.39, 1, 100, 'Default Supplier', 0, 0, 0, 'Coconut milk.png'),
+    (9, 'Whipped cream', 'Whipped cream as finishing touch.', 0.99, 1, 100, 'Default Supplier', 0, 0, 0, 'Whipped cream.png');
+
 
 -- Insert data into Medewerker
 INSERT INTO Medewerker

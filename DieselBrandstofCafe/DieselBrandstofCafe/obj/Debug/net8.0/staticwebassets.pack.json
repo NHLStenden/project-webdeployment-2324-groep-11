@@ -41,6 +41,14 @@
       "PackagePath": "staticwebassets\\images\\Coffee Creme Large.png"
     },
     {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Coffee Creme.png",
+      "PackagePath": "staticwebassets\\images\\Coffee Creme.png"
+    },
+    {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Cold Drinks.png",
+      "PackagePath": "staticwebassets\\images\\Cold Drinks.png"
+    },
+    {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Croquette On Sourdough Bread.png",
       "PackagePath": "staticwebassets\\images\\Croquette On Sourdough Bread.png"
     },
@@ -59,6 +67,10 @@
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Flat White.png",
       "PackagePath": "staticwebassets\\images\\Flat White.png"
+    },
+    {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Food.png",
+      "PackagePath": "staticwebassets\\images\\Food.png"
     },
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fresh Tea.png",
@@ -85,16 +97,24 @@
       "PackagePath": "staticwebassets\\images\\Fritz Rhubarb.png"
     },
     {
-      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Heineken Draft 0.0%.png",
-      "PackagePath": "staticwebassets\\images\\Heineken Draft 0.0%.png"
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Geen Afbeelding.png",
+      "PackagePath": "staticwebassets\\images\\Geen Afbeelding.png"
     },
     {
-      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Homemade Apple Traybake.png",
-      "PackagePath": "staticwebassets\\images\\Homemade Apple Traybake.png"
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Heineken 0.0% Draft.png",
+      "PackagePath": "staticwebassets\\images\\Heineken 0.0% Draft.png"
+    },
+    {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Homemade Apple Pie.png",
+      "PackagePath": "staticwebassets\\images\\Homemade Apple Pie.png"
     },
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Homemade Ice Tea.png",
       "PackagePath": "staticwebassets\\images\\Homemade Ice Tea.png"
+    },
+    {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Hot Drinks.png",
+      "PackagePath": "staticwebassets\\images\\Hot Drinks.png"
     },
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Latte Macchiato Large.png",
@@ -109,6 +129,18 @@
       "PackagePath": "staticwebassets\\images\\Lemon Lime Soda.png"
     },
     {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Lunch.png",
+      "PackagePath": "staticwebassets\\images\\Lunch.png"
+    },
+    {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Non-Alcoholic Drinks.png",
+      "PackagePath": "staticwebassets\\images\\Non-Alcoholic Drinks.png"
+    },
+    {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Pastry's & Desserts.png",
+      "PackagePath": "staticwebassets\\images\\Pastry's & Desserts.png"
+    },
+    {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Pie Of The Day.png",
       "PackagePath": "staticwebassets\\images\\Pie Of The Day.png"
     },
@@ -119,6 +151,10 @@
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Smoothie.png",
       "PackagePath": "staticwebassets\\images\\Smoothie.png"
+    },
+    {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Snacks.png",
+      "PackagePath": "staticwebassets\\images\\Snacks.png"
     },
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Tea.png",
@@ -143,10 +179,6 @@
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Water Still.png",
       "PackagePath": "staticwebassets\\images\\Water Still.png"
-    },
-    {
-      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\coffee creme.png",
-      "PackagePath": "staticwebassets\\images\\coffee creme.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DieselBrandstofCafe.Microsoft.AspNetCore.StaticWebAssets.props",

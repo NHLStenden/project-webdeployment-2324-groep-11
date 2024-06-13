@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
-using System.Data;
 using System.Threading.Tasks;
 using DieselBrandstofCafe.Components.Models;
 
@@ -9,9 +8,12 @@ namespace DieselBrandstofCafe.Components.Data
 {
     public interface ICategorieService
     {
-        Task<IEnumerable<Categorie>> GetCategorieënAsync();
-        Task<IEnumerable<Categorie>> GetParentCategorieënAsync();
-        Task<IEnumerable<Categorie>> GetChildCategorieënAsync(int parentId);
+        Task<IEnumerable<Categorie>> GetCategoryAsync();
+        Task<IEnumerable<Categorie>> GetParentCategoryAsync();
+        Task<IEnumerable<Categorie>> GetChildCategoryAsync(int parentId);
+        Task<IEnumerable<Product>> GetProductsByCategoryAsync(int categoryId);
+        Task<IEnumerable<Product>> GetProductsAsync();
+
     }
 
     public class CategorieService : ICategorieService
@@ -23,7 +25,7 @@ namespace DieselBrandstofCafe.Components.Data
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
-        public async Task<IEnumerable<Categorie>> GetCategorieënAsync()
+        public async Task<IEnumerable<Categorie>> GetCategoryAsync()
         {
             using (var connection = new MySqlConnection(_connectionString))
             {
@@ -32,7 +34,7 @@ namespace DieselBrandstofCafe.Components.Data
             }
         }
 
-        public async Task<IEnumerable<Categorie>> GetParentCategorieënAsync()
+        public async Task<IEnumerable<Categorie>> GetParentCategoryAsync()
         {
             using (var connection = new MySqlConnection(_connectionString))
             {
@@ -41,12 +43,30 @@ namespace DieselBrandstofCafe.Components.Data
             }
         }
 
-        public async Task<IEnumerable<Categorie>> GetChildCategorieënAsync(int parentId)
+        public async Task<IEnumerable<Categorie>> GetChildCategoryAsync(int parentId)
         {
             using (var connection = new MySqlConnection(_connectionString))
             {
                 string query = "SELECT * FROM Categorie WHERE ParentID = @ParentId";
                 return await connection.QueryAsync<Categorie>(query, new { ParentId = parentId });
+            }
+        }
+
+        public async Task<IEnumerable<Product>> GetProductsByCategoryAsync(int categoryId)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                string query = "SELECT * FROM Product WHERE CategorieID = @CategoryId";
+                return await connection.QueryAsync<Product>(query, new { CategoryId = categoryId });
+            }
+        }
+
+        public async Task<IEnumerable<Product>> GetProductsAsync()
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                string query = "SELECT * FROM Product";
+                return await connection.QueryAsync<Product>(query);
             }
         }
     }

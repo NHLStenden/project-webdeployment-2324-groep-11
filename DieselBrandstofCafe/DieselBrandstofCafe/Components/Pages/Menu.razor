@@ -22,27 +22,23 @@
                     {
                         <div class="category-card">
                             <button class="category-button" @onclick='() => LoadMenuItems(category.CategorieID)'>
-                                <img src="">
+                                <img src="images\@category.CategorieAfbeelding" alt="@category.NaamCategorie">
                                 <span>@category.NaamCategorie</span>
                             </button>
                         </div>
                     }
                 }
+                @if (curParentID >= 0)
+                {
+                    <button class="categories-back-button" @onclick='() => LoadPrevCategories()'>Back</button>
+                }
             </div>
         </div>
-        <div class="menu-items">
+         @if (menuItems != null && menuItems.Any())
+                {
+            <div class="menu-items">
             <h2>Select Menu</h2>
-            <div class="menu-list">
-                @if (menuItems == null)
-                {
-                    <p>Loading...</p>
-                }
-                else if (!menuItems.Any())
-                {
-                    <p>No items found.</p>
-                }
-                else
-                {
+                <div class="menu-list">
                     @foreach (var item in menuItems)
                     {
                         <div class="menu-item">
@@ -71,10 +67,11 @@
                             <button class="add-menu-item" @onclick='() => AddToInvoice(item)'>Add to order</button>
                         </div>
                     }
-                }
             </div>
         </div>
+        }          
     </div>
+    
 
     <div class="right-panel">
         <div class="order-summary">
@@ -134,30 +131,69 @@
 
 
 @code {
+    decimal subTotal = 0;
+    decimal tax = 0;
+    decimal total = 0;
+
+    int curParentID = -1;
+    List<int> prevParentIds = [];
 
     List<Product>? menuItems; 
     List<Categorie>? categories;
     List<Product>? addOns;
     Dictionary<int, int> tempProductQuantities = new Dictionary<int, int>();
     Dictionary<int, int?> selectedAddOns = new Dictionary<int, int?>();
+    List<InvoiceItem> invoiceItems = new List<InvoiceItem>();
+
 
     protected override async Task OnInitializedAsync()
     {
-        categories = (await categorieService.GetCategorieënAsync()).ToList();
+        categories = (await categorieService.GetParentCategoryAsync()).ToList();
         addOns = (await customerService.GetAddOnsAsync()).ToList();
-        await LoadAllMenuItems();
     }
 
     async Task LoadAllMenuItems()
     {
-        menuItems = (await customerService.GetProductsAsync()).ToList();
+        menuItems = (await categorieService.GetProductsAsync()).ToList();
         InitializeTempQuantities();
     }
 
     async Task LoadMenuItems(int categoryId)
     {
-        menuItems = (await customerService.GetProductsByCategoryAsync(categoryId)).ToList();
-        InitializeTempQuantities();
+
+        menuItems = (await categorieService.GetProductsByCategoryAsync(categoryId)).ToList();
+        if (menuItems.Count > 0)
+        {
+            InitializeTempQuantities();
+        }
+        else
+        {
+            categories = (await categorieService.GetChildCategoryAsync(categoryId)).ToList();
+            if (curParentID >= 0) { prevParentIds.Add(curParentID); }
+            curParentID = categoryId;
+        }
+    }
+
+    async Task LoadPrevCategories()
+    {
+        if (prevParentIds.Count > 0)
+        {
+            curParentID = prevParentIds[prevParentIds.Count - 1];
+            prevParentIds.RemoveAt(prevParentIds.Count - 1);
+        }
+        else
+        {
+            curParentID = -1;
+        }
+        if (curParentID >= 0)
+        {
+            categories = (await categorieService.GetChildCategoryAsync(curParentID)).ToList();
+        }
+        else
+        {
+            categories = (await categorieService.GetParentCategoryAsync()).ToList();
+        }
+        menuItems = (await categorieService.GetProductsByCategoryAsync(curParentID)).ToList();
     }
 
     void InitializeTempQuantities()
@@ -260,9 +296,9 @@
     // Function to update the totals
     void UpdateTotal()
     {
-        subTotal = invoiceItems.Sum(i => i.Product?.ProductPrijs * i.AantalProduct) ?? 0;
-        tax = subTotal * 0.09M;
-        total = subTotal + tax;
+        subTotal = decimal.Round(invoiceItems.Sum(i => i.Product?.ProductPrijs * i.AantalProduct) ?? 0, 2);
+        tax = decimal.Round(subTotal * 0.09M, 2);
+        total = decimal.Round(subTotal + tax, 2);
     }
 
     public async Task PlaceOrder()
@@ -278,10 +314,4 @@
             Console.WriteLine($"Error placing order: {ex.Message}");
         }
     }
-
-    decimal subTotal = 0;
-    decimal tax = 0;
-    decimal total = 0;
-
-    List<InvoiceItem> invoiceItems = new List<InvoiceItem>();
 }

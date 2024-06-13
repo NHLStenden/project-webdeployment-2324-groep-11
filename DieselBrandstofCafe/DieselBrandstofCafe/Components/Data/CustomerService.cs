@@ -14,9 +14,6 @@ namespace DieselBrandstofCafe.Components.Data
         // Method to select Add-ons
         Task<IEnumerable<Product>> GetAddOnsAsync();
 
-        // Method to retrieve a list of products
-        Task<IEnumerable<Product>> GetProductsAsync();
-
         // Method to place a new order and return the ID of the newly created order
         Task<int> PlaceOrderAsync(Bestelling order);
 
@@ -25,9 +22,6 @@ namespace DieselBrandstofCafe.Components.Data
 
         // Method to update the status of a specific order
         Task UpdateOrderAsync(int orderId, string status);
-
-        // Method to show products by a specific category
-        Task<IEnumerable<Product>> GetProductsByCategoryAsync(int categoryId);
 
         // Additional methods as needed...
     }
@@ -41,24 +35,6 @@ namespace DieselBrandstofCafe.Components.Data
              configuration?.GetConnectionString("DefaultConnection")
                 ?? throw new ArgumentNullException(nameof(configuration), "Configuration cannot be null.");
 
-        // Method to retrieve a list of products
-        public async Task<IEnumerable<Product>> GetProductsByCategoryAsync(int categoryId)
-        {
-            using (var connection = new MySqlConnection(_connectionString))
-            {
-                string query = "SELECT * FROM Product WHERE CategorieID = @CategoryId";
-                return await connection.QueryAsync<Product>(query, new { CategoryId = categoryId });
-            }
-        }
-
-        public async Task<IEnumerable<Product>> GetProductsAsync()
-        {
-            using (var connection = new MySqlConnection(_connectionString))
-            {
-                // Execute a query to retrieve all products from the Product table
-                return await connection.QueryAsync<Product>("SELECT * FROM Product");
-            }
-        }
 
         // Method to place a new order and return the ID of the newly created order
         public async Task<int> PlaceOrderAsync(Bestelling order)
