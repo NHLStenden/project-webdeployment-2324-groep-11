@@ -116,11 +116,15 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: 375px;
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
     border-radius: 10px;
+}
+
+.menu-item-name {
+    height: 75px;
 }
 
 .add-ons {

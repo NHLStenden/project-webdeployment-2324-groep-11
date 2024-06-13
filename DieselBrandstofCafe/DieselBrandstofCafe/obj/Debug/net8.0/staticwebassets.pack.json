@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Beverages.png",
+      "PackagePath": "staticwebassets\\images\\Beverages.png"
+    },
+    {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Bitterballen Per Piece.png",
       "PackagePath": "staticwebassets\\images\\Bitterballen Per Piece.png"
     },
@@ -147,6 +151,10 @@
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Pulled Chicken.png",
       "PackagePath": "staticwebassets\\images\\Pulled Chicken.png"
+    },
+    {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Re-usables disposables.png",
+      "PackagePath": "staticwebassets\\images\\Re-usables disposables.png"
     },
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Smoothie.png",

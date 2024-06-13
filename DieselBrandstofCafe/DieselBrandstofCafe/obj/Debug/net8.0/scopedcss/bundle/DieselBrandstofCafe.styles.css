@@ -474,11 +474,15 @@ h3[b-ijxndq88r7] {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: 375px;
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
     border-radius: 10px;
+}
+
+.menu-item-name[b-iqj438ct1u] {
+    height: 75px;
 }
 
 .add-ons[b-iqj438ct1u] {
@@ -731,6 +735,25 @@ h3[b-ijxndq88r7] {
 .Status-Completed[b-wns27ztqgx] {
     color: #064E3B;
     background-color: #ECFDF5;
+    border-radius: 5px;
+    text-align: center;
+    width: 125px;
+    padding: 10px;
+    margin-left: 40px;
+}
+
+.Status-Progress[b-wns27ztqgx] {
+    color: #FF5C00;
+    background-color: #fcdbc9;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    padding: 10px;
+}
+
+.Status-Pending[b-wns27ztqgx] {
+    color: gray;
+    background-color: #fff9c4;
     border-radius: 5px;
     text-align: center;
     width: 125px;

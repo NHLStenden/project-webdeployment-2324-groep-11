@@ -42,18 +42,21 @@
                     @foreach (var item in menuItems)
                     {
                         <div class="menu-item">
-                            <h3>@item.ProductNaam</h3>
+                            <div class="menu-item-name"><h3>@item.ProductNaam</h3></div>
                             <div class="product-image-container">
-                            <img src="images\@item.ProductAfbeelding" alt="@item.ProductNaam" class="product-image">
+                                <img src="images\@item.ProductAfbeelding" class="product-image" onerror="src='images/Geen Afbeelding.png';">
                             </div>
-                            <p>€@item.ProductPrijs</p>
+                            <span>€@item.ProductPrijs</span>
                             <p>@item.ProductDesc</p>
                             <div class="add-ons">
                                 <select id="addOnSelect" @onchange="(e) => SelectAddOn(e, item.ProductID)">
                                     <option value="">Extra Add-ons</option>
-                                    @foreach (var AddOnID in addOns)
+                                    @if (addOns != null)
                                     {
-                                        <option value="@AddOnID.ProductID">@AddOnID.ProductNaam - €@AddOnID.ProductPrijs</option>
+                                        @foreach (var AddOnID in addOns)
+                                        {
+                                            <option value="@AddOnID.ProductID">@AddOnID.ProductNaam - €@AddOnID.ProductPrijs</option>
+                                        }
                                     }
                                 </select>
                             </div>
@@ -199,9 +202,12 @@
     void InitializeTempQuantities()
     {
         tempProductQuantities = new Dictionary<int, int>();
-        foreach (var item in menuItems)
+        if (menuItems != null)
         {
-            tempProductQuantities[item.ProductID] = 0;
+            foreach (var item in menuItems)
+            {
+                tempProductQuantities[item.ProductID] = 0;
+            }
         }
     }
 
