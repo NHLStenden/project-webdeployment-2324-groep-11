@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\marti\\onedrive\\documenten\\repos\\project-webdeployment-groep_11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\pages\\ordersuccess.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\pages\\ordersuccess.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\marti\\onedrive\\documenten\\repos\\project-webdeployment-groep_11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\pages\\menu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\pages\\menu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -59,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\pages\\addproduct.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\marti\\onedrive\\documenten\\repos\\project-webdeployment-groep_11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\pages\\ordersuccess.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\pages\\ordersuccess.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\marti\\onedrive\\documenten\\repos\\project-webdeployment-groep_11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\models\\medewerker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\models\\medewerker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -110,17 +110,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Menu.razor",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\Menu.razor",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Pages\\Menu.razor",
               "ToolTip": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\Menu.razor",
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Pages\\Menu.razor",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAcwBEAAAARAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAwBEAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-07T09:41:29.445Z",
               "IsPinned": true,
@@ -128,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Menu.razor.css",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\Menu.razor.css",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Pages\\Menu.razor.css",
@@ -137,12 +137,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-06-07T09:41:29.33Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "CategorieService.cs",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Data\\CategorieService.cs",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Data\\CategorieService.cs",
@@ -151,12 +150,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-12T16:22:01.604Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CustomerService.cs",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Data\\CustomerService.cs",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Data\\CustomerService.cs",
@@ -165,12 +163,11 @@
               "ViewState": "AQIAAAgAAAAAAAAAAAApwAwAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-07T09:41:29.462Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Categorie.cs",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\Categorie.cs",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Models\\Categorie.cs",
@@ -179,12 +176,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-09T22:58:53.576Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Pages\\Home.razor",
@@ -192,12 +188,11 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Pages\\Home.razor",
               "ViewState": "AQIAAGAAAAAAAAAAAAAAAGkAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-13T13:45:57.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T13:45:57.1Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Routes.razor",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Routes.razor",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Routes.razor",
@@ -205,18 +200,17 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Routes.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-13T11:06:49.513Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T11:06:49.513Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 0,
               "Title": "OrderSuccess.razor",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\OrderSuccess.razor",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Pages\\OrderSuccess.razor",
               "ToolTip": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\OrderSuccess.razor",
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Pages\\OrderSuccess.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAOAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-07T14:13:40.817Z",
               "EditorCaption": ""
@@ -231,12 +225,11 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Pages\\OrderSuccess.razor.css",
               "ViewState": "AQIAABsAAAAAAAAAAIBJwDAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-06-07T21:33:56.835Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-07T21:33:56.835Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "MainLayout.razor.css",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Layout\\MainLayout.razor.css",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Layout\\MainLayout.razor.css",
@@ -244,12 +237,11 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Layout\\MainLayout.razor.css",
               "ViewState": "AQIAABUAAAAAAAAAAAAAAB8AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-06-12T09:08:53.496Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-12T09:08:53.496Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Layout\\MainLayout.razor",
@@ -257,12 +249,11 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Layout\\MainLayout.razor",
               "ViewState": "AQIAAEgAAAAAAAAAAAAAAEQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-12T09:02:09.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-12T09:02:09.271Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "App.razor",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\App.razor",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\App.razor",
@@ -270,12 +261,11 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\App.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-13T11:06:59.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T11:06:59.099Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "_Imports.razor",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\_Imports.razor",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\_Imports.razor",
@@ -283,12 +273,11 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\_Imports.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-13T11:07:02.307Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T11:07:02.307Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Layout\\NavMenu.razor",
@@ -296,8 +285,7 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Layout\\NavMenu.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-13T11:07:45.064Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T11:07:45.064Z"
             },
             {
               "$type": "Document",
@@ -309,8 +297,7 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\FAQ.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T23:40:58.665Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T23:40:58.665Z"
             },
             {
               "$type": "Document",
@@ -322,12 +309,11 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\Tafel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T23:39:52.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T23:39:52.422Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\Product.cs",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Models\\Product.cs",
@@ -335,12 +321,11 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\Product.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T23:34:39.731Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T23:34:39.731Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "AddProduct.razor",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\AddProduct.razor",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Pages\\AddProduct.razor",
@@ -348,8 +333,7 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Pages\\AddProduct.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-12T14:27:18.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-12T14:27:18.138Z"
             },
             {
               "$type": "Document",
@@ -361,8 +345,7 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\Overzicht.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T23:39:00.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T23:39:00.4Z"
             },
             {
               "$type": "Document",
@@ -374,8 +357,7 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\ProductPerBestelronde.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T23:38:27.714Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T23:38:27.714Z"
             },
             {
               "$type": "Document",
@@ -387,8 +369,7 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\Ober.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T23:32:49.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T23:32:49.216Z"
             },
             {
               "$type": "Document",
@@ -400,8 +381,7 @@
               "RelativeToolTip": "DieselBrandstofCafe\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-09T23:32:30.091Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T23:32:30.091Z"
             },
             {
               "$type": "Document",
@@ -413,8 +393,7 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\Medewerker.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T23:22:41.467Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T23:22:41.467Z"
             },
             {
               "$type": "Document",
@@ -426,8 +405,7 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\Bestelronde.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T22:58:52.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T22:58:52.342Z"
             },
             {
               "$type": "Document",
@@ -439,8 +417,7 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\Bestelling.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T22:58:51.289Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T22:58:51.289Z"
             }
           ]
         }
