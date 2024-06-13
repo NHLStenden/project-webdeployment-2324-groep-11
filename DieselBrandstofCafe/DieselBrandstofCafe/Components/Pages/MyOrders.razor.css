@@ -21,6 +21,25 @@
     margin-left: 40px;
 }
 
+.Status-Progress {
+    color: #FF5C00;
+    background-color: #fcdbc9;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    padding: 10px;
+}
+
+.Status-Pending {
+    color: gray;
+    background-color: #fff9c4;
+    border-radius: 5px;
+    text-align: center;
+    width: 125px;
+    padding: 10px;
+    margin-left: 40px;
+}
+
 .Order-Text{
     font-size: x-large;
 }
