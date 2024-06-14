@@ -1,3 +1,5 @@
+@import '_content/Blazor.Bootstrap/Blazor.Bootstrap.bundle.scp.css';
+
 /* _content/DieselBrandstofCafe/Components/Layout/MainLayout.razor.rz.scp.css */
 html[b-i32kgcyl5t], body[b-i32kgcyl5t] {
     height: 100%;

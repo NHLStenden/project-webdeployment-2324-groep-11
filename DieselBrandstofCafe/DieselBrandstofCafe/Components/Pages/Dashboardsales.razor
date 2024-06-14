@@ -1,4 +1,8 @@
-﻿@page "/Dashboardsales" 
+﻿@page "/Dashboardsales"
+@using DieselBrandstofCafe.Components.Models
+@using DieselBrandstofCafe.Components.Data
+@inject IDashboardDataService DashboardDataService
+@inject IProductPerBestelrondeService ProductPerBestelrondeService
 
 <PageTitle>Dashboard</PageTitle>
 
@@ -30,25 +34,74 @@
         <!-- Sales boxes row -->
         <div class="row sales-row">
             <div class="col-2">
-                <div class="sales-box box-1">Box 1</div>
+                <div class="sales-box box-1">
+                    <h3>Total Revenue</h3>
+                    <p>@totalRevenue €</p>
+                </div>
             </div>
             <div class="col-2">
-                <div class="sales-box box-2">Box 2</div>
+                <div class="sales-box box-2">
+                    <h3>Total Orders</h3>
+                    <p>@totalOrders orders</p>
+                </div>
             </div>
             <div class="col-2">
-                <div class="sales-box box-3">Box 3</div>
+                <div class="sales-box box-3">
+                    <h3>Products Sold</h3>
+                    <p>@totalProductsSold products</p>
+                </div>
             </div>
             <div class="col-2">
-                <div class="sales-box box-4">Box 4</div>
-            </div>
-            <div class="col-2">
-                <div class="sales-box box-5">Box 5</div>
+                <div class="sales-box box-4">
+                    <h3>Total Menu Items</h3>
+                    <p>@totalMenuItems items</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Tweede sectie: BarChart en knoppen -->
+<div class="container-fluid d-flex flex-row flex-wrap">
+    <div class="col-lg-7">
+        <section class="card mb-3" style="margin-top: 20px;">
+            <div class="card-body">
+                <h5><b>Charts</b></h5>
+            </div>
+            <div class="bargraph-row">
+                <BarChart @ref="barChart" Width="500" Height="300" />
+                <div class="mt-5" style="margin-bottom: 50px">
+                    <Button Type="ButtonType.Button" Color="ButtonColor.Primary" Size="ButtonSize.Small" @onclick="async () => await ShowHorizontalBarChartAsync()">Horizontal Bar Chart</Button>
+                    <Button Type="ButtonType.Button" Color="ButtonColor.Primary" Size="ButtonSize.Small" @onclick="async () => await ShowVerticalBarChartAsync()">Vertical Bar Chart</Button>
+                </div>
+            </div>
+        </section>
+    </div>
 
+    <!-- Derde sectie: Top Producten -->
+    <div class="col-lg-4">
+        <section class="card mb-3 ml-3" style="margin-top: 20px; margin-left: 20px;">
+            <div class="card-body">
+                <h5><b>Top Products</b></h5>
+                <div style="max-height: 400px; overflow-y: auto;">
+                    <ul>
+                        @* @if (topProducts != null && topProducts.Any())
+                        {
+                        @foreach (var product in topProducts)
+                        {
+                        <li>@product.ProductNaam - @product.AantalBetaald keer betaald</li>
+                        }
+                        }
+                        else
+                        {
+                        <li>Geen producten gevonden</li>
+                        } *@
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
 
 
 <style>
@@ -65,7 +118,7 @@
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
-        margin-bottom: 45px; 
+        margin-bottom: 45px;
         margin-left: 30px;
         margin-right: 30px;
     }
@@ -73,23 +126,180 @@
     .sales-box {
         color: black;
         width: 12vw;
-        height: 12vw; 
+        height: 12vw;
         text-align: center;
         border-radius: 40px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .box-1 {background-color: #FFE2E5;}
-    .box-2 {background-color: #FFF4DE;}
-    .box-3 {background-color: #DCFCE7;}
-    .box-4 {background-color: #F3E8FF;}
-    .box-5 {background-color: #bde4f1;}
+        .sales-box h3 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #333;
+            text-align: center;
+        }
+
+        .sales-box p {
+            margin: 0;
+            font-size: 1.5em;
+            color: #555;
+            text-align: center;
+        }
+
+    .box-1 {
+        background-color: #FFE2E5;
+    }
+
+    .box-2 {
+        background-color: #FFF4DE;
+    }
+
+    .box-3 {
+        background-color: #DCFCE7;
+    }
+
+    .box-4 {
+        background-color: #F3E8FF;
+    }
 
 </style>
 
 @code {
-   
+    private BarChart barChart = default!;
+    private BarChartOptions barChartOptions = default!;
+    private ChartData chartData = default!;
+    private Random random = new Random();
+
+    private string[] Days = { "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag" };
+
+    private int totalRevenue;
+    private int totalOrders;
+    private int totalProductsSold;
+    private int totalMenuItems;
+
+    private List<ProductPerBestelronde> topProducts = new List<ProductPerBestelronde>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Laad gegevens asynchroon vanuit de database
+        try
+        {
+            totalMenuItems = await DashboardDataService.GetTotalMenuItemsAsync();
+
+            // Initialiseer met willekeurige gegevens voor testen
+            chartData = new ChartData { Labels = GetDefaultDataLabels(7), Datasets = GetDefaultDataSets(1) };
+            barChartOptions = new BarChartOptions { Responsive = true, Interaction = new Interaction { Mode = InteractionMode.Index } };
+
+            // Laad top producten van de database
+
+            // topProducts = (await ProductPerBestelrondeService.GetProductsPerBestelrondeAsync(1))
+            //     .OrderByDescending(p => p.AantalBetaald)
+            //     .ToList();
+
+            // Laad data van de database
+            // var today = DateTime.Today;
+            // totalRevenue = await DashboardDataService.GetTotalRevenueAsync(today);
+            // totalOrders = await DashboardDataService.GetTotalOrdersAsync(today);
+            // totalProductsSold = await DashboardDataService.GetTotalProductsSoldAsync(today);
+
+
+            // Dit update de sales boxes
+            StateHasChanged();
+        }
+
+        // Voor als het fout gaat met laden
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading dashboard data: {ex.Message}");
+            totalRevenue = 0;
+            totalOrders = 0;
+            totalProductsSold = 0;
+            totalMenuItems = 0;
+        }
+
+        // Dit update de scherm
+        StateHasChanged();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await barChart.InitializeAsync(chartData, barChartOptions);
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+
+    private async Task ShowHorizontalBarChartAsync()
+    {
+        barChartOptions.IndexAxis = "y";
+        await barChart.UpdateAsync(chartData, barChartOptions);
+    }
+
+    private async Task ShowVerticalBarChartAsync()
+    {
+        barChartOptions.IndexAxis = "x";
+        await barChart.UpdateAsync(chartData, barChartOptions);
+    }
+
+    #region Data Preparation
+
+    private List<IChartDataset> GetDefaultDataSets(int numberOfDatasets)
+    {
+        var datasets = new List<IChartDataset>();
+
+        for (var index = 0; index < numberOfDatasets; index++)
+        {
+            datasets.Add(GetRandomBarChartDataset());
+        }
+
+        return datasets;
+    }
+
+    private BarChartDataset GetRandomBarChartDataset()
+    {
+        var darkGreyColor = "#555";
+
+        return new BarChartDataset()
+            {
+                Label = $"Verkopen",
+                Data = GetRandomData(),
+                BackgroundColor = new List<string> { darkGreyColor },
+                BorderColor = new List<string> { darkGreyColor },
+                BorderWidth = new List<double> { 1 }
+            };
+    }
+
+    private List<double> GetRandomData()
+    {
+        var data = new List<double>();
+        for (var index = 0; index < Days.Length; index++)
+        {
+            data.Add(random.Next(200));
+        }
+
+        return data;
+    }
+
+    private List<string> GetDefaultDataLabels(int numberOfLabels)
+    {
+        var labels = new List<string>();
+        for (var index = 0; index < numberOfLabels; index++)
+        {
+            labels.Add(Days[index]);
+        }
+
+        return labels;
+    }
+
+    #endregion
 }
