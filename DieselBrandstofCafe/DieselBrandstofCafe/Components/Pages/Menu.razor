@@ -311,9 +311,7 @@
     {
         try
         {
-            var bestellingId = await orderService.PlaceOrderAsync(invoiceItems);
-            Console.WriteLine($"Order placed successfully with ID: {bestellingId}");
-            navigationManager.NavigateTo("/ordersuccess");
+            await orderService.PlaceOrderAsync(invoiceItems);
         }
         catch (Exception ex)
         {

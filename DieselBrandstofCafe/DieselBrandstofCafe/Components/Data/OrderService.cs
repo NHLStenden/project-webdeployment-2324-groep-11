@@ -7,12 +7,20 @@ using DieselBrandstofCafe.Components.Models;
 using MySql.Data.MySqlClient;
 using Dapper;
 using Microsoft.Extensions.Configuration;
+using Stripe;
+using Stripe.Checkout;
+using Microsoft.AspNetCore.Mvc;
+
+public class StripeOptions
+{
+    public string? option { get; set; }
+}
 
 namespace DieselBrandstofCafe.Components.Data
 {
     public interface IOrderService
     {
-        Task<int> PlaceOrderAsync(List<InvoiceItem> invoiceItems);
+        Task<IActionResult> PlaceOrderAsync(List<Models.InvoiceItem> invoiceItems);
     }
 
     public class OrderService : IOrderService
@@ -21,12 +29,16 @@ namespace DieselBrandstofCafe.Components.Data
 
         public OrderService(IConfiguration configuration)
         {
+            StripeConfiguration.ApiKey = "sk_test_51PRMMQKAmWIm025ScNGYyIgTeh9czIc4nUO39mg9wqlfmipcG19iTuY1DGjFMJAXOVGEbHgfXzetMbxrEUdtEKQf00oyqPdt9e";
+
             _connectionString = configuration?.GetConnectionString("DefaultConnection")
                 ?? throw new ArgumentNullException(nameof(configuration), "Configuration cannot be null.");
         }
 
-        public async Task<int> PlaceOrderAsync(List<InvoiceItem> invoiceItems)
+        public async Task<IActionResult> PlaceOrderAsync(List<Models.InvoiceItem> invoiceItems)
         {
+            var totalPrice = invoiceItems.Sum(item => item.Product?.ProductPrijs * item.AantalProduct);
+
             using (var connection = new MySqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
@@ -55,12 +67,11 @@ namespace DieselBrandstofCafe.Components.Data
                         }
 
                         // Update totals
-                        await UpdateBestellingTotalAsync(connection, bestellingId, invoiceItems, transaction);
+                        await UpdateBestellingTotalAsync(connection, bestellingId, totalPrice, transaction);
 
                         // Commit transaction
                         await transaction.CommitAsync();
 
-                        return bestellingId;
                     }
                     catch
                     {
@@ -70,6 +81,40 @@ namespace DieselBrandstofCafe.Components.Data
                     }
                 }
             }
+
+
+            var domain = "https://localhost:7157";
+            var options = new SessionCreateOptions
+            {
+                LineItems = new List<SessionLineItemOptions>
+            {
+                new SessionLineItemOptions
+                {
+                PriceData = new SessionLineItemPriceDataOptions
+                {
+                    Currency = "eur",
+                    UnitAmount = Convert.ToInt32(totalPrice * 100),
+                    ProductData = new SessionLineItemPriceDataProductDataOptions
+                    {
+                        Name = "DieselBrandstofCafe"
+                    }
+                },
+                Quantity = 1,
+                },
+            },
+                Mode = "payment",
+                SuccessUrl = domain + "/ordersuccess",
+                CancelUrl = domain + "/menu",
+            };
+            var service = new SessionService();
+            Session session = service.Create(options);
+
+            Console.WriteLine(session.Url);
+
+            return new RedirectResult(session.Url);
+
+            //return Redirect(session.Url);
+
         }
 
         private async Task<int> CreateBestelrondeAsync(IDbConnection connection, IDbTransaction transaction)
@@ -90,7 +135,7 @@ namespace DieselBrandstofCafe.Components.Data
             return bestellingId;
         }
 
-        private async Task AddProductToBestelrondeAsync(IDbConnection connection, int bestelrondeId, InvoiceItem item, IDbTransaction transaction)
+        private async Task AddProductToBestelrondeAsync(IDbConnection connection, int bestelrondeId, Models.InvoiceItem item, IDbTransaction transaction)
         {
             var query = "INSERT INTO Product_per_Bestelronde (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct) VALUES (@ProductID, @BestelrondeID, @AantalProduct, 0, 'Pending')";
             var parameters = new { ProductID = item.Product?.ProductID, BestelrondeID = bestelrondeId, AantalProduct = item.AantalProduct };
@@ -98,9 +143,8 @@ namespace DieselBrandstofCafe.Components.Data
             await connection.ExecuteAsync(query, parameters, transaction);
         }
 
-        private async Task UpdateBestellingTotalAsync(IDbConnection connection, int bestellingId, List<InvoiceItem> invoiceItems, IDbTransaction transaction)
+        private async Task UpdateBestellingTotalAsync(IDbConnection connection, int bestellingId, decimal? totalPrice, IDbTransaction transaction)
         {
-            var totalPrice = invoiceItems.Sum(item => item.Product?.ProductPrijs * item.AantalProduct);
             var query = "UPDATE Bestelling SET TotaalPrijs = @TotalPrice WHERE BestellingID = @BestellingID";
             var parameters = new { TotalPrice = totalPrice, BestellingID = bestellingId };
 
