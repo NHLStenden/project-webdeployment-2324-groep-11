@@ -1,18 +1,6 @@
 {
   "Version": 1,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "Hash": "Qnql+7Sm/3ZmgfJ2Qr59HW/Iy/Kul5jDodMYhQQRzDI=",
-=======
-  "Hash": "EXh5t+tLEQEsXDYQu6Pm8eoNXwTF0HP/oy+aUfSs8XE=",
->>>>>>> 381248087d981d82af2c3917e19a55ccd8764ee0
-=======
-  "Hash": "3Bxyr1mM9SyvhKAP8yiVE8kVFsxhqSll+ey55CCBMbE=",
->>>>>>> b1a47a9 (Stripe geimplementeerd)
-=======
-  "Hash": "3Bxyr1mM9SyvhKAP8yiVE8kVFsxhqSll+ey55CCBMbE=",
->>>>>>> a0b12e01a6d552175c5ef1a838300d6bba850424
+  "Hash": "p5k3igOsUxWUTGyYUTO08VFVF+DzduvJG3tZE8dC/mY=",
   "Source": "DieselBrandstofCafe",
   "BasePath": "_content/DieselBrandstofCafe",
   "Mode": "Default",
@@ -143,21 +131,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\logo.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-      "BasePath": "_content/DieselBrandstofCafe",
-      "RelativePath": "images/logo.png",
-=======
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Beverages.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Beverages.png",
->>>>>>> 381248087d981d82af2c3917e19a55ccd8764ee0
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -168,17 +147,6 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "wwwroot\\images\\logo.png"
-    },
-    {
-      "Identity": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\user.jpeg",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-      "BasePath": "_content/DieselBrandstofCafe",
-      "RelativePath": "images/user.jpeg",
-=======
       "OriginalItemSpec": "wwwroot\\images\\Beverages.png"
     },
     {
@@ -188,7 +156,6 @@
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Bitterballen Per Piece.png",
->>>>>>> 381248087d981d82af2c3917e19a55ccd8764ee0
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -199,9 +166,6 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
-      "OriginalItemSpec": "wwwroot\\images\\user.jpeg"
-=======
       "OriginalItemSpec": "wwwroot\\images\\Bitterballen Per Piece.png"
     },
     {
@@ -699,6 +663,25 @@
       "OriginalItemSpec": "wwwroot\\images\\Lemon Lime Soda.png"
     },
     {
+      "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\logo.png",
+      "SourceId": "DieselBrandstofCafe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
+      "BasePath": "_content/DieselBrandstofCafe",
+      "RelativePath": "images/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo.png"
+    },
+    {
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Lunch.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
@@ -889,6 +872,25 @@
       "OriginalItemSpec": "wwwroot\\images\\Tonic Bottle.png"
     },
     {
+      "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\user.jpeg",
+      "SourceId": "DieselBrandstofCafe",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
+      "BasePath": "_content/DieselBrandstofCafe",
+      "RelativePath": "images/user.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\user.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Van De Streek IPA.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
@@ -963,7 +965,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Water Still.png"
->>>>>>> 381248087d981d82af2c3917e19a55ccd8764ee0
     }
   ]
 }

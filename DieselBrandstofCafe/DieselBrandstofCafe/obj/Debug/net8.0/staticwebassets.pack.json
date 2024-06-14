@@ -21,14 +21,6 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-<<<<<<< HEAD
-      "Id": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\logo.png",
-      "PackagePath": "staticwebassets\\images\\logo.png"
-    },
-    {
-      "Id": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\user.jpeg",
-      "PackagePath": "staticwebassets\\images\\user.jpeg"
-=======
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Beverages.png",
       "PackagePath": "staticwebassets\\images\\Beverages.png"
     },
@@ -191,15 +183,18 @@
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Water Still.png",
       "PackagePath": "staticwebassets\\images\\Water Still.png"
->>>>>>> 381248087d981d82af2c3917e19a55ccd8764ee0
     },
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\coffee creme.png",
       "PackagePath": "staticwebassets\\images\\coffee creme.png"
     },
     {
-      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\coffee creme.png",
-      "PackagePath": "staticwebassets\\images\\coffee creme.png"
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\user.jpeg",
+      "PackagePath": "staticwebassets\\images\\user.jpeg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DieselBrandstofCafe.Microsoft.AspNetCore.StaticWebAssets.props",

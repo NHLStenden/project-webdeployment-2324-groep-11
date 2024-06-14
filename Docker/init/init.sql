@@ -18,7 +18,6 @@ CREATE TABLE Product
     ProductID INT NOT NULL AUTO_INCREMENT,
     CategorieID INT NOT NULL,
     ProductNaam VARCHAR(255) NOT NULL,
-    ProductNaam VARCHAR(255) NOT NULL,
     ProductDesc VARCHAR(255),
     ProductPrijs DECIMAL(10,2) NOT NULL,
     Voorraad INT,
@@ -27,11 +26,6 @@ CREATE TABLE Product
     Vegetarisch BOOLEAN DEFAULT 0,
     Veganistisch BOOLEAN DEFAULT 0,
     ProductAfbeelding VARCHAR(255) DEFAULT 'Geen afbeelding.png',
-    Supplier VARCHAR(48),
-    LactoseVrij BOOLEAN DEFAULT 0,
-    Vegetarisch BOOLEAN DEFAULT 0,
-    Veganistisch BOOLEAN DEFAULT 0,
-    ProductAfbeelding VARCHAR(255) DEFAULT 'default.jpg',
     PRIMARY KEY (ProductID)
 );
 
@@ -135,7 +129,7 @@ CREATE TABLE Bestelling
 DROP TABLE IF EXISTS Tafel;
 CREATE TABLE Tafel
 (
-    TafelID INT NOT NULL AUTO_INCREMENT,
+    TafelID INT NOT NULL,
     TafelSectie VARCHAR(24),
     TafelAfbeelding VARCHAR(255) NOT NULL DEFAULT 'defaultTable.jpg',
     PRIMARY KEY (TafelID)
@@ -415,17 +409,16 @@ VALUES
 
 -- Insert data into Tafel
 INSERT INTO Tafel
-    (TafelSectie, TafelAfbeelding)
-    (TafelSectie, TafelAfbeelding)
+    (TafelID, TafelSectie, TafelAfbeelding)
 VALUES
-    ('A', 'table1.jpg'),
-    ('B', 'table2.jpg'),
-    ('C', 'table3.jpg'),
-    ('D', 'table4.jpg');
-    ('A', 'table1.jpg'),
-    ('B', 'table2.jpg'),
-    ('C', 'table3.jpg'),
-    ('D', 'table4.jpg');
+    (1, 'A', 'table1.jpg'),
+    (2, 'B', 'table2.jpg'),
+    (3, 'C', 'table3.jpg'),
+    (4, 'D', 'table4.jpg'),
+    (5, 'A', 'table1.jpg'),
+    (6, 'B', 'table2.jpg'),
+    (7, 'C', 'table3.jpg'),
+    (8, 'D', 'table4.jpg');
 
 -- Insert data into Bestelling
 INSERT INTO Bestelling
