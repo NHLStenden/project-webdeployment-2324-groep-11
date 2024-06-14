@@ -5,6 +5,9 @@ using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Dapper;
+using Azure;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace DieselBrandstofCafe.Components.Data
 {
@@ -12,7 +15,7 @@ namespace DieselBrandstofCafe.Components.Data
     public interface ICustomerService
     {
         // Method to select Add-ons
-        Task<IEnumerable<Product>> GetAddOnsAsync();
+        Task<IEnumerable<Models.Product>> GetAddOnsAsync();
 
         // Method to place a new order and return the ID of the newly created order
         Task<int> PlaceOrderAsync(Bestelling order);
@@ -27,14 +30,22 @@ namespace DieselBrandstofCafe.Components.Data
     }
 
     // Implementation of the ICustomerService interface
-    public class CustomerService(IConfiguration configuration) : ICustomerService
+    public class CustomerService : ICustomerService
     {
-        // Connection string to the MySQL database
-        private readonly string _connectionString =
-             // Constructor to initialize the connection string from configuration settings
-             configuration?.GetConnectionString("DefaultConnection")
-                ?? throw new ArgumentNullException(nameof(configuration), "Configuration cannot be null.");
 
+        // Connection string to the MySQL database
+        private readonly string _connectionString;
+
+        // Constructor to initialize the connection string from configuration settings
+        public CustomerService(IConfiguration configuration)
+        {
+            if (configuration == null)
+            {
+                throw new ArgumentNullException(nameof(configuration), "Configuration cannot be null.");
+            }
+            _connectionString = configuration.GetConnectionString("DefaultConnection")
+                ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+        }
 
         // Method to place a new order and return the ID of the newly created order
         public async Task<int> PlaceOrderAsync(Bestelling order)
@@ -71,15 +82,15 @@ namespace DieselBrandstofCafe.Components.Data
                 await connection.ExecuteAsync(sql, new { BestellingID = orderId, Status = status });
             }
         }
-        public async Task<IEnumerable<Product>> GetAddOnsAsync()
+        public async Task<IEnumerable<Models.Product>> GetAddOnsAsync()
         {
             using (var connection = new MySqlConnection(_connectionString))
             {
-                // Assuming 'IsAddOn' is a boolean column in the Product table that indicates if a product is an add-on
-                string query = "SELECT * FROM Product WHERE IsAddOn = 1";
-                return await connection.QueryAsync<Product>(query);
+                string query = "SELECT * FROM Product";
+                return await connection.QueryAsync<Models.Product>(query);
             }
         }
+
     }
 }
 

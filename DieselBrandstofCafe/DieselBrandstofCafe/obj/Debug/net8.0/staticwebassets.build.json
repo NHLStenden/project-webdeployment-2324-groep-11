@@ -1,10 +1,14 @@
 {
   "Version": 1,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Hash": "Qnql+7Sm/3ZmgfJ2Qr59HW/Iy/Kul5jDodMYhQQRzDI=",
 =======
   "Hash": "EXh5t+tLEQEsXDYQu6Pm8eoNXwTF0HP/oy+aUfSs8XE=",
 >>>>>>> 381248087d981d82af2c3917e19a55ccd8764ee0
+=======
+  "Hash": "3Bxyr1mM9SyvhKAP8yiVE8kVFsxhqSll+ey55CCBMbE=",
+>>>>>>> b1a47a9 (Stripe geimplementeerd)
   "Source": "DieselBrandstofCafe",
   "BasePath": "_content/DieselBrandstofCafe",
   "Mode": "Default",
@@ -273,12 +277,12 @@
       "OriginalItemSpec": "wwwroot\\images\\Coffee Creme Large.png"
     },
     {
-      "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Coffee Creme.png",
+      "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\coffee creme.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
       "BasePath": "_content/DieselBrandstofCafe",
-      "RelativePath": "images/Coffee Creme.png",
+      "RelativePath": "images/coffee creme.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -289,7 +293,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Coffee Creme.png"
+      "OriginalItemSpec": "wwwroot\\images\\coffee creme.png"
     },
     {
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Cold Drinks.png",
