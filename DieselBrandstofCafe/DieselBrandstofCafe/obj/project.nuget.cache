@@ -1,10 +1,14 @@
 {
   "version": 2,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "/2GyBIEEKak=",
 =======
   "dgSpecHash": "U/xzJZLs4M4VX4HmmOmn0pblHo0mPgeIkPXBXUhQ2nRSk6386I5dXBgxBIJeUUNhhcMu7MdtUyig4zrWO/FjlQ==",
 >>>>>>> b1a47a9 (Stripe geimplementeerd)
+=======
+  "dgSpecHash": "U/xzJZLs4M4VX4HmmOmn0pblHo0mPgeIkPXBXUhQ2nRSk6386I5dXBgxBIJeUUNhhcMu7MdtUyig4zrWO/FjlQ==",
+>>>>>>> a0b12e01a6d552175c5ef1a838300d6bba850424
   "success": true,
   "projectFilePath": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo's\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
   "expectedPackageFiles": [

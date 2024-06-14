@@ -198,6 +198,10 @@
       "PackagePath": "staticwebassets\\images\\coffee creme.png"
     },
     {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\coffee creme.png",
+      "PackagePath": "staticwebassets\\images\\coffee creme.png"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DieselBrandstofCafe.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

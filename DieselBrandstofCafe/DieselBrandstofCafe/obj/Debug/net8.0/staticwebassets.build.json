@@ -2,6 +2,7 @@
   "Version": 1,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Hash": "Qnql+7Sm/3ZmgfJ2Qr59HW/Iy/Kul5jDodMYhQQRzDI=",
 =======
   "Hash": "EXh5t+tLEQEsXDYQu6Pm8eoNXwTF0HP/oy+aUfSs8XE=",
@@ -9,6 +10,9 @@
 =======
   "Hash": "3Bxyr1mM9SyvhKAP8yiVE8kVFsxhqSll+ey55CCBMbE=",
 >>>>>>> b1a47a9 (Stripe geimplementeerd)
+=======
+  "Hash": "3Bxyr1mM9SyvhKAP8yiVE8kVFsxhqSll+ey55CCBMbE=",
+>>>>>>> a0b12e01a6d552175c5ef1a838300d6bba850424
   "Source": "DieselBrandstofCafe",
   "BasePath": "_content/DieselBrandstofCafe",
   "Mode": "Default",

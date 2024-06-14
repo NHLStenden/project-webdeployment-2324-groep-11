@@ -129,7 +129,10 @@
           "DockedWidth": 209,
 =======
           "DockedWidth": 200,
+<<<<<<< HEAD
 >>>>>>> b1a47a9 (Stripe geimplementeerd)
+=======
+>>>>>>> a0b12e01a6d552175c5ef1a838300d6bba850424
           "SelectedChildIndex": 5,
           "Children": [
             {
@@ -393,6 +396,7 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "DocumentIndex": 0,
               "Title": "EmployeeDashboard.razor",
               "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\EmployeeDashboard.razor",
@@ -420,6 +424,8 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Data\\ProductPerBestelrondeService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
 =======
+=======
+>>>>>>> a0b12e01a6d552175c5ef1a838300d6bba850424
               "DocumentIndex": 18,
               "Title": "Ober.cs",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\Ober.cs",
@@ -446,6 +452,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
 <<<<<<< HEAD
               "DocumentIndex": 1,
               "Title": "EmployeeDashboard.razor.css",
@@ -484,6 +491,8 @@
               "WhenOpened": "2024-06-13T14:20:12.115Z",
               "EditorCaption": ""
 =======
+=======
+>>>>>>> a0b12e01a6d552175c5ef1a838300d6bba850424
               "DocumentIndex": 16,
               "Title": "Medewerker.cs",
               "DocumentMoniker": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\Medewerker.cs",
@@ -505,7 +514,10 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-09T22:58:52.342Z"
+<<<<<<< HEAD
 >>>>>>> b1a47a9 (Stripe geimplementeerd)
+=======
+>>>>>>> a0b12e01a6d552175c5ef1a838300d6bba850424
             }
           ]
         }
