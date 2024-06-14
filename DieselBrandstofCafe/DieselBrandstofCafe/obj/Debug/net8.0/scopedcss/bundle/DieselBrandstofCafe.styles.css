@@ -221,6 +221,7 @@ html[b-i32kgcyl5t], body[b-i32kgcyl5t] {
         top: 0.5rem;
     }
 
+<<<<<<< HEAD
 @media (min-width: 796px) {
 
     .user-info p[b-i32kgcyl5t] {
@@ -276,6 +277,9 @@ html[b-i32kgcyl5t], body[b-i32kgcyl5t] {
         flex-direction: row;
     }
 }
+=======
+
+>>>>>>> 381248087d981d82af2c3917e19a55ccd8764ee0
 /* _content/DieselBrandstofCafe/Components/Layout/NavMenu.razor.rz.scp.css */
 
 .nav-scrollable[b-srj6zv88n6] {
@@ -873,11 +877,17 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 }
 
 .Status-Pending[b-av0pgya32l] {
-    color: yellow;
+    color: gray;
     background-color: #fff9c4;
     border-radius: 10px;
     text-align: center;
     width: auto;
+    padding: 10px;
+}
+
+.card-maxheight[b-av0pgya32l]{
+    max-height: 280px;
+    overflow-y: auto;
     padding: 10px;
 }
 /* _content/DieselBrandstofCafe/Components/Pages/Menu.razor.rz.scp.css */
@@ -905,6 +915,20 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 .categories[b-iqj438ct1u], .menu-items[b-iqj438ct1u] {
     margin-bottom: 1em;
 }
+
+.categories-back-button[b-iqj438ct1u] {
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 1em;
+    height: 30px;
+}
+
+    .categories-back-button:hover[b-iqj438ct1u] {
+        background-color: lightgrey;
+    }
 
     .categories h2[b-iqj438ct1u], .menu-items h2[b-iqj438ct1u] {
         text-align: left;
@@ -936,8 +960,8 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 }
 
 .category-card[b-iqj438ct1u] {
-    flex-grow: 1;
     margin-right: 1em;
+    width: 250px;
 }
 
     .category-card button[b-iqj438ct1u] {
@@ -955,12 +979,17 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
         padding: 0;
     }
 
+        .category-card button:hover[b-iqj438ct1u] {
+            background-color: lightgray;
+        }
+
     .category-card img[b-iqj438ct1u] {
         width: 100%;
-        height: 60px;
+        height: 100px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         background-color: #F2F1F2;
+        object-fit: cover;
     }
 
     .category-card span[b-iqj438ct1u] {
@@ -980,20 +1009,30 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 200px;
+    height: 375px;
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
     border-radius: 10px;
-    justify-content: space-between;
+}
+
+.menu-item-name[b-iqj438ct1u] {
+    height: 75px;
+}
+
+.add-ons[b-iqj438ct1u] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #addOnSelect[b-iqj438ct1u] {
     border-radius: 10px;
     padding: 10px;
-    margin-bottom: 2em;
     border: 1px solid black;
     cursor: pointer;
+    bottom: 63px;
+    position: absolute;
 }
 
 .add-menu-item[b-iqj438ct1u] {
@@ -1007,6 +1046,16 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
     width: 40%;
     right: 10px;
     position: absolute;
+}
+
+.product-image-container[b-iqj438ct1u] {
+    justify-content: center;
+}
+
+.product-image[b-iqj438ct1u] {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
 }
 
 .decrease-menu-item[b-iqj438ct1u],
@@ -1081,7 +1130,16 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
     align-items: center;
 }
 
-.counter-background[b-iqj438ct1u] {
+.counter-background-menu[b-iqj438ct1u] {
+    background-color: #F2F1F2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 10px;
+}
+.counter-background-invoice[b-iqj438ct1u] {
     background-color: #F2F1F2;
     display: flex;
     align-items: center;
@@ -1195,6 +1253,58 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
         background-color: #FF6F00;
         color: white;
     }
+/* _content/DieselBrandstofCafe/Components/Pages/MyOrders.razor.rz.scp.css */
+.card-default[b-wns27ztqgx]{
+    padding: 10px;
+    border-radius: 20px;
+    width: auto;
+}
+
+.generic-button[b-wns27ztqgx] {
+    background-color: #FF6F00;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.Status-Completed[b-wns27ztqgx] {
+    color: #064E3B;
+    background-color: #ECFDF5;
+    border-radius: 5px;
+    text-align: center;
+    width: 125px;
+    padding: 10px;
+    margin-left: 40px;
+}
+
+.Status-Progress[b-wns27ztqgx] {
+    color: #FF5C00;
+    background-color: #fcdbc9;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    padding: 10px;
+}
+
+.Status-Pending[b-wns27ztqgx] {
+    color: gray;
+    background-color: #fff9c4;
+    border-radius: 5px;
+    text-align: center;
+    width: 125px;
+    padding: 10px;
+    margin-left: 40px;
+}
+
+.Order-Text[b-wns27ztqgx]{
+    font-size: x-large;
+}
+
+.card-maxheight[b-wns27ztqgx] {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+}
 /* _content/DieselBrandstofCafe/Components/Pages/OrderSuccess.razor.rz.scp.css */
 .order-success-page[b-ux16em6yas] {
     display: flex;

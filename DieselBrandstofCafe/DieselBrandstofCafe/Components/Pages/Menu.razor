@@ -22,43 +22,46 @@
                     {
                         <div class="category-card">
                             <button class="category-button" @onclick='() => LoadMenuItems(category.CategorieID)'>
-                                <img src="">
+                                <img src="images\@category.CategorieAfbeelding" alt="@category.NaamCategorie">
                                 <span>@category.NaamCategorie</span>
                             </button>
                         </div>
                     }
                 }
+                @if (curParentID >= 0)
+                {
+                    <button class="categories-back-button" @onclick='() => LoadPrevCategories()'>Back</button>
+                }
             </div>
         </div>
-        <div class="menu-items">
+         @if (menuItems != null && menuItems.Any())
+                {
+            <div class="menu-items">
             <h2>Select Menu</h2>
-            <div class="menu-list">
-                @if (menuItems == null)
-                {
-                    <p>Loading...</p>
-                }
-                else if (!menuItems.Any())
-                {
-                    <p>No items found.</p>
-                }
-                else
-                {
+                <div class="menu-list">
                     @foreach (var item in menuItems)
                     {
                         <div class="menu-item">
-                            <h3>@item.ProductNaam</h3>
-                            <p>€@item.ProductPrijs</p>
+                            <div class="menu-item-name"><h3>@item.ProductNaam</h3></div>
+                            <div class="product-image-container">
+                                <img src="images\@item.ProductAfbeelding" class="product-image" onerror="src='images/Geen Afbeelding.png';">
+                            </div>
+                            <span>€@item.ProductPrijs</span>
+                            <p>@item.ProductDesc</p>
                             <div class="add-ons">
                                 <select id="addOnSelect" @onchange="(e) => SelectAddOn(e, item.ProductID)">
                                     <option value="">Extra Add-ons</option>
-                                    @foreach (var addOn in addOns)
+                                    @if (addOns != null)
                                     {
-                                        <option value="@addOn.ProductID">@addOn.ProductNaam - €@addOn.ProductPrijs</option>
+                                        @foreach (var AddOnID in addOns)
+                                        {
+                                            <option value="@AddOnID.ProductID">@AddOnID.ProductNaam - €@AddOnID.ProductPrijs</option>
+                                        }
                                     }
                                 </select>
                             </div>
                             <div class="invoice-menu-controls">
-                                <div class="counter-background">
+                                <div class="counter-background-menu">
                                     <button class="decrease-menu-item" @onclick='() => DecreaseAantalProductTemp(item)'>-</button>
                                     <span>@GetTempAantal(item)</span>
                                     <button class="increase-menu-item" @onclick='() => IncreaseAantalProductTemp(item)'>+</button>
@@ -67,10 +70,11 @@
                             <button class="add-menu-item" @onclick='() => AddToInvoice(item)'>Add to order</button>
                         </div>
                     }
-                }
             </div>
         </div>
+        }          
     </div>
+    
 
     <div class="right-panel">
         <div class="order-summary">
@@ -83,7 +87,7 @@
                             <span>@invoiceItem.Product?.ProductNaam (€@invoiceItem.Product?.ProductPrijs)</span>
                             <div class="invoice-item-controls">
                                 <span class="product-total">€@(invoiceItem.Product?.ProductPrijs * invoiceItem.AantalProduct)</span>
-                                <div class="counter-background">
+                                <div class="counter-background-invoice">
                                     <button class="decrease-invoice-item" @onclick="() => DecreaseAantalProduct(invoiceItem)">-</button>
                                     <span>@invoiceItem.AantalProduct</span>
                                     <button class="increase-invoice-item" @onclick="() => IncreaseAantalProduct(invoiceItem)">+</button>
@@ -130,38 +134,80 @@
 
 
 @code {
+    decimal subTotal = 0;
+    decimal tax = 0;
+    decimal total = 0;
 
-    List<Product>? menuItems;
+    int curParentID = -1;
+    List<int> prevParentIds = [];
+
+    List<Product>? menuItems; 
     List<Categorie>? categories;
     List<Product>? addOns;
     Dictionary<int, int> tempProductQuantities = new Dictionary<int, int>();
     Dictionary<int, int?> selectedAddOns = new Dictionary<int, int?>();
+    List<InvoiceItem> invoiceItems = new List<InvoiceItem>();
+
 
     protected override async Task OnInitializedAsync()
     {
-        categories = (await categorieService.GetCategorieënAsync()).ToList();
+        categories = (await categorieService.GetParentCategoryAsync()).ToList();
         addOns = (await customerService.GetAddOnsAsync()).ToList();
-        await LoadAllMenuItems();
     }
 
     async Task LoadAllMenuItems()
     {
-        menuItems = (await customerService.GetProductsAsync()).ToList();
+        menuItems = (await categorieService.GetProductsAsync()).ToList();
         InitializeTempQuantities();
     }
 
     async Task LoadMenuItems(int categoryId)
     {
-        menuItems = (await customerService.GetProductsByCategoryAsync(categoryId)).ToList();
-        InitializeTempQuantities();
+
+        menuItems = (await categorieService.GetProductsByCategoryAsync(categoryId)).ToList();
+        if (menuItems.Count > 0)
+        {
+            InitializeTempQuantities();
+        }
+        else
+        {
+            categories = (await categorieService.GetChildCategoryAsync(categoryId)).ToList();
+            if (curParentID >= 0) { prevParentIds.Add(curParentID); }
+            curParentID = categoryId;
+        }
+    }
+
+    async Task LoadPrevCategories()
+    {
+        if (prevParentIds.Count > 0)
+        {
+            curParentID = prevParentIds[prevParentIds.Count - 1];
+            prevParentIds.RemoveAt(prevParentIds.Count - 1);
+        }
+        else
+        {
+            curParentID = -1;
+        }
+        if (curParentID >= 0)
+        {
+            categories = (await categorieService.GetChildCategoryAsync(curParentID)).ToList();
+        }
+        else
+        {
+            categories = (await categorieService.GetParentCategoryAsync()).ToList();
+        }
+        menuItems = (await categorieService.GetProductsByCategoryAsync(curParentID)).ToList();
     }
 
     void InitializeTempQuantities()
     {
         tempProductQuantities = new Dictionary<int, int>();
-        foreach (var item in menuItems)
+        if (menuItems != null)
         {
-            tempProductQuantities[item.ProductID] = 0;
+            foreach (var item in menuItems)
+            {
+                tempProductQuantities[item.ProductID] = 0;
+            }
         }
     }
 
@@ -194,10 +240,10 @@
 
             if (selectedAddOns.TryGetValue(product.ProductID, out int? addOnId) && addOnId.HasValue)
             {
-                var addOn = addOns?.FirstOrDefault(a => a.ProductID == addOnId.Value);
-                if (addOn != null)
+                var AddOnID = addOns?.FirstOrDefault(a => a.ProductID == addOnId.Value);
+                if (AddOnID != null)
                 {
-                    invoiceItems.Add(new InvoiceItem { Product = addOn, AantalProduct = quantity });
+                    invoiceItems.Add(new InvoiceItem { Product = AddOnID, AantalProduct = quantity });
                 }
             }
             tempProductQuantities[product.ProductID] = 0; // Reset temporary quantity after adding to invoice
@@ -256,9 +302,9 @@
     // Function to update the totals
     void UpdateTotal()
     {
-        subTotal = invoiceItems.Sum(i => i.Product?.ProductPrijs * i.AantalProduct) ?? 0;
-        tax = subTotal * 0.09M;
-        total = subTotal + tax;
+        subTotal = decimal.Round(invoiceItems.Sum(i => i.Product?.ProductPrijs * i.AantalProduct) ?? 0, 2);
+        tax = decimal.Round(subTotal * 0.09M, 2);
+        total = decimal.Round(subTotal + tax, 2);
     }
 
     public async Task PlaceOrder()
@@ -274,10 +320,4 @@
             Console.WriteLine($"Error placing order: {ex.Message}");
         }
     }
-
-    decimal subTotal = 0;
-    decimal tax = 0;
-    decimal total = 0;
-
-    List<InvoiceItem> invoiceItems = new List<InvoiceItem>();
 }

@@ -7,7 +7,11 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
+<<<<<<< HEAD
 timestamp=0001718199721184372
+=======
+timestamp=0001718271631149590
+>>>>>>> 381248087d981d82af2c3917e19a55ccd8764ee0
 create-version=2
 source=SELECT COUNT(*) cnt,\n       ROUND(avg_timer_wait/1000000) AS avg_us\n  FROM performance_schema.events_statements_summary_by_digest\n GROUP BY avg_us;
 client_cs_name=utf8mb3

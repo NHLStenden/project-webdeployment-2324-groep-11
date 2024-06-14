@@ -7,7 +7,11 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
+<<<<<<< HEAD
 timestamp=0001718199720416510
+=======
+timestamp=0001718271630051738
+>>>>>>> 381248087d981d82af2c3917e19a55ccd8764ee0
 create-version=2
 source=SELECT \'1.5.2\' AS sys_version,\n        version() AS mysql_version;
 client_cs_name=utf8mb3
