@@ -11,8 +11,9 @@ namespace DieselBrandstofCafe.Components.Data
     // Interface definition for EmployeeService to handle various operations related to orders and products
     public interface IEmployeeService
     {
-        // Retrieve a list of new orders with status 'Pending'
-        Task<IEnumerable<Bestelling>> GetNewOrdersAsync();
+        // Retrieve a list of new orders with every status
+        Task<IEnumerable<Bestelling>> GetOrdersByStatusAsync(string status);
+
 
         // Retrieve a list of completed or deleted orders (order history)
         Task<IEnumerable<Bestelling>> GetOrderHistoryAsync();
@@ -34,6 +35,9 @@ namespace DieselBrandstofCafe.Components.Data
 
         // Check if all products in a specific order are completed
         Task<bool> AreAllProductsCompletedAsync(int bestellingId);
+
+
+
     }
 
     // Implementation of the IEmployeeService interface
@@ -49,13 +53,13 @@ namespace DieselBrandstofCafe.Components.Data
                 ?? throw new ArgumentNullException(nameof(configuration), "Configuration cannot be null.");
         }
 
-        // Retrieve a list of new orders with status 'Pending'
-        public async Task<IEnumerable<Bestelling>> GetNewOrdersAsync()
+        // Retrieve a list of new orders with every status
+        public async Task<IEnumerable<Bestelling>> GetOrdersByStatusAsync(string status)
         {
             using (var connection = new MySqlConnection(_connectionString))
             {
-                var sql = "SELECT * FROM Bestelling WHERE StatusBestelling = 'Pending'";
-                return await connection.QueryAsync<Bestelling>(sql);
+                var sql = "SELECT * FROM Bestelling WHERE StatusBestelling = @Status AND TijdBestelling >= NOW() - INTERVAL 1 DAY";
+                return await connection.QueryAsync<Bestelling>(sql, new { Status = status });
             }
         }
 
@@ -64,7 +68,7 @@ namespace DieselBrandstofCafe.Components.Data
         {
             using (var connection = new MySqlConnection(_connectionString))
             {
-                var sql = "SELECT * FROM Bestelling WHERE StatusBestelling = 'Completed' OR StatusBestelling = 'Deleted'";
+                var sql = "SELECT * FROM Bestelling WHERE StatusBestelling = 'Completed' OR StatusBestelling = 'Cancelled' OR StatusBestelling = 'Served'";
                 return await connection.QueryAsync<Bestelling>(sql);
             }
         }
@@ -175,8 +179,7 @@ namespace DieselBrandstofCafe.Components.Data
                     SELECT BestelrondeID
                     FROM Bestelling
                     WHERE BestellingID = @BestellingID
-                )
-            ) AND StatusBesteldeProduct != 'Completed'";
+                )) AND StatusBesteldeProduct != 'Completed'";
 
                 var incompleteProductCount = await connection.ExecuteScalarAsync<int>(sql, new { BestellingID = bestellingId });
                 return incompleteProductCount == 0;

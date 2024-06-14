@@ -5,144 +5,48 @@
         <NavMenu />
     </div>
 
-    <main>
-        <div class="main-content">
-            <div class="header">
-                <input type="text" placeholder="Search..." />
-                <div class="user-info">
-                    John Doe <span class="profile-icon">👤</span>
+    <main class="main-content">
+        <header class="header">
+            <div class="search-bar">
+                <div class="input-group">
+                    <input type="text" class="form-control search-input" placeholder="Search" aria-label="Search">
+                    <i class="bi bi-search search-icon"></i>
                 </div>
             </div>
-            <div class="content">
-                @Body
-            </div>
-            <div class="footer">
-                <div class="footer-copyright">
-                    <span>© 2024 Brandstof Cafe. All Rights Reserved.</span>
-                    <div class="footer-links">
-                        <a href="/privacy-policy">Privacy Policy</a>
-                        <a href="/terms-conditions">Terms & Conditions</a>
-                        <a href="/cookies-settings">Cookies Settings</a>
-                    </div>
+            <div class="user-info">
+                <p>John Doe</p>
+                <div class="profile-icon">
+                    <img class="user-img" src="images/user.jpeg" alt="Brandstof Cafe" />
                 </div>
             </div>
+        </header>
+        <div class="content">
+            @Body
         </div>
+        <footer class="footer">
+            <div class="footer-container">
+                
+                <div class="footer-links">
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-conditions">Terms & Conditions</a>
+                    <a href="/cookies-settings">Cookies Settings</a>
+                </div>
+                   
+                <div class="footer-social">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                </div>
+                <div>
+                    <span>© 2024 Brandstof Cafe. All Rights Reserved.</span>
+                </div>
+            </div>
+        </footer>
     </main>
 </div>
-
-
-<style>
- 
-    main[b-i32kgcyl5t] {
-        background-color: #F2F1F2;
-    }
-
-    .main-content {
-        background-color: #F2F1F2;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .header {
-        background-color: white;
-        padding: 1em;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #ccc;
-    }
-
-        .header input {
-            background-color: #F2F1F2;
-            padding: 5px;
-            font-size: 16px;
-            width: 300px;
-            border-radius: 10px;
-            border: none;
-        }
-
-    .user-info {
-        display: flex;
-        align-items: center;
-    }
-
-        .user-info .profile-icon {
-            margin-left: 10px;
-        }
-
-    .content {
-        padding: 20px;
-        overflow-y: auto;
-    }
-
-    .nav-scrollable {
-        background-color: white;
-        border-right: 1px solid #ccc;
-    }
-
-    .nav-link.active {
-        color: #FF6F00;
-        background-color: #FF6F00;
-    }
-
-    .top-row.ps-3.navbar-dark {
-        background-color: white;
-        border-right: 1px solid #ccc;
-    }
-
-    .navbar-dark .navbar-brand {
-        color: #212529;
-        font-weight: bold;
-    }
-
-        .navbar-dark .navbar-brand:hover {
-            color: #212529;
-        }
-
-    .nav-item[b-srj6zv88n6] .nav-link {
-        background-color: #F2F1F2;
-        color: #212529;
-        border-radius: 10px;
-        transition: background-color 0.3s ease;
-    }
-
-        .nav-item[b-srj6zv88n6] .nav-link:hover {
-            background-color: #FFAE70;
-        }
-
-    .nav-item[b-srj6zv88n6] a.active {
-        background-color: #FF6F00;
-        color: white;
-        border-radius: 10px;
-    }
-
-    .footer {
-        background-color: white;
-        padding: 1em;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        margin: 0 1em 1em 1em;
-        position: fixed;
-        bottom: 0;
-        width: 85%;
-    }
-
-        .footer-copyright {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2em;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2em;
-        }
-
-            .footer-links a {
-                text-decoration: underline;
-                color: #212529;
-            }
-
-</style>
-
