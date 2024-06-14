@@ -45,10 +45,6 @@
       "PackagePath": "staticwebassets\\images\\Coffee Creme Large.png"
     },
     {
-      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Coffee Creme.png",
-      "PackagePath": "staticwebassets\\images\\Coffee Creme.png"
-    },
-    {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Cold Drinks.png",
       "PackagePath": "staticwebassets\\images\\Cold Drinks.png"
     },
@@ -187,6 +183,10 @@
     {
       "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Water Still.png",
       "PackagePath": "staticwebassets\\images\\Water Still.png"
+    },
+    {
+      "Id": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\coffee creme.png",
+      "PackagePath": "staticwebassets\\images\\coffee creme.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DieselBrandstofCafe.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -8,7 +8,7 @@
         public DateTime TijdBestelling { get; set; }
         public List<Product>? Producten { get; set; }
         public int Kostenplaatsnummer { get; set; }
-        public int TotaalPrijs { get; set; }
+        public decimal TotaalPrijs { get; set; }
         public int BestelrondeID { get; set; }
     }
 }

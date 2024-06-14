@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8/aV8g0Om5vMAXaqg9rUcwfNT/GH1ey/Q58ecZAMzgIuA5OztwQXy0Cliw6Q3xKsWnYegsrbzL9mYyyB9C64og==",
+  "dgSpecHash": "U/xzJZLs4M4VX4HmmOmn0pblHo0mPgeIkPXBXUhQ2nRSk6386I5dXBgxBIJeUUNhhcMu7MdtUyig4zrWO/FjlQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
   "expectedPackageFiles": [
@@ -38,10 +38,12 @@
     "C:\\Users\\marti\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\mysql.data\\8.4.0\\mysql.data.8.4.0.nupkg.sha512",
+    "C:\\Users\\marti\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\marti\\.nuget\\packages\\stripe.net\\44.12.0\\stripe.net.44.12.0.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\system.data.sqlclient\\4.8.6\\system.data.sqlclient.4.8.6.nupkg.sha512",
