@@ -6,11 +6,9 @@
 <section>
     <div class="container">
         <div class="row text-center">
-            <div class="col-2 card">
+            <div class="col-2 card text-colour card-colour" style="color: #ee7721">
                 <h3>Orders</h3>
             </div>
-        </div>
-        <div class="card">
         </div>
     </div>
 </section>
@@ -22,22 +20,23 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-4">
-                <div class="card h-100 card-padding">
-                    <h6 class="Text-padding" style="font-size:large; padding:13px;"><b>Order History</b></h6>
+                <div class="card h-100 card-padding card-colour">
+                    <h6 class="Text-padding text-colour" style="font-size:large; padding:13px;"><b>Order History</b></h6>
+                    <div class="card"></div>
                     <div class="d-flex row card-maxheight">
                         <div style="padding:13px;">
                             @foreach (var item in combinedOrders)
                             {
                                 <div class="row">
-                                    <div class="col-6">@item.BestellingID#</div>
-                                    <div class="col-6">@item.TijdBestelling</div>
+                                    <div class="col-6 text-colour">@item.BestellingID#</div>
+                                    <div class="col-6 text-colour">@item.TijdBestelling</div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 @(item.StatusBestelling == "Pending" ? "Status-Pending" : "Status-Completed")">@item.StatusBestelling</div>
-                                    <div class="col-6">€@item.TotaalPrijs</div>
+                                    <div class="col-6 @GetStatusColorClass(item.StatusBestelling)" style="">@item.StatusBestelling</div>
+                                    <div class="col-6 text-colour">€@item.TotaalPrijs</div>
                                 </div>
                                 
-                                <button @onclick="() => SelectOrder(item.BestellingID)" class="generic-button">See Details</button>
+                                <button @onclick="() => SelectOrder(item.BestellingID)" class="generic-button active" style="color: white;" data-toggle="button" aria-pressed="false" autocomplete="off">See Details</button>
                                 <br />
                                 <br />
                             }
@@ -46,32 +45,33 @@
                 </div>
             </div>
             <div class="col-lg-8">
-                <div class="card h-100 card-padding container">
-                    <h6 class="Text-padding" style="font-size:large; padding-top:13px"><b>Order </b></h6>
-                    <br />
+                <div class="card h-100 card-padding container card-colour">
+                    <h6 class="Text-padding text-colour" style="font-size:large; padding-top:13px"><b>Order </b></h6>
+                    <div class="card"></div>
+                    <br /> 
                     <div class="Order-Text">
                         @if (selectedOrder != null)
                         {
                             <div>
-                                <p style="font-size:x-large;">Order Details:</p>
+                                <p class="" style="font-size:x-large; color: #ee7721">Order Details:</p>
                                 <div class="row">
-                                    <p class="col-5 text-start">Bestelling ID:</p> 
-                                    <p class="col-7 text-start"> <b>@selectedOrder.BestellingID</b></p>
+                                    <p class="col-5 text-start text-colour">Bestelling ID:</p> 
+                                    <p class="col-7 text-start text-colour"> <b>@selectedOrder.BestellingID#</b></p>
                                 </div>
                                 <div class="row">
-                                    <p class="col-5 text-start">Tijd Bestelling:</p>
-                                    <p  class="col-7 text-start"><b>@selectedOrder.TijdBestelling</b></p>
+                                    <p class="col-5 text-start text-colour">Tijd Bestelling:</p>
+                                    <p  class="col-7 text-start text-colour"><b>@selectedOrder.TijdBestelling</b></p>
                                 </div>
                                 <div class="row">
-                                    <p class="col-5 text-start">Status Bestelling:</p>
-                                    <p  class="col-7 text-start"><b>@selectedOrder.StatusBestelling</b></p>
+                                    <p class="col-5 text-start text-colour">Status Bestelling:</p>
+                                    <p  class="col-7 text-start text-colour"><b>@selectedOrder.StatusBestelling</b></p>
                                 </div>
                                 <div class="row">
-                                    <p class="col-5 text-start">Totaal Prijs:</P>
-                                    <p  class="col-7 text-start"><b>€@selectedOrder.TotaalPrijs</b></p>
+                                    <p class="col-5 text-start text-colour">Totaal Prijs:</P>
+                                    <p  class="col-7 text-start text-colour"><b>€@selectedOrder.TotaalPrijs</b></p>
                                 </div>
-                                <p>Producten:</p>
-                                <ul class="justify-content-center">
+                                <p class="" style="color: #ee7721">Producten:</p>
+                                <ul class="justify-content-center text-colour">
                                     @foreach (var product in selectedOrder.Products)
                                     {
                                          <li><b>@product.ProductNaam - @product.AantalProduct x</b></li>
@@ -92,11 +92,13 @@
     private OrderWithProducts? selectedOrder;
     private List<OrderWithProducts> newBestellingen = new List<OrderWithProducts>();
     private List<OrderWithProducts> combinedOrders = new List<OrderWithProducts>();
+    private List<OrderWithProducts> PendingBestellingen = new List<OrderWithProducts>();
 
     protected override async Task OnInitializedAsync()
     {
         var orders = await EmployeeService.GetOrderHistoryAsync();
-        // var newOrders = await EmployeeService.GetNewOrdersAsync();
+        var newOrders = await EmployeeService.GetOrdersByStatusAsync("In Progress");
+        var PendingOrders = await EmployeeService.GetOrdersByStatusAsync("Pending");
 
         bestellingen = orders.Select(order => new OrderWithProducts
         {
@@ -107,14 +109,23 @@
             Products = new List<ProductPerBestelronde>()
         }).ToList();
 
-        // newBestellingen = newOrders.Select(order => new OrderWithProducts
-        // {
-        //     BestellingID = order.BestellingID,
-        //     TijdBestelling = order.TijdBestelling,
-        //     StatusBestelling = order.StatusBestelling,
-        //     TotaalPrijs = order.TotaalPrijs,
-        //     Products = new List<ProductPerBestelronde>()
-        // }).ToList();
+        newBestellingen = newOrders.Select(order => new OrderWithProducts
+        {
+             BestellingID = order.BestellingID,
+             TijdBestelling = order.TijdBestelling,
+             StatusBestelling = order.StatusBestelling,
+             TotaalPrijs = order.TotaalPrijs,
+             Products = new List<ProductPerBestelronde>()
+         }).ToList();
+
+        PendingBestellingen = PendingOrders.Select(order => new OrderWithProducts
+        {
+            BestellingID = order.BestellingID,
+            TijdBestelling = order.TijdBestelling,
+            StatusBestelling = order.StatusBestelling,
+            TotaalPrijs = order.TotaalPrijs,
+            Products = new List<ProductPerBestelronde>()
+        }).ToList();
 
         foreach (var order in bestellingen)
         {
@@ -128,12 +139,18 @@
             order.Products.AddRange(products);
         }
 
-        
-        combinedOrders = newBestellingen.Concat(bestellingen).ToList();
+        foreach (var order in PendingBestellingen)
+        {
+            var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
+            order.Products.AddRange(products);
+        }
 
-        
+
+
+        combinedOrders = PendingBestellingen.Concat(newBestellingen.Concat(bestellingen)).ToList();
+
         combinedOrders = combinedOrders
-            .OrderByDescending(order => order.StatusBestelling == "pending")
+            .OrderByDescending(order => order.StatusBestelling == "Pending" || order.StatusBestelling == "In Progress")
             .ThenByDescending(order => order.TijdBestelling)
             .ToList();
     }
@@ -150,5 +167,20 @@
         public string? StatusBestelling { get; set; }
         public decimal TotaalPrijs { get; set; }
         public List<ProductPerBestelronde> Products { get; set; } = new();
+    }
+
+    string GetStatusColorClass(string? status)
+    {
+        switch (status)
+        {
+            case "Pending":
+                return "Status-Pending";
+            case "In Progress":
+                return "Status-Progress";
+            case "Completed":
+                return "Status-Completed";
+            default:
+                return "text-muted";
+        }
     }
 }
