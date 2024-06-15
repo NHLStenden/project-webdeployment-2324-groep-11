@@ -96,7 +96,7 @@
     protected override async Task OnInitializedAsync()
     {
         var orders = await EmployeeService.GetOrderHistoryAsync();
-        var newOrders = await EmployeeService.GetNewOrdersAsync();
+        // var newOrders = await EmployeeService.GetNewOrdersAsync();
 
         bestellingen = orders.Select(order => new OrderWithProducts
         {
@@ -107,14 +107,14 @@
             Products = new List<ProductPerBestelronde>()
         }).ToList();
 
-        newBestellingen = newOrders.Select(order => new OrderWithProducts
-        {
-            BestellingID = order.BestellingID,
-            TijdBestelling = order.TijdBestelling,
-            StatusBestelling = order.StatusBestelling,
-            TotaalPrijs = order.TotaalPrijs,
-            Products = new List<ProductPerBestelronde>()
-        }).ToList();
+        // newBestellingen = newOrders.Select(order => new OrderWithProducts
+        // {
+        //     BestellingID = order.BestellingID,
+        //     TijdBestelling = order.TijdBestelling,
+        //     StatusBestelling = order.StatusBestelling,
+        //     TotaalPrijs = order.TotaalPrijs,
+        //     Products = new List<ProductPerBestelronde>()
+        // }).ToList();
 
         foreach (var order in bestellingen)
         {

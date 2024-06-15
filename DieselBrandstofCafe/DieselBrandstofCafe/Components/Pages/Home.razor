@@ -224,7 +224,7 @@
     protected override async Task OnInitializedAsync()
     {
         bestellingen = (await EmployeeService.GetOrderHistoryAsync()).ToList();
-        newBestellingen = (await EmployeeService.GetNewOrdersAsync()).ToList();
+        // newBestellingen = (await EmployeeService.GetNewOrdersAsync()).ToList();
     }
 
 

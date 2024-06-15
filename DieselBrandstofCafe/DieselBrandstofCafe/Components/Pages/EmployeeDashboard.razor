@@ -10,87 +10,215 @@
 @using System.Collections.Generic;
 @using System.Threading.Tasks;
 @using Dapper;
+@using System.Text.Json
 
 @* Injecting the EmployeeService and ManagerService to access their methods *@
 @inject IEmployeeService EmployeeService;
 @inject IManagerService ManagerService;
 @* Setting the title of the page *@
-<PageTitle>Employees Dashboard</PageTitle>
+<PageTitle>Dashboard</PageTitle>
+
+
 
 @* Main heading of the page *@
-<h1>Employees Dashboard</h1>
+<h1 class="page-title">Dashboard</h1>
+
+<div class="order-count-cards">
+    <div class="order-count-card">
+        <i class="bi bi-clock"></i>
+        <div class="order-count-card-text">
+            <h2> @pendingCount</h2>
+            <h3>Open Orders</h3>
+        </div>
+    </div>
+    <div class="order-count-card">
+        <i class="bi bi-clock-history"></i>
+        <div class="order-count-card-text">
+            <h2> @inProgressCount</h2>
+            <h3>In Progress</h3>
+        </div>
+    </div>
+    <div class="order-count-card">
+        <i class="bi bi-clipboard2-check"></i>
+        <div class="order-count-card-text">
+            <h2> @completedCount</h2>
+            <h3>Completed</h3>
+        </div>
+    </div>
+</div>
 
 @* Orders board to display the list of orders *@
 <div class="orders-board">
-    @if (orders.Count == 0)
+
+    @if (pendingAndInProgressOrders.Count == 0 && completedOrders.Count == 0 && servedOrders.Count == 0 && cancelledOrders.Count == 0)
     {
-        <p>No orders available</p>
         // Message shown if there are no orders
+        <h4 class="warning-text">No orders available</h4>
     }
-    @foreach (var order in orders)
-    {
-        // Display each order in a card format
-        <div class="orders-card @GetOrderClass(order)">
-            <h4>Table @order.TafelID - Order #@order.BestellingID</h4>
-            <ul>
-                @foreach (var product in order.Products)
-                {
-                    // Display each product in the order
-                    <li class="@GetProductClass(product)">
-                        @product.ProductNaam
-                        <button @onclick="() => CompleteTask(order, product)">Complete</button>
-                    </li>
-                }
-            </ul>
-        </div>
-    }
+
+
+    @RenderOrdersSection("Ongoing Orders", pendingAndInProgressOrders)
+    @RenderOrdersSection("Completed Orders", completedOrders)
+    @RenderOrdersSection("Served Orders", servedOrders)
+    @RenderOrdersSection("Cancelled Orders", cancelledOrders)
+
+
 </div>
 
-@* Display the list of employees *@
-<div>
-    <ul>
-        @foreach (var employee in employees)
-        {
-            <li>
-                @employee.MedewerkerNaam - @employee.EmailMedewerker
-            </li>
-        }
-    </ul>
-</div>
 
 @code {
-        // Initialize the lists for their specific types. These are lists of objects that should hold the necessary data.
-        private List<Medewerker> employees = new List<Medewerker>();
-        private List<OrderWithProducts> orders = new List<OrderWithProducts>();
+    // Initialize the lists for their specific types. These are lists of objects that should hold the necessary data.
+    private List<OrderWithProducts> orders = new List<OrderWithProducts>();
 
-        // This method runs during the OnInitialized lifecycle event of the component.
-        protected override async Task OnInitializedAsync()
+
+    private List<OrderWithProducts> pendingAndInProgressOrders = new List<OrderWithProducts>();
+    private List<OrderWithProducts> completedOrders = new List<OrderWithProducts>();
+    private List<OrderWithProducts> servedOrders = new List<OrderWithProducts>();
+    private List<OrderWithProducts> cancelledOrders = new List<OrderWithProducts>();
+
+    private int pendingCount;
+    private int inProgressCount;
+    private int completedCount;
+
+    // This method runs during the OnInitialized lifecycle event of the component.
+    protected override async Task OnInitializedAsync()
+    {
+
+        await LoadOrdersByStatus();
+
+
+    }
+
+    private async Task LoadOrdersByStatus()
+    {
+        pendingAndInProgressOrders.Clear();
+        completedOrders.Clear();
+        servedOrders.Clear();
+        cancelledOrders.Clear();
+
+        var statuses = new[]
         {
-            // Fetch new orders from the database using the EmployeeService.
-            var newOrders = await EmployeeService.GetNewOrdersAsync();
-            Console.WriteLine($"Retrieved {newOrders.Count()} new orders"); // Log the number of orders
+                new { Status = "Pending", List = pendingAndInProgressOrders },
+                new { Status = "In Progress", List = pendingAndInProgressOrders },
+                new { Status = "Completed", List = completedOrders },
+                new { Status = "Served", List = servedOrders },
+                new { Status = "Cancelled", List = cancelledOrders }
+        };
 
-            // For each order, fetch the associated products and add them to the orders list.
-            foreach (var order in newOrders)
+        pendingCount = 0; inProgressCount = 0; completedCount = 0;
+
+        foreach (var status in statuses)
+        {
+            var orders = await EmployeeService.GetOrdersByStatusAsync(status.Status);
+
+            foreach (var order in orders)
             {
                 var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
-                Console.WriteLine($"Retrieved {products.Count()} products for order {order.BestellingID}"); // Log the number of products
-            orders.Add(new OrderWithProducts
+                var orderWithProducts = new OrderWithProducts
                 {
                     BestellingID = order.BestellingID,
                     TafelID = order.TafelID,
                     Products = products.ToList(),
                     StatusBestelling = order.StatusBestelling
-                });
-            }
+                };
 
-            // Fetch all employees from the database using the ManagerService and store them in the employees list.
-            employees = (await ManagerService.GetEmployeesAsync()).ToList();
+                status.List.Add(orderWithProducts);
+
+                // Update the counts
+                switch (order.StatusBestelling)
+                {
+                    case "Pending":
+                        pendingCount++;
+                        break;
+                    case "In Progress":
+                        inProgressCount++;
+                        break;
+                    case "Completed":
+                        completedCount++;
+                        break;
+                }
+            }
+        }
+
+        // Sort pendingAndInProgressOrders to show Pending orders first, then In Progress
+        pendingAndInProgressOrders = pendingAndInProgressOrders
+            .OrderByDescending(o => o.StatusBestelling == "Pending")
+            .ThenByDescending(o => o.BestellingID)
+            .ToList();
+
+        StateHasChanged();
+    }
+
+
+    private RenderFragment RenderOrdersSection(string title, List<OrderWithProducts> orders) =>
+        @<div class="orders-section">
+            <h3>@title</h3>
+
+            <div class="orders-container">
+                @foreach (var order in orders)
+                {
+                    <div class="orders-card @GetOrderClass(order)" key="@order.BestellingID">
+                        <div class="todo-title-wrapper">
+                            <div class="todo-table-status-container">
+                                <h4 class="table-number">Table @order.TafelID</h4>
+                        <h5 class="status-text @GetOrderStatusClass(order.StatusBestelling)">@order.StatusBestelling@(":") @GetCompletionPercentage(order)%</h5>
+                            </div>
+                            <div>
+                                <h4 class="order-id">#@order.BestellingID</h4>
+                            </div>
+                        </div>
+                        <ul class="product-list-title-wrapper">
+                            <li class="product-list-title">Amt</li>
+                            <li class="product-list-title">Product</li>
+                            <li class="product-list-title">Status</li>
+                        </ul>
+                        <ul class="product-list-wrapper">
+                            @foreach (var product in order.Products)
+                            {
+
+                                <li class="@GetProductClass(product)" key="@product.ProductID">
+                                    <span>@product.AantalProduct@("x")</span>
+                                    @product.ProductNaam
+                                    <input class="checkbox-round" type="checkbox"
+                                           checked="@GetProductStatus(product)"
+                                           @onchange="@(e => OnProductStatusChanged(e, order, product))" />
+                                </li>
+                            }
+                        </ul>
+                        <div class="btns-container">
+                            <button class="cancel-btn" @onclick="() => OnCancelOrder(order)">Cancel</button>
+                            <button class="serve-btn" @onclick="() => OnServeOrder(order)">Serve</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>;
+
+
+        // Method to determine the current status of the product.
+        private bool GetProductStatus(ProductPerBestelronde product)
+        {
+            return product.StatusBesteldeProduct == "Completed";
+        }
+
+        // Method to handle the checkbox change event.
+        private async Task OnProductStatusChanged(ChangeEventArgs e, OrderWithProducts order, ProductPerBestelronde product)
+        {
+            if ((bool)e.Value)
+            {
+                await CompleteTask(order, product);
+            }
+            else
+            {
+                await UncompleteTask(order, product);
+            }
         }
 
         // This method is called when a product is marked as complete.
         private async Task CompleteTask(OrderWithProducts order, ProductPerBestelronde product)
         {
+            Console.WriteLine($"Completing task for product {product.ProductID} in order {order.BestellingID}");
+
             // Update the product status in the Product_per_Bestelronde table to "Completed".
             await EmployeeService.UpdateProductStatusAsync(product.ProductID, product.BestelrondeID, "Completed");
 
@@ -99,41 +227,87 @@
 
             // Check if all products in the order are completed by querying the database.
             var allProductsCompleted = await EmployeeService.AreAllProductsCompletedAsync(order.BestellingID);
-
+            Console.WriteLine($"All products completed: {allProductsCompleted}");
             // If all products are completed, update the order status to "Completed".
-            if (allProductsCompleted)
-            {
-                order.StatusBestelling = "Completed";
-                await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, "Completed");
-            }
-            // If not all products are completed, update the order status to "In Progress".
-            else
-            {
-                order.StatusBestelling = "In Progress";
-                await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, "In Progress");
-            }
-
+            order.StatusBestelling = allProductsCompleted ? "Completed" : "In Progress";
+            await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, order.StatusBestelling);
+            
             // Refresh the component to show the updated state.
-            StateHasChanged();
+            await LoadOrdersByStatus();
 
-            // Remove the order from the list if its status is not pending.
-            if (order.StatusBestelling != "Pending")
-            {
-                orders.Remove(order);
-            }
         }
 
+        private async Task UncompleteTask(OrderWithProducts order, ProductPerBestelronde product)
+        {
+            Console.WriteLine($"Uncompleting task for product {product.ProductID} in order {order.BestellingID}");
+
+            // Update the product status in the Product_per_Bestelronde table to its previous state (e.g., "Pending").
+            await EmployeeService.UpdateProductStatusAsync(product.ProductID, product.BestelrondeID, "Pending");
+
+            // Update the local status of the product to "Pending".
+            product.StatusBesteldeProduct = "Pending";
+
+            // Check if all products in the order are completed by querying the database.
+            var allProductsCompleted = await EmployeeService.AreAllProductsCompletedAsync(order.BestellingID);
+            Console.WriteLine($"All products completed: {allProductsCompleted}");
+            // If all products are completed, update the order status to "Completed".
+            order.StatusBestelling = allProductsCompleted ? "Completed" : "In Progress";
+            await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, order.StatusBestelling);
+            
+            // Refresh the component to show the updated state.
+            await LoadOrdersByStatus();
+
+        }
+
+        private async Task OnCancelOrder(OrderWithProducts order)
+        {
+            Console.WriteLine($"Cancelling order {order.BestellingID}");
+            await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, "Cancelled");
+            await LoadOrdersByStatus();
+        }
+
+        private async Task OnServeOrder(OrderWithProducts order)
+        {
+            Console.WriteLine($"Serving order {order.BestellingID}");
+            await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, "Served");
+            await LoadOrdersByStatus();
+        }
+
+        
         // The GetProductClass and GetOrderClass methods are used to determine the CSS class that should be applied to a product item in the UI based on its status.
         // Specifically, they checks whether the product's status is "Completed" and returns the appropriate CSS class.
         private string GetProductClass(ProductPerBestelronde product)
         {
-            return product.StatusBesteldeProduct == "Completed" ? "completed" : string.Empty;
+            return product.StatusBesteldeProduct == "Completed" ? "completed-product" : string.Empty;
         }
 
         // This method returns the CSS class for an order based on its status.
         private string GetOrderClass(OrderWithProducts order)
         {
             return order.StatusBestelling == "Completed" ? "completed-order" : string.Empty;
+            
         }
-    }
+
+        private string GetOrderStatusClass(string status)
+        {
+            return status switch
+            {
+                "Pending" => "status_pending",
+                "In Progress" => "status_in-progress",
+                "Completed" => "status_completed",
+                "Served" => "status_served",
+                "Cancelled" => "status_cancelled",
+                _ => string.Empty,
+            };
+        }
+
+        private double GetCompletionPercentage(OrderWithProducts order)
+        {
+            if (order.Products == null || order.Products.Count == 0) return 0;
+            var completedProducts = order.Products.Count(p => p.StatusBesteldeProduct == "Completed");
+            return (completedProducts / (double)order.Products.Count) * 100;
+        }
+
+
+}
     

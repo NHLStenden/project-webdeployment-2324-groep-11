@@ -8,6 +8,9 @@
         public List<ProductPerBestelronde>? Products { get; set; }
         public string? StatusBestelling { get; set; }
         public string? BestelrondeID { get; set; }
+        public int? AantalProduct { get; set; }
+
+
 
     }
 }

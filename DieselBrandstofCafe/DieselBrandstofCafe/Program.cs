@@ -25,6 +25,9 @@ builder.Services.AddScoped<IProductPerBestelrondeService, ProductPerBestelrondeS
 builder.Services.AddScoped<IVoorraadOverviewService, VoorraadOverviewService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<ICategorieService, CategorieService>();
+builder.Services.AddScoped<IDashboardDataService, DashboardDataService>();
+
+builder.Services.AddBlazorBootstrap();
 
 
 // Register IDbConnection
