@@ -102,11 +102,6 @@
                 <p>Sub Total: €@subTotal</p>
                 <p>Tax: €@tax</p>
                 <p>Total Payment: €@total</p>
-                <div class="payment-methods">
-                    <button>Card</button>
-                    <button>Cash</button>
-                    <button>Ideal</button>
-                </div>
                 <div class="place-order-button-container">
                     <button class="place-order-button" @onclick="PlaceOrder" disabled="@(!invoiceItems.Any())">Place Order</button>
                 </div>

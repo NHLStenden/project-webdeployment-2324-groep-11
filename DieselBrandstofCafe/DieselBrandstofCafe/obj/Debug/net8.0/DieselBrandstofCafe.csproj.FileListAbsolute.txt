@@ -210,3 +210,13 @@ C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\Dies
 C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Microsoft.JSInterop.dll
+C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\BlazorBootstrap.dll
+C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\marti\OneDrive\Documenten\Repos\project-webdeployment-groep_11\DieselBrandstofCafe\DieselBrandstofCafe\bin\Debug\net8.0\Microsoft.JSInterop.dll
