@@ -48,6 +48,16 @@
     margin: auto;
 }
 
+.Status-Served {
+    color: gray;
+    background-color: #1150ce;
+    border-radius: 10px;
+    text-align: center;
+    width: 110px;
+    padding: 10px;
+    margin: auto;
+}
+
 .card-colour {
     background-color: #1a1f26;
 }
@@ -62,4 +72,22 @@
 
 .text-colour2{
     color: white;
+}
+
+.elapsed-time {
+    font-size: clamp(0.8rem, 2.5vw, 1.0rem);
+    color: #fff;
+    margin: auto 0;
+}
+
+.elapsed-time-short {
+    color: green !important;
+}
+
+.elapsed-time-medium {
+    color: orange !important;
+}
+
+.elapsed-time-long {
+    color: red !important;
 }

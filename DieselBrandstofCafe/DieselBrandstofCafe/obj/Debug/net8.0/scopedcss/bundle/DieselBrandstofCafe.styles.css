@@ -1015,6 +1015,16 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
     margin: auto;
 }
 
+.Status-Served[b-p1ow4bs2ty] {
+    color: gray;
+    background-color: #1150ce;
+    border-radius: 10px;
+    text-align: center;
+    width: 110px;
+    padding: 10px;
+    margin: auto;
+}
+
 .card-colour[b-p1ow4bs2ty] {
     background-color: #1a1f26;
 }
@@ -1029,6 +1039,24 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 
 .text-colour2[b-p1ow4bs2ty]{
     color: white;
+}
+
+.elapsed-time[b-p1ow4bs2ty] {
+    font-size: clamp(0.8rem, 2.5vw, 1.0rem);
+    color: #fff;
+    margin: auto 0;
+}
+
+.elapsed-time-short[b-p1ow4bs2ty] {
+    color: green !important;
+}
+
+.elapsed-time-medium[b-p1ow4bs2ty] {
+    color: orange !important;
+}
+
+.elapsed-time-long[b-p1ow4bs2ty] {
+    color: red !important;
 }
 /* _content/DieselBrandstofCafe/Components/Pages/Home.razor.rz.scp.css */
 .container-fluid[b-av0pgya32l] {

@@ -29,8 +29,9 @@
                                 <div class="card card-colour2">
                                     <div class="row" @onclick="() => ToggleOrder(item.BestellingID)">
                                         <div class="col-2 text-colour2">@item.BestellingID#</div>
-                                        <div class="col-2 text-colour2">(Table ID)</div>
+                                        <div class="col-2 text-colour2">@item.TafelID</div>
                                         <div class="col-2 text-colour2">@item.TijdBestelling</div>
+                                        <div class="col-2 text-colour2 @GetElapsedTimeClass(item)">@GetElapsedTimeText(item)</div>
                                         <div class="col-2 @GetStatusColorClass(item.StatusBestelling)">@item.StatusBestelling</div>
                                         <div class="col-2 text-colour2">€@item.TotaalPrijs</div>
                                     </div>
@@ -52,7 +53,10 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary btn-sm" @onclick="() => MarkAsPaid(item.BestellingID)">Paid</button>
+                                        <div class="row text-end">
+                                            <button class=" col-1 btn btn-primary btn-sm" style="margin:10px" @onclick="() => MarkAsPaid(item.BestellingID)">Cash</button>
+                                            <button class=" col-1 btn btn-primary btn-sm" style="margin:10px" @onclick="() => MarkAsPaid(item.BestellingID)">Card</button>
+                                        </div>
                                     }
                                 </div>
                                 <br />
@@ -71,11 +75,13 @@
     private List<OrderWithProducts> combinedOrders = new List<OrderWithProducts>();
     private List<OrderWithProducts> PendingBestellingen = new List<OrderWithProducts>();
 
+    private Timer? _timer;
+
     protected override async Task OnInitializedAsync()
     {
         var orders = await EmployeeService.GetOrderHistoryAsync();
         var newOrders = await EmployeeService.GetOrdersByStatusAsync("In Progress");
-        var PendingOrders = await EmployeeService.GetOrdersByStatusAsync("Pending");
+        var pendingOrders = await EmployeeService.GetOrdersByStatusAsync("Pending");
 
         bestellingen = orders.Select(order => new OrderWithProducts
             {
@@ -83,26 +89,9 @@
                 TijdBestelling = order.TijdBestelling,
                 StatusBestelling = order.StatusBestelling,
                 TotaalPrijs = order.TotaalPrijs,
+                TafelID = order.TafelID,
                 Products = new List<ProductPerBestelronde>()
             }).ToList();
-
-        /*newBestellingen = newOrders.Select(order => new OrderWithProducts
-            {
-                BestellingID = order.BestellingID,
-                TijdBestelling = order.TijdBestelling,
-                StatusBestelling = order.StatusBestelling,
-                TotaalPrijs = order.TotaalPrijs,
-                Products = new List<ProductPerBestelronde>()
-            }).ToList();
-
-        PendingBestellingen = PendingOrders.Select(order => new OrderWithProducts
-            {
-                BestellingID = order.BestellingID,
-                TijdBestelling = order.TijdBestelling,
-                StatusBestelling = order.StatusBestelling,
-                TotaalPrijs = order.TotaalPrijs,
-                Products = new List<ProductPerBestelronde>()
-            }).ToList();*/
 
         foreach (var order in bestellingen)
         {
@@ -128,6 +117,8 @@
             .OrderByDescending(order => order.StatusBestelling == "Pending" || order.StatusBestelling == "In Progress")
             .ThenByDescending(order => order.TijdBestelling)
             .ToList();
+
+        _timer = new Timer(UpdateElapsedTime, null, 0, 60000); // Update every minute
     }
 
     private void ToggleOrder(int bestellingID)
@@ -148,6 +139,11 @@
         }
     }
 
+    private async void UpdateElapsedTime(object? state)
+    {
+        await InvokeAsync(StateHasChanged); // Ensure the UI updates
+    }
+
     public class OrderWithProducts
     {
         public int BestellingID { get; set; }
@@ -156,26 +152,45 @@
         public decimal TotaalPrijs { get; set; }
         public List<ProductPerBestelronde> Products { get; set; } = new();
         public bool IsExpanded { get; set; } = false;
+        public int TafelID { get; set; }
     }
 
     string GetStatusColorClass(string? status)
     {
-        switch (status)
+        return status switch
         {
-            case "Pending":
-                return "Status-Pending";
-            case "In Progress":
-                return "Status-Progress";
-            case "Completed":
-                return "Status-Completed";
-            case "Open":
-                return "Status-Open";
-            case "Paid":
-                return "Status-Paid";
-            default:
-                return "text-muted";
-        }
+            "Pending" => "Status-Pending",
+            "In Progress" => "Status-Progress",
+            "Completed" => "Status-Completed",
+            "Served" => "Status-Served",
+            "Open" => "Status-Open",
+            "Paid" => "Status-Paid",
+            _ => "text-muted",
+        };
     }
 
+    private string GetElapsedTimeText(OrderWithProducts order)
+    {
+        var elapsed = DateTime.Now - order.TijdBestelling;
+        int totalMinutes = (int)elapsed.TotalMinutes;
+        return $"{totalMinutes} min";
+    }
 
+    private string GetElapsedTimeClass(OrderWithProducts order)
+    {
+        var elapsed = DateTime.Now - order.TijdBestelling;
+
+        if (elapsed.TotalMinutes < 15)
+        {
+            return "elapsed-time-short";
+        }
+        else if (elapsed.TotalMinutes < 35)
+        {
+            return "elapsed-time-medium";
+        }
+        else
+        {
+            return "elapsed-time-long";
+        }
+    }
 }
