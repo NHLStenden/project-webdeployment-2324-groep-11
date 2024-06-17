@@ -3,10 +3,11 @@
 @using DieselBrandstofCafe.Components.Data
 @inject IDashboardDataService DashboardDataService
 @inject IProductPerBestelrondeService ProductPerBestelrondeService
+@inject IVoorraadOverviewService VoorraadOverviewService
 
 <PageTitle>Dashboard</PageTitle>
 
-<!--Titel dashboard-->
+<!-- Titel dashboard -->
 <div class="dashboard">
     <div class="left-panel">
         <div class="Dashboard">
@@ -15,7 +16,7 @@
     </div>
 </div>
 
-<!--Today sales-->
+<!-- Today sales -->
 <section>
     <div class="container-fluid card containerkleur">
         <div class="row">
@@ -63,9 +64,9 @@
 
 <!-- Tweede sectie: BarChart en knoppen -->
 <div class="container-fluid d-flex flex-row flex-wrap" style="margin-top: 20px">
-    <div class="col-lg-7">
+    <div class="col-lg-5">
         <section class="card mb-3 containerkleur" style="margin-top: 20px; padding-left: 10px">
-            <div class="card-body" >
+            <div class="card-body">
                 <h5 class="textoranje">Chart</h5>
             </div>
             <div class="bargraph-row">
@@ -79,7 +80,7 @@
     </div>
 
     <!-- Derde sectie: Top Producten -->
-    <div class="col-lg-4">
+    <div class="col-lg-3">
         <section class="card mb-3 ml-3 containerkleur" style="margin-top: 20px; margin-left: 20px;">
             <div class="card-body">
                 <h5 class="textoranje"><b>Top Products</b></h5>
@@ -90,6 +91,27 @@
                             <li class="textwit">@product.ProductNaam - @product.TotaleAantalProduct keer georderd</li>
                         }
                     </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Voorraad overzicht sectie -->
+    <div class="col-lg-3">
+        <section class="card mb-3 ml-3 containerkleur" style="margin-top: 20px; margin-left: 20px;">
+            <div class="container-fluid card containerkleur">
+                <div class="card-body">
+                    <h5 class="textoranje"><b>Voorraad Overzicht</b></h5>
+                    <div style="max-height: 400px; overflow-y: auto;">
+                        <ul class="list-unstyled">
+                            @foreach (var product in voorraadProducten)
+                            {
+                                <li class="textwit">
+                                    <span>@product.ProductNaam - Voorraad: @product.VoorraadPP</span>
+                                </li>
+                            }
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -166,11 +188,11 @@
         color: #FF6F00;
     }
 
-    .containerkleur{
+    .containerkleur {
         background-color: #1a1f26;
     }
 
-    .incontainerkleur{
+    .incontainerkleur {
         background-color: #27333f;
     }
 
@@ -186,7 +208,7 @@
 
     private int datasetsCount = 0;
     private int labelsCount = 0;
-    private string[] weekdays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saterday", "Sunday" };
+    private string[] weekdays = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saterday", "Sunday" };
     private Random random = new();
 
     private int totalRevenue;
@@ -195,6 +217,7 @@
     private int totalMenuItems;
 
     private List<ProductPerBestelronde> popularProducts = new List<ProductPerBestelronde>();
+    private List<OverzichtPerProduct> voorraadProducten = new List<OverzichtPerProduct>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -213,6 +236,9 @@
             // Laad top producten van de database
             popularProducts = await DashboardDataService.GetPopularProductsAsync();
 
+            // Laad voorraad gegevens van de database
+            voorraadProducten = (await VoorraadOverviewService.GetOverzichtVoorraadAsync()).ToList();
+
             StateHasChanged();
         }
         catch (Exception ex)
@@ -223,7 +249,7 @@
 
         StateHasChanged();
     }
-    
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -232,7 +258,6 @@
         }
         await base.OnAfterRenderAsync(firstRender);
     }
-
 
     private async Task ShowHorizontalBarChartAsync()
     {
@@ -273,7 +298,6 @@
                 BorderWidth = new List<double> { 1 }
             };
     }
-
 
     private List<double> GetRandomData()
     {

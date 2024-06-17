@@ -13,10 +13,6 @@ namespace DieselBrandstofCafe.Components.Data
 {
     public interface IOrderService
     {
-<<<<<<< HEAD
-        Task<IActionResult> PlaceOrderAsync(List<Models.InvoiceItem> invoiceItems);
-        Task<IActionResult> AddBestelrondeToBestellingAsync(int bestellingId, List<Models.InvoiceItem> invoiceItems);
-=======
         Task<int> PlaceOrderAsync(int tableId, List<OrderItem> orderItems);
 
         Task<IEnumerable<Models.Product>> GetAddOnsAsync();
@@ -26,7 +22,6 @@ namespace DieselBrandstofCafe.Components.Data
         Task<int?> CheckLopendeBestellingVoorTafelID(int tableId);
 
         Task<int> CreateBestellingAsync(IDbConnection connection, int tableId, int bestelrondeId, IDbTransaction transaction);
->>>>>>> DEV2
     }
 
     public class OrderService : IOrderService
@@ -89,9 +84,9 @@ namespace DieselBrandstofCafe.Components.Data
                 }
             }
         }
-        public async Task<IActionResult> AddBestelrondeToBestellingAsync(int bestellingId, List<Models.InvoiceItem> invoiceItems)
+        public async Task<IActionResult> AddBestelrondeToBestellingAsync(int bestellingId, List<Models.OrderItem> orderItems)
         {
-            var totalPrice = invoiceItems.Sum(item => item.Product?.ProductPrijs * item.AantalProduct);
+            var totalPrice = orderItems.Sum(item => item.Product?.ProductPrijs * item.AantalProduct);
 
             using (var connection = new MySqlConnection(_connectionString))
             {
@@ -107,7 +102,7 @@ namespace DieselBrandstofCafe.Components.Data
                             throw new Exception("Failed to create Bestelronde");
                         }
 
-                        foreach (var item in invoiceItems)
+                        foreach (var item in orderItems)
                         {
                             await AddProductToBestelrondeAsync(connection, bestelrondeId, item, transaction);
                         }
@@ -185,11 +180,7 @@ namespace DieselBrandstofCafe.Components.Data
         public async Task<int> CreateBestellingAsync(IDbConnection connection, int tableId, int bestelrondeId, IDbTransaction transaction)
         {
             var query = "INSERT INTO Bestelling (TafelID, BestelrondeID, StatusBestelling, TijdBestelling, KostenplaatsnummerID, TotaalPrijs) VALUES (@TafelID, @BestelrondeID, 'Pending', NOW(), NULL, 0); SELECT LAST_INSERT_ID();";
-<<<<<<< HEAD
-            var parameters = new { TafelID = 1, BestelrondeID = bestelrondeId}; // You can set the actual TafelID based on your logic
-=======
             var parameters = new { TafelID = tableId, BestelrondeID = bestelrondeId };
->>>>>>> DEV2
 
             var bestellingId = await connection.ExecuteScalarAsync<int>(query, parameters, transaction);
             return bestellingId;
@@ -211,9 +202,9 @@ namespace DieselBrandstofCafe.Components.Data
             await connection.ExecuteAsync(query, parameters, transaction);
         }
 
-<<<<<<< HEAD
 
-=======
+
+
         public async Task<IEnumerable<Models.Product>> GetAddOnsAsync()
         {
             using (var connection = new MySqlConnection(_connectionString))
@@ -244,7 +235,6 @@ namespace DieselBrandstofCafe.Components.Data
 
             return null; // Geen lopende bestelling gevonden
         }
->>>>>>> DEV2
     }
 
 
