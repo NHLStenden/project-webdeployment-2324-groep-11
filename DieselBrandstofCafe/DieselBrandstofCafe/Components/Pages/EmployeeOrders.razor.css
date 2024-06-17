@@ -1,0 +1,45 @@
+﻿.Status-Completed {
+    color: #064E3B;
+    background-color: #ECFDF5;
+    border-radius: 10px;
+    text-align: center;
+    width: 110px;
+    padding: 10px;
+    margin: auto;
+}
+
+.Status-Progress {
+    color: #FF5C00;
+    background-color: #fcdbc9;
+    border-radius: 10px;
+    text-align: center;
+    width: 110px;
+    padding: 10px;
+    margin: auto;
+}
+
+.Status-Pending {
+    color: gray;
+    background-color: #fff9c4;
+    border-radius: 10px;
+    text-align: center;
+    width: 110px;
+    padding: 10px;
+    margin: auto;
+}
+
+.card-colour {
+    background-color: #1a1f26;
+}
+
+.text-colour {
+    color: #adadad;
+}
+
+.card-colour2 {
+    background-color: #26333f;
+}
+
+.text-colour2{
+    color: white;
+}
