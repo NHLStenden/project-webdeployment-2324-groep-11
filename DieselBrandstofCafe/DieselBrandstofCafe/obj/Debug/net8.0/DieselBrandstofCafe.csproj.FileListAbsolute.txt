@@ -322,3 +322,4 @@ C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\
 C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBr.B3637FCE.Up2Date
 C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.genruntimeconfig.cache
 C:\Users\yucel\Desktop\Periode 4\git kenker\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\ref\DieselBrandstofCafe.dll
+C:\HBO-ICT\Periode4\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\Components\Pages\EmployeeOrders.razor.rz.scp.css

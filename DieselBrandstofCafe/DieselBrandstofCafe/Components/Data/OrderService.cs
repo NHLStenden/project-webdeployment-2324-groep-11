@@ -21,6 +21,7 @@ namespace DieselBrandstofCafe.Components.Data
     public interface IOrderService
     {
         Task<IActionResult> PlaceOrderAsync(List<Models.InvoiceItem> invoiceItems);
+        Task<IActionResult> AddBestelrondeToBestellingAsync(int bestellingId, List<Models.InvoiceItem> invoiceItems);
     }
 
     public class OrderService : IOrderService
@@ -116,6 +117,46 @@ namespace DieselBrandstofCafe.Components.Data
             //return Redirect(session.Url);
 
         }
+        public async Task<IActionResult> AddBestelrondeToBestellingAsync(int bestellingId, List<Models.InvoiceItem> invoiceItems)
+        {
+            var totalPrice = invoiceItems.Sum(item => item.Product?.ProductPrijs * item.AantalProduct);
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                using (var transaction = await connection.BeginTransactionAsync())
+                {
+                    try
+                    {
+                        // Voegt de producten toe voor de bestelronde
+                        var bestelrondeId = await CreateBestelrondeAsync(connection, transaction);
+                        if (bestelrondeId <= 0)
+                        {
+                            throw new Exception("Failed to create Bestelronde");
+                        }
+
+                        foreach (var item in invoiceItems)
+                        {
+                            await AddProductToBestelrondeAsync(connection, bestelrondeId, item, transaction);
+                        }
+
+                        // Update de totale prijs van de bestelling
+                        await UpdateBestellingTotalAsync(connection, bestellingId, totalPrice, transaction);
+
+                        // Knalt de transactie door
+                        await transaction.CommitAsync();
+                    }
+                    catch
+                    {
+                        // Voor als die shit fout gaat jetoch
+                        await transaction.RollbackAsync();
+                        throw;
+                    }
+                }
+            }
+
+            return new OkResult();
+        }
 
         private async Task<int> CreateBestelrondeAsync(IDbConnection connection, IDbTransaction transaction)
         {
@@ -129,7 +170,7 @@ namespace DieselBrandstofCafe.Components.Data
         private async Task<int> CreateBestellingAsync(IDbConnection connection, int bestelrondeId, IDbTransaction transaction)
         {
             var query = "INSERT INTO Bestelling (TafelID, BestelrondeID, StatusBestelling, TijdBestelling, KostenplaatsnummerID, TotaalPrijs) VALUES (@TafelID, @BestelrondeID, 'Pending', NOW(), NULL, 0); SELECT LAST_INSERT_ID();";
-            var parameters = new { TafelID = 1, BestelrondeID = bestelrondeId }; // You can set the actual TafelID based on your logic
+            var parameters = new { TafelID = 1, BestelrondeID = bestelrondeId}; // You can set the actual TafelID based on your logic
 
             var bestellingId = await connection.ExecuteScalarAsync<int>(query, parameters, transaction);
             return bestellingId;
@@ -137,8 +178,8 @@ namespace DieselBrandstofCafe.Components.Data
 
         private async Task AddProductToBestelrondeAsync(IDbConnection connection, int bestelrondeId, Models.InvoiceItem item, IDbTransaction transaction)
         {
-            var query = "INSERT INTO Product_per_Bestelronde (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct) VALUES (@ProductID, @BestelrondeID, @AantalProduct, 0, 'Pending')";
-            var parameters = new { ProductID = item.Product?.ProductID, BestelrondeID = bestelrondeId, AantalProduct = item.AantalProduct };
+            var query = "INSERT INTO Product_per_Bestelronde (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct, VerkoopDatumProduct) VALUES (@ProductID, @BestelrondeID, @AantalProduct, 0, 'Pending', NOW())";
+            var parameters = new { ProductID = item.Product?.ProductID, BestelrondeID = bestelrondeId, AantalProduct = item.AantalProduct};
 
             await connection.ExecuteAsync(query, parameters, transaction);
         }
@@ -150,5 +191,9 @@ namespace DieselBrandstofCafe.Components.Data
 
             await connection.ExecuteAsync(query, parameters, transaction);
         }
+
+
     }
+
+
 }

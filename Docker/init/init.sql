@@ -64,6 +64,7 @@ CREATE TABLE Product_per_Bestelronde
     AantalProduct INT,
     AantalBetaald INT,
     StatusBesteldeProduct VARCHAR(24) NOT NULL,
+    VerkoopDatumProduct DATETIME NOT NULL,
     PRIMARY KEY (ProductID, BestelrondeID)
 );
 
@@ -396,16 +397,16 @@ VALUES
 
 -- Insert data into Product_per_Bestelronde
 INSERT INTO Product_per_Bestelronde
-    (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct)
+    (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct, VerkoopDatumProduct)
 VALUES
-    (1, 1, 2, 2, 'Pending'),
-    (4, 1, 1, 1, 'Pending'),
-    (7, 2, 3, 3, 'Pending'),
-    (10, 2, 1, 1, 'In Progress'),
-    (2, 3, 1, 1, 'Served'),
-    (3, 3, 2, 2, 'Served'),
-    (8, 4, 1, 1, 'Served'),
-    (9, 4, 2, 2, 'Served');
+    (1, 1, 2, 2, 'Pending', NOW()),
+    (4, 1, 1, 1, 'Pending', NOW()),
+    (7, 2, 3, 3, 'Pending', NOW()),
+    (10, 2, 1, 1, 'In Progress', NOW()),
+    (2, 3, 1, 1, 'Served', NOW()),
+    (3, 3, 2, 2, 'Served', NOW()),
+    (8, 4, 1, 1, 'Served', NOW()),
+    (9, 4, 2, 2, 'Served', NOW());
 
 -- Insert data into Tafel
 INSERT INTO Tafel

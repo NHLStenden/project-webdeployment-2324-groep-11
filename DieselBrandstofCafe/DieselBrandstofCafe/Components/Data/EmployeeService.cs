@@ -84,7 +84,7 @@ namespace DieselBrandstofCafe.Components.Data
                     to get the necessary details including product names and their statuses.
                 */
                 var sql = @"
-                SELECT ppb.ProductID, ppb.BestelrondeID, ppb.AantalProduct, ppb.AantalBetaald, ppb.StatusBesteldeProduct, p.ProductNaam
+                SELECT ppb.ProductID, ppb.BestelrondeID, ppb.AantalProduct, ppb.AantalBetaald, ppb.StatusBesteldeProduct, ppb.VerkoopDatumProduct, p.ProductNaam
                 FROM Product_per_Bestelronde ppb
                 INNER JOIN Product p ON ppb.ProductID = p.ProductID
                 INNER JOIN Bestelronde br ON ppb.BestelrondeID = br.BestelrondeID

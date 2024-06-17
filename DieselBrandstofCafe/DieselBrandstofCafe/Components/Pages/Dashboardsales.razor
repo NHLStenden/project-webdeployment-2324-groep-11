@@ -10,18 +10,18 @@
 <div class="dashboard">
     <div class="left-panel">
         <div class="Dashboard">
-            <h1>Dashboard overview</h1>
+            <h1 class="page-title textwit" style="margin-bottom: 30px">Dashboard overview</h1>
         </div>
     </div>
 </div>
 
 <!--Today sales-->
 <section>
-    <div class="container-fluid card">
+    <div class="container-fluid card containerkleur">
         <div class="row">
             <div class="col-6">
                 <div class="card-body">
-                    <h5><b>Today's Sales</b></h5>
+                    <h5 class="textoranje"><b>Today's Sales</b></h5>
                 </div>
             </div>
             <div class="col-6">
@@ -47,7 +47,7 @@
             </div>
             <div class="col-2">
                 <div class="sales-box box-3">
-                    <h3>Products Sold</h3>
+                    <h3 class="textwit">Products Sold</h3>
                     <p>@totalProductsSold products</p>
                 </div>
             </div>
@@ -62,11 +62,11 @@
 </section>
 
 <!-- Tweede sectie: BarChart en knoppen -->
-<div class="container-fluid d-flex flex-row flex-wrap">
+<div class="container-fluid d-flex flex-row flex-wrap" style="margin-top: 20px">
     <div class="col-lg-7">
-        <section class="card mb-3" style="margin-top: 20px;">
-            <div class="card-body">
-                <h5><b>Charts</b></h5>
+        <section class="card mb-3 containerkleur" style="margin-top: 20px; padding-left: 10px">
+            <div class="card-body" >
+                <h5 class="textoranje">Chart</h5>
             </div>
             <div class="bargraph-row">
                 <BarChart @ref="barChart" Width="500" Height="300" />
@@ -80,29 +80,21 @@
 
     <!-- Derde sectie: Top Producten -->
     <div class="col-lg-4">
-        <section class="card mb-3 ml-3" style="margin-top: 20px; margin-left: 20px;">
+        <section class="card mb-3 ml-3 containerkleur" style="margin-top: 20px; margin-left: 20px;">
             <div class="card-body">
-                <h5><b>Top Products</b></h5>
+                <h5 class="textoranje"><b>Top Products</b></h5>
                 <div style="max-height: 400px; overflow-y: auto;">
                     <ul>
-                        @* @if (topProducts != null && topProducts.Any())
+                        @foreach (var product in popularProducts)
                         {
-                        @foreach (var product in topProducts)
-                        {
-                        <li>@product.ProductNaam - @product.AantalBetaald keer betaald</li>
+                            <li class="textwit">@product.ProductNaam - @product.TotaleAantalProduct keer georderd</li>
                         }
-                        }
-                        else
-                        {
-                        <li>Geen producten gevonden</li>
-                        } *@
                     </ul>
                 </div>
             </div>
         </section>
     </div>
 </div>
-
 
 <style>
     .export-button {
@@ -170,65 +162,68 @@
         background-color: #F3E8FF;
     }
 
+    .textoranje {
+        color: #FF6F00;
+    }
+
+    .containerkleur{
+        background-color: #1a1f26;
+    }
+
+    .incontainerkleur{
+        background-color: #27333f;
+    }
+
+    .textwit {
+        color: white;
+    }
 </style>
 
 @code {
     private BarChart barChart = default!;
     private BarChartOptions barChartOptions = default!;
     private ChartData chartData = default!;
-    private Random random = new Random();
 
-    private string[] Days = { "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag" };
+    private int datasetsCount = 0;
+    private int labelsCount = 0;
+    private string[] weekdays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saterday", "Sunday" };
+    private Random random = new();
 
     private int totalRevenue;
     private int totalOrders;
     private int totalProductsSold;
     private int totalMenuItems;
 
-    private List<ProductPerBestelronde> topProducts = new List<ProductPerBestelronde>();
+    private List<ProductPerBestelronde> popularProducts = new List<ProductPerBestelronde>();
 
     protected override async Task OnInitializedAsync()
     {
         // Laad gegevens asynchroon vanuit de database
         try
         {
-            totalMenuItems = await DashboardDataService.GetTotalMenuItemsAsync();
-
-            // Initialiseer met willekeurige gegevens voor testen
             chartData = new ChartData { Labels = GetDefaultDataLabels(7), Datasets = GetDefaultDataSets(1) };
             barChartOptions = new BarChartOptions { Responsive = true, Interaction = new Interaction { Mode = InteractionMode.Index } };
 
-            // Laad top producten van de database
-
-            // topProducts = (await ProductPerBestelrondeService.GetProductsPerBestelrondeAsync(1))
-            //     .OrderByDescending(p => p.AantalBetaald)
-            //     .ToList();
-
             // Laad data van de database
-            // var today = DateTime.Today;
-            // totalRevenue = await DashboardDataService.GetTotalRevenueAsync(today);
-            // totalOrders = await DashboardDataService.GetTotalOrdersAsync(today);
-            // totalProductsSold = await DashboardDataService.GetTotalProductsSoldAsync(today);
+            totalRevenue = await DashboardDataService.GetTotalRevenueAsync();
+            totalOrders = await DashboardDataService.GetTotalOrdersAsync();
+            totalProductsSold = await DashboardDataService.GetTotalProductsSoldAsync();
+            totalMenuItems = await DashboardDataService.GetTotalMenuItemsAsync();
 
+            // Laad top producten van de database
+            popularProducts = await DashboardDataService.GetPopularProductsAsync();
 
-            // Dit update de sales boxes
             StateHasChanged();
         }
-
-        // Voor als het fout gaat met laden
         catch (Exception ex)
         {
             Console.WriteLine($"Error loading dashboard data: {ex.Message}");
-            totalRevenue = 0;
-            totalOrders = 0;
-            totalProductsSold = 0;
-            totalMenuItems = 0;
+            // Handle error scenario
         }
 
-        // Dit update de scherm
         StateHasChanged();
     }
-
+    
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -267,7 +262,7 @@
 
     private BarChartDataset GetRandomBarChartDataset()
     {
-        var darkGreyColor = "#555";
+        var darkGreyColor = "#999";
 
         return new BarChartDataset()
             {
@@ -279,10 +274,11 @@
             };
     }
 
+
     private List<double> GetRandomData()
     {
         var data = new List<double>();
-        for (var index = 0; index < Days.Length; index++)
+        for (var index = 0; index < labelsCount; index++)
         {
             data.Add(random.Next(200));
         }
@@ -295,11 +291,17 @@
         var labels = new List<string>();
         for (var index = 0; index < numberOfLabels; index++)
         {
-            labels.Add(Days[index]);
+            labels.Add(GetNextDataLabel());
         }
 
         return labels;
     }
 
-    #endregion
+    private string GetNextDataLabel()
+    {
+        labelsCount += 1;
+        return weekdays[labelsCount - 1];
+    }
+
+    #endregion Data Preparation
 }
