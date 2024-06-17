@@ -245,7 +245,15 @@ namespace DieselBrandstofCafe.Components.Data
 
                 // Determine the new status for the `Bestelronde`
                 string newStatus;
-                if (allProductsCompleted)
+                if (status == "Cancelled")
+                {
+                    newStatus = "Cancelled";
+                }
+                else if (status == "Served")
+                {
+                    newStatus = "Served";
+                }
+                else if (allProductsCompleted)
                 {
                     newStatus = "Ready";
                 }
