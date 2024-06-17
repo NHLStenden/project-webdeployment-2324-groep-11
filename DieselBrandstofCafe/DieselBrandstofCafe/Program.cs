@@ -26,6 +26,7 @@ builder.Services.AddScoped<IVoorraadOverviewService, VoorraadOverviewService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<ICategorieService, CategorieService>();
 builder.Services.AddScoped<IDashboardDataService, DashboardDataService>();
+builder.Services.AddScoped<ITableService, TableService>();
 
 builder.Services.AddBlazorBootstrap();
 

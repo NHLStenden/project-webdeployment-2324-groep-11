@@ -1,10 +1,10 @@
 ﻿@page "/menu"
 @using DieselBrandstofCafe.Components.Models
 @using DieselBrandstofCafe.Components.Data
-@inject IOrderService orderService
 @inject IProductPerBestelrondeService productPerBestelrondeService
 @inject IOrderService orderService
 @inject ICategorieService categorieService
+@inject ITableService TableService
 @inject NavigationManager navigationManager
 
 <div class="menu-page">
@@ -70,7 +70,7 @@
                                     <button class="increase-menu-item" @onclick='() => IncreaseAantalProductTemp(item)'>+</button>
                                 </div>
                             </div>
-                            <button class="add-menu-item" @onclick='() => AddToInvoice(item)'>Add to order</button>
+                            <button class="add-menu-item" @onclick='() => AddToOrder(item)'>Add to order</button>
                         </div>
                     }
                 </div>
@@ -99,6 +99,34 @@
                     </li>
                 }
             </ul>
+            <div class="table-selection">
+                @if (selectedTable == 0)
+                {
+                    <button @onclick="ShowTableOverlay">Select Table</button>
+                }
+                else
+                {
+                    <span>Table: @selectedTable</span>
+                }
+            </div>
+
+            @if (showTableOverlay)
+            {
+                <div class="table-overlay">
+                    <div class="table-overlay-content">
+                        <h3>Select a Table</h3>
+                        <div class="table-buttons">
+                            @foreach (var table in tables)
+                            {
+                                <button class="table-button" @onclick="() => SelectTable(table.TafelId)">
+                                    Table @table.TafelId
+                                </button>
+                            }
+                        </div>
+                        <button class="close-overlay" @onclick="HideTableOverlay">Close</button>
+                    </div>
+                </div>
+            }
             <div class="payment">
                 <h5>Table number:</h5>
                 <h5>Total Payment: €@total</h5>
@@ -132,22 +160,45 @@
     decimal subTotal = 0;
     decimal tax = 0;
     decimal total = 0;
-
+    bool showTableOverlay = false;
     int curParentID = -1;
+    int selectedTable = 0;
+
     List<int> prevParentIds = [];
 
     List<Product>? menuItems; 
     List<Categorie>? categories;
     List<Product>? addOns;
+    List<Tafel> tables = new List<Tafel>();
     Dictionary<int, int> tempProductQuantities = new Dictionary<int, int>();
     Dictionary<int, int?> selectedAddOns = new Dictionary<int, int?>();
     List<OrderItem> orderItems = new List<OrderItem>();
-
 
     protected override async Task OnInitializedAsync()
     {
         categories = (await categorieService.GetParentCategoryAsync()).ToList();
         addOns = (await orderService.GetAddOnsAsync()).ToList();
+
+        if (TableService != null)
+        {
+            tables = (await TableService.GetTablesAsync()).ToList(); // Fetch tables from the database
+        }
+    }
+
+    void ShowTableOverlay()
+    {
+        showTableOverlay = true;
+    }
+
+    void HideTableOverlay()
+    {
+        showTableOverlay = false;
+    }
+
+    void SelectTable(int tableId)
+    {
+        selectedTable = tableId;
+        showTableOverlay = false;
     }
 
     async Task LoadAllMenuItems()
@@ -219,7 +270,7 @@
         }
     }
 
-    void AddToInvoice(Product product)
+    void AddToOrder(Product product)
     {
         if (tempProductQuantities.TryGetValue(product.ProductID, out int quantity) && quantity > 0)
         {
@@ -306,8 +357,26 @@
     {
         try
         {
-            var bestellingId = await orderService.PlaceOrderAsync(orderItems);
-            Console.WriteLine($"Order placed successfully with ID: {bestellingId}");
+            // if (tableId == 0)
+            // {
+            //     Console.WriteLine("Please select a table before placing the order.");
+            //     return;
+            // }
+            // Controleer of er een lopende bestelling is voor de huidige TafelID
+            var lopendeBestellingId = await orderService.CheckLopendeBestellingVoorTafelID(selectedTable);
+
+            if (lopendeBestellingId != null && lopendeBestellingId > 0)
+            {
+                // Als er een lopende bestelling is, voeg een bestelronde toe
+                await orderService.AddBestelrondeToBestellingAsync((int)lopendeBestellingId, orderItems);
+                Console.WriteLine($"Bestelronde toegevoegd aan lopende bestelling met ID: {lopendeBestellingId}");
+            }
+            else
+            {
+                // Als er geen lopende bestelling is, plaats een nieuwe bestelling
+                var result = await orderService.PlaceOrderAsync(selectedTable, orderItems);
+            }
+
             navigationManager.NavigateTo("/ordersuccess");
         }
         catch (Exception ex)
@@ -315,4 +384,5 @@
             Console.WriteLine($"Error placing order: {ex.Message}");
         }
     }
+   
 }
