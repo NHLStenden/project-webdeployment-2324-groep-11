@@ -820,9 +820,16 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 
 }
 /* _content/DieselBrandstofCafe/Components/Pages/Home.razor.rz.scp.css */
- .card-padding[b-av0pgya32l] {
+.container-fluid[b-av0pgya32l] {
+    background-color: #1a1f26;
+    color: white;
+}
+
+.card-padding[b-av0pgya32l] {
     margin: 5px;
     border-radius: 1.25rem;
+    background-color: #27333f;
+    color: white;
 }
 
 .menu-item[b-av0pgya32l] {
@@ -830,7 +837,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #FF6F00;
+    background-color: #EF7821;
     color: white;
     border: none;
     padding: 10px;
@@ -840,7 +847,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 
 
 .generic-button[b-av0pgya32l] {
-    background-color: #FF6F00;
+    background-color: #EF7821;
     color: white;
     padding: 10px;
     border-radius: 10px;
@@ -1292,16 +1299,17 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
 .order-success-content[b-ux16em6yas] {
     text-align: center;
-    background-color: white;
+    color: white;
+    background-color: #1a1f26;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     max-width: 100vh;
 }
 
     .order-success-content h1[b-ux16em6yas] {
-        color: #FF6F00;
+        color: #EF7821;
     }
 
 .order-success-actions[b-ux16em6yas] {
@@ -1309,7 +1317,7 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .button-primary[b-ux16em6yas] {
-    background-color: #FF6F00;
+    background-color: #EF7821;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -1324,7 +1332,7 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
 .button-secondary[b-ux16em6yas] {
     background-color: #FFCBA3;
-    color: #FF6F00;
+    color: #EF7821;
     border: none;
     padding: 0.75rem 1.5rem;
     border-radius: 10px;
