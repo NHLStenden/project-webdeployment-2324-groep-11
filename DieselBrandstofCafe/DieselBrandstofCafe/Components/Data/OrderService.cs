@@ -17,7 +17,7 @@ namespace DieselBrandstofCafe.Components.Data
 
         Task<IEnumerable<Models.Product>> GetAddOnsAsync();
 
-        Task<int> AddBestelrondeToBestellingAsync(int bestellingId, List<OrderItem> orderItems);
+        Task<int> AddBestelrondeToBestellingAsync(int tableId, int bestellingId, List<OrderItem> orderItems);
 
         Task<int?> CheckLopendeBestellingVoorTafelID(int tableId);
 
@@ -85,7 +85,7 @@ namespace DieselBrandstofCafe.Components.Data
             }
         }
 
-        public async Task<int> AddBestelrondeToBestellingAsync(int bestellingId, List<OrderItem> orderItems)
+        public async Task<int> AddBestelrondeToBestellingAsync(int tableId, int bestellingId, List<OrderItem> orderItems)
         {
             var totalPrice = orderItems.Sum(item => item.Product?.ProductPrijs * item.AantalProduct);
 

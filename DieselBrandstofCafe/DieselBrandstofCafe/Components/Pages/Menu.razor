@@ -368,7 +368,7 @@
             if (lopendeBestellingId != null && lopendeBestellingId > 0)
             {
                 // Als er een lopende bestelling is, voeg een bestelronde toe
-                await orderService.AddBestelrondeToBestellingAsync((int)lopendeBestellingId, orderItems);
+                await orderService.AddBestelrondeToBestellingAsync(selectedTable, (int)lopendeBestellingId, orderItems);
                 Console.WriteLine($"Bestelronde toegevoegd aan lopende bestelling met ID: {lopendeBestellingId}");
             }
             else
