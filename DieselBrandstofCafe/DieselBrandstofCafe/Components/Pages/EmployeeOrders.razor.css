@@ -28,6 +28,26 @@
     margin: auto;
 }
 
+.Status-Open {
+    color: gray;
+    background-color: #fff9c4;
+    border-radius: 10px;
+    text-align: center;
+    width: 110px;
+    padding: 10px;
+    margin: auto;
+}
+
+.Status-Paid {
+    color: #064E3B;
+    background-color: #ECFDF5;
+    border-radius: 10px;
+    text-align: center;
+    width: 110px;
+    padding: 10px;
+    margin: auto;
+}
+
 .card-colour {
     background-color: #1a1f26;
 }

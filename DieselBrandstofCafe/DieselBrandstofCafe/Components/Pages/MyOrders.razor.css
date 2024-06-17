@@ -41,6 +41,15 @@
     margin-left: 40px;
 }
 
+.Status-Served {
+    color: gray;
+    background-color: #1150ce;
+    border-radius: 10px;
+    text-align: center;
+    width: 100px;
+    padding: 10px;
+}
+
 .Order-Text{
     font-size: x-large;
 }
