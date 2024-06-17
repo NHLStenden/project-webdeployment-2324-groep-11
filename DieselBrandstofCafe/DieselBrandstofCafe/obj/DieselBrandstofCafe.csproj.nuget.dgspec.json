@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj": {}
   },
   "projects": {
@@ -16,22 +15,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
-        "projectName": "DieselBrandstofCafe",
-        "projectPath": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\DieselBrandstofCafe.csproj",
-        "packagesPath": "C:\\Users\\yucel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\yucel\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> DEV2
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

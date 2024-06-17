@@ -1,10 +1,6 @@
 {
   "Version": 1,
-<<<<<<< HEAD
   "Hash": "6Hz9n6uyy3vSljD/zfAYkg8vJcQvagA2x61nbtTJo/4=",
-=======
-  "Hash": "i7svmVMC07jlWz74MTmsPY0FN++u8wUdairNgg+4XFU=",
->>>>>>> DEV2
   "Source": "DieselBrandstofCafe",
   "BasePath": "_content/DieselBrandstofCafe",
   "Mode": "Default",
@@ -14,28 +10,17 @@
     {
       "Name": "DieselBrandstofCafe\\wwwroot",
       "Source": "DieselBrandstofCafe",
-<<<<<<< HEAD
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\Blazor.Bootstrap.bundle.scp.css",
       "SourceId": "Blazor.Bootstrap",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
-=======
-      "Identity": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\Blazor.Bootstrap.bundle.scp.css",
-      "SourceId": "Blazor.Bootstrap",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
->>>>>>> DEV2
       "BasePath": "_content/Blazor.Bootstrap",
       "RelativePath": "Blazor.Bootstrap.bundle.scp.css",
       "AssetKind": "All",
@@ -48,7 +33,6 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\Blazor.Bootstrap.bundle.scp.css"
     },
     {
@@ -56,15 +40,6 @@
       "SourceId": "Blazor.Bootstrap",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
-=======
-      "OriginalItemSpec": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\Blazor.Bootstrap.bundle.scp.css"
-    },
-    {
-      "Identity": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\blazor.bootstrap.css",
-      "SourceId": "Blazor.Bootstrap",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
->>>>>>> DEV2
       "BasePath": "_content/Blazor.Bootstrap",
       "RelativePath": "blazor.bootstrap.css",
       "AssetKind": "All",
@@ -77,7 +52,6 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\blazor.bootstrap.css"
     },
     {
@@ -85,15 +59,6 @@
       "SourceId": "Blazor.Bootstrap",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
-=======
-      "OriginalItemSpec": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\blazor.bootstrap.css"
-    },
-    {
-      "Identity": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\blazor.bootstrap.js",
-      "SourceId": "Blazor.Bootstrap",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
->>>>>>> DEV2
       "BasePath": "_content/Blazor.Bootstrap",
       "RelativePath": "blazor.bootstrap.js",
       "AssetKind": "All",
@@ -106,7 +71,6 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\blazor.bootstrap.js"
     },
     {
@@ -114,15 +78,6 @@
       "SourceId": "Blazor.Bootstrap",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
-=======
-      "OriginalItemSpec": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\blazor.bootstrap.js"
-    },
-    {
-      "Identity": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\blazor.bootstrap.pdf.js",
-      "SourceId": "Blazor.Bootstrap",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
->>>>>>> DEV2
       "BasePath": "_content/Blazor.Bootstrap",
       "RelativePath": "blazor.bootstrap.pdf.js",
       "AssetKind": "All",
@@ -135,7 +90,6 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\blazor.bootstrap.pdf.js"
     },
     {
@@ -143,15 +97,6 @@
       "SourceId": "Blazor.Bootstrap",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
-=======
-      "OriginalItemSpec": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\blazor.bootstrap.pdf.js"
-    },
-    {
-      "Identity": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\blazor.bootstrap.sortable-list.js",
-      "SourceId": "Blazor.Bootstrap",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
->>>>>>> DEV2
       "BasePath": "_content/Blazor.Bootstrap",
       "RelativePath": "blazor.bootstrap.sortable-list.js",
       "AssetKind": "All",
@@ -164,7 +109,6 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\blazor.bootstrap.sortable-list.js"
     },
     {
@@ -172,15 +116,6 @@
       "SourceId": "Blazor.Bootstrap",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
-=======
-      "OriginalItemSpec": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\blazor.bootstrap.sortable-list.js"
-    },
-    {
-      "Identity": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\icon\\128X128.png",
-      "SourceId": "Blazor.Bootstrap",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
->>>>>>> DEV2
       "BasePath": "_content/Blazor.Bootstrap",
       "RelativePath": "icon/128X128.png",
       "AssetKind": "All",
@@ -193,7 +128,6 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\icon\\128X128.png"
     },
     {
@@ -201,15 +135,6 @@
       "SourceId": "Blazor.Bootstrap",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
-=======
-      "OriginalItemSpec": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\icon\\128X128.png"
-    },
-    {
-      "Identity": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\pdfjs-4.0.379.min.mjs",
-      "SourceId": "Blazor.Bootstrap",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
->>>>>>> DEV2
       "BasePath": "_content/Blazor.Bootstrap",
       "RelativePath": "pdfjs-4.0.379.min.mjs",
       "AssetKind": "All",
@@ -222,7 +147,6 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\pdfjs-4.0.379.min.mjs"
     },
     {
@@ -230,15 +154,6 @@
       "SourceId": "Blazor.Bootstrap",
       "SourceType": "Package",
       "ContentRoot": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
-=======
-      "OriginalItemSpec": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\pdfjs-4.0.379.min.mjs"
-    },
-    {
-      "Identity": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\pdfjs-4.0.379.worker.min.mjs",
-      "SourceId": "Blazor.Bootstrap",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\",
->>>>>>> DEV2
       "BasePath": "_content/Blazor.Bootstrap",
       "RelativePath": "pdfjs-4.0.379.worker.min.mjs",
       "AssetKind": "All",
@@ -251,7 +166,6 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\marti\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\pdfjs-4.0.379.worker.min.mjs"
     },
     {
@@ -259,15 +173,6 @@
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
-=======
-      "OriginalItemSpec": "C:\\Users\\yucel\\.nuget\\packages\\blazor.bootstrap\\3.0.0-preview.1\\staticwebassets\\pdfjs-4.0.379.worker.min.mjs"
-    },
-    {
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DieselBrandstofCafe.styles.css",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "DieselBrandstofCafe.styles.css",
       "AssetKind": "All",
@@ -280,7 +185,6 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DieselBrandstofCafe.styles.css"
     },
     {
@@ -288,15 +192,6 @@
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
-=======
-      "OriginalItemSpec": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DieselBrandstofCafe.styles.css"
-    },
-    {
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DieselBrandstofCafe.bundle.scp.css",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "DieselBrandstofCafe.bundle.scp.css",
       "AssetKind": "All",
@@ -309,7 +204,6 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DieselBrandstofCafe.bundle.scp.css"
     },
     {
@@ -317,15 +211,6 @@
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "OriginalItemSpec": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DieselBrandstofCafe.bundle.scp.css"
-    },
-    {
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\app.css",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -341,17 +226,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\bootstrap\\bootstrap.min.css",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -367,17 +245,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\bootstrap\\bootstrap.min.css.map",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -393,17 +264,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\favicon.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\favicon.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -419,17 +283,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Beverages.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Beverages.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Beverages.png",
       "AssetKind": "All",
@@ -445,17 +302,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Beverages.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Bitterballen Per Piece.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Bitterballen Per Piece.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Bitterballen Per Piece.png",
       "AssetKind": "All",
@@ -471,17 +321,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Bitterballen Per Piece.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Cappuccino Large.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Cappuccino Large.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Cappuccino Large.png",
       "AssetKind": "All",
@@ -497,17 +340,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Cappuccino Large.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Cappuccino.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Cappuccino.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Cappuccino.png",
       "AssetKind": "All",
@@ -523,17 +359,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Cappuccino.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Chai Latte.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Chai Latte.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Chai Latte.png",
       "AssetKind": "All",
@@ -549,17 +378,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Chai Latte.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Coffee Creme Large.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Coffee Creme Large.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Coffee Creme Large.png",
       "AssetKind": "All",
@@ -575,17 +397,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Coffee Creme Large.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\coffee creme.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\coffee creme.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/coffee creme.png",
       "AssetKind": "All",
@@ -601,17 +416,10 @@
       "OriginalItemSpec": "wwwroot\\images\\coffee creme.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Cold Drinks.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Cold Drinks.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Cold Drinks.png",
       "AssetKind": "All",
@@ -627,17 +435,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Cold Drinks.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Croquette On Sourdough Bread.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Croquette On Sourdough Bread.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Croquette On Sourdough Bread.png",
       "AssetKind": "All",
@@ -653,17 +454,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Croquette On Sourdough Bread.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Dirty Chai Latte.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Dirty Chai Latte.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Dirty Chai Latte.png",
       "AssetKind": "All",
@@ -679,17 +473,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Dirty Chai Latte.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Double Espresso.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Double Espresso.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Double Espresso.png",
       "AssetKind": "All",
@@ -705,17 +492,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Double Espresso.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Espresso.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Espresso.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Espresso.png",
       "AssetKind": "All",
@@ -731,17 +511,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Espresso.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Flat White.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Flat White.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Flat White.png",
       "AssetKind": "All",
@@ -757,17 +530,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Flat White.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Food.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Food.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Food.png",
       "AssetKind": "All",
@@ -783,17 +549,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Food.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fresh Tea.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fresh Tea.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Fresh Tea.png",
       "AssetKind": "All",
@@ -809,17 +568,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Fresh Tea.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fritz Apple.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fritz Apple.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Fritz Apple.png",
       "AssetKind": "All",
@@ -835,17 +587,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Fritz Apple.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fritz Cola.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fritz Cola.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Fritz Cola.png",
       "AssetKind": "All",
@@ -861,17 +606,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Fritz Cola.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fritz Lemon.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fritz Lemon.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Fritz Lemon.png",
       "AssetKind": "All",
@@ -887,17 +625,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Fritz Lemon.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fritz Limo Sinas.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fritz Limo Sinas.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Fritz Limo Sinas.png",
       "AssetKind": "All",
@@ -913,17 +644,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Fritz Limo Sinas.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fritz Rhubarb.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Fritz Rhubarb.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Fritz Rhubarb.png",
       "AssetKind": "All",
@@ -939,17 +663,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Fritz Rhubarb.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Geen Afbeelding.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Geen Afbeelding.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Geen Afbeelding.png",
       "AssetKind": "All",
@@ -965,17 +682,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Geen Afbeelding.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Heineken 0.0% Draft.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Heineken 0.0% Draft.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Heineken 0.0% Draft.png",
       "AssetKind": "All",
@@ -991,17 +701,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Heineken 0.0% Draft.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Homemade Apple Pie.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Homemade Apple Pie.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Homemade Apple Pie.png",
       "AssetKind": "All",
@@ -1017,17 +720,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Homemade Apple Pie.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Homemade Ice Tea.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Homemade Ice Tea.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Homemade Ice Tea.png",
       "AssetKind": "All",
@@ -1043,17 +739,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Homemade Ice Tea.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Hot Drinks.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Hot Drinks.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Hot Drinks.png",
       "AssetKind": "All",
@@ -1069,17 +758,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Hot Drinks.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Latte Macchiato Large.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Latte Macchiato Large.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Latte Macchiato Large.png",
       "AssetKind": "All",
@@ -1095,17 +777,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Latte Macchiato Large.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Latte Macchiato.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Latte Macchiato.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Latte Macchiato.png",
       "AssetKind": "All",
@@ -1121,17 +796,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Latte Macchiato.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Lemon Lime Soda.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Lemon Lime Soda.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Lemon Lime Soda.png",
       "AssetKind": "All",
@@ -1147,17 +815,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Lemon Lime Soda.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\logo.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\logo.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/logo.png",
       "AssetKind": "All",
@@ -1173,17 +834,10 @@
       "OriginalItemSpec": "wwwroot\\images\\logo.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Lunch.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Lunch.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Lunch.png",
       "AssetKind": "All",
@@ -1199,17 +853,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Lunch.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Non-Alcoholic Drinks.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Non-Alcoholic Drinks.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Non-Alcoholic Drinks.png",
       "AssetKind": "All",
@@ -1225,17 +872,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Non-Alcoholic Drinks.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Pastry's & Desserts.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Pastry's & Desserts.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Pastry's & Desserts.png",
       "AssetKind": "All",
@@ -1251,17 +891,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Pastry's & Desserts.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Pie Of The Day.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Pie Of The Day.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Pie Of The Day.png",
       "AssetKind": "All",
@@ -1277,17 +910,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Pie Of The Day.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Pulled Chicken.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Pulled Chicken.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Pulled Chicken.png",
       "AssetKind": "All",
@@ -1303,17 +929,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Pulled Chicken.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Re-usables disposables.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Re-usables disposables.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Re-usables disposables.png",
       "AssetKind": "All",
@@ -1329,17 +948,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Re-usables disposables.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Smoothie.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Smoothie.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Smoothie.png",
       "AssetKind": "All",
@@ -1355,17 +967,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Smoothie.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Snacks.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Snacks.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Snacks.png",
       "AssetKind": "All",
@@ -1381,17 +986,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Snacks.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Tea.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Tea.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Tea.png",
       "AssetKind": "All",
@@ -1407,17 +1005,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Tea.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Tonic Bottle.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Tonic Bottle.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Tonic Bottle.png",
       "AssetKind": "All",
@@ -1433,17 +1024,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Tonic Bottle.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\user.jpeg",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\user.jpeg",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/user.jpeg",
       "AssetKind": "All",
@@ -1459,17 +1043,10 @@
       "OriginalItemSpec": "wwwroot\\images\\user.jpeg"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Van De Streek IPA.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Van De Streek IPA.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Van De Streek IPA.png",
       "AssetKind": "All",
@@ -1485,17 +1062,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Van De Streek IPA.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Virgin Gin Tonic.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Virgin Gin Tonic.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Virgin Gin Tonic.png",
       "AssetKind": "All",
@@ -1511,17 +1081,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Virgin Gin Tonic.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Water Sparkling.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Water Sparkling.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Water Sparkling.png",
       "AssetKind": "All",
@@ -1537,17 +1100,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Water Sparkling.png"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Water Still.png",
       "SourceId": "DieselBrandstofCafe",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\marti\\OneDrive\\Documenten\\Repos\\project-webdeployment-groep_11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
-=======
-      "Identity": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\images\\Water Still.png",
-      "SourceId": "DieselBrandstofCafe",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yucel\\Desktop\\Periode 4\\git kenker\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\wwwroot\\",
->>>>>>> DEV2
       "BasePath": "_content/DieselBrandstofCafe",
       "RelativePath": "images/Water Still.png",
       "AssetKind": "All",
