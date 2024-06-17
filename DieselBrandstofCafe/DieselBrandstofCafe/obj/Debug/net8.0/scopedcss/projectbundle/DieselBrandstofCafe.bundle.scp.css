@@ -1009,9 +1009,16 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
     color: white;
 }
 /* _content/DieselBrandstofCafe/Components/Pages/Home.razor.rz.scp.css */
- .card-padding[b-av0pgya32l] {
+.container-fluid[b-av0pgya32l] {
+    background-color: #1a1f26;
+    color: white;
+}
+
+.card-padding[b-av0pgya32l] {
     margin: 5px;
     border-radius: 1.25rem;
+    background-color: #27333f;
+    color: white;
 }
 
 .menu-item[b-av0pgya32l] {
@@ -1019,7 +1026,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #FF6F00;
+    background-color: #EF7821;
     color: white;
     border: none;
     padding: 10px;
@@ -1029,7 +1036,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 
 
 .generic-button[b-av0pgya32l] {
-    background-color: #FF6F00;
+    background-color: #EF7821;
     color: white;
     padding: 10px;
     border-radius: 10px;
@@ -1092,7 +1099,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 .left-panel[b-iqj438ct1u] {
     flex: 75%;
     margin-right: 1em;
-    max-height: 83vh;
+    max-height: 86vh;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -1130,6 +1137,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
         border-bottom: 2px solid #ccc;
         margin-bottom: 1em;
         width: 20%;
+        color: white;
     }
 
 .order-summary h2[b-iqj438ct1u] {
@@ -1160,8 +1168,8 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
     .category-card button[b-iqj438ct1u] {
         width: 100%;
         border: none;
-        background-color: white;
-        color: black;
+        background-color: #1a1f26;
+        color: white;
         cursor: pointer;
         border-radius: 10px;
         display: flex;
@@ -1187,7 +1195,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 
     .category-card span[b-iqj438ct1u] {
         font-size: 1.2em;
-        color: #212529;
+        color: white;
     }
 
 .menu-list[b-iqj438ct1u] {
@@ -1198,12 +1206,13 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 }
 
 .menu-item[b-iqj438ct1u] {
-    background-color: white;
+    background-color: #1a1f26;
+    color: white;
     position: relative;
     display: flex;
     flex-direction: column;
     height: 375px;
-    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     padding: 10px;
     text-align: center;
     border-radius: 10px;
@@ -1230,7 +1239,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 
 .add-menu-item[b-iqj438ct1u] {
     bottom: 10px;
-    background-color: #FF6F00;
+    background-color: #EF7821;
     color: white;
     border: none;
     padding: 10px;
@@ -1255,9 +1264,9 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 .increase-menu-item[b-iqj438ct1u],
 .decrease-invoice-item[b-iqj438ct1u],
 .increase-invoice-item[b-iqj438ct1u] {
-    background-color: #FF6F00;
+    background-color: #EF7821;
     color: white;
-    border: 1px solid #ccc;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     padding: 10px;
     cursor: pointer;
     border-radius: 50%;
@@ -1283,8 +1292,9 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 }
 
 .order-summary[b-iqj438ct1u] {
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: #1a1f26;
+    color: white;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     padding: 10px;
     border-radius: 10px;
     height: 45vh;
@@ -1325,6 +1335,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 
 .counter-background-menu[b-iqj438ct1u] {
     background-color: #F2F1F2;
+    color: black;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1334,6 +1345,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 }
 .counter-background-invoice[b-iqj438ct1u] {
     background-color: #F2F1F2;
+    color: black;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1348,7 +1360,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
     margin-top: auto;
     position: sticky;
     bottom: 0;
-    background-color: white;
+    background-color: #1a1f26;
     padding-top: 10px;
     border-top: 1px solid #ccc;
 }
@@ -1356,30 +1368,6 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
     .payment p[b-iqj438ct1u] {
         margin: 5px 0;
     }
-
-.payment-methods[b-iqj438ct1u] {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    margin-top: 10px;
-    background-color: #F2F1F2;
-    border: 3px solid #F2F1F2;
-    border-radius: 10px;
-}
-
-    .payment-methods button[b-iqj438ct1u] {
-        padding: 10px;
-        width: 100%;
-        border: none;
-        cursor: pointer;
-        border-radius: 10px;
-        background-color: #FFCBA3;
-        color: #FF6F00;
-    }
-
-        .payment-methods button:hover[b-iqj438ct1u] {
-            background-color: #FFE8D6;
-        }
 
 .place-order-button-container[b-iqj438ct1u] {
     display: flex;
@@ -1393,7 +1381,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
     border: none;
     cursor: pointer;
     border-radius: 10px;
-    background-color: #FF6F00;
+    background-color: #EF7821;
     color: white;
 }
 
@@ -1403,8 +1391,9 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 }
 
 .popular-products[b-iqj438ct1u], .sign-up-updates[b-iqj438ct1u] {
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: #1a1f26;
+    color: white;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     padding: 10px;
     border-radius: 10px;
     width: 100%;
@@ -1433,7 +1422,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
         padding: 10px;
         width: 80%;
         margin-bottom: 10px;
-        border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         border-radius: 10px;
     }
 
@@ -1443,7 +1432,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
         border: none;
         cursor: pointer;
         border-radius: 10px;
-        background-color: #FF6F00;
+        background-color: #EF7821;
         color: white;
     }
 /* _content/DieselBrandstofCafe/Components/Pages/MyOrders.razor.rz.scp.css */
@@ -1516,16 +1505,17 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 
 .order-success-content[b-ux16em6yas] {
     text-align: center;
-    background-color: white;
+    color: white;
+    background-color: #1a1f26;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     max-width: 100vh;
 }
 
     .order-success-content h1[b-ux16em6yas] {
-        color: #FF6F00;
+        color: #EF7821;
     }
 
 .order-success-actions[b-ux16em6yas] {
@@ -1533,7 +1523,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 }
 
 .button-primary[b-ux16em6yas] {
-    background-color: #FF6F00;
+    background-color: #EF7821;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -1548,7 +1538,7 @@ h3[b-ijxndq88r7], h4[b-ijxndq88r7] {
 
 .button-secondary[b-ux16em6yas] {
     background-color: #FFCBA3;
-    color: #FF6F00;
+    color: #EF7821;
     border: none;
     padding: 0.75rem 1.5rem;
     border-radius: 10px;

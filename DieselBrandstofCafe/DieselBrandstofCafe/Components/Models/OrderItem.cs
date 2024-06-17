@@ -1,6 +1,6 @@
 ﻿namespace DieselBrandstofCafe.Components.Models
 {
-    public class InvoiceItem
+    public class OrderItem
     {
         public Product? Product { get; set; }
         public int AantalProduct { get; set; }
