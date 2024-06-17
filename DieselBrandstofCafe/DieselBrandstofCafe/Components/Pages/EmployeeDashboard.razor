@@ -1,76 +1,61 @@
 ﻿@page "/dashboard"
 
-@* Using directives to include necessary namespaces*@
-
-@using DieselBrandstofCafe.Components.Data;
-@using DieselBrandstofCafe.Components.Models;
-@using System.Data.SqlClient;
-@using Microsoft.Extensions.Configuration.Json;
-@using Microsoft.Extensions.Configuration;
-@using System.Collections.Generic;
-@using System.Threading.Tasks;
-@using Dapper;
+@using DieselBrandstofCafe.Components.Data
+@using DieselBrandstofCafe.Components.Models
+@using System.Data.SqlClient
+@using Microsoft.Extensions.Configuration.Json
+@using Microsoft.Extensions.Configuration
+@using System.Collections.Generic
+@using System.Threading.Tasks
+@using Dapper
 @using System.Text.Json
+@using System.Timers
 
-@* Injecting the EmployeeService and ManagerService to access their methods *@
-@inject IEmployeeService EmployeeService;
-@inject IManagerService ManagerService;
-@* Setting the title of the page *@
+@inject IEmployeeService EmployeeService
+@inject IManagerService ManagerService
+
 <PageTitle>Dashboard</PageTitle>
 
-
-
-@* Main heading of the page *@
 <h1 class="page-title">Dashboard</h1>
 
 <div class="order-count-cards">
     <div class="order-count-card">
         <i class="bi bi-clock"></i>
         <div class="order-count-card-text">
-            <h2> @pendingCount</h2>
+            <h2>@pendingCount</h2>
             <h3>Open Orders</h3>
         </div>
     </div>
     <div class="order-count-card">
         <i class="bi bi-clock-history"></i>
         <div class="order-count-card-text">
-            <h2> @inProgressCount</h2>
+            <h2>@inProgressCount</h2>
             <h3>In Progress</h3>
         </div>
     </div>
     <div class="order-count-card">
         <i class="bi bi-clipboard2-check"></i>
         <div class="order-count-card-text">
-            <h2> @completedCount</h2>
-            <h3>Completed</h3>
+            <h2>@completedCount</h2>
+            <h3>Ready</h3>
         </div>
     </div>
 </div>
 
-@* Orders board to display the list of orders *@
 <div class="orders-board">
-
     @if (pendingAndInProgressOrders.Count == 0 && completedOrders.Count == 0 && servedOrders.Count == 0 && cancelledOrders.Count == 0)
     {
-        // Message shown if there are no orders
         <h4 class="warning-text">No orders available</h4>
     }
 
-
     @RenderOrdersSection("Ongoing Orders", pendingAndInProgressOrders)
-    @RenderOrdersSection("Completed Orders", completedOrders)
+    @RenderOrdersSection("Ready Orders", completedOrders)
     @RenderOrdersSection("Served Orders", servedOrders)
     @RenderOrdersSection("Cancelled Orders", cancelledOrders)
-
-
 </div>
 
-
 @code {
-    // Initialize the lists for their specific types. These are lists of objects that should hold the necessary data.
     private List<OrderWithProducts> orders = new List<OrderWithProducts>();
-
-
     private List<OrderWithProducts> pendingAndInProgressOrders = new List<OrderWithProducts>();
     private List<OrderWithProducts> completedOrders = new List<OrderWithProducts>();
     private List<OrderWithProducts> servedOrders = new List<OrderWithProducts>();
@@ -79,14 +64,15 @@
     private int pendingCount;
     private int inProgressCount;
     private int completedCount;
+    private Timer? _timer;
 
-    // This method runs during the OnInitialized lifecycle event of the component.
     protected override async Task OnInitializedAsync()
     {
-
         await LoadOrdersByStatus();
 
-
+        _timer = new Timer(1000); // Update every second
+        _timer.Elapsed += async (sender, e) => await UpdateElapsedTime();
+        _timer.Start();
     }
 
     private async Task LoadOrdersByStatus()
@@ -97,15 +83,17 @@
         cancelledOrders.Clear();
 
         var statuses = new[]
-        {
-                new { Status = "Pending", List = pendingAndInProgressOrders },
-                new { Status = "In Progress", List = pendingAndInProgressOrders },
-                new { Status = "Completed", List = completedOrders },
-                new { Status = "Served", List = servedOrders },
-                new { Status = "Cancelled", List = cancelledOrders }
+    {
+            new { Status = "Pending", List = pendingAndInProgressOrders },
+            new { Status = "In Progress", List = pendingAndInProgressOrders },
+            new { Status = "Ready", List = completedOrders },
+            new { Status = "Served", List = servedOrders },
+            new { Status = "Cancelled", List = cancelledOrders }
         };
 
-        pendingCount = 0; inProgressCount = 0; completedCount = 0;
+        pendingCount = 0;
+        inProgressCount = 0;
+        completedCount = 0;
 
         foreach (var status in statuses)
         {
@@ -113,18 +101,20 @@
 
             foreach (var order in orders)
             {
-                var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
+                /*var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
+                var existingOrder = status.List.FirstOrDefault(o => o.BestellingID == order.BestellingID);
+
                 var orderWithProducts = new OrderWithProducts
-                {
-                    BestellingID = order.BestellingID,
-                    TafelID = order.TafelID,
-                    Products = products.ToList(),
-                    StatusBestelling = order.StatusBestelling
-                };
+                        {
+                            BestellingID = order.BestellingID,
+                            TafelID = order.TafelID,
+                            Products = products.ToList(),
+                            StatusBestelling = order.StatusBestelling,
+                            CreationTime = order.TijdBestelling
+                        };
 
                 status.List.Add(orderWithProducts);
 
-                // Update the counts
                 switch (order.StatusBestelling)
                 {
                     case "Pending":
@@ -133,17 +123,34 @@
                     case "In Progress":
                         inProgressCount++;
                         break;
-                    case "Completed":
+                    case "Ready":
+                        completedCount++;
+                        break;
+                }*/
+                var products = await EmployeeService.GetProductsForBestelrondeAsync(order.BestelrondeID);
+
+                order.Products = products.ToList();
+
+                status.List.Add(order);
+
+                switch (order.StatusBestelling)
+                {
+                    case "Pending":
+                        pendingCount++;
+                        break;
+                    case "In Progress":
+                        inProgressCount++;
+                        break;
+                    case "Ready":
                         completedCount++;
                         break;
                 }
             }
         }
 
-        // Sort pendingAndInProgressOrders to show Pending orders first, then In Progress
         pendingAndInProgressOrders = pendingAndInProgressOrders
             .OrderByDescending(o => o.StatusBestelling == "Pending")
-            .ThenByDescending(o => o.BestellingID)
+            .ThenByDescending(o => o.BestelrondeID)
             .ToList();
 
         StateHasChanged();
@@ -151,163 +158,285 @@
 
 
     private RenderFragment RenderOrdersSection(string title, List<OrderWithProducts> orders) =>
-        @<div class="orders-section">
-            <h3>@title</h3>
-
-            <div class="orders-container">
-                @foreach (var order in orders)
-                {
-                    <div class="orders-card @GetOrderClass(order)" key="@order.BestellingID">
-                        <div class="todo-title-wrapper">
-                            <div class="todo-table-status-container">
-                                <h4 class="table-number">Table @order.TafelID</h4>
-                        <h5 class="status-text @GetOrderStatusClass(order.StatusBestelling)">@order.StatusBestelling@(":") @GetCompletionPercentage(order)%</h5>
-                            </div>
-                            <div>
-                                <h4 class="order-id">#@order.BestellingID</h4>
-                            </div>
+    @<div class="orders-section">
+        <h3>@title</h3>
+        <div class="orders-container">
+            @foreach (var order in orders)
+            {
+                <div class="orders-card " key="@order.BestelrondeID">
+                    <div class="todo-title-wrapper">
+                        <div class="todo-table-status-container">
+                            <h4 class="table-number">Table @order.TafelID</h4>
+                            <h5 class="status-text @GetOrderStatusClass(order.StatusBestelling)">
+                                @order.StatusBestelling @(":") @GetCompletionPercentage(order)%
+                            </h5>
                         </div>
-                        <ul class="product-list-title-wrapper">
-                            <li class="product-list-title">Amt</li>
-                            <li class="product-list-title">Product</li>
-                            <li class="product-list-title">Status</li>
-                        </ul>
-                        <ul class="product-list-wrapper">
-                            @foreach (var product in order.Products)
+                        <div class="order-details-wrapper">
+                            <h4 class="order-id">#@order.BestelrondeID</h4>
+                            @if (order.StatusBestelling == "Pending" || order.StatusBestelling == "In Progress")
                             {
-
-                                <li class="@GetProductClass(product)" key="@product.ProductID">
-                                    <span>@product.AantalProduct@("x")</span>
-                                    @product.ProductNaam
-                                    <input class="checkbox-round" type="checkbox"
-                                           checked="@GetProductStatus(product)"
-                                           @onchange="@(e => OnProductStatusChanged(e, order, product))" />
-                                </li>
+                                <div class="timer-container">
+                                    <i class="bi bi-clock-history @GetElapsedTimeClass(order)" />
+                                    <h5 class="elapsed-time @GetElapsedTimeClass(order)">@GetElapsedTimeText(order)</h5>
+                                </div>
                             }
-                        </ul>
-                        <div class="btns-container">
-                            <button class="cancel-btn" @onclick="() => OnCancelOrder(order)">Cancel</button>
-                            <button class="serve-btn" @onclick="() => OnServeOrder(order)">Serve</button>
                         </div>
                     </div>
-                }
-            </div>
-        </div>;
-
-
-        // Method to determine the current status of the product.
-        private bool GetProductStatus(ProductPerBestelronde product)
-        {
-            return product.StatusBesteldeProduct == "Completed";
-        }
-
-        // Method to handle the checkbox change event.
-        private async Task OnProductStatusChanged(ChangeEventArgs e, OrderWithProducts order, ProductPerBestelronde product)
-        {
-            if ((bool)e.Value)
-            {
-                await CompleteTask(order, product);
+                    <ul class="product-list-title-wrapper">
+                        <li class="product-list-title">Amt</li>
+                        <li class="product-list-title">Product</li>
+                        <li class="product-list-title">Status</li>
+                    </ul>
+                    <ul class="product-list-wrapper">
+                        @foreach (var product in order.Products)
+                        {
+                            <button class="product-button @GetProductClass(product)" key="@($"{order.BestelrondeID}-{product.ProductID}")" @onclick="() => OnProductStatusChanged(order, product)">
+                            <li class="@GetProductClass(product)" key="@($"{order.BestelrondeID}-{product.ProductID}")">
+                                <span>@product.AantalProduct @("x")</span>
+                                @product.ProductNaam
+                                @if (product.StatusBesteldeProduct == "Ready")
+                            {
+                                <i class="bi bi-check-circle-fill tick-icon"></i>
+                            }
+                            else
+                            {
+                                <i class="bi bi-circle-fill circle-icon"></i>
+                            }
+                            </li>
+                            </button>
+                        }
+                    </ul>
+                    <div class="btns-container">
+                        <button class="cancel-btn @(order.StatusBestelling != "Pending" ? "disabled" : "")" @onclick="() => OnCancelOrder(order)" disabled="@(order.StatusBestelling != "Pending")">Cancel</button>
+                        <button class="serve-btn @(order.StatusBestelling != "Ready" ? "disabled" : "")" @onclick="() => OnServeOrder(order)" disabled="@(order.StatusBestelling != "Ready")">Serve</button>
+                    </div>
+                </div>
             }
-            else
-            {
-                await UncompleteTask(order, product);
-            }
-        }
+        </div>
+    </div>
+    ;
 
-        // This method is called when a product is marked as complete.
-        private async Task CompleteTask(OrderWithProducts order, ProductPerBestelronde product)
+
+    private bool GetProductStatus(ProductPerBestelronde product)
+    {
+        return product.StatusBesteldeProduct == "Ready";
+    }
+
+    private async Task OnProductStatusChanged(OrderWithProducts order, ProductPerBestelronde product)
+    {
+        if (product.StatusBesteldeProduct == "Ready")
         {
-            Console.WriteLine($"Completing task for product {product.ProductID} in order {order.BestellingID}");
-
-            // Update the product status in the Product_per_Bestelronde table to "Completed".
-            await EmployeeService.UpdateProductStatusAsync(product.ProductID, product.BestelrondeID, "Completed");
-
-            // Update the local status of the product to "Completed".
-            product.StatusBesteldeProduct = "Completed";
-
-            // Check if all products in the order are completed by querying the database.
-            var allProductsCompleted = await EmployeeService.AreAllProductsCompletedAsync(order.BestellingID);
-            Console.WriteLine($"All products completed: {allProductsCompleted}");
-            // If all products are completed, update the order status to "Completed".
-            order.StatusBestelling = allProductsCompleted ? "Completed" : "In Progress";
-            await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, order.StatusBestelling);
-            
-            // Refresh the component to show the updated state.
-            await LoadOrdersByStatus();
-
+            await UncompleteTask(order, product);
         }
-
-        private async Task UncompleteTask(OrderWithProducts order, ProductPerBestelronde product)
+        else
         {
-            Console.WriteLine($"Uncompleting task for product {product.ProductID} in order {order.BestellingID}");
-
-            // Update the product status in the Product_per_Bestelronde table to its previous state (e.g., "Pending").
-            await EmployeeService.UpdateProductStatusAsync(product.ProductID, product.BestelrondeID, "Pending");
-
-            // Update the local status of the product to "Pending".
-            product.StatusBesteldeProduct = "Pending";
-
-            // Check if all products in the order are completed by querying the database.
-            var allProductsCompleted = await EmployeeService.AreAllProductsCompletedAsync(order.BestellingID);
-            Console.WriteLine($"All products completed: {allProductsCompleted}");
-            // If all products are completed, update the order status to "Completed".
-            order.StatusBestelling = allProductsCompleted ? "Completed" : "In Progress";
-            await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, order.StatusBestelling);
-            
-            // Refresh the component to show the updated state.
-            await LoadOrdersByStatus();
-
+            await CompleteTask(order, product);
         }
 
-        private async Task OnCancelOrder(OrderWithProducts order)
+        await LoadOrdersByStatus();
+    }
+
+    private async Task CompleteTask(OrderWithProducts order, ProductPerBestelronde product)
+    {
+
+        if (product.StatusBesteldeProduct == "Cancelled" || product.StatusBesteldeProduct == "Served")
         {
-            Console.WriteLine($"Cancelling order {order.BestellingID}");
-            await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, "Cancelled");
-            await LoadOrdersByStatus();
+
+            return;
+
         }
 
-        private async Task OnServeOrder(OrderWithProducts order)
+        /*await EmployeeService.UpdateProductStatusAsync(product.ProductID, product.BestelrondeID, "Ready");
+        product.StatusBesteldeProduct = "Ready";*/
+        await EmployeeService.CompleteTaskAndUpdateProductStatusAsync(order.BestelrondeID, product.ProductID, "Ready");
+        product.StatusBesteldeProduct = "Ready";
+
+        var allProductsCompleted = await EmployeeService.AreAllProductsCompletedAsync(order.BestelrondeID);
+        var anyProductsCompleted = await EmployeeService.AreAnyProductsCompletedAsync(order.BestelrondeID);
+
+        //await UpdateOrderStatusAsync(order.BestellingID, allProductsCompleted, anyProductsCompleted);
+
+        string newStatus;
+
+        if (allProductsCompleted)
         {
-            Console.WriteLine($"Serving order {order.BestellingID}");
-            await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, "Served");
-            await LoadOrdersByStatus();
+            newStatus = "Ready";
         }
-
-        
-        // The GetProductClass and GetOrderClass methods are used to determine the CSS class that should be applied to a product item in the UI based on its status.
-        // Specifically, they checks whether the product's status is "Completed" and returns the appropriate CSS class.
-        private string GetProductClass(ProductPerBestelronde product)
+        else if (anyProductsCompleted)
         {
-            return product.StatusBesteldeProduct == "Completed" ? "completed-product" : string.Empty;
+            newStatus = "In Progress";
         }
-
-        // This method returns the CSS class for an order based on its status.
-        private string GetOrderClass(OrderWithProducts order)
+        else
         {
-            return order.StatusBestelling == "Completed" ? "completed-order" : string.Empty;
-            
+            newStatus = "Pending";
         }
 
-        private string GetOrderStatusClass(string status)
+        await EmployeeService.UpdateOrderStatusAsync(order.BestelrondeID, newStatus);
+
+        //var existingOrder = pendingAndInProgressOrders.FirstOrDefault(o => o.BestellingID == order.BestellingID);
+        var existingOrder = pendingAndInProgressOrders.FirstOrDefault(o => o.BestelrondeID == order.BestelrondeID);
+        if (existingOrder != null)
         {
-            return status switch
-            {
-                "Pending" => "status_pending",
-                "In Progress" => "status_in-progress",
-                "Completed" => "status_completed",
-                "Served" => "status_served",
-                "Cancelled" => "status_cancelled",
-                _ => string.Empty,
-            };
+            order.CreationTime = existingOrder.CreationTime;
         }
 
-        private double GetCompletionPercentage(OrderWithProducts order)
+        await LoadOrdersByStatus();
+    }
+
+    private async Task UncompleteTask(OrderWithProducts order, ProductPerBestelronde product)
+    {
+        if (product.StatusBesteldeProduct == "Cancelled" || product.StatusBesteldeProduct == "Served")
         {
-            if (order.Products == null || order.Products.Count == 0) return 0;
-            var completedProducts = order.Products.Count(p => p.StatusBesteldeProduct == "Completed");
-            return (completedProducts / (double)order.Products.Count) * 100;
+
+            return;
+
         }
 
+        /*await EmployeeService.UpdateProductStatusAsync(product.ProductID, product.BestelrondeID, "Pending");
+        product.StatusBesteldeProduct = "Pending";*/
+        await EmployeeService.CompleteTaskAndUpdateProductStatusAsync(order.BestelrondeID, product.ProductID, "Pending");
+        product.StatusBesteldeProduct = "Pending";
 
+        var allProductsCompleted = await EmployeeService.AreAllProductsCompletedAsync(order.BestelrondeID);
+        var anyProductsCompleted = await EmployeeService.AreAnyProductsCompletedAsync(order.BestelrondeID);
+
+
+        //await UpdateOrderStatusAsync(order.BestellingID, allProductsCompleted, anyProductsCompleted);
+
+        string newStatus;
+
+        if (allProductsCompleted)
+        {
+            newStatus = "Ready";
+        }
+        else if (anyProductsCompleted)
+        {
+            newStatus = "In Progress";
+        }
+        else
+        {
+            newStatus = "Pending";
+        }
+
+        await EmployeeService.UpdateOrderStatusAsync(order.BestelrondeID, newStatus);
+
+
+        //var existingOrder = pendingAndInProgressOrders.FirstOrDefault(o => o.BestellingID == order.BestellingID);
+        var existingOrder = pendingAndInProgressOrders.FirstOrDefault(o => o.BestelrondeID == order.BestelrondeID);
+
+        if (existingOrder != null)
+        {
+            order.CreationTime = existingOrder.CreationTime;
+        }
+
+        await LoadOrdersByStatus();
+    }
+
+    //private async Task UpdateOrderStatusAsync(int bestellingId, bool allProductsCompleted, bool anyProductsCompleted)
+    private async Task UpdateOrderStatusAsync(int bestelrondeId, bool allProductsCompleted, bool anyProductsCompleted)
+    {
+        string status;
+
+        switch ((allProductsCompleted, anyProductsCompleted))
+        {
+            case (true, _):
+                status = "Ready";
+                break;
+            case (false, true):
+                status = "In Progress";
+                break;
+            case (false, false):
+                status = "Pending";
+                break;
+        }
+
+        //await EmployeeService.UpdateOrderStatusAsync(bestellingId, status);
+        await EmployeeService.UpdateOrderStatusAsync(bestelrondeId, status);
+    }
+
+    private async Task OnCancelOrder(OrderWithProducts order)
+    {
+        //await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, "Cancelled");
+        /*await EmployeeService.UpdateOrderStatusAsync(order.BestelrondeID, "Cancelled");
+        */
+
+        await EmployeeService.UpdateOrderStatusAsync(order.BestelrondeID, "Cancelled");
+        order.StatusBestelling = "Cancelled";
+        await LoadOrdersByStatus();
+    }
+
+    private async Task OnServeOrder(OrderWithProducts order)
+    {
+        //await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, "Served");
+        /*await EmployeeService.UpdateOrderStatusAsync(order.BestelrondeID, "Served");
+        */
+
+        await EmployeeService.UpdateOrderStatusAsync(order.BestelrondeID, "Served");
+        order.StatusBestelling = "Served";
+        await LoadOrdersByStatus();
+    }
+
+    private string GetProductClass(ProductPerBestelronde product)
+    {
+        return product.StatusBesteldeProduct == "Ready" || product.StatusBesteldeProduct == "Cancelled" ? "completed-product" : string.Empty;
+    }
+
+    /*private string GetOrderClass(OrderWithProducts order)
+    {
+        //return order.StatusBestelling == "Ready" ? "" : string.Empty;
+        return order.StatusBestelling == "Ready" ? "completed-product" : string.Empty;
+    }*/
+
+    private string GetOrderStatusClass(string status)
+    {
+        return status switch
+        {
+            "Pending" => "status_pending",
+            "In Progress" => "status_in-progress",
+            "Ready" => "status_completed",
+            "Served" => "status_served",
+            "Cancelled" => "status_cancelled",
+            _ => string.Empty,
+        };
+    }
+
+    private double GetCompletionPercentage(OrderWithProducts order)
+    {
+        if (order.Products == null || order.Products.Count == 0) return 0;
+
+        var completedProducts = order.Products.Count(p => p.StatusBesteldeProduct == "Ready");
+        var percentage = (completedProducts / (double)order.Products.Count) * 100;
+        return Math.Round(percentage);
+    }
+
+    private async Task UpdateElapsedTime()
+    {
+        await InvokeAsync(StateHasChanged); // Ensure the UI updates
+    }
+
+    private string GetElapsedTimeText(OrderWithProducts order)
+    {
+
+        var elapsed = DateTime.Now - order.CreationTime;
+        int totalMinutes = (int)elapsed.TotalMinutes;
+        return $"{totalMinutes} min";
+    }
+
+    private string GetElapsedTimeClass(OrderWithProducts order)
+    {
+        var elapsed = DateTime.Now - order.CreationTime;
+
+        if (elapsed.TotalMinutes < 15)
+        {
+            return "elapsed-time-short";
+        }
+        else if (elapsed.TotalMinutes < 35)
+        {
+            return "elapsed-time-medium";
+        }
+        else
+        {
+            return "elapsed-time-long";
+        }
+    }
 }
-    

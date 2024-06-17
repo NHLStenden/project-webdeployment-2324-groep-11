@@ -241,8 +241,8 @@
     protected override async Task OnInitializedAsync()
     {
         CompleteBestellingen = (await EmployeeService.GetOrderHistoryAsync()).ToList();
-        PendingBestellingen = (await EmployeeService.GetOrdersByStatusAsync("Pending")).ToList();
-        ProgressBestellingen = (await EmployeeService.GetOrdersByStatusAsync("In Progress")).ToList();
+        @*PendingBestellingen = (await EmployeeService.GetOrdersByStatusAsync("Pending")).ToList();
+        ProgressBestellingen = (await EmployeeService.GetOrdersByStatusAsync("In Progress")).ToList();*@
     }
 
 

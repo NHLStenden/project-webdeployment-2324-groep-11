@@ -134,7 +134,7 @@ namespace DieselBrandstofCafe.Components.Data
             var bestellingId = await connection.ExecuteScalarAsync<int>(query, parameters, transaction);
             return bestellingId;
         }
-
+        
         private async Task AddProductToBestelrondeAsync(IDbConnection connection, int bestelrondeId, Models.InvoiceItem item, IDbTransaction transaction)
         {
             var query = "INSERT INTO Product_per_Bestelronde (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct) VALUES (@ProductID, @BestelrondeID, @AantalProduct, 0, 'Pending')";

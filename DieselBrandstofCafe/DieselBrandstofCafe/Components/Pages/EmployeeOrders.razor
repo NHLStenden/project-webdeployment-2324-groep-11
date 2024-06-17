@@ -69,7 +69,7 @@
                 Products = new List<ProductPerBestelronde>()
             }).ToList();
 
-        newBestellingen = newOrders.Select(order => new OrderWithProducts
+        /*newBestellingen = newOrders.Select(order => new OrderWithProducts
             {
                 BestellingID = order.BestellingID,
                 TijdBestelling = order.TijdBestelling,
@@ -85,7 +85,7 @@
                 StatusBestelling = order.StatusBestelling,
                 TotaalPrijs = order.TotaalPrijs,
                 Products = new List<ProductPerBestelronde>()
-            }).ToList();
+            }).ToList();*/
 
         foreach (var order in bestellingen)
         {
