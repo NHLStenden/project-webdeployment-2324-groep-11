@@ -111,10 +111,10 @@
 
                     <div class="row justify-content-center text-colour" style="font-size:smaller">
 
-                        <p class="col-3">Order ID</p>
-                        <p class="col-3">Tijd</p>
-                        <p class="col-3">Status</p>
-                        <p class="col-3">Prijs</p>
+                        <p class="col-4">Order ID</p>
+                        <p class="col-4">Tijd</p>
+                        <p class="col-4">Status</p>
+                        @* <p class="col-3">Prijs</p> *@
                         <div class="row">
                             <div class="card col-12 justify-content-center"></div>
                         </div>
@@ -124,10 +124,10 @@
                             @foreach (var item in ProgressBestellingen)
                             {
 
-                                <p class="col-3">@item.BestellingID#</p>
-                                <p class="col-3">@item.TijdBestelling</p>
-                                <p class="@GetStatusColorClass(item.StatusBestelling) col-3">@item.StatusBestelling</p>
-                                <p class="col-3">€@item.TotaalPrijs</p>
+                                <p class="col-4">@item.BestellingID#</p>
+                                <p class="col-4">@item.CreationTime</p>
+                                <p class="@GetStatusColorClass(item.StatusBestelling) col-4">@item.StatusBestelling</p>
+                              //  <p class="col-3">€@item.TotaalPrijs</p>
                                 <br />
 
                             }
@@ -136,10 +136,10 @@
                             @foreach (var item in PendingBestellingen)
                             {
 
-                                <p class="col-3">@item.BestellingID#</p>
-                                <p class="col-3">@item.TijdBestelling</p>
-                                <p class="@GetStatusColorClass(item.StatusBestelling) col-3">@item.StatusBestelling</p>
-                                <p class="col-3">€@item.TotaalPrijs</p>
+                                <p class="col-4">@item.BestellingID#</p>
+                                <p class="col-4">@item.CreationTime</p>
+                                <p class="@GetStatusColorClass(item.StatusBestelling) col-4">@item.StatusBestelling</p>
+                                //<p class="col-3">€@item.TotaalPrijs</p>
                                 <br />
 
                             }
@@ -148,10 +148,10 @@
                             @foreach (var item in CompleteBestellingen)
                             {
                        
-                                <p class="col-3" >@item.BestellingID#</p>
-                                <p class="col-3">@item.TijdBestelling</p>
-                                <p class="@GetStatusColorClass(item.StatusBestelling) col-3">@item.StatusBestelling</p>
-                                <p class="col-3">€@item.TotaalPrijs</p>
+                                <p class="col-4" >@item.BestellingID#</p>
+                                <p class="col-4">@item.TijdBestelling</p>
+                                <p class="@GetStatusColorClass(item.StatusBestelling) col-4">@item.StatusBestelling</p>
+                               // <p class="col-3">€@item.TotaalPrijs</p>
                                 <br />
 
                             }
@@ -210,8 +210,8 @@
 
 @code {
     private List<Bestelling> CompleteBestellingen = new List<Bestelling>();
-    private List<Bestelling> PendingBestellingen = new List<Bestelling>();
-    private List<Bestelling> ProgressBestellingen = new List<Bestelling>();
+    private List<OrderWithProducts> PendingBestellingen = new List<OrderWithProducts>();
+    private List<OrderWithProducts> ProgressBestellingen = new List<OrderWithProducts>();
     private List<OrderWithProducts> orders = new List<OrderWithProducts>();
 
 
