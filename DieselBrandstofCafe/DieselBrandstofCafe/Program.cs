@@ -17,7 +17,7 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 
 
 // Register the services
-builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IManagerService, ManagerService>();
 builder.Services.AddScoped<IDbConnectionService, DbConnectionService>();
@@ -26,6 +26,7 @@ builder.Services.AddScoped<IVoorraadOverviewService, VoorraadOverviewService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<ICategorieService, CategorieService>();
 builder.Services.AddScoped<IDashboardDataService, DashboardDataService>();
+builder.Services.AddScoped<ITableService, TableService>();
 
 builder.Services.AddBlazorBootstrap();
 

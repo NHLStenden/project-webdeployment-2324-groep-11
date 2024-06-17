@@ -3,12 +3,16 @@
 
 <div class="order-success-page">
     <div class="order-success-content">
-        <h1>Thank You for Your Order!</h1>
-        <p>Your order has been placed successfully. We appreciate your support and can't wait for you to enjoy our delicious offerings. Your fresh, tasty treats or beverages will be ready soon!</p>
+        <h1>Order Confirmation</h1>
+        <p>
+            The order has been placed successfully. 
+            Please ensure it is prepared promptly and delivered to the customer with care. 
+            Let's make sure our fresh, tasty treats and beverages delight our guests!
+        </p>
 
         <div class="order-success-actions">
             <button class="button-primary" @onclick="GoToMenu">Back to Menu</button>
-            <button class="button-secondary" @onclick="GoToOrders">View Your Orders</button>
+            <button class="button-secondary" @onclick="GoToOrders">View Orders</button>
         </div>
     </div>
 </div>
@@ -21,6 +25,6 @@
 
     void GoToOrders()
     {
-        NavigationManager.NavigateTo("/myorders");
+        NavigationManager.NavigateTo("/dashboard");
     }
 }

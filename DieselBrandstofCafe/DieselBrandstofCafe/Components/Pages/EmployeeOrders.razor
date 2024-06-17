@@ -3,50 +3,67 @@
 @using DieselBrandstofCafe.Components.Models
 @inject IEmployeeService EmployeeService
 
-
-   <div class="container">
-        <div class="row text-center">
-            <div>
-                <div class="h-100">
-                    <div class="card col-2 justify-content-center card-colour">
-                        <h6 class="Text-padding text-colour" style="font-size:large; padding:13px;"><b>All Orders</b></h6>
-                        </div>
-                    <div class="card card-colour">
-                        <div class="d-flex row card-maxheight">
-                            <div style="padding:13px;">
-                                <div class="card card-colour2">
-                                    <div class="row">
-                                        <div class="col-2 text-colour2">Order ID</div>
-                                        <div class="col-2 text-colour2">(Table ID)</div>
-                                        <div class="col-2 text-colour2">Time</div>
-                                        <div class="col-2 text-colour2">(Time Elapsed)</div>
-                                        <div class="col-2 text-colour2"> Status</div>
-                                        <div class="col-2 text-colour2">Prijs</div>
-                                    </div>
+<div class="container">
+    <div class="row text-center">
+        <div>
+            <div class="h-100">
+                <div class="card col-2 justify-content-center card-colour">
+                    <h6 class="Text-padding text-colour" style="font-size:large; padding:13px;"><b>All Orders</b></h6>
+                </div>
+                <div class="card card-colour">
+                    <div class="d-flex row card-maxheight">
+                        <div style="padding:13px;">
+                            <div class="card card-colour2">
+                                <div class="row">
+                                    <div class="col-2 text-colour2">Order ID</div>
+                                    <div class="col-2 text-colour2">(Table ID)</div>
+                                    <div class="col-2 text-colour2">Time</div>
+                                    <div class="col-2 text-colour2">(Time Elapsed)</div>
+                                    <div class="col-2 text-colour2">Status</div>
+                                    <div class="col-2 text-colour2">Prijs</div>
                                 </div>
-                                    <br/>
-                                @foreach (var item in combinedOrders)
-                                {
+                            </div>
+                            <br />
+                            @foreach (var item in combinedOrders)
+                            {
                                 <div class="card card-colour2">
-                                    <div class="row">
+                                    <div class="row" @onclick="() => ToggleOrder(item.BestellingID)">
                                         <div class="col-2 text-colour2">@item.BestellingID#</div>
                                         <div class="col-2 text-colour2">(Table ID)</div>
                                         <div class="col-2 text-colour2">@item.TijdBestelling</div>
-                                        <div class="col-2 text-colour2">(Time Elapsed)</div>
                                         <div class="col-2 @GetStatusColorClass(item.StatusBestelling)">@item.StatusBestelling</div>
                                         <div class="col-2 text-colour2">€@item.TotaalPrijs</div>
                                     </div>
+                                    @if (item.IsExpanded)
+                                    {
+                                        <div class="row">
+                                            <div class="col-2 text-colour2 text-start">Amt</div>
+                                        </div>
+
+                                        <div class="card"></div>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <ul>
+                                                    @foreach (var product in item.Products)
+                                                    {
+                                                        <li class="text-colour2">@product.ProductNaam - @product.AantalProduct x</li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm" @onclick="() => MarkAsPaid(item.BestellingID)">Paid</button>
+                                    }
                                 </div>
-                                        <br />
-                                }
-                            </div>
+                                <br />
+                            }
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-   </div>
-
+    </div>
+</div>
 
 @code {
     private List<OrderWithProducts> bestellingen = new List<OrderWithProducts>();
@@ -69,7 +86,7 @@
                 Products = new List<ProductPerBestelronde>()
             }).ToList();
 
-        newBestellingen = newOrders.Select(order => new OrderWithProducts
+        /*newBestellingen = newOrders.Select(order => new OrderWithProducts
             {
                 BestellingID = order.BestellingID,
                 TijdBestelling = order.TijdBestelling,
@@ -85,7 +102,7 @@
                 StatusBestelling = order.StatusBestelling,
                 TotaalPrijs = order.TotaalPrijs,
                 Products = new List<ProductPerBestelronde>()
-            }).ToList();
+            }).ToList();*/
 
         foreach (var order in bestellingen)
         {
@@ -105,8 +122,6 @@
             order.Products.AddRange(products);
         }
 
-
-
         combinedOrders = PendingBestellingen.Concat(newBestellingen.Concat(bestellingen)).ToList();
 
         combinedOrders = combinedOrders
@@ -115,6 +130,23 @@
             .ToList();
     }
 
+    private void ToggleOrder(int bestellingID)
+    {
+        var order = combinedOrders.FirstOrDefault(o => o.BestellingID == bestellingID);
+        if (order != null)
+        {
+            order.IsExpanded = !order.IsExpanded;
+        }
+    }
+
+    private void MarkAsPaid(int bestellingID)
+    {
+        var order = combinedOrders.FirstOrDefault(o => o.BestellingID == bestellingID);
+        if (order != null)
+        {
+            order.StatusBestelling = "Paid";
+        }
+    }
 
     public class OrderWithProducts
     {
@@ -123,6 +155,7 @@
         public string? StatusBestelling { get; set; }
         public decimal TotaalPrijs { get; set; }
         public List<ProductPerBestelronde> Products { get; set; } = new();
+        public bool IsExpanded { get; set; } = false;
     }
 
     string GetStatusColorClass(string? status)
@@ -135,11 +168,14 @@
                 return "Status-Progress";
             case "Completed":
                 return "Status-Completed";
+            case "Open":
+                return "Status-Open";
+            case "Paid":
+                return "Status-Paid";
             default:
                 return "text-muted";
         }
     }
+
+
 }
-
-
-

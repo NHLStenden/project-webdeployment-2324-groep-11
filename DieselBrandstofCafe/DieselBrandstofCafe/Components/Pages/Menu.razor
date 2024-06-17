@@ -1,10 +1,10 @@
 ﻿@page "/menu"
 @using DieselBrandstofCafe.Components.Models
 @using DieselBrandstofCafe.Components.Data
-@inject ICustomerService customerService
 @inject IProductPerBestelrondeService productPerBestelrondeService
 @inject IOrderService orderService
 @inject ICategorieService categorieService
+@inject ITableService TableService
 @inject NavigationManager navigationManager
 
 <div class="menu-page">
@@ -34,15 +34,18 @@
                 }
             </div>
         </div>
-         @if (menuItems != null && menuItems.Any())
-                {
+
+        @if (menuItems != null && menuItems.Any())
+        {
             <div class="menu-items">
-            <h2>Select Menu</h2>
+                <h2>Select Menu</h2>
                 <div class="menu-list">
                     @foreach (var item in menuItems)
                     {
                         <div class="menu-item">
-                            <div class="menu-item-name"><h3>@item.ProductNaam</h3></div>
+                            <div class="menu-item-name">
+                                <h3>@item.ProductNaam</h3>
+                            </div>
                             <div class="product-image-container">
                                 <img src="images\@item.ProductAfbeelding" class="product-image" onerror="src='images/Geen Afbeelding.png';">
                             </div>
@@ -67,48 +70,68 @@
                                     <button class="increase-menu-item" @onclick='() => IncreaseAantalProductTemp(item)'>+</button>
                                 </div>
                             </div>
-                            <button class="add-menu-item" @onclick='() => AddToInvoice(item)'>Add to order</button>
+                            <button class="add-menu-item" @onclick='() => AddToOrder(item)'>Add to order</button>
                         </div>
                     }
+                </div>
             </div>
-        </div>
         }          
     </div>
     
-
     <div class="right-panel">
         <div class="order-summary">
-            <h2>Invoice</h2>
+            <h2>Order</h2>
             <ul>
-                @foreach (var invoiceItem in invoiceItems)
+                @foreach (var OrderItem in orderItems)
                 {
                     <li>
                         <div class="invoice-item">
-                            <span>@invoiceItem.Product?.ProductNaam (€@invoiceItem.Product?.ProductPrijs)</span>
+                            <span>@OrderItem.Product?.ProductNaam (€@OrderItem.Product?.ProductPrijs)</span>
                             <div class="invoice-item-controls">
-                                <span class="product-total">€@(invoiceItem.Product?.ProductPrijs * invoiceItem.AantalProduct)</span>
+                                <span class="product-total">€@(OrderItem.Product?.ProductPrijs * OrderItem.AantalProduct)</span>
                                 <div class="counter-background-invoice">
-                                    <button class="decrease-invoice-item" @onclick="() => DecreaseAantalProduct(invoiceItem)">-</button>
-                                    <span>@invoiceItem.AantalProduct</span>
-                                    <button class="increase-invoice-item" @onclick="() => IncreaseAantalProduct(invoiceItem)">+</button>
+                                    <button class="decrease-invoice-item" @onclick="() => DecreaseAantalProduct(OrderItem)">-</button>
+                                    <span>@OrderItem.AantalProduct</span>
+                                    <button class="increase-invoice-item" @onclick="() => IncreaseAantalProduct(OrderItem)">+</button>
                                 </div>
                             </div>
                         </div>
                     </li>
                 }
             </ul>
-            <div class="payment">
-                <h5>Payment</h5>
-                <p>Sub Total: €@subTotal</p>
-                <p>Tax: €@tax</p>
-                <p>Total Payment: €@total</p>
-                <div class="payment-methods">
-                    <button>Card</button>
-                    <button>Cash</button>
-                    <button>Ideal</button>
+            <div class="table-selection">
+                @if (selectedTable == 0)
+                {
+                    <button @onclick="ShowTableOverlay">Select Table</button>
+                }
+                else
+                {
+                    <span>Table: @selectedTable</span>
+                }
+            </div>
+
+            @if (showTableOverlay)
+            {
+                <div class="table-overlay">
+                    <div class="table-overlay-content">
+                        <h3>Select a Table</h3>
+                        <div class="table-buttons">
+                            @foreach (var table in tables)
+                            {
+                                <button class="table-button" @onclick="() => SelectTable(table.TafelId)">
+                                    Table @table.TafelId
+                                </button>
+                            }
+                        </div>
+                        <button class="close-overlay" @onclick="HideTableOverlay">Close</button>
+                    </div>
                 </div>
+            }
+            <div class="payment">
+                <h5>Table number:</h5>
+                <h5>Total Payment: €@total</h5>
                 <div class="place-order-button-container">
-                    <button class="place-order-button" @onclick="PlaceOrder" disabled="@(!invoiceItems.Any())">Place Order</button>
+                    <button class="place-order-button" @onclick="PlaceOrder" disabled="@(!orderItems.Any())">Place Order</button>
                 </div>
             </div>
         </div>
@@ -137,22 +160,45 @@
     decimal subTotal = 0;
     decimal tax = 0;
     decimal total = 0;
-
+    bool showTableOverlay = false;
     int curParentID = -1;
+    int selectedTable = 0;
+
     List<int> prevParentIds = [];
 
     List<Product>? menuItems; 
     List<Categorie>? categories;
     List<Product>? addOns;
+    List<Tafel> tables = new List<Tafel>();
     Dictionary<int, int> tempProductQuantities = new Dictionary<int, int>();
     Dictionary<int, int?> selectedAddOns = new Dictionary<int, int?>();
-    List<InvoiceItem> invoiceItems = new List<InvoiceItem>();
-
+    List<OrderItem> orderItems = new List<OrderItem>();
 
     protected override async Task OnInitializedAsync()
     {
         categories = (await categorieService.GetParentCategoryAsync()).ToList();
-        addOns = (await customerService.GetAddOnsAsync()).ToList();
+        addOns = (await orderService.GetAddOnsAsync()).ToList();
+
+        if (TableService != null)
+        {
+            tables = (await TableService.GetTablesAsync()).ToList(); // Fetch tables from the database
+        }
+    }
+
+    void ShowTableOverlay()
+    {
+        showTableOverlay = true;
+    }
+
+    void HideTableOverlay()
+    {
+        showTableOverlay = false;
+    }
+
+    void SelectTable(int tableId)
+    {
+        selectedTable = tableId;
+        showTableOverlay = false;
     }
 
     async Task LoadAllMenuItems()
@@ -224,18 +270,18 @@
         }
     }
 
-    void AddToInvoice(Product product)
+    void AddToOrder(Product product)
     {
         if (tempProductQuantities.TryGetValue(product.ProductID, out int quantity) && quantity > 0)
         {
-            var existingItem = invoiceItems.FirstOrDefault(item => item.Product?.ProductID == product.ProductID);
+            var existingItem = orderItems.FirstOrDefault(item => item.Product?.ProductID == product.ProductID);
             if (existingItem != null)
             {
                 existingItem.AantalProduct += quantity;
             }
             else
             {
-                invoiceItems.Add(new InvoiceItem { Product = product, AantalProduct = quantity });
+                orderItems.Add(new OrderItem { Product = product, AantalProduct = quantity });
             }
 
             if (selectedAddOns.TryGetValue(product.ProductID, out int? addOnId) && addOnId.HasValue)
@@ -243,7 +289,7 @@
                 var AddOnID = addOns?.FirstOrDefault(a => a.ProductID == addOnId.Value);
                 if (AddOnID != null)
                 {
-                    invoiceItems.Add(new InvoiceItem { Product = AddOnID, AantalProduct = quantity });
+                    orderItems.Add(new OrderItem { Product = AddOnID, AantalProduct = quantity });
                 }
             }
             tempProductQuantities[product.ProductID] = 0; // Reset temporary quantity after adding to invoice
@@ -279,22 +325,22 @@
     }
 
     // Function to increase the quantity of an item
-    void IncreaseAantalProduct(InvoiceItem invoiceItem)
+    void IncreaseAantalProduct(OrderItem OrderItem)
     {
-        invoiceItem.AantalProduct++;
+        OrderItem.AantalProduct++;
         UpdateTotal();
     }
 
     // Function to decrease the quantity of an item
-    void DecreaseAantalProduct(InvoiceItem invoiceItem)
+    void DecreaseAantalProduct(OrderItem OrderItem)
     {
-        if (invoiceItem.AantalProduct > 1)
+        if (OrderItem.AantalProduct > 1)
         {
-            invoiceItem.AantalProduct--;
+            OrderItem.AantalProduct--;
         }
         else
         {
-            invoiceItems.Remove(invoiceItem);
+            orderItems.Remove(OrderItem);
         }
         UpdateTotal();
     }
@@ -302,7 +348,7 @@
     // Function to update the totals
     void UpdateTotal()
     {
-        subTotal = decimal.Round(invoiceItems.Sum(i => i.Product?.ProductPrijs * i.AantalProduct) ?? 0, 2);
+        subTotal = decimal.Round(orderItems.Sum(i => i.Product?.ProductPrijs * i.AantalProduct) ?? 0, 2);
         tax = decimal.Round(subTotal * 0.09M, 2);
         total = decimal.Round(subTotal + tax, 2);
     }
@@ -311,11 +357,32 @@
     {
         try
         {
-            await orderService.PlaceOrderAsync(invoiceItems);
+            // if (tableId == 0)
+            // {
+            //     Console.WriteLine("Please select a table before placing the order.");
+            //     return;
+            // }
+            // Controleer of er een lopende bestelling is voor de huidige TafelID
+            var lopendeBestellingId = await orderService.CheckLopendeBestellingVoorTafelID(selectedTable);
+
+            if (lopendeBestellingId != null && lopendeBestellingId > 0)
+            {
+                // Als er een lopende bestelling is, voeg een bestelronde toe
+                await orderService.AddBestelrondeToBestellingAsync(selectedTable, (int)lopendeBestellingId, orderItems);
+                Console.WriteLine($"Bestelronde toegevoegd aan lopende bestelling met ID: {lopendeBestellingId}");
+            }
+            else
+            {
+                // Als er geen lopende bestelling is, plaats een nieuwe bestelling
+                var result = await orderService.PlaceOrderAsync(selectedTable, orderItems);
+            }
+
+            navigationManager.NavigateTo("/ordersuccess");
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error placing order: {ex.Message}");
         }
     }
+   
 }
