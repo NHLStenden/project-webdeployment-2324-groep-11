@@ -82,24 +82,26 @@ h3, h4 {
     margin: 10px;
     padding: 15px;
     width: 100%;
-    max-width: 335px;
+    max-width: 330px;
     background-color: #27333f;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 100%;
     row-gap: 10px;
+    justify-content: space-between;
 }
 
 .btns-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin: 10px 0;
     padding: 10px;
-    flex-direction: row;
-    height: 70px;
+    flex-direction: column;
+    width: 100%;
     flex: 0 0 auto;
+    gap: 10px;
+    height: 70px;
+    max-height: 70px;
 }
 
 .cancel-btn {
@@ -111,7 +113,7 @@ h3, h4 {
     padding: 5px 10px;
     font-size: 14px;
     height: 80%;
-    width: 100px;
+    width: 100%;
 }
 
 .cancel-btn:hover {
@@ -123,7 +125,11 @@ h3, h4 {
     transition: all ease-in-out 0.2s;
 }
 
-
+.cancel-btn.disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
 
 .serve-btn {
     color: darkgreen;
@@ -134,7 +140,7 @@ h3, h4 {
     padding: 5px 10px;
     font-size: 14px;
     height: 80%;
-    width: 100px;
+    width: 100%;
 }
 
 .serve-btn:hover {
@@ -146,10 +152,19 @@ h3, h4 {
     transition: all ease-in-out 0.2s;
 }
 
+.serve-btn.disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
 
 .orders-section {
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     border-radius: 10px;
+    flex-direction: column;
     background-color: #1a1f26;
     margin-bottom: 20px;
     width: 100%;
@@ -168,12 +183,12 @@ h3, h4 {
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: center;
     align-content: center;
-    margin: 1em;
     flex-direction: row;
     gap: 10px;
     padding: 10px;
+    width: 100%;
 
 }
 
@@ -192,6 +207,7 @@ h3, h4 {
 .orders-card .product-list-wrapper {
     list-style-type: none;
     padding: 0;
+    max-height: 300px;
 }
 
 .orders-card .product-list-wrapper li {
@@ -232,10 +248,67 @@ h3, h4 {
     flex-direction: row;
     color: #fff;
     border-bottom: 1px solid #fff;
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
 }
 
 
-.checkbox-round {
+.product-button {
+    background: none;
+    border: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: all ease-in-out 0.4s;
+}
+
+.tick-icon {
+    color: #ff6f00;
+    font-size: 1.3em;
+    z-index: 2;
+}
+
+.circle-icon {
+    font-size: 1.3em;
+    
+}
+
+.timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    flex-direction: row;
+}
+
+.timer-container i {
+
+    font-size: clamp(1.2rem, 2.5vw, 1.3rem) !important;
+    margin: auto 0.3rem;
+    color: #fff;
+
+
+}
+
+.elapsed-time {
+    font-size: clamp(0.8rem, 2.5vw, 1.0rem);
+    color: #fff;
+    margin: auto 0;
+}
+
+.elapsed-time-short {
+    color: green !important;
+}
+
+.elapsed-time-medium {
+    color: orange !important;
+}
+
+.elapsed-time-long {
+    color: red !important;
+}
+
+/*.checkbox-round {
     width: 1.3em;
     height: 1.3em;
     background-color: #fff;
@@ -248,42 +321,64 @@ h3, h4 {
     display: inline-block;
     position: relative;
     user-select: none;
+    visibility: hidden;
 }
-
+*/
 
 /* Styles for the checked state */
-.checkbox-round:checked {
-    background-color: #ff6f00; /* Change to your desired color */
+/*.checkbox-round:checked {
+    background-color: #ff6f00;
     border: 1px solid #ff6f00;
 }
-
+*/
 /* Styles for the tick mark */
-.checkbox-round:checked::after {
+/*.checkbox-round:checked::after {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     width: 0.6em;
     height: 0.6em;
-    background-color: white; /* Color of the tick */
-    transform: translate(-58%, -58%) rotate(-10deg);
+    background-color: white;*/ /* Color of the tick */
+    /*transform: translate(-58%, -58%) rotate(-10deg);
     clip-path: polygon(14% 44%, 0% 58%, 50% 100%, 100% 41%, 86% 28%, 44% 72%);
     user-select: none;
     
+}*/
+
+@keyframes strike {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
 }
 
-
-/* Completed Product Styles */
 .completed-product {
+    position: relative;
     color: #bab9b9 !important;
-    text-decoration: line-through;
-    transition: background-color 0.3s ease;
 }
 
-/* Completed Order Styles */
-.completed-order {
-    color: #bbb;
-    transition: background-color 0.3s ease;
+
+.completed-product::after {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    max-width: 85%;
+    height: 1px;
+    background: #bab9b9;
+    animation-name: strike;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.completed-product, .cancelled-order {
+    color: #bab9b9 !important; /* Example color for completed product */
 }
 
 .status_pending, .status_in-progress, .status_completed, .status_served, .status_cancelled {
@@ -292,10 +387,11 @@ h3, h4 {
     align-items: center;
     height: 20px;
     width: 100%;
-    padding: 2px;
+    max-width: 60px;
+    padding: 2px 4px;
     border-radius: 5px;
-    font-size: 0.7em;
-    margin-bottom: 0;
+    font-size: clamp(1px, 2.5vw, 0.7rem);
+    margin: 0.4rem 0;
 }
 
 .status_pending {
@@ -323,47 +419,79 @@ h3, h4 {
     background-color: #FDEDEC;
 }
 
+.order-details-wrapper {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+}
+
 .todo-title-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
     flex-direction: row;
     background-color: #275365;
     border-radius: 5px;
     height: 70px;
     flex: 0 0 auto;
+    gap: 4px;
 }
 
 .todo-title-wrapper .table-number {
-    font-size: 1.4em;
+    font-size:  clamp(1rem, 2.5vw, 1.4rem);
     font-weight: bold;
     margin: 0 0 2px 0;
     
 }
 
 .todo-title-wrapper .order-id {
-    font-size: 1.2em;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     font-weight: bold;
-    margin: auto 2rem;
+    margin-top: 1px ;
+
 }
 
 
 .todo-table-status-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
-    margin: auto 1rem;
+    margin-left: 1rem;
     height: 100%;
+    width: 100%;
 }
 
 
 @media (min-width: 1100px) {
 
+    .orders-section {
+        padding: 20px;
+        align-content: start !important;
+    }
+
+
     .order-count-cards {
         gap: 5rem;
         flex-direction: row;
+    }
+    .btns-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .status_pending, .status_in-progress, .status_completed, .status_served, .status_cancelled {
+        height: 24px;
+        margin: 0.1rem 0;
+    }
+
+    .orders-container {
+        align-content: start;
+        justify-content: left;
     }
 
 }
@@ -379,6 +507,21 @@ h3, h4 {
         margin: 2rem 0;
     }
 
+    .status_pending, .status_in-progress, .status_completed, .status_served, .status_cancelled {
 
+        max-width: 100px;
+    }
+
+    .todo-table-status-container {
+        margin: 1rem
+    }
+
+}
+
+@media (min-width: 374px) {
+
+    .status_pending, .status_in-progress, .status_completed, .status_served, .status_cancelled {
+        max-width: 100px;
+    }
 
 }
