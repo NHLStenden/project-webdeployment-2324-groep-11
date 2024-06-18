@@ -6,94 +6,126 @@
 
 <PageTitle>Home</PageTitle>
 
-
-
-@RenderOrdersSection("Completed Orders", completedOrders)
-
-<br />
-<br />
-
-
-<section>
-    <div class="container-fluid card card-colour" style="padding:25px">
-        <!--Dit is de Welcome gedeelte-->
-        <div class="row">
-            <div class="col-sm-6 align-top text-center">
-                <h1 class="card-body card-colour"><b class="text-colour">Welcome to <div style="color: #ee7721">Brandstof Cafe</div></b></h1>
-            </div>
-            <!--Hier komt een afbeelding-->
-            <div class="col-sm-6">
-                <img src="#" class="img-rounded card-body text-colour card_colour" alt="Brandstof Thumbnail" />
-            </div>
-        </div>
-        <br />
-
-        <div class="col-md-6">
-            <p class="text-center text-colour"><b>Check out our menu and place your order directly</b></p>
-        </div>
-        <br />
-
-        <!--Order en Menu knoppen-->
-        <div class="row-cols-4">
-            <div class="text-center col-6 text-colour">
-                <button class="btn generic-button">Order</button>
-
-                <button class="btn generic-button" @onclick="ToMenu">Menu</button>
-            </div>
-        </div>
-        <br />
-        <!--2de gedeelte van de eerste card-->
-        <div class="row text-center text-colour">
-            <h2><b>Order quickly and easily</b></h2>
-            <br />
-            <h12><b>Follow these simple steps to place your order</b></h12>
-        </div>
-        <br />
-
-        <!--Order uitleg cards-->
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-3">
-                    <div class="card h-100 card-padding card-colour" style="background-color: #26333f">
-                        <h3 class="text-start Text-padding " style="color: #ee7721">1</h3>
-                        <h5 class="text-start "><b style=" color:white">Enter your table number</b></h5>
-                        <br />
-                        <p class="text-start " style="font-size:small; color:white">First enter your table number</p>
-                        <br />
-                        <p class="text-start " style="font-size:small; color:white" @onclick="ToMenu"><a href="#">Order Now  ></a></p>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card h-100 card-padding card-colour " style="background-color: #26333f" >
-                        <h3 class="text-start Text-padding text-colour" style="color: #ee7721">2</h3>
-                        <h5 class="text-start text-colour"><b style="color:white">Select a product and extra options</b></h5>
-                        <br />
-                        <p class="text-start text-colour" style="font-size:small; color:white">Select your product and any addons, place your order in the shopping cart</p>
-                        <br />
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card h-100 card-padding card-colour" style="background-color: #26333f">
-                        <div class="d-flex flex-row">
-                            <img src="#" class="rounded text-colour col-6" alt="Step 3 image" />
-                            <div class="col-6">
-                                <h3 class="text-start Text-padding text-colour" style="color: #ee7721">3</h3>
-                                <h5 class="text-start text-colour" style=" color:white"><b>Confirm, pay and wait for your order</b></h5>
-                                <br />
-                                <p class="text-start text-colour" style="font-size:small; color:white">
-                                    You're almost there! Just make the payment,
-                                    and we'll bring your food to you as soon as it's ready. You will also receive an email with the confirmation
-                                </p>
-                                <br />
-                            </div>
+<div class="fixed-container">
+    <h3>Ready</h3>
+    @if (completedOrders != null && completedOrders.Any())
+    {
+        <div class="orders-container">
+            @foreach (var order in completedOrders)
+            {
+                <div class="orders-card" key="@order.BestelrondeID">
+                    <div class="todo-title-wrapper">
+                        <div class="todo-table-status-container">
+                            <h4 class="table-number">Table @order.TafelID</h4>
+                            <h5 class="status-text @GetOrderStatusClass(order.StatusBestelling)">
+                                @order.StatusBestelling @(":") @GetCompletionPercentage(order)%
+                            </h5>
+                        </div>
+                        <div class="order-details-wrapper">
+                            <h4 class="order-id">#@order.BestelrondeID</h4>
                         </div>
                     </div>
+                    @if (order.Products != null && order.Products.Any())
+                    {
+                        <ul class="product-list-title-wrapper">
+                            <li class="product-list-title">Amt</li>
+                            <li class="product-list-title">Product</li>
+                            <li class="product-list-title">Status</li>
+                        </ul>
+                        <ul class="product-list-wrapper">
+                            @foreach (var product in order.Products)
+                            {
+                                <li class="@GetProductClass(product)" key="@($"{order.BestelrondeID}-{product.ProductID}")">
+                                    <span>@product.AantalProduct @("x")</span>
+                                    @product.ProductNaam
+                                    @if (product.StatusBesteldeProduct == "Ready")
+                                    {
+                                        <i class="bi bi-check-circle-fill tick-icon"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="bi bi-circle-fill circle-icon"></i>
+                                    }
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p>No products found for this order.</p>
+                    }
+                    <div class="btns-container">
+                        <button class="cancel-btn @(order.StatusBestelling != "Pending" ? "disabled" : "")" @onclick="() => OnCancelOrder(order)" disabled="@(order.StatusBestelling != "Pending")">Cancel</button>
+                        <button class="serve-btn @(order.StatusBestelling != "Ready" ? "disabled" : "")" @onclick="() => OnServeOrder(order)" disabled="@(order.StatusBestelling != "Ready")">Serve</button>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No completed orders available.</p>
+    }
+</div>
+
+<br />
+<br />
+
+<section class="main-section">
+    <div class="container-fluid card">
+        <!-- Welcome Section -->
+        <div class="main-section-wrapper">
+            <div class="col-md-6 main-section-contaioner">
+                <h1 class="main-section-title-text">Welcome to <span style="color: #ee7721">Brandstof Cafe</span></h1>
+            </div>
+        </div>
+        <div class="main-section-text-btns">
+            <div class="main-section-subtitle">
+                <p class="">Check out our menu and help customers please the order easily</p>
+            </div>
+
+            <!-- Order and Menu Buttons -->
+            <div class="main-section-btns-container">
+                <button class="main-section-btn">Order</button>
+                <button class="main-section-btn" @onclick="ToMenu">Menu</button>
+            </div>
+
+            <!-- Order Instructions -->
+            <div class="main-section-text">
+                <h2><b>Order quickly and easily</b></h2>
+                <h5><b>Follow these simple steps to place the order</b></h5>
+            </div>
+        </div>
+        
+        
+
+        <!-- Order Steps -->
+        <div class="info-cards-wrapper">
+            <div class="info-cards-container">
+                <div class="col-md-4">
+                    <div class="info-cards-card">
+                        <h3 class="text-start" style="color: #ee7721">1</h3>
+                        <h5 class="text-start" style="color:white"><b>Go to the Menu</b></h5>
+                        <p class="text-start" style="font-size:small; color:white">Check out our best dishes!</p>
+                        <p class="text-start" style="font-size:small; color:white" @onclick="ToMenu"><a href="#">Order Now ></a></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-cards-card">
+                        <h3 class="text-start" style="color: #ee7721">2</h3>
+                        <h5 class="text-start" style="color:white"><b>Select a product and extra options</b></h5>
+                        <p class="text-start" style="font-size:small; color:white">Select your product and any addons, place your order in the shopping cart</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-cards-card">
+                        <h3 class="text-start" style="color: #ee7721">3</h3>
+                        <h5 class="text-start" style="color:white"><b>Select a table, confirm, pay and wait for your order</b></h5>
+                        <p class="text-start" style="font-size:small; color:white">You're almost there! Just select the table, make the payment, and we'll bring your food to you as soon as it's ready. You will also receive an email with the confirmation</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <br />
         <br />
     </div>
 </section>
@@ -101,101 +133,42 @@
 <br />
 <br />
 
-<!--your last order, deals and popular products zijn hier onder allemaal te vinden-->
-<section>
-    <div class="container ">
-        <div class="row justify-content-center text-center">
+<!-- Last Orders, Deals and Popular Products -->
+<section class="bottom-section">
+    <div class="bottom-section-wrapper">
+        <div class="bottom-section-container">
             <div class="col-md-4">
-                <div class="card card-padding card-maxheigh card-colour">
-                    <h6 class="Text-padding text-colour"><b>Your Last Orders</b></h6>
-
-                    <div class="row justify-content-center text-colour" style="font-size:smaller">
-
-                        <p class="col-4">Order ID</p>
-                        <p class="col-4">Tijd</p>
-                        <p class="col-4">Status</p>
-                        @* <p class="col-3">Prijs</p> *@
-                        <div class="row">
-                            <div class="card col-12 justify-content-center"></div>
-                        </div>
-                        
-                        
-                        <div><br/></div>
-                            @foreach (var item in ProgressBestellingen)
-                            {
-
-                                <p class="col-4">@item.BestellingID#</p>
-                                <p class="col-4">@item.CreationTime</p>
-                                <p class="@GetStatusColorClass(item.StatusBestelling) col-4">@item.StatusBestelling</p>
-                              //  <p class="col-3">€@item.TotaalPrijs</p>
-                                <br />
-
-                            }
-
-
-                            @foreach (var item in PendingBestellingen)
-                            {
-
-                                <p class="col-4">@item.BestellingID#</p>
-                                <p class="col-4">@item.CreationTime</p>
-                                <p class="@GetStatusColorClass(item.StatusBestelling) col-4">@item.StatusBestelling</p>
-                                //<p class="col-3">€@item.TotaalPrijs</p>
-                                <br />
-
-                            }
-
-
-                            @foreach (var item in CompleteBestellingen)
-                            {
-                       
-                                <p class="col-4" >@item.BestellingID#</p>
-                                <p class="col-4">@item.TijdBestelling</p>
-                                <p class="@GetStatusColorClass(item.StatusBestelling) col-4">@item.StatusBestelling</p>
-                               // <p class="col-3">€@item.TotaalPrijs</p>
-                                <br />
-
-                            }
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="card h-100 card-padding card-colour">
-                    <h6 class="Text-padding text-colour"><b>Deals</b></h6>
+                <div class="bottom-section-card">
+                    <h6 class=""><b>Deals</b></h6>
                     <br />
                     <div class="d-flex flex-row">
                         <div class="col-md-6">
-                            <h5 class="text-center text-colour">Cold Coffee</h5>
-                            <br />
-                            <p class="text-center text-colour" style="font-size:small">Chilled coffee served over ice, sweetened and creamy</p>
-                            <div class="text-center">
-                                <button class="btn generic-button" style="">More info</button>
-                                <button class="btn generic-button" style="" @onclick="ToMenu">Order</button>
-                            </div>
-                            <br />
-                        </div>
-                        <img src="#" class="rounded text-colour col-md-6" alt="Step 3 image" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="card h-100 card-padding card-colour">
-                    <h6 class="Text-padding text-colour"><b>Popular Products</b></h6>
-                    <br />
-                    <div class="d-flex flex-row">
-                        <div class="col-md-6">
-                            <h5 class="text-center text-colour">Espresso</h5>
-                            <br />
-                            <p class="text-center text-colour" style="font-size:small">Strong Italian coffee, base for drinks like lattes</p>
+                            <h5 class="text-center ">Cold Coffee</h5>
+                            <p class="text-center " style="font-size:small">Chilled coffee served over ice, sweetened and creamy</p>
                             <div class="text-center">
                                 <button class="btn generic-button">More info</button>
                                 <button class="btn generic-button" @onclick="ToMenu">Order</button>
                             </div>
-                            <br />
                         </div>
-                        <img src="#" class="rounded text-colour col-md-6" alt="Step 3 image" />
+                        <img src="#" class="rounded col-md-6" alt="Step 3 image" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="bottom-section-card">
+                    <h6 class=""><b>Popular Products</b></h6>
+                    <br />
+                    <div class="d-flex flex-row">
+                        <div class="col-md-6">
+                            <h5 class="text-center">Espresso</h5>
+                            <p class="text-center" style="font-size:small">Strong Italian coffee, base for drinks like lattes</p>
+                            <div class="text-center">
+                                <button class="btn generic-button">More info</button>
+                                <button class="btn generic-button" @onclick="ToMenu">Order</button>
+                            </div>
+                        </div>
+                        <img src="#" class="rounded col-md-6" alt="Step 3 image" />
                     </div>
                 </div>
             </div>
@@ -212,250 +185,26 @@
     private List<Bestelling> CompleteBestellingen = new List<Bestelling>();
     private List<OrderWithProducts> PendingBestellingen = new List<OrderWithProducts>();
     private List<OrderWithProducts> ProgressBestellingen = new List<OrderWithProducts>();
-    private List<OrderWithProducts> orders = new List<OrderWithProducts>();
-
-
-    private List<OrderWithProducts> pendingAndInProgressOrders = new List<OrderWithProducts>();
     private List<OrderWithProducts> completedOrders = new List<OrderWithProducts>();
-    private List<OrderWithProducts> servedOrders = new List<OrderWithProducts>();
-    private List<OrderWithProducts> cancelledOrders = new List<OrderWithProducts>();
-
-    private int pendingCount;
-    private int inProgressCount;
-    private int completedCount;
-
-    public void ToMenu()
-    {
-        NavigationManager.NavigateTo("/menu");
-    }
-
 
     protected override async Task OnInitializedAsync()
     {
         CompleteBestellingen = (await EmployeeService.GetOrderHistoryAsync()).ToList();
         PendingBestellingen = (await EmployeeService.GetOrdersByStatusAsync("Pending")).ToList();
         ProgressBestellingen = (await EmployeeService.GetOrdersByStatusAsync("In Progress")).ToList();
-        await LoadOrdersByStatus();
-    }
+        completedOrders = (await EmployeeService.GetOrdersByStatusAsync("Ready")).ToList();
 
-
-    string GetStatusColorClass(string ?status)
-    {
-        switch (status)
+        // Fetch products for each order in completedOrders
+        foreach (var order in completedOrders)
         {
-            case "Pending":
-                return "Status-Pending";
-            case "In Progress":
-                return "Status-Progress";
-            case "Completed":
-                return "Status-Completed";
-            case "Served":
-                return "Status-Served";
-            default:
-                return "text-muted";
+            var products = await EmployeeService.GetProductsForBestelrondeAsync(order.BestelrondeID);
+            order.Products = products.ToList();
         }
     }
 
-
-
-
-    private async Task LoadOrdersByStatus()
+    public void ToMenu()
     {
-        pendingAndInProgressOrders.Clear();
-        completedOrders.Clear();
-        servedOrders.Clear();
-        cancelledOrders.Clear();
-
-        var statuses = new[]
-    {
-                new { Status = "Pending", List = pendingAndInProgressOrders },
-                new { Status = "In Progress", List = pendingAndInProgressOrders },
-                new { Status = "Completed", List = completedOrders },
-                new { Status = "Served", List = servedOrders },
-                new { Status = "Cancelled", List = cancelledOrders }
-            };
-
-        pendingCount = 0; inProgressCount = 0; completedCount = 0;
-
-        foreach (var status in statuses)
-        {
-            var orders = await EmployeeService.GetOrdersByStatusAsync(status.Status);
-
-            foreach (var order in orders)
-            {
-                var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
-                var orderWithProducts = new OrderWithProducts
-                        {
-                            BestellingID = order.BestellingID,
-                            TafelID = order.TafelID,
-                            Products = products.ToList(),
-                            StatusBestelling = order.StatusBestelling
-                        };
-
-                status.List.Add(orderWithProducts);
-
-                // Update the counts
-                switch (order.StatusBestelling)
-                {
-                    case "Pending":
-                        pendingCount++;
-                        break;
-                    case "In Progress":
-                        inProgressCount++;
-                        break;
-                    case "Completed":
-                        completedCount++;
-                        break;
-                }
-            }
-        }
-
-        // Sort pendingAndInProgressOrders to show Pending orders first, then In Progress
-        pendingAndInProgressOrders = pendingAndInProgressOrders
-        .OrderByDescending(o => o.StatusBestelling == "Pending")
-        .ThenByDescending(o => o.BestellingID)
-        .ToList();
-
-        StateHasChanged();
-    }
-
-
-    private RenderFragment RenderOrdersSection(string title, List<OrderWithProducts> orders) =>
-    @<div class="orders-section">
-        <h3>@title</h3>
-
-        <div class="orders-container">
-            @foreach (var order in orders)
-        {
-            <div class="orders-card @GetOrderClass(order)" key="@order.BestellingID">
-                <div class="todo-title-wrapper">
-                    <div class="todo-table-status-container">
-                        <h4 class="table-number">Table @order.TafelID</h4>
-                        <h5 class="status-text @GetOrderStatusClass(order.StatusBestelling)">@order.StatusBestelling@(":") @GetCompletionPercentage(order)%</h5>
-                    </div>
-                    <div>
-                        <h4 class="order-id">#@order.BestellingID</h4>
-                    </div>
-                </div>
-                <ul class="product-list-title-wrapper">
-                    <li class="product-list-title">Amt</li>
-                    <li class="product-list-title">Product</li>
-                    <li class="product-list-title">Status</li>
-                </ul>
-                <ul class="product-list-wrapper">
-                    @foreach (var product in order.Products)
-                {
-
-                    <li class="@GetProductClass(product)" key="@product.ProductID">
-                        <span>@product.AantalProduct@("x")</span>
-                        @product.ProductNaam
-                        <input class="checkbox-round" type="checkbox"
-                               checked="@GetProductStatus(product)"
-                               @onchange="@(e => OnProductStatusChanged(e, order, product))" />
-                    </li>
-                }
-                </ul>
-                <div class="btns-container">
-                    <button class="cancel-btn" @onclick="() => OnCancelOrder(order)">Cancel</button>
-                    <button class="serve-btn" @onclick="() => OnServeOrder(order)">Serve</button>
-                </div>
-            </div>
-        }
-        </div>
-    </div>;
-
-
-    // Method to determine the current status of the product.
-    private bool GetProductStatus(ProductPerBestelronde product)
-    {
-        return product.StatusBesteldeProduct == "Completed";
-    }
-
-    // Method to handle the checkbox change event.
-    private async Task OnProductStatusChanged(ChangeEventArgs e, OrderWithProducts order, ProductPerBestelronde product)
-    {
-        if ((bool)e.Value)
-        {
-            await CompleteTask(order, product);
-        }
-        else
-        {
-            await UncompleteTask(order, product);
-        }
-    }
-
-    // This method is called when a product is marked as complete.
-    private async Task CompleteTask(OrderWithProducts order, ProductPerBestelronde product)
-    {
-        Console.WriteLine($"Completing task for product {product.ProductID} in order {order.BestellingID}");
-
-        // Update the product status in the Product_per_Bestelronde table to "Completed".
-        await EmployeeService.UpdateProductStatusAsync(product.ProductID, product.BestelrondeID, "Completed");
-
-        // Update the local status of the product to "Completed".
-        product.StatusBesteldeProduct = "Completed";
-
-        // Check if all products in the order are completed by querying the database.
-        var allProductsCompleted = await EmployeeService.AreAllProductsCompletedAsync(order.BestellingID);
-        Console.WriteLine($"All products completed: {allProductsCompleted}");
-        // If all products are completed, update the order status to "Completed".
-        order.StatusBestelling = allProductsCompleted ? "Completed" : "In Progress";
-        await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, order.StatusBestelling);
-
-        // Refresh the component to show the updated state.
-        await LoadOrdersByStatus();
-
-    }
-
-    private async Task UncompleteTask(OrderWithProducts order, ProductPerBestelronde product)
-    {
-        Console.WriteLine($"Uncompleting task for product {product.ProductID} in order {order.BestellingID}");
-
-        // Update the product status in the Product_per_Bestelronde table to its previous state (e.g., "Pending").
-        await EmployeeService.UpdateProductStatusAsync(product.ProductID, product.BestelrondeID, "Pending");
-
-        // Update the local status of the product to "Pending".
-        product.StatusBesteldeProduct = "Pending";
-
-        // Check if all products in the order are completed by querying the database.
-        var allProductsCompleted = await EmployeeService.AreAllProductsCompletedAsync(order.BestellingID);
-        Console.WriteLine($"All products completed: {allProductsCompleted}");
-        // If all products are completed, update the order status to "Completed".
-        order.StatusBestelling = allProductsCompleted ? "Completed" : "In Progress";
-        await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, order.StatusBestelling);
-
-        // Refresh the component to show the updated state.
-        await LoadOrdersByStatus();
-
-    }
-
-    private async Task OnCancelOrder(OrderWithProducts order)
-    {
-        Console.WriteLine($"Cancelling order {order.BestellingID}");
-        await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, "Cancelled");
-        await LoadOrdersByStatus();
-    }
-
-    private async Task OnServeOrder(OrderWithProducts order)
-    {
-        Console.WriteLine($"Serving order {order.BestellingID}");
-        await EmployeeService.UpdateOrderStatusAsync(order.BestellingID, "Served");
-        await LoadOrdersByStatus();
-    }
-
-
-    // The GetProductClass and GetOrderClass methods are used to determine the CSS class that should be applied to a product item in the UI based on its status.
-    // Specifically, they checks whether the product's status is "Completed" and returns the appropriate CSS class.
-    private string GetProductClass(ProductPerBestelronde product)
-    {
-        return product.StatusBesteldeProduct == "Completed" ? "completed-product" : string.Empty;
-    }
-
-    // This method returns the CSS class for an order based on its status.
-    private string GetOrderClass(OrderWithProducts order)
-    {
-        return order.StatusBestelling == "Completed" ? "completed-order" : string.Empty;
-
+        NavigationManager.NavigateTo("/menu");
     }
 
     private string GetOrderStatusClass(string status)
@@ -464,7 +213,20 @@
         {
             "Pending" => "status_pending",
             "In Progress" => "status_in-progress",
-            "Completed" => "status_completed",
+            "Ready" => "status_completed",
+            "Served" => "status_served",
+            "Cancelled" => "status_cancelled",
+            _ => string.Empty,
+        };
+    }
+
+    private string GetStatusColorClass(string status)
+    {
+        return status switch
+        {
+            "Pending" => "status_pending",
+            "In Progress" => "status_in-progress",
+            "Ready" => "status_completed",
             "Served" => "status_served",
             "Cancelled" => "status_cancelled",
             _ => string.Empty,
@@ -473,10 +235,71 @@
 
     private double GetCompletionPercentage(OrderWithProducts order)
     {
+        if (order.StatusBestelling == "Cancelled" || order.StatusBestelling == "Served")
+        {
+            return 100;
+        }
+
         if (order.Products == null || order.Products.Count == 0) return 0;
-        var completedProducts = order.Products.Count(p => p.StatusBesteldeProduct == "Completed");
-        return (completedProducts / (double)order.Products.Count) * 100;
+
+        var completedProducts = order.Products.Count(p => p.StatusBesteldeProduct == "Ready");
+        var percentage = (completedProducts / (double)order.Products.Count) * 100;
+        return Math.Round(percentage);
     }
 
+    private string GetElapsedTimeClass(OrderWithProducts order)
+    {
+        var elapsed = DateTime.Now - order.CreationTime;
 
+        if (elapsed.TotalMinutes < 15)
+        {
+            return "elapsed-time-short";
+        }
+        else if (elapsed.TotalMinutes < 35)
+        {
+            return "elapsed-time-medium";
+        }
+        else
+        {
+            return "elapsed-time-long";
+        }
+    }
+
+    private string GetElapsedTimeText(OrderWithProducts order)
+    {
+        var elapsed = DateTime.Now - order.CreationTime;
+        int totalMinutes = (int)elapsed.TotalMinutes;
+        return $"{totalMinutes} min";
+    }
+
+    private string GetProductClass(ProductPerBestelronde product)
+    {
+        return product.StatusBesteldeProduct == "Served" || product.StatusBesteldeProduct == "Ready" || product.StatusBesteldeProduct == "Cancelled" ? "completed-product" : string.Empty;
+    }
+
+    private async Task OnCancelOrder(OrderWithProducts order)
+    {
+        await EmployeeService.UpdateOrderStatusAsync(order.BestelrondeID, "Cancelled");
+        await RefreshCompletedOrders();
+    }
+
+    private async Task OnServeOrder(OrderWithProducts order)
+    {
+        await EmployeeService.UpdateOrderStatusAsync(order.BestelrondeID, "Served");
+        await RefreshCompletedOrders();
+    }
+
+    private async Task RefreshCompletedOrders()
+    {
+        completedOrders = (await EmployeeService.GetOrdersByStatusAsync("Ready")).ToList();
+
+        // Fetch products for each order in completedOrders
+        foreach (var order in completedOrders)
+        {
+            var products = await EmployeeService.GetProductsForBestelrondeAsync(order.BestelrondeID);
+            order.Products = products.ToList();
+        }
+
+        StateHasChanged();
+    }
 }

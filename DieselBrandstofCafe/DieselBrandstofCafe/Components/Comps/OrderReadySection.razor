@@ -1,0 +1,147 @@
+﻿@using DieselBrandstofCafe.Components.Data
+@using DieselBrandstofCafe.Components.Models
+@inject IEmployeeService EmployeeService
+
+<div class="orders-section">
+    <h3>@Title</h3>
+    <div class="orders-container">
+        @foreach (var order in ReadyOrders)
+        {
+            <div class="orders-card" key="@order.BestelrondeID">
+                <div class="todo-title-wrapper">
+                    <div class="todo-table-status-container">
+                        <h4 class="table-number">Table @order.TafelID</h4>
+                        <h5 class="status-text @GetOrderStatusClass(order.StatusBestelling)">
+                            @order.StatusBestelling @(":") @GetCompletionPercentage(order)%
+                        </h5>
+                    </div>
+                    <div class="order-details-wrapper">
+                        <h4 class="order-id">#@order.BestelrondeID</h4>
+                        @if (order.StatusBestelling == "Pending" || order.StatusBestelling == "In Progress")
+                        {
+                            <div class="timer-container">
+                                <i class="bi bi-clock-history @GetElapsedTimeClass(order)" />
+                                <h5 class="elapsed-time @GetElapsedTimeClass(order)">@GetElapsedTimeText(order)</h5>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <ul class="product-list-title-wrapper">
+                    <li class="product-list-title">Amt</li>
+                    <li class="product-list-title">Product</li>
+                    <li class="product-list-title">Status</li>
+                </ul>
+                <ul class="product-list-wrapper">
+                    @foreach (var product in order.Products)
+                    {
+                        <li class="@GetProductClass(product)" key="@($"{order.BestelrondeID}-{product.ProductID}")">
+                            <span>@product.AantalProduct @("x")</span>
+                            @product.ProductNaam
+                            @if (product.StatusBesteldeProduct == "Ready")
+                            {
+                                <i class="bi bi-check-circle-fill tick-icon"></i>
+                            }
+                            else
+                            {
+                                <i class="bi bi-circle-fill circle-icon"></i>
+                            }
+                        </li>
+                    }
+                </ul>
+                <div class="btns-container">
+                    <button class="cancel-btn @(order.StatusBestelling != "Pending" ? "disabled" : "")" @onclick="() => OnCancelOrder(order)" disabled="@(order.StatusBestelling != "Pending")">Cancel</button>
+                    <button class="serve-btn @(order.StatusBestelling != "Ready" ? "disabled" : "")" @onclick="() => OnServeOrder(order)" disabled="@(order.StatusBestelling != "Ready")">Serve</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "Ready Orders";
+
+    private List<OrderWithProducts> ReadyOrders = new List<OrderWithProducts>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        ReadyOrders = (await EmployeeService.GetOrdersByStatusAsync("Ready")).ToList();
+    }
+
+    private string GetOrderStatusClass(string status)
+    {
+        return status switch
+        {
+            "Pending" => "status_pending",
+            "In Progress" => "status_in-progress",
+            "Ready" => "status_completed",
+            "Served" => "status_served",
+            "Cancelled" => "status_cancelled",
+            _ => string.Empty,
+        };
+    }
+
+    private double GetCompletionPercentage(OrderWithProducts order)
+    {
+        if (order.Products == null || order.Products.Count == 0) return 0;
+        var completedProducts = order.Products.Count(p => p.StatusBesteldeProduct == "Ready");
+        var percentage = (completedProducts / (double)order.Products.Count) * 100;
+        return Math.Round(percentage);
+    }
+
+    private string GetElapsedTimeText(OrderWithProducts order)
+    {
+        var elapsed = DateTime.Now - order.CreationTime;
+        int totalMinutes = (int)elapsed.TotalMinutes;
+        return $"{totalMinutes} min";
+    }
+
+    private string GetElapsedTimeClass(OrderWithProducts order)
+    {
+        var elapsed = DateTime.Now - order.CreationTime;
+
+        if (elapsed.TotalMinutes < 15)
+        {
+            return "elapsed-time-short";
+        }
+        else if (elapsed.TotalMinutes < 35)
+        {
+            return "elapsed-time-medium";
+        }
+        else
+        {
+            return "elapsed-time-long";
+        }
+    }
+
+    private string GetProductClass(ProductPerBestelronde product)
+    {
+        return product.StatusBesteldeProduct == "Ready" || product.StatusBesteldeProduct == "Served" || product.StatusBesteldeProduct == "Cancelled" ? "completed-product" : string.Empty;
+    }
+
+    private async Task OnCancelOrder(OrderWithProducts order)
+    {
+        foreach (var product in order.Products)
+        {
+            await EmployeeService.CompleteTaskAndUpdateProductStatusAsync(order.BestelrondeID, product.ProductID, "Cancelled");
+        }
+
+        await EmployeeService.UpdateOrderStatusAsync(order.BestelrondeID, "Cancelled");
+        order.StatusBestelling = "Cancelled";
+        ReadyOrders = (await EmployeeService.GetOrdersByStatusAsync("Ready")).ToList();
+        StateHasChanged();
+    }
+
+    private async Task OnServeOrder(OrderWithProducts order)
+    {
+        foreach (var product in order.Products)
+        {
+            await EmployeeService.CompleteTaskAndUpdateProductStatusAsync(order.BestelrondeID, product.ProductID, "Served");
+        }
+
+        await EmployeeService.UpdateOrderStatusAsync(order.BestelrondeID, "Served");
+        order.StatusBestelling = "Served";
+        ReadyOrders = (await EmployeeService.GetOrdersByStatusAsync("Ready")).ToList();
+        StateHasChanged();
+    }
+}

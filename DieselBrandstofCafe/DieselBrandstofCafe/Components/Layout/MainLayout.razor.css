@@ -14,7 +14,8 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 100svh; /* Ensure the page takes up the full viewport height */
-    overflow-x: hidden; 
+    overflow-x: hidden;
+    flex: 1;
 }
 
 .main-content {
@@ -30,9 +31,10 @@ html, body {
     width: 100%;
     max-width: 95%;
     justify-content: center;
-    align-content:center;
+    align-content: center;
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .sidebar {

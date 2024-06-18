@@ -7,6 +7,7 @@
 .nav-scrollable .flex-column .nav-item .nav-link .active {
     color: #FF6F00;
     background-color: #FF6F00;
+
 }
 
 .top-row.ps-3.navbar-dark {
@@ -29,6 +30,7 @@
     color: #212529;
     border-radius: 10px;
     transition: background-color 0.3s ease;
+
 }
 
 .nav-item .nav-link:hover {
@@ -86,14 +88,17 @@
     font-weight: 550;
     padding-bottom: 0.4rem;
     margin: 0 2px;
-    
+    justify-content: center;
+    display: flex;
+
 }
 
 .nav-item nav-icon {
-    color: black;
     font-size: 1.25rem;
     align-content: center;
     align-items: center;
+    justify-content: center;
+
 }
 
 .nav-item:first-of-type {
@@ -114,6 +119,8 @@
     align-items: center;
     line-height: 3rem;
     width: 100%;
+    padding: 0 1.3rem;
+    font-size: 1em;
 }
 
 .nav-item ::deep a.active {
@@ -151,7 +158,13 @@
         /* Never collapse the sidebar for wide screens */
         display: block;
         /* Allow sidebar to scroll for tall menus */
-        height: calc(100vh - 3.5rem);
         overflow-y: auto;
+    }
+}
+
+
+@media (min-width: 740px) {
+    .nav-item ::deep .nav-link {
+        
     }
 }
