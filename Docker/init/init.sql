@@ -59,6 +59,7 @@ CREATE TABLE Bestelronde (
 );
 
 DROP TABLE IF EXISTS Product_per_Bestelronde;
+<<<<<<< HEAD
 
 CREATE TABLE Product_per_Bestelronde (
   ProductID INT NOT NULL,
@@ -68,6 +69,17 @@ CREATE TABLE Product_per_Bestelronde (
   StatusBesteldeProduct VARCHAR(24) NOT NULL,
   VerkoopDatumProduct DATETIME NOT NULL,
   PRIMARY KEY (ProductID, BestelrondeID)
+=======
+CREATE TABLE Product_per_Bestelronde
+(
+    ProductID INT NOT NULL,
+    BestelrondeID INT NOT NULL,
+    AantalProduct INT,
+    AantalBetaald INT,
+    StatusBesteldeProduct VARCHAR(24) NOT NULL,
+    VerkoopDatumProduct DATETIME NOT NULL,
+    PRIMARY KEY (ProductID, BestelrondeID)
+>>>>>>> b922b6dc8e6e02cb45a47db792681e94be414c84
 );
 
 DROP TABLE IF EXISTS Ober;
@@ -1136,6 +1148,7 @@ VALUES
   (2, 'Pending', NOW());
 
 -- Insert data into Product_per_Bestelronde
+<<<<<<< HEAD
 INSERT INTO
   Product_per_Bestelronde (
     ProductID,
@@ -1154,6 +1167,19 @@ VALUES
   (3, 3, 2, 2, 'Served', NOW()),
   (8, 4, 1, 1, 'Served', NOW()),
   (9, 4, 2, 2, 'Served', NOW());
+=======
+INSERT INTO Product_per_Bestelronde
+    (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct, VerkoopDatumProduct)
+VALUES
+    (1, 1, 2, 2, 'Pending', NOW()),
+    (4, 1, 1, 1, 'Pending', NOW()),
+    (7, 2, 3, 3, 'Pending', NOW()),
+    (10, 2, 1, 1, 'In Progress', NOW()),
+    (2, 3, 1, 1, 'Served', NOW()),
+    (3, 3, 2, 2, 'Served', NOW()),
+    (8, 4, 1, 1, 'Served', NOW()),
+    (9, 4, 2, 2, 'Served', NOW());
+>>>>>>> b922b6dc8e6e02cb45a47db792681e94be414c84
 
 -- Insert data into Tafel
 INSERT INTO

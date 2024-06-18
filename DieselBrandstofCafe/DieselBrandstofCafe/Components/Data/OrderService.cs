@@ -121,6 +121,48 @@ namespace DieselBrandstofCafe.Components.Data
 
                         // Knalt de transactie door
                         await transaction.CommitAsync();
+                    }
+                    catch
+                    {
+                        // Voor als die shit fout gaat jetoch
+                        await transaction.RollbackAsync();
+                        throw;
+                    }
+                }
+            }
+
+            return new OkResult();
+        }
+
+        public async Task<int> AddBestelrondeToBestellingAsync(int tableId, int bestellingId, List<OrderItem> orderItems)
+        {
+            var totalPrice = orderItems.Sum(item => item.Product?.ProductPrijs * item.AantalProduct);
+            var currentDateTime = DateTime.Now;
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                using (var transaction = await connection.BeginTransactionAsync())
+                {
+                    try
+                    {
+                        // Voegt de producten toe voor de bestelronde
+                        var bestelrondeId = await CreateBestelrondeAsync(connection, transaction, bestellingId, currentDateTime);
+                        if (bestelrondeId <= 0)
+                        {
+                            throw new Exception("Failed to create Bestelronde");
+                        }
+
+                        foreach (var item in orderItems)
+                        {
+                            await AddProductToBestelrondeAsync(connection, bestelrondeId, item, transaction);
+                        }
+
+                        // Update de totale prijs van de bestelling
+                        await UpdateBestellingTotalAsync(connection, bestellingId, totalPrice, transaction);
+
+                        // Knalt de transactie door
+                        await transaction.CommitAsync();
 
                         return bestellingId;
                     }
@@ -177,6 +219,9 @@ namespace DieselBrandstofCafe.Components.Data
             await connection.ExecuteAsync(query, parameters, transaction);
         }
 
+
+
+
         public async Task<IEnumerable<Models.Product>> GetAddOnsAsync()
         {
             using (var connection = new MySqlConnection(_connectionString))
@@ -208,4 +253,6 @@ namespace DieselBrandstofCafe.Components.Data
             return null; // Geen lopende bestelling gevonden
         }
     }
+
+
 }
