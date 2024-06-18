@@ -3,44 +3,72 @@
   "WorkspaceRootPath": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\data\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\data\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\pages\\employeedashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\pages\\employeedashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\pages\\employeedashboard.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\pages\\employeedashboard.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\data\\managerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\data\\managerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\models\\orderwithproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\models\\orderwithproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\data\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\data\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\models\\bestelling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\models\\bestelling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\pages\\menu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\pages\\menu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\models\\bestelling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\models\\bestelling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\models\\bestellingbestelronde.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\models\\bestellingbestelronde.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\pages\\employeedashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\pages\\employeedashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\data\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\data\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\models\\productperbestelronde.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\models\\productperbestelronde.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\models\\bestelronde.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\models\\bestelronde.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\pages\\employeedashboard.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\pages\\employeedashboard.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\models\\orderwithproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\models\\orderwithproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\comps\\confirmationdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\comps\\confirmationdialog.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\comps\\confirmationdialog.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\comps\\confirmationdialog.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\data\\managerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\data\\managerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|c:\\users\\yaned\\onedrive\\documents\\repo\u0027s\\project-webdeployment-2324-groep-11\\dieselbrandstofcafe\\dieselbrandstofcafe\\components\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{194CFC05-B23A-4888-B528-DE01587DB7E0}|DieselBrandstofCafe\\DieselBrandstofCafe.csproj|solutionrelative:dieselbrandstofcafe\\components\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 253,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,19 +90,111 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
+              "Title": "BestellingBestelronde.cs",
+              "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\BestellingBestelronde.cs",
+              "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Models\\BestellingBestelronde.cs",
+              "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\BestellingBestelronde.cs",
+              "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\BestellingBestelronde.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T01:21:11.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Menu.razor",
+              "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\Menu.razor",
+              "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Pages\\Menu.razor",
+              "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\Menu.razor",
+              "RelativeToolTip": "DieselBrandstofCafe\\Components\\Pages\\Menu.razor",
+              "ViewState": "AQIAAF4BAAAAAAAAAAAswHMBAABVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-17T23:03:23.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductPerBestelronde.cs",
+              "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\ProductPerBestelronde.cs",
+              "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Models\\ProductPerBestelronde.cs",
+              "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\ProductPerBestelronde.cs",
+              "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\ProductPerBestelronde.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T22:54:25.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\App.razor",
+              "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\App.razor",
+              "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\App.razor",
+              "RelativeToolTip": "DieselBrandstofCafe\\Components\\App.razor",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAvwBYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-17T22:22:33.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Program.cs",
+              "RelativeDocumentMoniker": "DieselBrandstofCafe\\Program.cs",
+              "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Program.cs",
+              "RelativeToolTip": "DieselBrandstofCafe\\Program.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T22:13:38.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ConfirmationDialog.razor.css",
+              "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Comps\\ConfirmationDialog.razor.css",
+              "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Comps\\ConfirmationDialog.razor.css",
+              "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Comps\\ConfirmationDialog.razor.css",
+              "RelativeToolTip": "DieselBrandstofCafe\\Components\\Comps\\ConfirmationDialog.razor.css",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAA4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-06-17T22:03:50.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ConfirmationDialog.razor",
+              "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Comps\\ConfirmationDialog.razor",
+              "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Comps\\ConfirmationDialog.razor",
+              "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Comps\\ConfirmationDialog.razor",
+              "RelativeToolTip": "DieselBrandstofCafe\\Components\\Comps\\ConfirmationDialog.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-17T22:03:07.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "OrderService.cs",
               "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Data\\OrderService.cs",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Data\\OrderService.cs",
               "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Data\\OrderService.cs",
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Data\\OrderService.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAewFYAAAAAAAAA",
+              "ViewState": "AQIAAHMAAAAAAAAAAAAswF8AAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T21:09:06.604Z"
+              "WhenOpened": "2024-06-17T21:09:06.604Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 15,
               "Title": "ManagerService.cs",
               "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Data\\ManagerService.cs",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Data\\ManagerService.cs",
@@ -82,35 +202,38 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Data\\ManagerService.cs",
               "ViewState": "AQIAADoBAAAAAAAAAAAswE4BAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T20:08:14.428Z"
+              "WhenOpened": "2024-06-17T20:08:14.428Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "EmployeeDashboard.razor.css",
               "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\EmployeeDashboard.razor.css",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Pages\\EmployeeDashboard.razor.css",
               "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\EmployeeDashboard.razor.css",
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Pages\\EmployeeDashboard.razor.css",
-              "ViewState": "AQIAAH0BAAAAAAAAAAAMwJEBAAAVAAAA",
+              "ViewState": "AQIAAPIBAAAAAAAAAAAMwJEBAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-06-17T17:30:04.593Z"
+              "WhenOpened": "2024-06-17T17:30:04.593Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Pages\\Home.razor",
               "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Pages\\Home.razor",
-              "ViewState": "AQIAAN8AAAAAAAAAAAAmwPYAAAAAAAAA",
+              "ViewState": "AQIAAEYBAAAAAAAAAAAswFkBAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-17T16:10:10.976Z"
+              "WhenOpened": "2024-06-17T16:10:10.976Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "OrderWithProducts.cs",
               "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\OrderWithProducts.cs",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Models\\OrderWithProducts.cs",
@@ -118,24 +241,25 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\OrderWithProducts.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T15:19:04.932Z"
+              "WhenOpened": "2024-06-17T15:19:04.932Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "EmployeeService.cs",
               "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Data\\EmployeeService.cs",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Data\\EmployeeService.cs",
               "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Data\\EmployeeService.cs",
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Data\\EmployeeService.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAkwHwBAABTAAAA",
+              "ViewState": "AQIAACwAAAAAAAAAAAAowEUAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-17T14:59:54.528Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 16,
               "Title": "MainLayout.razor.css",
               "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Layout\\MainLayout.razor.css",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Layout\\MainLayout.razor.css",
@@ -143,43 +267,47 @@
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Layout\\MainLayout.razor.css",
               "ViewState": "AQIAAAsAAAAAAAAAAIBJwCIAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-06-17T14:19:28.908Z"
+              "WhenOpened": "2024-06-17T14:19:28.908Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "Bestelronde.cs",
               "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\Bestelronde.cs",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Models\\Bestelronde.cs",
               "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\Bestelronde.cs",
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\Bestelronde.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T11:25:09.169Z"
+              "WhenOpened": "2024-06-17T11:25:09.169Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "Bestelling.cs",
               "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\Bestelling.cs",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Models\\Bestelling.cs",
               "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Models\\Bestelling.cs",
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Models\\Bestelling.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T08:27:31.671Z"
+              "WhenOpened": "2024-06-17T08:27:31.671Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "EmployeeDashboard.razor",
               "DocumentMoniker": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\EmployeeDashboard.razor",
               "RelativeDocumentMoniker": "DieselBrandstofCafe\\Components\\Pages\\EmployeeDashboard.razor",
               "ToolTip": "C:\\Users\\YaNed\\OneDrive\\Documents\\Repo\u0027s\\project-webdeployment-2324-groep-11\\DieselBrandstofCafe\\DieselBrandstofCafe\\Components\\Pages\\EmployeeDashboard.razor",
               "RelativeToolTip": "DieselBrandstofCafe\\Components\\Pages\\EmployeeDashboard.razor",
-              "ViewState": "AQIAAJ8BAAAAAAAAAAAswLMBAAAFAAAA",
+              "ViewState": "AQIAAF8AAAAAAAAAAAAvwH0AAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-09T23:58:02.878Z"
+              "WhenOpened": "2024-06-09T23:58:02.878Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -8,5 +8,6 @@
         public int AantalBetaald { get; set; }
         public string? StatusBesteldeProduct { get; set; }
         public string? ProductNaam { get; set; }
+        public DateTime VerkoopDatumProduct { get; set; }
     }
 }

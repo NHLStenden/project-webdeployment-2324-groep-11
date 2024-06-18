@@ -334,3 +334,4 @@ C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-2324-groep-11\Die
 C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.pdb
 C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\DieselBrandstofCafe.genruntimeconfig.cache
 C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\ref\DieselBrandstofCafe.dll
+C:\Users\YaNed\OneDrive\Documents\Repo's\project-webdeployment-2324-groep-11\DieselBrandstofCafe\DieselBrandstofCafe\obj\Debug\net8.0\scopedcss\Components\Comps\ConfirmationDialog.razor.rz.scp.css

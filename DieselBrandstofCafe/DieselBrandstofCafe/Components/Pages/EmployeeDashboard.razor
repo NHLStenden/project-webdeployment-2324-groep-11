@@ -10,13 +10,19 @@
 @using Dapper
 @using System.Text.Json
 @using System.Timers
+@using DieselBrandstofCafe.Components.Comps
 
 @inject IEmployeeService EmployeeService
 @inject IManagerService ManagerService
 
 <PageTitle>Dashboard</PageTitle>
 
+<ConfirmationDialog @ref="confirmationDialog" />
+
+
 <h1 class="page-title">Dashboard</h1>
+
+
 
 <div class="order-count-cards">
     <div class="order-count-card">
@@ -65,6 +71,7 @@
     private int inProgressCount;
     private int completedCount;
     private Timer? _timer;
+    private ConfirmationDialog confirmationDialog;
 
     protected override async Task OnInitializedAsync()
     {
@@ -76,11 +83,11 @@
     }
 
     private async Task LoadOrdersByStatus()
-    {
-        pendingAndInProgressOrders.Clear();
-        completedOrders.Clear();
-        servedOrders.Clear();
-        cancelledOrders.Clear();
+        {
+            pendingAndInProgressOrders.Clear();
+            completedOrders.Clear();
+            servedOrders.Clear();
+            cancelledOrders.Clear();
 
         var statuses = new[]
         {
@@ -89,7 +96,7 @@
             new { Status = "Ready", List = completedOrders },
             new { Status = "Served", List = servedOrders },
             new { Status = "Cancelled", List = cancelledOrders }
-            };
+        };
 
         pendingCount = 0;
         inProgressCount = 0;
@@ -101,34 +108,7 @@
 
             foreach (var order in orders)
             {
-                /*var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
-                var existingOrder = status.List.FirstOrDefault(o => o.BestellingID == order.BestellingID);
-
-                var orderWithProducts = new OrderWithProducts
-                        {
-                            BestellingID = order.BestellingID,
-                            TafelID = order.TafelID,
-                            Products = products.ToList(),
-                            StatusBestelling = order.StatusBestelling,
-                            CreationTime = order.TijdBestelling
-                        };
-
-                status.List.Add(orderWithProducts);
-
-                switch (order.StatusBestelling)
-                {
-                    case "Pending":
-                        pendingCount++;
-                        break;
-                    case "In Progress":
-                        inProgressCount++;
-                        break;
-                    case "Ready":
-                        completedCount++;
-                        break;
-                }*/
                 var products = await EmployeeService.GetProductsForBestelrondeAsync(order.BestelrondeID);
-
                 order.Products = products.ToList();
 
                 status.List.Add(order);
@@ -162,56 +142,56 @@
         <h3>@title</h3>
         <div class="orders-container">
             @foreach (var order in orders)
-        {
+            {
             <div class="orders-card " key="@order.BestelrondeID">
-                <div class="todo-title-wrapper">
-                    <div class="todo-table-status-container">
-                        <h4 class="table-number">Table @order.TafelID</h4>
-                        <h5 class="status-text @GetOrderStatusClass(order.StatusBestelling)">
-                            @order.StatusBestelling @(":") @GetCompletionPercentage(order)%
-                        </h5>
-                    </div>
-                    <div class="order-details-wrapper">
-                        <h4 class="order-id">#@order.BestelrondeID</h4>
-                        @if (order.StatusBestelling == "Pending" || order.StatusBestelling == "In Progress")
-                    {
-                        <div class="timer-container">
-                            <i class="bi bi-clock-history @GetElapsedTimeClass(order)" />
-                            <h5 class="elapsed-time @GetElapsedTimeClass(order)">@GetElapsedTimeText(order)</h5>
+                    <div class="todo-title-wrapper">
+                        <div class="todo-table-status-container">
+                            <h4 class="table-number">Table @order.TafelID</h4>
+                            <h5 class="status-text @GetOrderStatusClass(order.StatusBestelling)">
+                                @order.StatusBestelling @(":") @GetCompletionPercentage(order)%
+                            </h5>
                         </div>
+                        <div class="order-details-wrapper">
+                            <h4 class="order-id">#@order.BestelrondeID</h4>
+                            @if (order.StatusBestelling == "Pending" || order.StatusBestelling == "In Progress")
+                        {
+                            <div class="timer-container">
+                                <i class="bi bi-clock-history @GetElapsedTimeClass(order)" />
+                                <h5 class="elapsed-time @GetElapsedTimeClass(order)">@GetElapsedTimeText(order)</h5>
+                            </div>
+                        }
+                        </div>
+                    </div>
+                    <ul class="product-list-title-wrapper">
+                        <li class="product-list-title">Amt</li>
+                        <li class="product-list-title">Product</li>
+                        <li class="product-list-title">Status</li>
+                    </ul>
+                    <ul class="product-list-wrapper">
+                        @foreach (var product in order.Products)
+                    {
+                        <button class="product-button @GetProductClass(product)" key="@($"{order.BestelrondeID}-{product.ProductID}")" @onclick="() => OnProductStatusChanged(order, product)">
+                        <li class="@GetProductClass(product)" key="@($"{order.BestelrondeID}-{product.ProductID}")">
+                            <span>@product.AantalProduct @("x")</span>
+                            @product.ProductNaam
+                            @if (product.StatusBesteldeProduct == "Ready")
+                        {
+                            <i class="bi bi-check-circle-fill tick-icon"></i>
+                        }
+                        else
+                        {
+                            <i class="bi bi-circle-fill circle-icon"></i>
+                        }
+                        </li>
+                        </button>
                     }
+                    </ul>
+                    <div class="btns-container">
+                        <button class="cancel-btn @(order.StatusBestelling != "Pending" ? "disabled" : "")" @onclick="() => OnCancelOrder(order)" disabled="@(order.StatusBestelling != "Pending")">Cancel</button>
+                        <button class="serve-btn @(order.StatusBestelling != "Ready" ? "disabled" : "")" @onclick="() => OnServeOrder(order)" disabled="@(order.StatusBestelling != "Ready")">Serve</button>
                     </div>
                 </div>
-                <ul class="product-list-title-wrapper">
-                    <li class="product-list-title">Amt</li>
-                    <li class="product-list-title">Product</li>
-                    <li class="product-list-title">Status</li>
-                </ul>
-                <ul class="product-list-wrapper">
-                    @foreach (var product in order.Products)
-                {
-                    <button class="product-button @GetProductClass(product)" key="@($"{order.BestelrondeID}-{product.ProductID}")" @onclick="() => OnProductStatusChanged(order, product)">
-                    <li class="@GetProductClass(product)" key="@($"{order.BestelrondeID}-{product.ProductID}")">
-                        <span>@product.AantalProduct @("x")</span>
-                        @product.ProductNaam
-                        @if (product.StatusBesteldeProduct == "Ready")
-                    {
-                        <i class="bi bi-check-circle-fill tick-icon"></i>
-                    }
-                    else
-                    {
-                        <i class="bi bi-circle-fill circle-icon"></i>
-                    }
-                    </li>
-                    </button>
-                }
-                </ul>
-                <div class="btns-container">
-                    <button class="cancel-btn @(order.StatusBestelling != "Pending" ? "disabled" : "")" @onclick="() => OnCancelOrder(order)" disabled="@(order.StatusBestelling != "Pending")">Cancel</button>
-                    <button class="serve-btn @(order.StatusBestelling != "Ready" ? "disabled" : "")" @onclick="() => OnServeOrder(order)" disabled="@(order.StatusBestelling != "Ready")">Serve</button>
-                </div>
-            </div>
-        }
+            }
         </div>
     </div>
     ;
@@ -241,7 +221,7 @@
 
         if (product.StatusBesteldeProduct == "Cancelled" || product.StatusBesteldeProduct == "Served")
         {
-
+            confirmationDialog.Show($"The product is already {product.StatusBesteldeProduct} and cannot be changed.");
             return;
 
         }
@@ -287,7 +267,7 @@
     {
         if (product.StatusBesteldeProduct == "Cancelled" || product.StatusBesteldeProduct == "Served")
         {
-
+            confirmationDialog.Show($"The product is already {product.StatusBesteldeProduct} and cannot be changed.");
             return;
 
         }
@@ -383,6 +363,7 @@
 
         await EmployeeService.UpdateOrderStatusAsync(order.BestelrondeID, "Served");
         order.StatusBestelling = "Served";
+
         await LoadOrdersByStatus();
     }
 
@@ -412,6 +393,11 @@
 
     private double GetCompletionPercentage(OrderWithProducts order)
     {
+        if (order.StatusBestelling == "Cancelled" || order.StatusBestelling == "Served")
+        {
+            return 100;
+        }
+
         if (order.Products == null || order.Products.Count == 0) return 0;
 
         var completedProducts = order.Products.Count(p => p.StatusBesteldeProduct == "Ready");

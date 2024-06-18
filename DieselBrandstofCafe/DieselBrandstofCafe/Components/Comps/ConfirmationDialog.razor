@@ -1,0 +1,36 @@
+@code {
+    private bool isVisible;
+    private string? message;
+
+    public void Show(string message)
+    {
+        this.message = message;
+        isVisible = true;
+        StateHasChanged();
+    }
+
+    private void Close()
+    {
+        isVisible = false;
+        StateHasChanged();
+    }
+}
+
+@if (isVisible)
+{
+    <div class="modal-backdrop">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Error</h5>
+                </div>
+                <div class="modal-body">
+                    <p>@message</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" @onclick="Close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
