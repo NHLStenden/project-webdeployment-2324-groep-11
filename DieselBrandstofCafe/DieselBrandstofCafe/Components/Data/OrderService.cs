@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using DieselBrandstofCafe.Components.Models;
+using DieselBrandstofCafe.Components.Data;
 using MySql.Data.MySqlClient;
 using Dapper;
 using System.Collections;
@@ -21,7 +22,11 @@ namespace DieselBrandstofCafe.Components.Data
 
         Task<int?> CheckLopendeBestellingVoorTafelID(int tableId);
 
-        Task<int> CreateBestellingAsync(IDbConnection connection, int tableId, int bestelrondeId, IDbTransaction transaction);
+        Task<int> CreateBestellingAsync(IDbConnection connection, DateTime dateTime, int tableId, IDbTransaction transaction);
+
+
+        Task<int> CreateBestelrondeAsync(IDbConnection connection, IDbTransaction transaction, int bestellingId, DateTime dateTime);
+
 
     }
 
@@ -38,6 +43,7 @@ namespace DieselBrandstofCafe.Components.Data
         public async Task<int> PlaceOrderAsync(int tableId, List<OrderItem> orderItems)
         {
             var totalPrice = orderItems.Sum(item => item.Product?.ProductPrijs * item.AantalProduct);
+            var currentDateTime = DateTime.Now; // Current date and time to be used for both Bestelling and Bestelronde
 
             using (var connection = new MySqlConnection(_connectionString))
             {
@@ -46,18 +52,18 @@ namespace DieselBrandstofCafe.Components.Data
                 {
                     try
                     {
-                        // Create new Bestelronde
-                        var bestelrondeId = await CreateBestelrondeAsync(connection, transaction);
-                        if (bestelrondeId <= 0)
-                        {
-                            throw new Exception("Failed to create Bestelronde");
-                        }
-
-                        // Create new Bestelling
-                        var bestellingId = await CreateBestellingAsync(connection, tableId, bestelrondeId, transaction);
+                        // Create new Bestelling with the current date and time
+                        var bestellingId = await CreateBestellingAsync(connection, currentDateTime, tableId, transaction);
                         if (bestellingId <= 0)
                         {
                             throw new Exception("Failed to create Bestelling");
+                        }
+
+                        // Create new Bestelronde and associate it with the created Bestelling
+                        var bestelrondeId = await CreateBestelrondeAsync(connection, transaction, bestellingId, currentDateTime);
+                        if (bestelrondeId <= 0)
+                        {
+                            throw new Exception("Failed to create Bestelronde");
                         }
 
                         // Add products to the Product_per_Bestelronde table
@@ -86,9 +92,12 @@ namespace DieselBrandstofCafe.Components.Data
             }
         }
 
+
+
         public async Task<int> AddBestelrondeToBestellingAsync(int tableId, int bestellingId, List<OrderItem> orderItems)
         {
             var totalPrice = orderItems.Sum(item => item.Product?.ProductPrijs * item.AantalProduct);
+            var currentDateTime = DateTime.Now;
 
             using (var connection = new MySqlConnection(_connectionString))
             {
@@ -98,7 +107,7 @@ namespace DieselBrandstofCafe.Components.Data
                     try
                     {
                         // Voegt de producten toe voor de bestelronde
-                        var bestelrondeId = await CreateBestelrondeAsync(connection, transaction);
+                        var bestelrondeId = await CreateBestelrondeAsync(connection, transaction, bestellingId, currentDateTime);
                         if (bestelrondeId <= 0)
                         {
                             throw new Exception("Failed to create Bestelronde");
@@ -116,7 +125,6 @@ namespace DieselBrandstofCafe.Components.Data
                         await transaction.CommitAsync();
 
                         return bestellingId;
-
                     }
                     catch (Exception ex)
                     {
@@ -129,19 +137,26 @@ namespace DieselBrandstofCafe.Components.Data
             }
         }
 
-        public async Task<int> CreateBestelrondeAsync(IDbConnection connection, IDbTransaction transaction)
+
+        public async Task<int> CreateBestelrondeAsync(IDbConnection connection, IDbTransaction transaction, int bestellingId, DateTime dateTime)
         {
-            var query = "INSERT INTO Bestelronde (OberID, StatusBestelling, Tijd) VALUES (@OberID, 'Pending', NOW()); SELECT LAST_INSERT_ID();";
-            var parameters = new { OberID = 1 }; // You can set the actual OberID based on your logic
+            var query = "INSERT INTO Bestelronde (OberID, StatusBestelling, Tijd) VALUES (@OberID, 'Pending', @Tijd); SELECT LAST_INSERT_ID();";
+            var parameters = new { OberID = 1, Tijd = dateTime }; // Use the actual OberID based on your logic
 
             var bestelrondeId = await connection.ExecuteScalarAsync<int>(query, parameters, transaction);
+
+            var associateQuery = "INSERT INTO BestellingBestelronde (BestellingID, BestelrondeID) VALUES (@BestellingID, @BestelrondeID);";
+            var associateParameters = new { BestellingID = bestellingId, BestelrondeID = bestelrondeId };
+            await connection.ExecuteAsync(associateQuery, associateParameters, transaction);
+
             return bestelrondeId;
         }
 
-        public async Task<int> CreateBestellingAsync(IDbConnection connection, int tableId, int bestelrondeId, IDbTransaction transaction)
+
+        public async Task<int> CreateBestellingAsync(IDbConnection connection, DateTime dateTime, int tableId, IDbTransaction transaction)
         {
-            var query = "INSERT INTO Bestelling (TafelID, BestelrondeID, StatusBestelling, TijdBestelling, KostenplaatsnummerID, TotaalPrijs) VALUES (@TafelID, @BestelrondeID, 'Pending', NOW(), NULL, 0); SELECT LAST_INSERT_ID();";
-            var parameters = new { TafelID = tableId, BestelrondeID = bestelrondeId };
+            var query = "INSERT INTO Bestelling (TafelID, StatusBestelling, TijdBestelling, TotaalPrijs) VALUES (@TafelID, 'Pending', @TijdBestelling, 0); SELECT LAST_INSERT_ID();";
+            var parameters = new { TafelID = tableId, TijdBestelling = dateTime };
 
             var bestellingId = await connection.ExecuteScalarAsync<int>(query, parameters, transaction);
             return bestellingId;
@@ -149,8 +164,9 @@ namespace DieselBrandstofCafe.Components.Data
 
         public async Task AddProductToBestelrondeAsync(IDbConnection connection, int bestelrondeId, Models.OrderItem item, IDbTransaction transaction)
         {
+            var currentDateTime = DateTime.Now;
             var query = "INSERT INTO Product_per_Bestelronde (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct, VerkoopDatumProduct) VALUES (@ProductID, @BestelrondeID, @AantalProduct, 0, 'Pending', @VerkoopDatumProduct)";
-            var parameters = new { ProductID = item.Product?.ProductID, BestelrondeID = bestelrondeId, AantalProduct = item.AantalProduct, VerkoopDatumProduct = DateTime.Now };
+            var parameters = new { ProductID = item.Product?.ProductID, BestelrondeID = bestelrondeId, AantalProduct = item.AantalProduct, VerkoopDatumProduct = currentDateTime };
 
             await connection.ExecuteAsync(query, parameters, transaction);
         }
@@ -162,6 +178,9 @@ namespace DieselBrandstofCafe.Components.Data
 
             await connection.ExecuteAsync(query, parameters, transaction);
         }
+
+
+
 
         public async Task<IEnumerable<Models.Product>> GetAddOnsAsync()
         {
@@ -194,4 +213,6 @@ namespace DieselBrandstofCafe.Components.Data
             return null; // Geen lopende bestelling gevonden
         }
     }
+
+
 }

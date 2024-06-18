@@ -63,12 +63,12 @@ namespace DieselBrandstofCafe.Components.Data
         {
             using (var connection = new MySqlConnection(_connectionString))
             {
-                //var sql = "SELECT * FROM Bestelling WHERE StatusBestelling = @Status AND TijdBestelling >= NOW() - INTERVAL 1 DAY";
                 var sql = @"
                     SELECT br.BestelrondeID, br.OberID, br.StatusBestelling, br.Tijd AS CreationTime, b.BestellingID, b.TafelID
                     FROM Bestelronde br
-                    INNER JOIN Bestelling b ON br.BestelrondeID = b.BestelrondeID
-                    WHERE br.StatusBestelling = @Status AND b.TijdBestelling >= NOW() - INTERVAL 1 DAY";
+                    INNER JOIN BestellingBestelronde bb ON br.BestelrondeID = bb.BestelrondeID
+                    INNER JOIN Bestelling b ON bb.BestellingID = b.BestellingID
+                    WHERE br.StatusBestelling = @Status AND br.Tijd >= NOW() - INTERVAL 1 DAY";
                 return await connection.QueryAsync<OrderWithProducts>(sql, new { Status = status });
             }
         }

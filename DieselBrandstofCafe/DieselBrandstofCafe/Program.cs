@@ -28,6 +28,7 @@ builder.Services.AddScoped<ICategorieService, CategorieService>();
 builder.Services.AddScoped<IDashboardDataService, DashboardDataService>();
 builder.Services.AddScoped<ITableService, TableService>();
 
+
 builder.Services.AddBlazorBootstrap();
 
 

@@ -33,7 +33,11 @@ namespace DieselBrandstofCafe.Components.Data
         {
             using(var connection = new MySqlConnection(_connectionString))
             {
-                var sql = "SELECT * FROM OverzichtPerProduct";
+                var sql = @"
+                SELECT opp.ProductID, opp.OverzichtID, opp.VoorraadPP, p.ProductNaam
+                FROM Overzicht_per_product opp
+                INNER JOIN Product p ON opp.ProductID = p.ProductID;
+                ";
                 return await connection.QueryAsync<OverzichtPerProduct>(sql);
             }
         }
@@ -62,7 +66,7 @@ namespace DieselBrandstofCafe.Components.Data
         {
             using (var connection = new MySqlConnection(_connectionString))
             {
-                var sql = "UPDATE OverzichtPerProduct SET VoorraadPP = @NieuweVoorraad WHERE ProductId = @ProductId AND OverzichtId = @OverzichtId";
+                var sql ="UPDATE OverzichtPerProduct SET VoorraadPP = @NieuweVoorraad WHERE ProductId = @ProductId AND OverzichtId = @OverzichtId"; 
                 await connection.ExecuteAsync(sql, new { NieuweVoorraad = nieuweVoorraad, ProductId = productId, OverzichtId = overzichtId });
             }
         }

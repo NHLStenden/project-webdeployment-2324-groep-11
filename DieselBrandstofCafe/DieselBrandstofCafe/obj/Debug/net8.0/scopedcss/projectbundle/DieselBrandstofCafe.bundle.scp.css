@@ -1,3 +1,62 @@
+/* _content/DieselBrandstofCafe/Components/Comps/ConfirmationDialog.razor.rz.scp.css */
+.modal-backdrop[b-oysybdg79h] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-dialog[b-oysybdg79h] {
+    width: 400px;
+}
+
+.modal-content[b-oysybdg79h] {
+    background-color: #1a1f26;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header[b-oysybdg79h] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #8b0000;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.modal-body[b-oysybdg79h] {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.modal-footer[b-oysybdg79h] {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-footer button[b-oysybdg79h] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #8b0000;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .modal-dialog[b-oysybdg79h] {
+        width: 90%;
+    }
+}
 /* _content/DieselBrandstofCafe/Components/Layout/MainLayout.razor.rz.scp.css */
 html[b-i32kgcyl5t], body[b-i32kgcyl5t] {
     height: 100%;
