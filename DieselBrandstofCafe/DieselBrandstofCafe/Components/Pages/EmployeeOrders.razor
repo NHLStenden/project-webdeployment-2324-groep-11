@@ -24,7 +24,8 @@
                                 </div>
                             </div>
                             <br />
-                            @foreach (var item in combinedOrders)
+                            <h5>Open Orders</h5>
+                            @foreach (var item in OpenOrders)
                             {
                                 <div class="card card-colour2">
                                     <div class="row" @onclick="() => ToggleOrder(item.BestellingID)">
@@ -35,31 +36,47 @@
                                         <div class="col-2 @GetStatusColorClass(item.StatusBestelling)">@item.StatusBestelling</div>
                                         <div class="col-2 text-colour2">€@item.TotaalPrijs</div>
                                     </div>
+
                                     @if (item.IsExpanded)
                                     {
                                         <div class="row">
                                             <div class="col-2 text-colour2 text-start">Amt</div>
                                         </div>
-
                                         <div class="card"></div>
 
                                         <div class="row">
                                             <div class="col-12">
                                                 <ul>
-                                                    @foreach (var product in item.Products)
+                                                    @foreach (var product in item.Producten)
                                                     {
-                                                        <li class="text-colour2">@product.ProductNaam - @product.AantalProduct x</li>
+                                                        <li class="text-colour2">@product.ProductNaam - @product.AantalBetaald x</li>
                                                     }
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="row text-end">
-                                            <button class=" col-1 btn btn-primary btn-sm" style="margin:10px" @onclick="() => MarkAsPaid(item.BestellingID)">Cash</button>
-                                            <button class=" col-1 btn btn-primary btn-sm" style="margin:10px" @onclick="() => MarkAsPaid(item.BestellingID)">Card</button>
+                                            <button class="col-1 btn btn-primary btn-sm" style="margin:10px" @onclick="() => MarkAsPaid(item.BestellingID)">Cash</button>
+                                            <button class="col-1 btn btn-primary btn-sm" style="margin:10px" @onclick="() => MarkAsPaid(item.BestellingID)">Card</button>
                                         </div>
                                     }
                                 </div>
                                 <br />
+                            }
+
+                            <h5>Paid Orders</h5>
+                            @foreach (var item in PaidOrders)
+                            {
+                                <div class="card card-colour2">
+                                    <div class="row">
+                                        <div class="col-2 text-colour2">@item.BestellingID#</div>
+                                        <div class="col-2 text-colour2">@item.TafelID</div>
+                                        <div class="col-2 text-colour2">@item.TijdBestelling</div>
+                                        <div class="col-2 text-colour2 @GetElapsedTimeClass(item)">@GetElapsedTimeText(item)</div>
+                                        <div class="col-2 @GetStatusColorClass(item.StatusBestelling)">@item.StatusBestelling</div>
+                                        <div class="col-2 text-colour2">€@item.TotaalPrijs</div>
+                                    </div>
+                                    <br />
+                                </div>
                             }
                         </div>
                     </div>
@@ -70,60 +87,39 @@
 </div>
 
 @code {
-    private List<OrderWithProducts> bestellingen = new List<OrderWithProducts>();
-    private List<OrderWithProducts> newBestellingen = new List<OrderWithProducts>();
-    private List<OrderWithProducts> combinedOrders = new List<OrderWithProducts>();
-    private List<OrderWithProducts> PendingBestellingen = new List<OrderWithProducts>();
 
-    private Timer? _timer;
+    private List<Bestelling> PaidOrders = new List<Bestelling>();
+    private List<Bestelling> OpenOrders = new List<Bestelling>();
 
     protected override async Task OnInitializedAsync()
     {
-        var orders = await EmployeeService.GetOrderHistoryAsync();
-        var newOrders = await EmployeeService.GetOrdersByStatusAsync("In Progress");
-        var pendingOrders = await EmployeeService.GetOrdersByStatusAsync("Pending");
+        // Haal de orders op vanuit de service
+        var ordersInProgress = await EmployeeService.GetOrdersByStatusAsync("In Progress");
+        var completedOrders = await EmployeeService.GetOrdersByStatusAsync("Completed");
 
-        bestellingen = orders.Select(order => new OrderWithProducts
+        // Map de ontvangen orders naar het interne model als dat nodig is
+        OpenOrders = ordersInProgress.Select(o => new Bestelling
             {
-                BestellingID = order.BestellingID,
-                TijdBestelling = order.TijdBestelling,
-                StatusBestelling = order.StatusBestelling,
-                TotaalPrijs = order.TotaalPrijs,
-                TafelID = order.TafelID,
-                Products = new List<ProductPerBestelronde>()
+                BestellingID = o.BestellingID,
+                TafelID = o.TafelID,
+                TijdBestelling = o.CreationTime,
+                StatusBestelling = o.StatusBestelling,
+                TotaalPrijs = o.TotaalPrijs,
             }).ToList();
 
-        foreach (var order in bestellingen)
-        {
-            var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
-            order.Products.AddRange(products);
-        }
-
-        foreach (var order in newBestellingen)
-        {
-            var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
-            order.Products.AddRange(products);
-        }
-
-        foreach (var order in PendingBestellingen)
-        {
-            var products = await EmployeeService.GetProductsForOrderAsync(order.BestellingID);
-            order.Products.AddRange(products);
-        }
-
-        combinedOrders = PendingBestellingen.Concat(newBestellingen.Concat(bestellingen)).ToList();
-
-        combinedOrders = combinedOrders
-            .OrderByDescending(order => order.StatusBestelling == "Pending" || order.StatusBestelling == "In Progress")
-            .ThenByDescending(order => order.TijdBestelling)
-            .ToList();
-
-        _timer = new Timer(UpdateElapsedTime, null, 0, 60000); // Update every minute
+        PaidOrders = completedOrders.Select(o => new Bestelling
+            {
+                BestellingID = o.BestellingID,
+                TafelID = o.TafelID,
+                TijdBestelling = o.CreationTime,
+                StatusBestelling = o.StatusBestelling,
+                TotaalPrijs = o.TotaalPrijs,
+            }).ToList();
     }
 
     private void ToggleOrder(int bestellingID)
     {
-        var order = combinedOrders.FirstOrDefault(o => o.BestellingID == bestellingID);
+        var order = OpenOrders.FirstOrDefault(o => o.BestellingID == bestellingID);
         if (order != null)
         {
             order.IsExpanded = !order.IsExpanded;
@@ -132,30 +128,16 @@
 
     private void MarkAsPaid(int bestellingID)
     {
-        var order = combinedOrders.FirstOrDefault(o => o.BestellingID == bestellingID);
+        var order = OpenOrders.FirstOrDefault(o => o.BestellingID == bestellingID);
         if (order != null)
         {
             order.StatusBestelling = "Paid";
+            OpenOrders.Remove(order);
+            PaidOrders.Add(order);
         }
     }
 
-    private async void UpdateElapsedTime(object? state)
-    {
-        await InvokeAsync(StateHasChanged); // Ensure the UI updates
-    }
-
-    public class OrderWithProducts
-    {
-        public int BestellingID { get; set; }
-        public DateTime TijdBestelling { get; set; }
-        public string? StatusBestelling { get; set; }
-        public decimal TotaalPrijs { get; set; }
-        public List<ProductPerBestelronde> Products { get; set; } = new();
-        public bool IsExpanded { get; set; } = false;
-        public int TafelID { get; set; }
-    }
-
-    string GetStatusColorClass(string? status)
+    private string GetStatusColorClass(string? status)
     {
         return status switch
         {
@@ -169,14 +151,14 @@
         };
     }
 
-    private string GetElapsedTimeText(OrderWithProducts order)
+    private string GetElapsedTimeText(Bestelling order)
     {
         var elapsed = DateTime.Now - order.TijdBestelling;
         int totalMinutes = (int)elapsed.TotalMinutes;
         return $"{totalMinutes} min";
     }
 
-    private string GetElapsedTimeClass(OrderWithProducts order)
+    private string GetElapsedTimeClass(Bestelling order)
     {
         var elapsed = DateTime.Now - order.TijdBestelling;
 

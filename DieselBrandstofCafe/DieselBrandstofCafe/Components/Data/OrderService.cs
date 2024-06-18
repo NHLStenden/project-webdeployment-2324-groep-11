@@ -22,6 +22,7 @@ namespace DieselBrandstofCafe.Components.Data
         Task<int?> CheckLopendeBestellingVoorTafelID(int tableId);
 
         Task<int> CreateBestellingAsync(IDbConnection connection, int tableId, int bestelrondeId, IDbTransaction transaction);
+
     }
 
     public class OrderService : IOrderService
@@ -148,8 +149,8 @@ namespace DieselBrandstofCafe.Components.Data
 
         public async Task AddProductToBestelrondeAsync(IDbConnection connection, int bestelrondeId, Models.OrderItem item, IDbTransaction transaction)
         {
-            var query = "INSERT INTO Product_per_Bestelronde (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct) VALUES (@ProductID, @BestelrondeID, @AantalProduct, 0, 'Pending')";
-            var parameters = new { ProductID = item.Product?.ProductID, BestelrondeID = bestelrondeId, AantalProduct = item.AantalProduct };
+            var query = "INSERT INTO Product_per_Bestelronde (ProductID, BestelrondeID, AantalProduct, AantalBetaald, StatusBesteldeProduct, VerkoopDatumProduct) VALUES (@ProductID, @BestelrondeID, @AantalProduct, 0, 'Pending', @VerkoopDatumProduct)";
+            var parameters = new { ProductID = item.Product?.ProductID, BestelrondeID = bestelrondeId, AantalProduct = item.AantalProduct, VerkoopDatumProduct = DateTime.Now };
 
             await connection.ExecuteAsync(query, parameters, transaction);
         }

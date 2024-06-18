@@ -11,7 +11,7 @@
         public int? AantalProduct { get; set; }
         public DateTime CreationTime { get; set; }
         public TimeSpan ElapsedTime => DateTime.Now - CreationTime;
-
+        public decimal TotaalPrijs { get; set; }
 
     }
 }
